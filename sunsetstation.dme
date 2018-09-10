@@ -2841,6 +2841,7 @@
 #include "sunset\code\modules\client\preferences.dm"
 #include "sunset\code\modules\client\preferences_savefile.dm"
 #include "sunset\code\modules\client\preferences_toggles.dm"
+#include "sunset\code\modules\cryo\job.dm"
 #include "sunset\code\modules\client\verbs\looc.dm"
 #include "sunset\code\modules\clothing\clothing.dm"
 #include "sunset\code\modules\clothing\head\collectable.dm"

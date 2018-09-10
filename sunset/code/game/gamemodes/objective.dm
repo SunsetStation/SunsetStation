@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(objectives)
+
 /datum/objective/steal/check_completion()
 	. = ..()
 	var/list/ok_areas = list(/area/sunset/infiltrator_base, /area/syndicate_mothership, /area/shuttle/sunset/stealthcruiser)

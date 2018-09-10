@@ -14,6 +14,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 /datum/objective/New(var/text)
 	if(text)
 		explanation_text = text
+	GLOB.objectives += src //sunset add to GLOB
 
 /datum/objective/proc/get_owners() // Combine owner and team into a single list.
 	. = (team && team.members) ? team.members.Copy() : list()
@@ -84,6 +85,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 		if(M)
 			. += M
 
+
 /datum/objective/proc/find_target()
 	var/list/datum/mind/owners = get_owners()
 	var/list/possible_targets = list()
@@ -105,6 +107,10 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 			possible_targets = all_possible_targets
 	if(possible_targets.len > 0)
 		target = pick(possible_targets)
+//sunset start
+	else
+		target = null //we'd rather have no target than an invalid one
+//sunset end
 	update_explanation_text()
 	return target
 
