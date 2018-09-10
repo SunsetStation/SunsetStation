@@ -272,6 +272,7 @@ Works together with spawning an observer, noted above.
 /*
 This is the proc mobs get to turn into a ghost. Forked from ghostize due to compatibility issues.
 */
+//sunset -- Proc mirrored in sunset/code/modules/mob/dead/observer/observer.dm
 /mob/living/verb/ghost()
 	set category = "OOC"
 	set name = "Ghost"

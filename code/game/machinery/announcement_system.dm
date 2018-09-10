@@ -78,6 +78,7 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 	str = replacetext(str, "%RANK", "[rank]")
 	return str
 
+//sunset -- Proc mirrored in sunset/code/game/machinery/announcement_system.dm
 /obj/machinery/announcement_system/proc/announce(message_type, user, rank, list/channels)
 	if(!is_operational())
 		return

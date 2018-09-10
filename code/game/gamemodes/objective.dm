@@ -6,8 +6,9 @@
 	var/datum/mind/target = null		//If they are focused on a particular person.
 	var/target_amount = 0				//If they are focused on a particular number. Steal objectives have their own counter.
 	var/completed = 0					//currently only used for custom objectives.
-	var/martyr_compatible = 0			//If the objective is compatible with martyr objective, i.e. if you can still do it while dead.
+	var/martyr_compatible = 0			//If the objective is compatible with martyr objective, i.e. if you can still do it while dead..
 
+//sunset -- Proc mirrored in sunset/code/game/gamemodes/objective.dm to implement objectives GLOB
 /datum/objective/New(var/text)
 	if(text)
 		explanation_text = text
@@ -53,6 +54,7 @@
 		if(M)
 			. += M
 
+//sunset -- Proc mirrored in sunset/code/game/gamemodes/objective.dm
 /datum/objective/proc/find_target()
 	var/list/datum/mind/owners = get_owners()
 	var/list/possible_targets = list()
