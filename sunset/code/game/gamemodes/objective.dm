@@ -34,7 +34,7 @@ GLOBAL_LIST_EMPTY(objectives)
 	if(text)
 		explanation_text = text
 
-/datum/objective/proc/find_target()
+/datum/objective/find_target()
 	var/list/datum/mind/owners = get_owners()
 	var/list/possible_targets = list()
 	var/try_target_late_joiners = FALSE

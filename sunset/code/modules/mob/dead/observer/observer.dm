@@ -1,4 +1,4 @@
-/mob/living/verb/ghost()
+/mob/living/ghost()
 	set category = "OOC"
 	set name = "Ghost"
 	set desc = "Relinquish your life and enter the land of the dead."

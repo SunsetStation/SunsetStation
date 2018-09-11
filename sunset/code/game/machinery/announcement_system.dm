@@ -1,4 +1,4 @@
-/obj/machinery/announcement_system/proc/announce(message_type, user, rank, list/channels)
+/obj/machinery/announcement_system/announce(message_type, user, rank, list/channels)
 	if(!is_operational())
 		return
 

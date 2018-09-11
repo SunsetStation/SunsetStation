@@ -123,7 +123,6 @@
 /obj/item/circuitboard/cryopodcontrol
 	name = "Circuit board (Cryogenic Oversight Console)"
 	build_path = "/obj/machinery/computer/cryopod"
-	origin_tech = "programming=1"
 
 //Cryopods themselves.
 /obj/machinery/cryopod
@@ -149,9 +148,9 @@
 	var/list/preserve_items = list(
 		/obj/item/hand_tele,
 		/obj/item/card/id/captains_spare,
-		/obj/item/device/aicard,
-		/obj/item/device/mmi,
-		/obj/item/device/paicard,
+		/obj/item/aicard,
+		/obj/item/mmi,
+		/obj/item/paicard,
 		/obj/item/gun,
 		/obj/item/pinpointer,
 		/obj/item/clothing/shoes/magboots,
@@ -170,7 +169,7 @@
 	)
 	// These items will NOT be preserved
 	var/list/do_not_preserve_items = list (
-		/obj/item/device/mmi/posibrain
+		/obj/item/mmi/posibrain
 	)
 
 /obj/machinery/cryopod/Initialize()
@@ -179,7 +178,7 @@
 	return ..()
 
 /obj/machinery/cryopod/proc/find_control_computer(urgent = 0)
-	for(var/obj/machinery/computer/cryopod/C in area_contents(get_area(src)))
+	for(var/obj/machinery/computer/cryopod/C in get_area(src))
 		control_computer = C
 		break
 
@@ -242,36 +241,13 @@
 /obj/machinery/cryopod/proc/despawn_occupant()
 	var/mob/living/mob_occupant = occupant
 
-	if(istype(SSticker.mode, /datum/game_mode/cult))//thank
-		if(("sacrifice" in SSticker.mode.cult_objectives) && (GLOB.sac_mind == mob_occupant.mind))
-			var/list/possible_targets = list()
-			for(var/mob/living/carbon/human/H in GLOB.player_list)
-				if(H.mind && !is_convertable_to_cult(H) && !iscultist(H))
-					possible_targets += H.mind
-
-			possible_targets -= mob_occupant.mind
-			if(!possible_targets.len)
-				message_admins("Cult Sacrifice: Could not find unconvertable target, checking for convertable target.")
-				for(var/mob/living/carbon/human/player in GLOB.player_list)
-					if(player.mind && !iscultist(player))
-						possible_targets += player.mind
-
-			if(possible_targets.len > 0)
-				GLOB.sac_mind = pick(possible_targets)
-				if(!GLOB.sac_mind)
-					message_admins("Cult Sacrifice: ERROR -  Null target chosen!")
-				else
-					var/datum/job/sacjob = SSjob.GetJob(GLOB.sac_mind.assigned_role)
-					var/datum/preferences/sacface = GLOB.sac_mind.current.client.prefs
-					var/icon/reshape = get_flat_human_icon(null, sacjob, sacface)
-					reshape.Shift(SOUTH, 4)
-					reshape.Shift(EAST, 1)
-					reshape.Crop(7,4,26,31)
-					reshape.Crop(-5,-3,26,30)
-					GLOB.sac_image = reshape
-					for(var/datum/mind/H in SSticker.mode.cult)
-						if(H.current)
-							to_chat(H.current, "<span class='danger'>Nar'Sie</span> murmurs, <span class='cultlarge'>[occupant] is beyond your reach. Sacrifice [GLOB.sac_mind.current] instead...</span></span>")
+	if(istype(SSticker.mode, /datum/game_mode/cult))
+		var/datum/game_mode/cult/C = SSticker.mode
+		if(C.main_cult.is_sacrifice_target(mob_occupant.mind))
+			C.main_cult.setup_objectives()
+			for(var/datum/mind/H in SSticker.mode.cult)
+				if(H.current)
+					to_chat(H.current, "<span class='danger'>Nar'Sie</span> murmurs, <span class='cultlarge'>[occupant] is beyond your reach. Objectives updated.</span></span>")
 
 	//Update any existing objectives involving this mob.
 	for(var/datum/objective/O in GLOB.objectives)
@@ -397,26 +373,13 @@
 		if(iscultist(target) || is_servant_of_ratvar(target))
 			to_chat(target, "You're a Cultist![generic_plsnoleave_message]")
 			caught = TRUE
-		if(istype(SSticker.mode, /datum/game_mode/blob))
-			var/datum/game_mode/blob/G = SSticker.mode
-			if(target.mind in G.blob_overminds)
-				alert("You're a Blob![generic_plsnoleave_message]")
-				caught = TRUE
 		if(is_devil(target))
 			alert("You're a Devil![generic_plsnoleave_message]")
 			caught = TRUE
-		if(is_gangster(target))
-			alert("You're a Gangster![generic_plsnoleave_message]")
-			caught = TRUE
 		if(istype(SSticker.mode, /datum/game_mode/revolution))
-			var/datum/game_mode/revolution/G = SSticker.mode
-			if(target.mind in G.head_revolutionaries)
+			if(istype(target) && target.mind && target.mind.has_antag_datum(/datum/antagonist/rev))
 				alert("You're a Head Revolutionary![generic_plsnoleave_message]")
 				caught = TRUE
-			else if(target.mind in G.revolutionaries)
-				alert("You're a Revolutionary![generic_plsnoleave_message]")
-				caught = TRUE
-
 		if(caught)
 			target.client.cryo_warned = world.time
 			return
