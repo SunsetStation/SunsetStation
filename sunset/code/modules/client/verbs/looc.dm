@@ -94,11 +94,5 @@
 	return src
 
 /proc/toggle_looc(toggle = null)
-	if(toggle != null)
-		if(toggle != GLOB.looc_allowed)
-			GLOB.ooc_allowed = toggle
-		else
-			return
-	else
-		GLOB.looc_allowed = !GLOB.looc_allowed
+	GLOB.looc_allowed = (toggle || !GLOB.looc_allowed)
 	to_chat(world, "<span class='bold'>The LOOC channel has been globally [GLOB.looc_allowed ? "enabled" : "disabled"].</span>")
