@@ -241,35 +241,60 @@
 /obj/machinery/cryopod/proc/despawn_occupant()
 	var/mob/living/mob_occupant = occupant
 
-	if(istype(SSticker.mode, /datum/game_mode/cult))
-		var/datum/game_mode/cult/C = SSticker.mode
-		if(C.main_cult.is_sacrifice_target(mob_occupant.mind))
-			C.main_cult.setup_objectives()
-			for(var/datum/mind/H in SSticker.mode.cult)
-				if(H.current)
-					to_chat(H.current, "<span class='danger'>Nar'Sie</span> murmurs, <span class='cultlarge'>[occupant] is beyond your reach. Objectives updated.</span></span>")
-
 	//Update any existing objectives involving this mob.
 	for(var/datum/objective/O in GLOB.objectives)
 		// We don't want revs to get objectives that aren't for heads of staff. Letting
 		// them win or lose based on cryo is silly so we remove the objective.
 		if(istype(O,/datum/objective/mutiny) && O.target == mob_occupant.mind)
+			O.owner.objectives -= O
 			qdel(O)
 		else if(O.target && istype(O.target, /datum/mind))
 			if(O.target == mob_occupant.mind)
-				for(var/datum/mind/M in O.get_owners())
-					to_chat(M.current, "<BR><span class='userdanger'>You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!</span>")
 				O.target = null
 				spawn(10) //This should ideally fire after the occupant is deleted.
-					if(!O)
-						return
-					O.find_target()
-					O.update_explanation_text()
-					if(!(O.target))
-						O.owner.objectives -= O
-						qdel(O)
-					for(var/datum/mind/M in O.get_owners())
-						M.announce_objectives()
+					if(istype(O,/datum/objective/sacrifice))
+						var/list/target_candidates = list()
+						var/datum/objective/sacrifice/sac_objective = O
+
+						for(var/mob/living/carbon/human/player in GLOB.player_list)
+							if(player.mind && !player.mind.has_antag_datum(/datum/antagonist/cult) && !is_convertable_to_cult(player) && player.stat != DEAD)
+								target_candidates += player.mind
+
+						if(target_candidates.len == 0)
+							message_admins("Cult Sacrifice: Could not find unconvertible target, checking for convertible target.")
+							for(var/mob/living/carbon/human/player in GLOB.player_list)
+								if(player.mind && !player.mind.has_antag_datum(/datum/antagonist/cult) && player.stat != DEAD)
+									target_candidates += player.mind
+						listclearnulls(target_candidates)
+						if(LAZYLEN(target_candidates))
+							sac_objective.target = pick(target_candidates)
+							sac_objective.update_explanation_text()
+
+							var/datum/job/sacjob = SSjob.GetJob(sac_objective.target.assigned_role)
+							var/datum/preferences/sacface = sac_objective.target.current.client.prefs
+							var/icon/reshape = get_flat_human_icon(null, sacjob, sacface, list(SOUTH))
+							reshape.Shift(SOUTH, 4)
+							reshape.Shift(EAST, 1)
+							reshape.Crop(7,4,26,31)
+							reshape.Crop(-5,-3,26,30)
+							sac_objective.sac_image = reshape
+							to_chat(O.owner, "<BR><span class='userdanger'>Your target is no longer within reach. Objective removed!</span>")
+						else
+							to_chat(O.owner, "<BR><span class='userdanger'>Your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!</span>")
+							O.owner.objectives -= O
+							qdel(O)
+					else
+						if(!O)
+							return
+						O.find_target()
+						O.update_explanation_text()
+						if(!(O.target))
+							to_chat(O.owner.current, "<BR><span class='userdanger'>Your target is no longer within reach. Objective removed!</span>")
+							O.owner.objectives -= O
+							qdel(O)
+						for(var/datum/mind/M in O.get_owners())
+							to_chat(M.current, "<BR><span class='userdanger'>You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!</span>")
+							M.announce_objectives()
 
 	if(mob_occupant.mind && mob_occupant.mind.assigned_role)
 		//Handle job slot/tater cleanup.
@@ -363,26 +388,10 @@
 		if(alert(target,"Would you like to enter cryosleep?",,"Yes","No") == "No")
 			return
 
-	var/generic_plsnoleave_message = " Please adminhelp before leaving the round, even if there are no administrators online!"
-
 	if(target == user && world.time - target.client.cryo_warned > 5 MINUTES)//if we haven't warned them in the last 5 minutes
-		var/caught = FALSE
-		if(target.mind.assigned_role in GLOB.command_positions)
-			alert("You're a Head of Staff![generic_plsnoleave_message]")
-			caught = TRUE
-		if(iscultist(target) || is_servant_of_ratvar(target))
-			to_chat(target, "You're a Cultist![generic_plsnoleave_message]")
-			caught = TRUE
-		if(is_devil(target))
-			alert("You're a Devil![generic_plsnoleave_message]")
-			caught = TRUE
-		if(istype(SSticker.mode, /datum/game_mode/revolution))
-			if(istype(target) && target.mind && target.mind.has_antag_datum(/datum/antagonist/rev))
-				alert("You're a Head Revolutionary![generic_plsnoleave_message]")
-				caught = TRUE
-		if(caught)
+		if(istype(target) && target.mind && target.mind.has_antag_datum(/datum/antagonist) || target.mind.assigned_role in GLOB.command_positions)
+			alert("You are important to the round! Please adminhelp before leaving the round, even if there are no administrators online!")
 			target.client.cryo_warned = world.time
-			return
 
 	if(!target || user.incapacitated() || !target.Adjacent(user) || !Adjacent(user) || (!ishuman(user) && !iscyborg(user)) || !istype(user.loc, /turf) || target.buckled)
 		return
