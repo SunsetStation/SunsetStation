@@ -47,6 +47,7 @@ Research Director
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
+	courierbag = /obj/item/storage/backpack/messenger/tox
 
 	chameleon_extras = /obj/item/stamp/rd
 
@@ -93,6 +94,7 @@ Scientist
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
+	courierbag = /obj/item/storage/backpack/messenger/tox
 
 /*
 Roboticist
@@ -127,5 +129,6 @@ Roboticist
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
+	courierbag = /obj/item/storage/backpack/messenger/tox
 
 	pda_slot = SLOT_L_STORE
