@@ -38,7 +38,7 @@
 	keyword = "announce"
 	require_comms_key = TRUE
 
- /datum/world_topic/announce/Run(list/input)
+/datum/world_topic/announce/Run(list/input)
 	for(var/client/C in clients)
 		to_chat(C, "<span class='announce'>PR: [input["msg"]]</span>")
 
