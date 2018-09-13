@@ -26,7 +26,7 @@
 				if(!positions[k])
 					positions[k] = list()
 				positions[k][name] = rank
-				department = TRUE
+				department = TRUE 
 		if(!department)
 			if(!positions["misc"])
 				positions["misc"] = list()
