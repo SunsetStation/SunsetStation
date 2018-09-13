@@ -59,7 +59,7 @@ RUN ln -s /usr/include/mariadb /usr/include/mysql \
 
 FROM base as dm_base
 
-WORKDIR /Sunsetstation
+WORKDIR /SunsetStation
 
 FROM dm_base as build
 
@@ -83,8 +83,8 @@ COPY --from=bsql /bsql/artifacts/src/BSQL/libBSQL.so ./
 COPY --from=build /deploy ./
 
 #bsql fexists memes
-RUN ln -s /tgstation/libBSQL.so /root/.byond/bin/libBSQL.so
+RUN ln -s /SunsetStation/libBSQL.so /root/.byond/bin/libBSQL.so
 
-VOLUME [ "/tgstation/config", "/tgstation/data" ]
+VOLUME [ "/SunsetStation/config", "/SunsetStation/data" ]
 
 ENTRYPOINT [ "DreamDaemon", "sunsetstation.dmb", "-port", "1337", "-trusted", "-close", "-verbose" ]
