@@ -1,6 +1,6 @@
 # SunsetStation
 
-[![Build Status](https://travis-ci.org/SunsetStation/SunsetStation.svg?branch=master)](https://travis-ci.com/SunsetStation/SunsetStation.svg?branch=master)
+[![Build Status](https://travis-ci.com/SunsetStation/SunsetStation.svg?branch=master)](https://travis-ci.com/SunsetStation/SunsetStation)
 
 ## DOWNLOADING
 
