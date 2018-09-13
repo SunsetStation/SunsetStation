@@ -1,6 +1,6 @@
 <?php
 //This file contains things that should not be touched by the automatic live tracker
- 
+
 //Github lets you have it sign the message with a secret that you can validate. This prevents people from faking events.
 //This var should match the secret you configured for this webhook on github.
 //This is required as otherwise somebody could trick the script into leaking the api key.
@@ -12,7 +12,7 @@ $hookSecret = '08ajh0qj93209qj90jfq932j32r';
 $apiKey = '209ab8d879c0f987d06a09b9d879c0f987d06a09b9d8787d0a089c';
 
 //Used to prevent potential RCEs
-$repoOwnerAndName = "tgstation/tgstation";
+$repoOwnerAndName = "SunsetStation/SunsetStation";
 
 //servers to announce PRs to
 $servers = array();

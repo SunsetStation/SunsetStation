@@ -40,7 +40,7 @@ RUN apt-get install -y --no-install-recommends software-properties-common \
     g++-7 \
     libmariadb-client-lgpl-dev \
     && git init \
-    && git remote add origin https://github.com/tgstation/BSQL 
+    && git remote add origin https://github.com/tgstation/BSQL
 
 COPY dependencies.sh .
 
@@ -59,7 +59,7 @@ RUN ln -s /usr/include/mariadb /usr/include/mysql \
 
 FROM base as dm_base
 
-WORKDIR /tgstation
+WORKDIR /Sunsetstation
 
 FROM dm_base as build
 
