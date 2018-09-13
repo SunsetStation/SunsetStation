@@ -12,7 +12,6 @@
 		"med" = GLOB.medical_positions,
 		"sci" = GLOB.science_positions,
 		"car" = GLOB.supply_positions,
-		"srv" = GLOB.service_positions,
 		"civ" = GLOB.civilian_positions,
 		"bot" = GLOB.nonhuman_positions
 	)
@@ -21,7 +20,7 @@
 		var/name = t.fields["name"]
 		var/rank = t.fields["rank"]
 		var/real_rank = t.fields["real_rank"]
- 		var/department = FALSE
+		var/department = FALSE
 		for(var/k in set_names)
 			if(real_rank in set_names[k])
 				if(!positions[k])
