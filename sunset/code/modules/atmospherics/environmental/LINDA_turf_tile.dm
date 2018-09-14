@@ -1,19 +1,21 @@
-GLOBAL_VAR(iceoverlaymaster)
-
 /turf/open
 	var/icy = FALSE
+	var/obj/effect/overlay/gas/iceoverlay
 
 /turf/open/tile_graphic()
 	. = ..()
 	if(icy)
 		. = istype(., /list) ? . : new/list // This is why DM is a bad language.
-		if(!GLOB.iceoverlaymaster)
-			var/obj/effect/overlay/gas/iceoverlay = new()
+		if(!iceoverlay)
+			iceoverlay = new
 			iceoverlay.icon = 'icons/turf/overlays.dmi'
 			iceoverlay.icon_state = "snowfloor"
 			iceoverlay.layer = FROST_TURF_LAYER
-			GLOB.iceoverlaymaster = iceoverlay
-		. += GLOB.iceoverlaymaster
+			iceoverlay.alpha = 0
+		animate(iceoverlay, alpha = 255, time = 10)
+		. += iceoverlay
+	else
+		QDEL_NULL(iceoverlay)
 
 /turf/open/process_cell(fire_count)
 	. = ..()
