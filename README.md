@@ -9,7 +9,7 @@ There are a number of ways to download the source code. Some are described here,
 Option 1:
 Follow this: <http://www.tgstation13.org/wiki/Setting_up_git>
 
-Option 2: Download the source code as a zip by clicking [here](https://github.com/OracleStation/OracleStation/archive/master.zip)
+Option 2: Download the source code as a zip by clicking [here](https://github.com/Sunsetstation/Sunsetstation/archive/master.zip)
 (note: this will use a lot of bandwidth if you wish to update and is a lot of
 hassle if you want to make any changes at all, so it's not recommended.)
 
@@ -81,7 +81,7 @@ https://github.com/tgstation/tgstation-server
 
 ## MAPS
 
-Oraclestation currently comes equipped with five maps.
+Sunsetstation currently comes equipped with five maps.
 
 * [BoxStation (default)](http://tgstation13.org/wiki/Boxstation)
 * [MetaStation](https://tgstation13.org/wiki/MetaStation)
@@ -99,7 +99,7 @@ Anytime you want to make changes to a map it's imperative you use the [Map Mergi
 
 ## AWAY MISSIONS
 
-Oraclestation supports loading away missions however they are disabled by default.
+Sunsetstation supports loading away missions however they are disabled by default.
 
 Map files for away missions are located in the `_maps/RandomZLevels` directory. Each away mission includes it's own code definitions located in `/code/modules/awaymissions/mission_code`. These files must be included and compiled with the server beforehand otherwise the server will crash upon trying to load away missions that lack their code.
 
@@ -119,9 +119,9 @@ Please see [CONTRIBUTING.md](.github/CONTRIBUTING.md)
 
 ## LICENSE
 
-All code after [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at 4:38 PM PST](https://github.com/OracleStation/OracleStation/commit/333c566b88108de218d882840e61928a9b759d8f) is licensed under [GNU AGPL v3](http://www.gnu.org/licenses/agpl-3.0.html).
+All code after [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at 4:38 PM PST](https://github.com/Sunsetstation/Sunsetstation/commit/333c566b88108de218d882840e61928a9b759d8f) is licensed under [GNU AGPL v3](http://www.gnu.org/licenses/agpl-3.0.html).
 
-All code before [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at 4:38 PM PST](https://github.com/OracleStation/OracleStation/commit/333c566b88108de218d882840e61928a9b759d8f) is licensed under [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
+All code before [commit 333c566b88108de218d882840e61928a9b759d8f on 2014/31/12 at 4:38 PM PST](https://github.com/Sunsetstation/Sunsetstation/commit/333c566b88108de218d882840e61928a9b759d8f) is licensed under [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
 (Including tools unless their readme specifies otherwise.)
 
 See [`LICENSE-AGPLv3.txt`](LICENSE-AGPLv3.txt) and [`LICENSE-GPLv3.txt`](LICENSE-GPLv3.txt) for more details.
