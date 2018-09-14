@@ -37,9 +37,10 @@
 
 /datum/game_mode/infiltration/post_setup()
 	sit_team = new /datum/team/infiltrator
+	sit_team.update_objectives()
 	for(var/datum/mind/sit_mind in pre_sit)
 		sit_mind.add_antag_datum(ANTAG_DATUM_INFILTRATOR, sit_team)
-	sit_team.update_objectives()
+	owner.announce_objectives()
 	return ..()
 
 /datum/game_mode/infiltration/generate_report() //make this less shit
