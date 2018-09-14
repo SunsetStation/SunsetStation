@@ -12,7 +12,6 @@
 			iceoverlay.icon_state = "snowfloor"
 			iceoverlay.layer = FROST_TURF_LAYER
 			iceoverlay.alpha = 0
-			iceoverlay.alpha = 0
 		animate(iceoverlay, alpha = 255, time = 10)
 		. += iceoverlay
 	else
