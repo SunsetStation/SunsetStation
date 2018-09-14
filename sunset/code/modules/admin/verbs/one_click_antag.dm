@@ -26,9 +26,14 @@
 
 		//Let's find the spawn locations
 		var/datum/team/infiltrator/TI = new /datum/team/infiltrator
+		var/list/infil_datums = list()
 		for(var/mob/c in chosen)
 			var/mob/living/carbon/human/new_character=makeBody(c)
-			new_character.mind.add_antag_datum(/datum/antagonist/infiltrator, TI)
+			infil_datums += new_character.mind.add_antag_datum(/datum/antagonist/infiltrator, TI)
+		TI.update_objectives()
+		for(var/datum/antagonist/infiltrator/I in infil_datums)
+			I.objectives |= TI.objectives
+			I.owner.announce_objectives()
 		return TRUE
 	else
 		return FALSE

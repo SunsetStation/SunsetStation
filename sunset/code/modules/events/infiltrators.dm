@@ -48,10 +48,15 @@
 		return NOT_ENOUGH_PLAYERS
 	//Let's find the spawn locations
 	var/datum/team/infiltrator/our_team = new
+	var/list/infil_datums = list()
 	for(var/mob/c in chosen)
 		var/mob/living/carbon/human/new_character = makeBody(c)
 		new_character.mind.assigned_role = "Syndicate Infiltrator"
 		new_character.mind.special_role = "Syndicate Infiltrator"
-		new_character.mind.add_antag_datum(/datum/antagonist/infiltrator, our_team) // Adding the antag datum teleports them to the base anyways.
+		infil_datums += new_character.mind.add_antag_datum(/datum/antagonist/infiltrator, our_team) // Adding the antag datum teleports them to the base anyways.
 		spawned_mobs += new_character
+	our_team.update_objectives()
+	for(var/datum/antagonist/infiltrator/I in infil_datums)
+		I.objectives |= our_team.objectives
+		I.owner.announce_objectives()
 	return SUCCESSFUL_SPAWN
