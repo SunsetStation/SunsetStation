@@ -11,8 +11,8 @@ GLOBAL_VAR_INIT(powersink_transmitted, 0)
 
 		// found a powernet, so drain up to max power from it
 
-		var/drained = min ( drain_rate, PN.avail )
-		PN.load += drained
+		var/drained = min ( drain_rate, attached.newavail() )
+		attached.add_delayedload(drained)
 		power_drained += drained
 		on_drain(drained)
 
@@ -38,6 +38,8 @@ GLOBAL_VAR_INIT(powersink_transmitted, 0)
 					power_drained += 50
 					if(A.charging == 2) // If the cell was full
 						A.charging = 1 // It's no longer full
+			if(drained >= drain_rate)
+				break
 
 /obj/item/powersink/infiltrator
 	var/target
