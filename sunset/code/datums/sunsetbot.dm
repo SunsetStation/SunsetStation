@@ -1,7 +1,7 @@
 /datum/world_topic/pr_announce
 	keyword = "pr_announce"
 
-/datum/world_topic/Manifest
+/datum/world_topic/manifest
 	keyword = "manifest"
 
 /datum/world_topic/manifest/Run(list/input)
