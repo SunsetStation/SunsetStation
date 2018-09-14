@@ -2765,6 +2765,7 @@
 #include "sunset\code\modules\antagonists\infiltrator\items\services.dm"
 #include "sunset\code\modules\antagonists\traitor\equipment\Malf_Modules.dm"
 #include "sunset\code\modules\atmospherics\environmental\LINDA_turf_tile.dm"
+#include "sunset\code\modules\atmospherics\machinery\portable\canister.dm"
 #include "sunset\code\modules\client\preferences_toggles.dm"
 #include "sunset\code\modules\client\verbs\looc.dm"
 #include "sunset\code\modules\events\infiltrators.dm"
