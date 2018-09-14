@@ -240,62 +240,7 @@
 // This function can not be undone; do not call this unless you are sure
 /obj/machinery/cryopod/proc/despawn_occupant()
 	var/mob/living/mob_occupant = occupant
-
-	//Update any existing objectives involving this mob.
-	for(var/datum/objective/O in GLOB.objectives)
-		// We don't want revs to get objectives that aren't for heads of staff. Letting
-		// them win or lose based on cryo is silly so we remove the objective.
-		if(istype(O,/datum/objective/mutiny) && O.target == mob_occupant.mind)
-			O.owner.objectives -= O
-			qdel(O)
-		else if(O.target && istype(O.target, /datum/mind))
-			if(O.target == mob_occupant.mind)
-				O.target = null
-				spawn(10) //This should ideally fire after the occupant is deleted.
-					if(istype(O,/datum/objective/sacrifice))
-						var/list/target_candidates = list()
-						var/datum/objective/sacrifice/sac_objective = O
-
-						for(var/mob/living/carbon/human/player in GLOB.player_list)
-							if(player.mind && !player.mind.has_antag_datum(/datum/antagonist/cult) && !is_convertable_to_cult(player) && player.stat != DEAD)
-								target_candidates += player.mind
-
-						if(target_candidates.len == 0)
-							message_admins("Cult Sacrifice: Could not find unconvertible target, checking for convertible target.")
-							for(var/mob/living/carbon/human/player in GLOB.player_list)
-								if(player.mind && !player.mind.has_antag_datum(/datum/antagonist/cult) && player.stat != DEAD)
-									target_candidates += player.mind
-						listclearnulls(target_candidates)
-						if(LAZYLEN(target_candidates))
-							sac_objective.target = pick(target_candidates)
-							sac_objective.update_explanation_text()
-
-							var/datum/job/sacjob = SSjob.GetJob(sac_objective.target.assigned_role)
-							var/datum/preferences/sacface = sac_objective.target.current.client.prefs
-							var/icon/reshape = get_flat_human_icon(null, sacjob, sacface, list(SOUTH))
-							reshape.Shift(SOUTH, 4)
-							reshape.Shift(EAST, 1)
-							reshape.Crop(7,4,26,31)
-							reshape.Crop(-5,-3,26,30)
-							sac_objective.sac_image = reshape
-							to_chat(O.owner, "<BR><span class='userdanger'>Your target is no longer within reach. Objective removed!</span>")
-						else
-							to_chat(O.owner, "<BR><span class='userdanger'>Your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!</span>")
-							O.owner.objectives -= O
-							qdel(O)
-					else
-						if(!O)
-							return
-						O.find_target()
-						O.update_explanation_text()
-						if(!(O.target))
-							to_chat(O.owner.current, "<BR><span class='userdanger'>Your target is no longer within reach. Objective removed!</span>")
-							O.owner.objectives -= O
-							qdel(O)
-						for(var/datum/mind/M in O.get_owners())
-							to_chat(M.current, "<BR><span class='userdanger'>You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!</span>")
-							M.announce_objectives()
-
+	addtimer(CALLBACK(src, .proc/handle_objectives), 50)
 	if(mob_occupant.mind && mob_occupant.mind.assigned_role)
 		//Handle job slot/tater cleanup.
 		var/job = mob_occupant.mind.assigned_role
@@ -365,6 +310,44 @@
 	QDEL_NULL(occupant)
 	open_machine()
 	name = initial(name)
+
+/obj/machinery/cryopod/proc/handle_objectives()
+	var/mob/living/mob_occupant = occupant
+		//Update any existing objectives involving this mob.
+		for(var/datum/objective/O in GLOB.objectives)
+			// We don't want revs to get objectives that aren't for heads of staff. Letting
+			// them win or lose based on cryo is silly so we remove the objective.
+			if(istype(O,/datum/objective/mutiny) && O.target == mob_occupant.mind)
+				O.owner.objectives -= O
+				qdel(O)
+			else if(O.target && istype(O.target, /datum/mind))
+				if(O.target == mob_occupant.mind)
+					var/old_target = O.target
+					O.target = null
+					if(!O)
+						return
+					O.find_target()
+					if(!O.target)
+						to_chat(O.owner.current, "<BR><span class='userdanger'>Your target is no longer within reach. Objective removed!</span>")
+						O.owner.objectives -= O
+						qdel(O)
+					if (!O.team)
+						O.update_explanation_text()
+						O.owner.current.announce_objectives()
+						to_chat(O.owner.current, "<BR><span class='userdanger'>You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!</span>")
+					else
+						var/list/objectivestoupdate
+						for(var/datum/mind/own in O.get_owners())
+							for(var/datum/objective/ob in own.objectives)
+								objectivestoupdate += ob
+						objectivestoupdate += O.team.objectives
+						for(var/datum/objective/ob in objectivestoupdate)
+							if(ob.target != old_target || !istype(ob,O.type))
+								return
+							ob.target = O.target
+							ob.update_explanation_text()
+							ob.owner.current.announce_objectives()
+							to_chat(O.owner.current, "<BR><span class='userdanger'>You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!</span>")
 
 /obj/machinery/cryopod/MouseDrop_T(mob/living/target, mob/user)
 	if(!istype(target) || user.incapacitated() || !target.Adjacent(user) || !Adjacent(user) || !ismob(target) || (!ishuman(user) && !iscyborg(user)) || !istype(user.loc, /turf) || target.buckled)
