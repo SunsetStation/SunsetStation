@@ -57,6 +57,6 @@
 		spawned_mobs += new_character
 	our_team.update_objectives()
 	for(var/datum/antagonist/infiltrator/I in infil_datums)
-		I.objectives |= sit_team.objectives
+		I.objectives |= our_team.objectives
 		I.owner.announce_objectives()
 	return SUCCESSFUL_SPAWN
