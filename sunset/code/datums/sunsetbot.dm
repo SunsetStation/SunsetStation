@@ -16,7 +16,7 @@
 		"bot" = GLOB.nonhuman_positions
 	)
 	var/list/positions = list()
-	for(var/datum/data/record/t in sortRecord(GLOB.data_core.general))
+	for(var/datum/data/record/t in GLOB.data_core.general)
 		var/name = t.fields["name"]
 		var/rank = t.fields["rank"]
 		var/department = FALSE
