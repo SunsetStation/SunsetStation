@@ -12,10 +12,8 @@
 		to_chat(usr, "<span class='danger'>Wait a second... \the [target] HAS NO HANDS! AHH!</span>")//cheesy messages ftw
 		return
 	var/obj/item/I = usr.get_active_held_item()
-	if(I == null)
-		to_chat(usr, "<span class='warning'>You don't have anything in your active hand to give to [target.name].</span>")
-		return
 	if(!I)
+		to_chat(usr, "<span class='warning'>You don't have anything in your active hand to give to [target.name].</span>")
 		return
 	if((I.flags_1 & NODROP) || (I.flags_1 & ABSTRACT))
 		to_chat(usr, "<span class='notice'>That's not something you can give.</span>")
