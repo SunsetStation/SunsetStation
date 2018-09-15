@@ -16,7 +16,7 @@
 		"bot" = GLOB.nonhuman_positions
 	)
 	var/list/positions = list()
-	for(var/datum/data/record/t in GLOB.data_core.general)
+	for(var/datum/data/record/t in sortRecord(GLOB.data_core.general))
 		var/name = t.fields["name"]
 		var/rank = t.fields["rank"]
 		var/department = FALSE
@@ -24,10 +24,9 @@
 			if(rank in set_names[k])
 				LAZYSET(positions[k], name, rank)
 				department = TRUE
-				break
 		if(!department)
 			LAZYSET(positions["misc"], name, rank)
-		return json_encode(positions)
+	return json_encode(positions)
 
 /datum/world_topic/announce
 	keyword = "announce"
