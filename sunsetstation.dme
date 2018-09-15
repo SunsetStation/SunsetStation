@@ -2740,6 +2740,7 @@
 #include "sunset\code\datums\action.dm"
 #include "sunset\code\datums\shuttles.dm"
 #include "sunset\code\datums\sunsetbot.dm"
+#include "sunset\code\game\area\Space_Station_13_areas.dm .dm"
 #include "sunset\code\game\area\areas\centcom.dm"
 #include "sunset\code\game\area\areas\shuttles.dm"
 #include "sunset\code\game\gamemodes\objective.dm"
