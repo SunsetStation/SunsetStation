@@ -24,10 +24,9 @@
 			if(rank in set_names[k])
 				LAZYSET(positions[k], name, rank)
 				department = TRUE
-				break
 		if(!department)
 			LAZYSET(positions["misc"], name, rank)
-		return json_encode(positions)
+	return json_encode(positions)
 
 /datum/world_topic/announce
 	keyword = "announce"
