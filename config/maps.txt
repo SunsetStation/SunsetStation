@@ -13,12 +13,17 @@ Format:
 endmap
 
 map boxstation
-	default
 	#voteweight 1.5
 endmap
 
 map metastation
 	minplayers 25
+	#voteweight 0.5
+endmap
+
+map nss-sunset
+	default
+	#minplayers 25
 	#voteweight 0.5
 endmap
 
