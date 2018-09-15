@@ -19,18 +19,14 @@
 	for(var/datum/data/record/t in GLOB.data_core.general)
 		var/name = t.fields["name"]
 		var/rank = t.fields["rank"]
-		var/real_rank = t.fields["real_rank"]
 		var/department = FALSE
 		for(var/k in set_names)
-			if(real_rank in set_names[k])
-				if(!positions[k])
-					positions[k] = list()
-				positions[k][name] = rank
+			if(rank in set_names[k])
+				LAZYSET(positions[k], name, rank)
 				department = TRUE
+				break
 		if(!department)
-			if(!positions["misc"])
-				positions["misc"] = list()
-			positions["misc"][name] = rank
+			LAZYSET(positions["misc"], name, rank)
 		return json_encode(positions)
 
 /datum/world_topic/announce
