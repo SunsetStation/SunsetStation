@@ -171,4 +171,7 @@ h1.alert, h2.alert		{color: #000000;}
 
 .monkeyhive				{color: #774704;}
 .monkeylead				{color: #774704;	font-size: 2;}
+.mentor				{color: #8A2BE2;}
+.mentoradmin				{color: #8A2BE2;	font-weight: bold;}
+.mentornotice				{color: #E236D8;}
 </style>"}
