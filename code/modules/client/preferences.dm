@@ -47,7 +47,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/allow_midround_antag = 1
 	var/preferred_map = null
 	var/pda_style = MONO
-	var/pda_color = "#808000"
+	var/pda_color = "#272727"
 
 	var/uses_glasses_colour = 0
 
