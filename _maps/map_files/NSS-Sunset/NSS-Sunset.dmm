@@ -2387,9 +2387,16 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "aeQ" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
+	dir = 4
+	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/auto_name/east,
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
 /turf/open/floor/plasteel,
 /area/sunset/genpop)
 "aeR" = (
@@ -2947,15 +2954,14 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "afL" = (
-/obj/machinery/power/apc/highcap/five_k{
-	areastring = "/area/security/prison";
-	dir = 8;
-	name = "Prison Wing APC";
-	pixel_x = -26;
-	pixel_y = 0
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/apc/auto_name/east,
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
 	},
-/turf/open/floor/plasteel/dark,
-/area/security/prison)
+/turf/open/floor/plasteel,
+/area/sunset/genpop)
 "afM" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 2
@@ -11160,15 +11166,27 @@
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
 "auS" = (
+/obj/machinery/power/apc/highcap/five_k{
+	areastring = "/area/security/prison";
+	dir = 8;
+	name = "Prison Wing APC";
+	pixel_x = -26;
+	pixel_y = 0
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/turf/open/floor/plasteel/dark,
+/area/security/prison)
+"auT" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden{
-	dir = 4
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plasteel,
-/area/sunset/genpop)
+/turf/open/floor/plasteel/dark,
+/area/security/prison)
 "auU" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -106211,7 +106229,7 @@ adr
 aek
 aeL
 afG
-afL
+auS
 agG
 agF
 agG
@@ -106468,7 +106486,7 @@ aen
 avV
 aeM
 afH
-agE
+auT
 agE
 agH
 awY
@@ -107749,7 +107767,7 @@ acD
 ada
 adx
 adS
-auS
+aeQ
 avX
 aeR
 afG
@@ -108006,7 +108024,7 @@ acE
 adb
 adw
 adR
-aeQ
+afL
 ady
 aeS
 afM
