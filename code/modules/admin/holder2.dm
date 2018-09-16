@@ -8,7 +8,7 @@ GLOBAL_PROTECT(href_token)
 
 /datum/admins
 	var/datum/admin_rank/rank
-
+	var/following = null
 	var/target
 	var/name = "nobody's admin datum (no rank)" //Makes for better runtimes
 	var/client/owner	= null
