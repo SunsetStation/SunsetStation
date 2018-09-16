@@ -1,0 +1,4 @@
+author: "Fixed Manifest"
+delete-after: True
+changes: 
+  - bugfix: "Completely rewrote the code for discord manifest to make it actually work properly"
