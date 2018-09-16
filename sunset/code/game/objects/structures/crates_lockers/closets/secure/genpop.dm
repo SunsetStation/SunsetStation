@@ -92,13 +92,10 @@
 /obj/structure/closet/secure_closet/genpop/attack_hand(mob/user)
 	if(user.lying && get_dist(src, user) > 0)
 		return
-
-	if(!broken && registered_id in user.held_items)
+	if(!broken && registered_id && user.is_holding(registered_id))
 		handle_prisoner_id(user)
 		return
-
 	if(!broken && opened && !locked && allowed(user) && !registered_id) //Genpop setup
-
 		registered_id = new /obj/item/card/id/prisoner/(src.contents)
 		if(handle_edit_sentence(user))
 			registered_id.served = 0
@@ -109,7 +106,5 @@
 		else
 			qdel(registered_id)
 			registered_id = null
-
 		return
-
-	..()
+	return ..()
