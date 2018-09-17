@@ -1,3 +1,5 @@
+// Mirrored by sunset
+
 /client/verb/who()
 	set name = "Who"
 	set category = "OOC"
@@ -52,8 +54,8 @@
 
 	for(var/line in sortList(Lines))
 		msg += "[line]\n"
-	var/player_number = length(Lines)
-	msg += "<b>Total Players: [player_number]</b>"
+
+	msg += "<b>Total Players: [length(Lines)]</b>"
 	to_chat(src, msg)
 
 /client/verb/adminwho()
@@ -63,7 +65,7 @@
 	var/msg = "<b>Current Admins:</b>\n"
 	if(holder)
 		for(var/client/C in GLOB.admins)
-			msg += "<b>\t[C]</b> is a [C.holder.rank]"
+			msg += "\t[C] is a [C.holder.rank]"
 
 			if(C.holder.fakekey)
 				msg += " <i>(as [C.holder.fakekey])</i>"
@@ -83,14 +85,7 @@
 			if(C.is_afk())
 				continue //Don't show afk admins to adminwho
 			if(!C.holder.fakekey)
-				msg += "<b>\t[C]</b> is a [C.holder.rank]\n"
-	if(length(GLOB.mentors) > 0)
-		msg += "<b>Mentors:</b> \n"
-		for(var/client/C in sortList(GLOB.clients))
-			if(C in GLOB.admins)
-				return
-			var/mentor = GLOB.mentor_datums[C.ckey]
-			if(mentor)
-				msg += "<b>\t[C.key]</b> is a Mentor \n"
+				msg += "\t[C] is a [C.holder.rank]\n"
 		msg += "<span class='info'>Adminhelps are also sent to IRC. If no admins are available in game adminhelp anyways and an admin on IRC will see it and respond.</span>"
 	to_chat(src, msg)
+

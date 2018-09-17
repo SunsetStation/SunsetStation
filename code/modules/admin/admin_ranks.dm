@@ -53,7 +53,7 @@ GLOBAL_PROTECT(protected_ranks)
 		if("admin")
 			flag = R_ADMIN
 		if("mentor")
-			flag = R_MENTOR
+			flag = R_MENTOR // sunst -- add mentor flag
 		if("ban")
 			flag = R_BAN
 		if("fun")

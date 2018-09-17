@@ -35,7 +35,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /client/Topic(href, href_list, hsrc)
 	if(!usr || usr != mob)	//stops us calling Topic for somebody else's client. Also helps prevent usr=null
 		return
-
+	sunsetClientTopic(href, href_list, hsrc) // sunset -- add our topic stuff.
 	// asset_cache
 	if(href_list["asset_cache_confirm_arrival"])
 		var/job = text2num(href_list["asset_cache_confirm_arrival"])
@@ -84,19 +84,6 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(!(href_list["_src_"] == "chat" && href_list["proc"] == "ping" && LAZYLEN(href_list) == 2))
 		log_href("[src] (usr:[usr]\[[COORD(usr)]\]) : [hsrc ? "[hsrc] " : ""][href]")
 
-	if(href_list["mentor_msg"])
-		if(CONFIG_GET(flag/mentors_mobname_only))
-			var/mob/M = locate(href_list["mentor_msg"])
-			cmd_mentor_pm(M,null)
-		else
-			cmd_mentor_pm(href_list["mentor_msg"],null)
-		return
- 	// Mentor Follow
-	if(href_list["mentor_follow"])
-		var/mob/living/M = locate(href_list["mentor_follow"])
-		if(istype(M))
-			mentor_follow(M)
-		return
 	// Admin PM
 	if(href_list["priv_msg"])
 		cmd_admin_pm(href_list["priv_msg"],null)
@@ -204,12 +191,13 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 			var/datum/admin_rank/localhost_rank = new("!localhost!", R_EVERYTHING, R_DBRANKS, R_EVERYTHING) //+EVERYTHING -DBRANKS *EVERYTHING
 			new /datum/admins(localhost_rank, ckey, 1, 1)
 
-			//Mentor Authorisation
+	// sunset begin -- Mentor Authorisation
 	var/mentor = GLOB.mentor_datums[ckey]
 	if(mentor)
 		verbs += /client/proc/cmd_mentor_say
 		verbs += /client/proc/show_mentor_memo
 		GLOB.mentors += src
+	// sunset end
 
 	//preferences datum - also holds some persistent data for the client (because we may as well keep these datums to a minimum)
 	prefs = GLOB.preferences_datums[ckey]

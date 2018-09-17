@@ -21,7 +21,7 @@ GLOBAL_LIST_INIT(admin_verbs_default, world.AVerbsDefault())
 	/client/proc/stop_sounds
 	)
 GLOBAL_PROTECT(mentor_verbs)
-GLOBAL_LIST_INIT(mentor_verbs, list(/client/proc/cmd_mentor_pm_panel, /client/proc/show_mentor_memo, /client/proc/cmd_mentor_say))
+GLOBAL_LIST_INIT(mentor_verbs, list(/client/proc/cmd_mentor_pm_panel, /client/proc/show_mentor_memo, /client/proc/cmd_mentor_say)) // sunset -- add mentor verbs
 GLOBAL_PROTECT(admin_verbs_admin)
 GLOBAL_LIST_INIT(admin_verbs_admin, world.AVerbsAdmin())
 /world/proc/AVerbsAdmin()
@@ -250,7 +250,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 		if(rights & R_ADMIN)
 			verbs += GLOB.admin_verbs_admin
 		if(rights & R_MENTOR)
-			verbs += GLOB.mentor_verbs
+			verbs += GLOB.mentor_verbs // sunset -- add mentors
 		if(rights & R_BAN)
 			verbs += GLOB.admin_verbs_ban
 		if(rights & R_FUN)
@@ -279,7 +279,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 		GLOB.admin_verbs_default,
 		/client/proc/togglebuildmodeself,
 		GLOB.admin_verbs_admin,
-		GLOB.mentor_verbs, //mentor verbs
+		GLOB.mentor_verbs, // sunset -- mentor verbs
 		GLOB.admin_verbs_ban,
 		GLOB.admin_verbs_fun,
 		GLOB.admin_verbs_server,

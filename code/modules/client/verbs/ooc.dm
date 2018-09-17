@@ -69,7 +69,7 @@
 					to_chat(C, "<font color='[GLOB.normal_ooc_colour]'><span class='ooc'><span class='prefix'>OOC:</span> <EM>[holder.fakekey ? holder.fakekey : key]:</EM> <span class='message linkify'>[msg]</span></span></font>")
 			else if(!(key in C.prefs.ignoring))
 				if(check_mentor())
-					GLOB.normal_ooc_colour = "#12A5F4"
+					GLOB.normal_ooc_colour = "#12A5F4" // sunset -- make mentors a color
 			to_chat(C, "<font color='[GLOB.normal_ooc_colour]'><span class='ooc'><span class='prefix'>OOC:</span> <EM>[keyname]:</EM> <span class='message'>[msg]</span></span></font>")
 
 /proc/toggle_ooc(toggle = null)

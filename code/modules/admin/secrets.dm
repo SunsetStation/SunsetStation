@@ -11,7 +11,7 @@
 			<A href='?src=[REF(src)];[HrefToken()];secrets=mentor_log'>Mentor Log</A><BR>
 			<A href='?src=[REF(src)];[HrefToken()];secrets=show_admins'>Show Admin List</A><BR>
 			<BR>
-			"}
+			"} // sunset -- add mentor log
 
 	if(check_rights(R_ADMIN,0))
 		dat += {"
@@ -99,6 +99,7 @@
 /datum/admins/proc/Secrets_topic(item,href_list)
 	var/datum/round_event/E
 	var/ok = 0
+	sunsetSecretsTopic(item, href_list) // sunset -- add our topic stuff
 	switch(item)
 		if("admin_log")
 			var/dat = "<B>Admin Log<HR></B>"
@@ -107,14 +108,6 @@
 			if(!GLOB.admin_log.len)
 				dat += "No-one has done anything this round!"
 			usr << browse(dat, "window=admin_log")
-
-		if("mentor_log") //adds mentor logs from sunsetstation
-			var/dat = "<B>Mentor Log<HR></B>"
-			for(var/l in GLOB.mentorlog)
-				dat += "<li>[l]</li>"
-			if(!GLOB.mentorlog.len)
-				dat += "No mentors have done anything this round!"
-			usr << browse(dat, "window=mentor_log")
 
 		if("show_admins")
 			var/dat = "<B>Current admins:</B><HR>"

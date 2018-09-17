@@ -225,9 +225,10 @@
 		if(MUTE_ADMINHELP)
 			mute_string = "adminhelp, admin PM and ASAY"
 			feedback_string = "Adminhelp"
-		if(MUTE_MENTORHELP) //mute mentorhelp --sunsetstation
+		if(MUTE_MENTORHELP) // sunset begin -- add mentors
 			mute_string = "mentorhelp"
 			feedback_string = "Mentorhelp"
+		// sunset end
 		if(MUTE_DEADCHAT)
 			mute_string = "deadchat and DSAY"
 			feedback_string = "Deadchat"
