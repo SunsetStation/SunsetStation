@@ -1,0 +1,4 @@
+author: "Crysoskis"
+delete-after: True
+changes: 
+  - imageadd: "Ported oracle's canister sprites"
