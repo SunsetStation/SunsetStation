@@ -255,6 +255,7 @@
 		add_overlay("can-open")
 	if(update & CONNECTED)
 		add_overlay("can-connector")
+	/* sunset -- use our overlays
 	if(update & LOW)
 		add_overlay("can-o0")
 	else if(update & MEDIUM)
@@ -262,7 +263,7 @@
 	else if(update & FULL)
 		add_overlay("can-o2")
 	else if(update & DANGER)
-		add_overlay("can-o3")
+		add_overlay("can-o3")*/
 #undef HOLDING
 #undef CONNECTED
 #undef EMPTY
