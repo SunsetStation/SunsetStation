@@ -46,11 +46,13 @@ GLOBAL_LIST_INIT(security_depts_prefs, list(SEC_DEPT_RANDOM, SEC_DEPT_NONE, SEC_
 #define GBACKPACK "Grey Backpack"
 #define GSATCHEL "Grey Satchel"
 #define GDUFFELBAG "Grey Duffel Bag"
+#define GCOURIERBAG "Grey Messenger Bag"
 #define LSATCHEL "Leather Satchel"
 #define DBACKPACK "Department Backpack"
 #define DSATCHEL "Department Satchel"
 #define DDUFFELBAG "Department Duffel Bag"
-GLOBAL_LIST_INIT(backbaglist, list(DBACKPACK, DSATCHEL, DDUFFELBAG, GBACKPACK, GSATCHEL, GDUFFELBAG, LSATCHEL))
+#define DCOURIERBAG "Department Messenger Bag"
+GLOBAL_LIST_INIT(backbaglist, list(DBACKPACK, DSATCHEL, DCOURIERBAG, DDUFFELBAG, GBACKPACK, GSATCHEL, GCOURIERBAG, GDUFFELBAG, LSATCHEL))
 
 //Uplink spawn loc
 #define UPLINK_PDA		"PDA"
@@ -117,7 +119,7 @@ GLOBAL_LIST_INIT(TAGGERLOCATIONS, list("Disposals",
 	"CMO Office", "Chemistry", "Research", "RD Office",
 	"Robotics", "HoP Office", "Library", "Chapel", "Theatre",
 	"Bar", "Kitchen", "Hydroponics", "Janitor Closet","Genetics",
-	"Circuitry", "Toxins", "Dormitories", "Virology", 
+	"Circuitry", "Toxins", "Dormitories", "Virology",
 	"Xenobiology", "Law Office","Detective's Office"))
 
 GLOBAL_LIST_INIT(station_prefixes, world.file2list("strings/station_prefixes.txt") + "")
