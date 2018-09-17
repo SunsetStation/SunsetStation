@@ -150,8 +150,6 @@
 	.["players"] = GLOB.clients.len
 	.["revision"] = GLOB.revdata.commit
 	.["revision_date"] = GLOB.revdata.date
-	var/list/mnt = get_mentor_counts()
-	.["mentors"] = mnt["total"] // we don't have stealth mentors, so we can just use the total.
 	var/list/adm = get_admin_counts()
 	var/list/presentmins = adm["present"]
 	var/list/afkmins = adm["afk"]
