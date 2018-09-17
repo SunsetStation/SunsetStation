@@ -42,7 +42,7 @@
 
 #define NULLTURF_BORDER 123456789
 
-#define DEFAULT_UNDERLAY_ICON 			'icons/turf/floors.dmi'
+#define DEFAULT_UNDERLAY_ICON 			'sunset/icons/turf/floors.dmi' // sunset -- use our floors
 #define DEFAULT_UNDERLAY_ICON_STATE 	"plating"
 
 /atom/var/smooth = SMOOTH_FALSE
