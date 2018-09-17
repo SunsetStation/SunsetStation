@@ -9,6 +9,7 @@
 	base_message_chance = 20 //here used for the overlays
 	symptom_delay_min = 1
 	symptom_delay_max = 1
+	var/passive_message = "" //random message to infected but not actively healing people
 	var/hide_healing = FALSE
 	threshold_desc = "<b>Stage Speed 6:</b> Doubles healing speed.<br>\
 					  <b>Stage Speed 11:</b> Triples healing speed.<br>\
