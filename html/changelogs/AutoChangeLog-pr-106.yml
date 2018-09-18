@@ -1,0 +1,5 @@
+author: "Crysoskis"
+delete-after: True
+changes: 
+  - imageadd: "Added new sprites for console machines"
+  - imageadd: "Added new keyboard sprite for the ID console to properly reflect the changes made to the base console"
