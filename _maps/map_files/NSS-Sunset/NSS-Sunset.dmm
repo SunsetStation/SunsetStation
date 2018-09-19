@@ -162,7 +162,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaz" = (
 /obj/effect/landmark/xeno_spawn,
 /obj/structure/lattice/catwalk,
@@ -177,7 +177,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaB" = (
 /obj/structure/sink/kitchen{
 	desc = "A sink used for washing one's hands and face. It looks rusty and home-made";
@@ -187,7 +187,7 @@
 /turf/open/floor/plating{
 	icon_state = "platingdmg3"
 	},
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaC" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -195,7 +195,7 @@
 /obj/item/twohanded/required/kirbyplants,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaD" = (
 /obj/machinery/biogenerator,
 /obj/machinery/light/small{
@@ -207,7 +207,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaE" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
@@ -218,7 +218,7 @@
 	name = "Security Blast Door"
 	},
 /turf/open/floor/plating,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaF" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
@@ -235,7 +235,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaH" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -249,7 +249,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaI" = (
 /obj/item/reagent_containers/glass/bucket,
 /obj/structure/cable/yellow{
@@ -261,7 +261,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaJ" = (
 /obj/machinery/hydroponics/constructable,
 /obj/item/seeds/glowshroom,
@@ -270,7 +270,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaK" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
@@ -281,7 +281,7 @@
 	name = "Security Blast Door"
 	},
 /turf/open/floor/plating,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaL" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable/yellow{
@@ -316,7 +316,7 @@
 /obj/item/seeds/carrot,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaQ" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -325,12 +325,12 @@
 /obj/item/reagent_containers/glass/bucket,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaR" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaS" = (
 /obj/machinery/hydroponics/constructable,
 /obj/item/plant_analyzer,
@@ -340,7 +340,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaT" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
@@ -351,7 +351,7 @@
 	name = "Security Blast Door"
 	},
 /turf/open/floor/plating,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aaU" = (
 /obj/machinery/light_switch,
 /turf/closed/wall,
@@ -393,13 +393,13 @@
 /area/security/execution/education)
 "aba" = (
 /turf/closed/wall/r_wall,
-/area/sunset/genpop)
+/area/security/sunset/genpop/visitation)
 "abb" = (
 /obj/machinery/turnstile{
 	req_access_txt = "300"
 	},
 /turf/open/floor/plating,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abc" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -408,7 +408,7 @@
 	},
 /obj/structure/cable/yellow,
 /turf/open/floor/plating,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abd" = (
 /obj/machinery/light{
 	dir = 1
@@ -453,7 +453,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abi" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable/yellow{
@@ -461,7 +461,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plating,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abj" = (
 /obj/item/soap/nanotrasen,
 /obj/item/bikehorn/rubberducky,
@@ -472,7 +472,7 @@
 	icon_state = "1-4"
 	},
 /turf/open/floor/plasteel/freezer,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abk" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -486,7 +486,7 @@
 	pixel_y = 28
 	},
 /turf/open/floor/plasteel/freezer,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abl" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -496,7 +496,7 @@
 /obj/item/canvas/twentythreeXtwentythree,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abm" = (
 /obj/structure/table,
 /obj/item/folder,
@@ -511,13 +511,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abn" = (
 /obj/structure/table,
 /obj/machinery/computer/libraryconsole/bookmanagement,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abo" = (
 /obj/machinery/computer/arcade,
 /obj/machinery/computer/security/telescreen/entertainment{
@@ -525,13 +525,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abp" = (
 /obj/machinery/newscaster{
 	pixel_y = 32
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abq" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -542,14 +542,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abr" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abs" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/structure/cable/yellow{
@@ -557,7 +557,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abt" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/storage/box/lights/mixed,
@@ -625,7 +625,7 @@
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
 	},
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abB" = (
 /obj/machinery/status_display/evac{
 	pixel_y = 32
@@ -637,7 +637,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abC" = (
 /obj/machinery/washing_machine,
 /obj/structure/cable/yellow{
@@ -650,13 +650,13 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abD" = (
 /obj/machinery/shower{
 	dir = 4
 	},
 /turf/open/floor/plasteel/freezer,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abE" = (
 /obj/machinery/door/window/westleft{
 	base_state = "right";
@@ -666,26 +666,26 @@
 	},
 /obj/machinery/light/small,
 /turf/open/floor/plasteel/freezer,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abF" = (
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop/visitation)
 "abG" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abH" = (
 /obj/structure/chair/stool,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abI" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abJ" = (
 /obj/structure/table,
 /obj/structure/cable/yellow{
@@ -700,13 +700,13 @@
 	pixel_y = 5
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abK" = (
 /obj/structure/table,
 /obj/item/toy/cards/deck,
 /obj/item/toy/cards/deck,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abL" = (
 /turf/open/floor/plating,
 /area/security/prison)
@@ -825,14 +825,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "abZ" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-4"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aca" = (
 /obj/structure/window/reinforced,
 /obj/structure/cable/yellow{
@@ -845,7 +845,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acb" = (
 /obj/structure/table,
 /obj/structure/bedsheetbin,
@@ -860,13 +860,13 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/cafeteria,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acc" = (
 /obj/machinery/door/airlock{
 	name = "Unisex Restroom"
 	},
 /turf/open/floor/plasteel/freezer,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acd" = (
 /obj/structure/sign/warning/nosmoking{
 	pixel_x = -28
@@ -882,7 +882,7 @@
 /area/maintenance/disposal/incinerator)
 "ace" = (
 /turf/closed/wall,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acf" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable/yellow{
@@ -986,7 +986,7 @@
 /obj/item/clothing/head/chefhat,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acq" = (
 /obj/structure/table,
 /obj/structure/cable/yellow{
@@ -996,17 +996,17 @@
 /obj/item/toy/cards/deck,
 /obj/item/toy/cards/deck,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acr" = (
 /obj/structure/table,
 /obj/item/storage/pill_bottle/dice,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acs" = (
 /obj/structure/chair/stool,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "act" = (
 /obj/machinery/vending/sustenance{
 	desc = "A vending machine normally reserved for work camps.";
@@ -1015,7 +1015,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acu" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -1024,7 +1024,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/freezer,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acv" = (
 /obj/structure/table,
 /obj/item/storage/box/donkpockets{
@@ -1038,14 +1038,14 @@
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acw" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acx" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -1054,7 +1054,7 @@
 	dir = 6
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acy" = (
 /obj/machinery/door/airlock/external{
 	name = "Escape Pod Two"
@@ -1165,7 +1165,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acE" = (
 /obj/machinery/holopad,
 /obj/structure/cable/yellow{
@@ -1173,7 +1173,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acF" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -1181,14 +1181,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acG" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acH" = (
 /obj/machinery/airalarm{
 	dir = 8;
@@ -1197,7 +1197,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/scrubber/huge,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acI" = (
 /obj/structure/table,
 /obj/machinery/microwave{
@@ -1207,19 +1207,19 @@
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
 	},
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acJ" = (
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acK" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 4
 	},
 /obj/machinery/light,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acL" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 1
@@ -1229,14 +1229,14 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acM" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "acN" = (
 /obj/structure/table/glass,
 /obj/item/reagent_containers/syringe,
@@ -1482,13 +1482,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adb" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adc" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/closed/wall,
@@ -1502,7 +1502,7 @@
 	pixel_y = -25
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "ade" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
@@ -1514,7 +1514,7 @@
 	layer = 4.1
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adf" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -1630,13 +1630,13 @@
 /obj/item/pen,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adt" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 10
 	},
 /turf/closed/wall/r_wall,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adu" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "permacell3";
@@ -1649,11 +1649,11 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adv" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/closed/wall,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adw" = (
 /obj/machinery/turnstile{
 	dir = 1;
@@ -1661,7 +1661,7 @@
 	req_access_txt = "301"
 	},
 /turf/open/floor/plating,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adx" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "permacell2";
@@ -1676,7 +1676,7 @@
 	id = "genpopdoor"
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "ady" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/turnstile{
@@ -1685,7 +1685,7 @@
 	req_access_txt = "301"
 	},
 /turf/open/floor/plating,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adz" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -1729,9 +1729,7 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "adE" = (
 /turf/open/floor/plating,
 /area/crew_quarters/fitness/recreation)
@@ -1852,7 +1850,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/general/visible,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adP" = (
 /obj/structure/bed,
 /obj/machinery/camera{
@@ -1861,7 +1859,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adQ" = (
 /obj/structure/chair/stool,
 /obj/machinery/light/small{
@@ -1876,7 +1874,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adR" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -1884,7 +1882,7 @@
 /turf/open/floor/plating{
 	icon_state = "platingdmg2"
 	},
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adS" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -1892,14 +1890,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adT" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adU" = (
 /obj/structure/bed,
 /obj/machinery/camera{
@@ -1908,7 +1906,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "adV" = (
 /obj/item/folder/red,
 /obj/item/pen,
@@ -2047,7 +2045,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aen" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /obj/machinery/flasher{
@@ -2057,7 +2055,7 @@
 /turf/open/floor/plating{
 	icon_state = "platingdmg3"
 	},
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aeo" = (
 /obj/structure/table,
 /obj/item/paper,
@@ -2067,7 +2065,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aep" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security/glass{
@@ -2095,9 +2093,7 @@
 /obj/effect/turf_decal/stripes/red/end,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "aev" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
@@ -2131,17 +2127,15 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/stairs/left,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "aey" = (
 /obj/machinery/flasher/portable,
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "aez" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
-/area/security/main)
+/area/security/sunset/storage)
 "aeA" = (
 /obj/machinery/door/airlock/external{
 	name = "Escape Pod Three"
@@ -2369,7 +2363,7 @@
 	icon_state = "2-4"
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aeR" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -2403,7 +2397,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "aeU" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden,
 /obj/structure/cable/yellow{
@@ -2563,9 +2557,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "afd" = (
 /obj/structure/sign/warning/securearea{
 	desc = "A warning sign which reads 'WARNING: Criminally Insane Inmates', describing the possible hazards of those contained within.";
@@ -2589,9 +2581,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "afg" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -2611,9 +2601,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "afh" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "Secure Bikebay";
@@ -2624,9 +2612,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/mineral/plastitanium,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "afi" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -2634,9 +2620,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "afj" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red,
@@ -2646,15 +2630,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "afp" = (
 /obj/structure/barricade/security,
 /obj/structure/barricade/security,
 /obj/structure/barricade/security,
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "afs" = (
 /obj/machinery/shower{
 	dir = 4
@@ -2891,7 +2873,7 @@
 	icon_state = "0-8"
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "afM" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 2
@@ -3020,9 +3002,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "afX" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -3032,17 +3012,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "afY" = (
 /obj/machinery/suit_storage_unit/security,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/light/floor,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "afZ" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -3053,9 +3029,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "aga" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -3068,9 +3042,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "agb" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -3081,9 +3053,7 @@
 	name = "Security Bikes"
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "agc" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -3093,9 +3063,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "agd" = (
 /obj/vehicle/ridden/space/speedbike{
 	desc = "A Nanotrasen Spacebike, ment for use in close proximity to the station. Riding in places other than space may result in theft, angry sec members, and intervention of gods. This one requires a Security key, and lets two ride.";
@@ -3112,9 +3080,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "age" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
@@ -3132,9 +3098,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "agf" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -3145,17 +3109,13 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "agg" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "agp" = (
 /obj/structure/barricade/security,
 /obj/structure/barricade/security,
@@ -3164,7 +3124,7 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "agq" = (
 /turf/closed/wall,
 /area/maintenance/fore)
@@ -3436,9 +3396,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "agR" = (
 /obj/machinery/suit_storage_unit/security,
 /obj/effect/turf_decal/delivery,
@@ -3446,9 +3404,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "agS" = (
 /obj/machinery/mech_bay_recharge_port,
 /obj/effect/turf_decal/tile/red{
@@ -3460,16 +3416,12 @@
 /obj/machinery/light/floor,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "agU" = (
 /obj/machinery/airalarm/directional/south,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/recharge_floor,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "agX" = (
 /obj/effect/turf_decal/tile/red,
 /obj/effect/turf_decal/tile/red,
@@ -3481,12 +3433,10 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "ahc" = (
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "ahd" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/plating,
@@ -3689,9 +3639,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "ahP" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -4106,31 +4054,31 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main)
+/area/security/sunset/lounge)
 "aiE" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /obj/structure/chair/comfy/teal,
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "aiF" = (
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "aiG" = (
 /obj/structure/chair/comfy/teal,
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "aiH" = (
 /obj/machinery/vending/snack/random,
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "aiJ" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
 /turf/closed/wall/r_wall,
-/area/security/main)
+/area/security/sunset/storage)
 "aiK" = (
 /obj/structure/closet/bombcloset/security,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -4138,19 +4086,19 @@
 	},
 /obj/machinery/airalarm/directional/west,
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "aiL" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "aiM" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "aiN" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/turf_decal/bot,
@@ -4556,7 +4504,7 @@
 	},
 /obj/structure/table/wood/fancy/black,
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "ajF" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -4564,13 +4512,13 @@
 /obj/structure/table/wood/fancy/black,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "ajH" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "ajJ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 6
@@ -4599,7 +4547,7 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "ajM" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
@@ -4608,7 +4556,7 @@
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "ajN" = (
 /obj/structure/closet/crate,
 /obj/item/cardboard_cutout,
@@ -4616,7 +4564,7 @@
 /obj/item/cardboard_cutout,
 /obj/item/cardboard_cutout,
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "ajO" = (
 /obj/machinery/flasher/portable,
 /obj/structure/window/reinforced,
@@ -4624,7 +4572,7 @@
 	dir = 4
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "ajP" = (
 /obj/item/toy/beach_ball/holoball,
 /turf/open/floor/plating,
@@ -5209,23 +5157,23 @@
 	pixel_x = -25
 	},
 /turf/open/floor/plasteel/dark,
-/area/security/main)
+/area/security/sunset/lounge)
 "akM" = (
 /obj/structure/window/reinforced/tinted,
 /obj/structure/curtain,
 /turf/open/floor/plasteel/dark,
-/area/security/main)
+/area/security/sunset/lounge)
 "akO" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/chair/comfy/beige{
 	dir = 1
 	},
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "akP" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "akQ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
@@ -5235,20 +5183,20 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "akR" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "akS" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/security/main)
+/area/security/sunset/lounge)
 "akT" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -5282,7 +5230,7 @@
 	icon_state = "4-8"
 	},
 /turf/open/floor/plating,
-/area/security/main)
+/area/security/sunset/storage)
 "akX" = (
 /obj/structure/closet/crate,
 /obj/item/radio/headset/headset_sec/alt,
@@ -5298,7 +5246,7 @@
 	icon_state = "4-8"
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "akY" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
@@ -5307,7 +5255,7 @@
 	icon_state = "1-2"
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "akZ" = (
 /obj/structure/closet/crate,
 /obj/item/evidencebag,
@@ -5328,7 +5276,7 @@
 /obj/item/mmi,
 /obj/item/mmi,
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "alc" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
@@ -5779,7 +5727,7 @@
 /obj/structure/curtain,
 /obj/structure/window/reinforced/tinted,
 /turf/open/floor/plasteel/dark,
-/area/security/main)
+/area/security/sunset/lounge)
 "alZ" = (
 /obj/structure/rack,
 /obj/structure/window/reinforced{
@@ -5864,7 +5812,7 @@
 	},
 /obj/structure/window/reinforced/tinted,
 /turf/open/floor/plasteel/dark,
-/area/security/main)
+/area/security/sunset/lounge)
 "ame" = (
 /obj/machinery/recharge_station,
 /obj/effect/turf_decal/tile/red{
@@ -5898,7 +5846,7 @@
 "amh" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/closed/wall,
-/area/security/main)
+/area/security/sunset/lounge)
 "amk" = (
 /obj/structure/closet/crate/secure/weapon{
 	desc = "A secure clothing crate.";
@@ -5930,7 +5878,7 @@
 /obj/item/clothing/head/beret/sec/navywarden,
 /obj/item/clothing/head/beret/sec/navyhos,
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "amm" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -5958,20 +5906,20 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel,
-/area/security/main)
+/area/security/sunset/storage)
 "amq" = (
 /obj/machinery/firealarm{
 	dir = 1;
 	pixel_y = -24
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "amr" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "amu" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/effect/turf_decal/stripes/line{
@@ -9991,7 +9939,7 @@
 	dir = 4
 	},
 /turf/closed/wall,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "auR" = (
 /obj/machinery/camera{
 	c_tag = "Arrivals - Middle Arm";
@@ -10253,7 +10201,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "avs" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
@@ -10589,11 +10537,11 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "avV" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/closed/wall,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "avW" = (
 /obj/machinery/door/airlock/security/glass{
 	name = "Long-Term Cell 3";
@@ -10604,7 +10552,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "avX" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -10615,7 +10563,7 @@
 	id = "genpopdoor"
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "avY" = (
 /obj/machinery/door/airlock/external{
 	name = "Labor Camp Shuttle Airlock";
@@ -11044,7 +10992,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/general/visible,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "awP" = (
 /obj/item/clothing/gloves/color/rainbow,
 /obj/item/clothing/shoes/sneakers/rainbow,
@@ -40714,9 +40662,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "bCP" = (
 /obj/machinery/light/small,
 /obj/machinery/camera{
@@ -76097,9 +76043,7 @@
 /obj/effect/turf_decal/delivery/white,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "cUH" = (
 /obj/structure/table/optable,
 /turf/open/floor/plasteel/white,
@@ -80878,9 +80822,7 @@
 "dBX" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/recharge_floor,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "dBY" = (
 /obj/effect/landmark/event_spawn,
 /obj/effect/turf_decal/tile/neutral{
@@ -80912,7 +80854,7 @@
 /obj/item/key/security,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "dCc" = (
 /obj/effect/landmark/event_spawn,
 /obj/effect/turf_decal/tile/neutral{
@@ -81521,9 +81463,7 @@
 /obj/effect/turf_decal/caution/stand_clear/white,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "dLK" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -81561,7 +81501,7 @@
 	pixel_y = 32
 	},
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "dVL" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 2
@@ -81593,9 +81533,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "dYu" = (
 /obj/machinery/door/airlock/external{
 	name = "Auxiliary Airlock"
@@ -81664,6 +81602,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/circuit)
+"ere" = (
+/turf/closed/wall,
+/area/security/sunset/storage)
 "etr" = (
 /obj/machinery/vr_sleeper,
 /turf/open/floor/plasteel,
@@ -81682,9 +81623,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "eEe" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -81725,7 +81664,7 @@
 	dir = 8
 	},
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "eOT" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -81760,7 +81699,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "eZe" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -81802,9 +81741,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "fDD" = (
 /obj/machinery/light_switch{
 	pixel_y = -25
@@ -81869,9 +81806,11 @@
 	name = "Bikebay Door 1"
 	},
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
+"gcd" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/security/sunset/lounge)
 "gjC" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/structure/cable/yellow{
@@ -81954,7 +81893,7 @@
 	name = "Security Blast Door"
 	},
 /turf/open/floor/plating,
-/area/sunset/genpop)
+/area/security/sunset/genpop/visitation)
 "gyV" = (
 /turf/closed/wall/r_wall,
 /area/quartermaster/sorting)
@@ -81976,9 +81915,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "gGT" = (
 /obj/effect/landmark/start/scientist,
 /obj/structure/chair/office/light{
@@ -82008,7 +81945,7 @@
 	dir = 4
 	},
 /turf/open/floor/carpet/black,
-/area/security/main)
+/area/security/sunset/lounge)
 "gJs" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating,
@@ -82077,7 +82014,7 @@
 "hne" = (
 /obj/structure/closet/crate,
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "hrK" = (
 /obj/machinery/light{
 	dir = 4
@@ -82096,9 +82033,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "hvt" = (
 /obj/structure/kitchenspike_frame,
 /obj/effect/decal/cleanable/blood/gibs/old,
@@ -82121,7 +82056,7 @@
 	icon_state = "2-8"
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "hEL" = (
 /obj/structure/transit_tube/crossing/horizontal,
 /turf/open/space/basic,
@@ -82167,7 +82102,7 @@
 	name = "Visitation Module"
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "ifN" = (
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
@@ -82198,9 +82133,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/stairs/left,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "ixy" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
@@ -82288,7 +82221,7 @@
 "jcb" = (
 /obj/structure/transit_tube/station/reverse/flipped,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop/visitation)
 "jeV" = (
 /obj/machinery/conveyor/inverted{
 	dir = 10;
@@ -82309,12 +82242,12 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/crew_quarters/fitness/recreation)
 "jwZ" = (
-/obj/machinery/porta_turret/aux_base,
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
-/turf/open/floor/plating,
-/area/security/prison)
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/space/nearstation)
 "jxg" = (
 /obj/effect/landmark/event_spawn,
 /obj/effect/turf_decal/tile/purple,
@@ -82346,9 +82279,7 @@
 /obj/effect/turf_decal/tile/red,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "jyQ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -82393,6 +82324,14 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/circuit)
+"jMD" = (
+/obj/machinery/door/airlock/security/glass{
+	name = "Gear Room";
+	req_one_access_txt = "1;4"
+	},
+/obj/machinery/door/firedoor,
+/turf/open/floor/plasteel,
+/area/security/sunset/lounge)
 "jQF" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -82402,9 +82341,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "jWM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/components/unary/outlet_injector/on{
@@ -82412,14 +82349,12 @@
 	name = "justice injector"
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "kcD" = (
 /obj/machinery/suit_storage_unit/security,
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "kcV" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor{
@@ -82433,7 +82368,10 @@
 	req_access_txt = "3"
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
+"kdT" = (
+/turf/closed/wall/r_wall,
+/area/security/sunset/eva)
 "kfu" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/structure/disposalpipe/segment,
@@ -82576,7 +82514,7 @@
 /obj/structure/barricade/security,
 /obj/structure/barricade/security,
 /turf/open/floor/mineral/plastitanium,
-/area/security/main)
+/area/security/sunset/storage)
 "kSL" = (
 /obj/structure/lattice,
 /obj/structure/transit_tube/horizontal,
@@ -82590,9 +82528,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/stairs,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "kVo" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -82615,9 +82551,7 @@
 /obj/structure/tank_dispenser/oxygen,
 /obj/machinery/light/floor,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "lgu" = (
 /turf/open/space/basic,
 /area/space/nearstation)
@@ -82628,9 +82562,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/stairs/right,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "ljO" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/red{
@@ -82663,9 +82595,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "lnO" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -82685,9 +82615,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "lpX" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
@@ -82714,9 +82642,7 @@
 /obj/effect/turf_decal/stripes/box,
 /obj/effect/turf_decal/stripes/red/box,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "lzk" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/structure/cable/yellow{
@@ -82760,9 +82686,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "lNZ" = (
 /obj/machinery/door/airlock/external{
 	req_access_txt = "13"
@@ -82785,9 +82709,7 @@
 	},
 /obj/effect/turf_decal/bot/left,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "lUb" = (
 /obj/structure/lattice,
 /obj/structure/transit_tube/diagonal,
@@ -82813,6 +82735,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/server)
+"lYw" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plasteel,
+/area/security/sunset/genpop/visitation)
 "lYP" = (
 /obj/machinery/door/airlock/research{
 	name = "Nanite Laboratory";
@@ -82898,9 +82824,7 @@
 	},
 /obj/machinery/light/floor,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "mWg" = (
 /obj/structure/girder,
 /obj/structure/grille,
@@ -82926,9 +82850,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "noG" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -83050,9 +82972,7 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "ohj" = (
 /obj/structure/chair/office/light{
 	dir = 1
@@ -83107,7 +83027,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "oCg" = (
 /obj/structure/lattice/catwalk,
 /obj/effect/turf_decal/stripes/corner,
@@ -83118,7 +83038,7 @@
 /obj/structure/curtain,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main)
+/area/security/sunset/lounge)
 "oJW" = (
 /obj/machinery/camera{
 	c_tag = "Engineering - Foyer - Shared Storage";
@@ -83214,9 +83134,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "pvA" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -83280,13 +83198,14 @@
 /obj/effect/turf_decal/stripes/box,
 /obj/effect/turf_decal/stripes/red/box,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
+"pKc" = (
+/turf/closed/wall,
+/area/security/sunset/lounge)
 "pLt" = (
 /obj/structure/lattice,
 /turf/closed/wall/r_wall,
-/area/sunset/genpop)
+/area/security/sunset/genpop/visitation)
 "pMX" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -83315,9 +83234,7 @@
 /obj/effect/turf_decal/bot/right,
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "pOm" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden{
 	dir = 1
@@ -83335,7 +83252,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/chair/stool,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "pSX" = (
 /obj/machinery/door/airlock/external{
 	name = "Auxiliary Escape Airlock"
@@ -83345,6 +83262,13 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/aft)
+"pXr" = (
+/obj/structure/lattice,
+/turf/closed/wall/r_wall,
+/area/security/sunset/genpop)
+"pZN" = (
+/turf/closed/wall/r_wall,
+/area/security/sunset/storage)
 "qcC" = (
 /obj/structure/transit_tube/curved/flipped{
 	dir = 4
@@ -83379,7 +83303,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/general/visible,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "qlb" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable/yellow{
@@ -83432,7 +83356,7 @@
 	name = "Security Blast Door"
 	},
 /turf/open/floor/plating,
-/area/sunset/genpop)
+/area/security/sunset/genpop/visitation)
 "qBh" = (
 /obj/structure/table,
 /obj/item/paicard,
@@ -83452,9 +83376,7 @@
 	name = "Bikebay Door 2"
 	},
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "qJZ" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
@@ -83528,9 +83450,7 @@
 "rjW" = (
 /obj/structure/lattice,
 /turf/closed/wall/r_wall,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "rtm" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
@@ -83538,9 +83458,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "rwA" = (
 /obj/structure/transit_tube/curved{
 	dir = 4
@@ -83600,9 +83518,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "rQK" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -83617,9 +83533,7 @@
 /obj/machinery/mech_bay_recharge_port,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "rSL" = (
 /obj/machinery/vending/snack/random,
 /turf/open/floor/plasteel,
@@ -83764,9 +83678,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "thn" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/turf_decal/tile/purple,
@@ -83792,7 +83704,7 @@
 	dir = 4
 	},
 /turf/closed/wall/r_wall,
-/area/security/main)
+/area/security/sunset/storage)
 "tDM" = (
 /obj/machinery/door/airlock/engineering/glass/critical{
 	heat_proof = 1;
@@ -83833,9 +83745,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "tFJ" = (
 /obj/structure/bodycontainer/morgue{
 	dir = 8
@@ -83849,16 +83759,14 @@
 /obj/structure/grille,
 /obj/structure/barricade/security/ctf,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "tOw" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel/stairs/right,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "tPk" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -83866,6 +83774,9 @@
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
+"tPU" = (
+/turf/closed/wall/r_wall,
+/area/security/sunset/genpop)
 "tTm" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -83941,13 +83852,13 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop/visitation)
 "ujW" = (
 /obj/structure/chair/office/dark{
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop/visitation)
 "upN" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -83970,9 +83881,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/ash,
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "uun" = (
 /obj/machinery/vending/assist,
 /turf/open/floor/plasteel,
@@ -84009,9 +83918,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "uGW" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -84093,7 +84000,7 @@
 /obj/structure/grille,
 /obj/structure/barricade/security/ctf,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "vgd" = (
 /obj/item/taperecorder,
 /obj/item/camera,
@@ -84117,6 +84024,9 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/fitness/recreation)
+"vvt" = (
+/turf/open/floor/plasteel,
+/area/security/sunset/genpop)
 "vxq" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on,
 /turf/open/floor/plasteel/white,
@@ -84146,26 +84056,25 @@
 	icon_state = "0-2"
 	},
 /turf/open/floor/plasteel/dark,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/eva)
 "vFS" = (
 /obj/structure/disposalpipe/segment,
 /turf/closed/wall/r_wall,
 /area/quartermaster/sorting)
 "vIh" = (
 /turf/closed/wall/r_wall,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "vJz" = (
 /obj/machinery/modular_computer/console/preset/civilian,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "vLD" = (
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space)
+"vNH" = (
+/turf/closed/wall/r_wall,
+/area/security/sunset/lounge)
 "vWK" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/effect/turf_decal/stripes/line{
@@ -84222,7 +84131,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop/visitation)
 "wwp" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
@@ -84320,9 +84229,7 @@
 "wXF" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall/r_wall,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "xiP" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -84341,9 +84248,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating,
-/area/security/main{
-	name = "Security EVA and Spacebike Bay"
-	})
+/area/security/sunset/podbay)
 "xkG" = (
 /obj/item/integrated_electronics/wirer,
 /obj/structure/table/reinforced,
@@ -84380,14 +84285,14 @@
 /obj/structure/grille,
 /obj/structure/barricade/security/ctf,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "xwi" = (
 /obj/structure/transit_tube/horizontal,
 /obj/machinery/light/small{
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop/visitation)
 "xwG" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Library Maintenance";
@@ -84444,7 +84349,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/sunset/genpop)
+/area/security/sunset/genpop)
 "xPP" = (
 /obj/structure/closet/wardrobe/orange,
 /obj/structure/window/reinforced{
@@ -105674,12 +105579,12 @@ pLt
 aba
 aba
 qzR
-aba
-aba
-aba
-aba
-aba
-aba
+tPU
+tPU
+tPU
+tPU
+tPU
+tPU
 acY
 adp
 adM
@@ -105931,12 +105836,12 @@ uiA
 wwf
 abF
 xwi
-aba
+tPU
 abj
 abD
 acc
 acu
-aba
+tPU
 acZ
 adq
 adN
@@ -106186,14 +106091,14 @@ aai
 gyq
 abF
 ujW
-abI
+lYw
 jcb
-aba
+tPU
 abk
 abE
 ace
 ace
-aba
+tPU
 adt
 adr
 adr
@@ -106440,14 +106345,14 @@ aaa
 aaa
 aaa
 aaf
-aba
+tPU
 vbh
 kcV
 tFT
 xsK
-aba
+tPU
 abl
-abF
+vvt
 acp
 acv
 acI
@@ -106697,7 +106602,7 @@ aaa
 aaa
 aaa
 aaf
-pLt
+pXr
 abI
 oxr
 abI
@@ -106954,12 +106859,12 @@ aaa
 aaa
 aaa
 aaf
-aba
+tPU
 eYV
 xIn
 abI
 eYV
-aba
+tPU
 abn
 abH
 abm
@@ -107211,12 +107116,12 @@ aaa
 aaa
 aaa
 aaa
-aba
-aba
-aba
+tPU
+tPU
+tPU
 aaE
-aba
-aba
+tPU
+tPU
 abo
 abI
 vJz
@@ -107469,11 +107374,11 @@ aaa
 aaa
 aaf
 aaa
-aba
+tPU
 aay
 aaG
 aaP
-aba
+tPU
 abp
 abI
 abH
@@ -107983,10 +107888,10 @@ aaa
 aaa
 aaf
 aaa
-aba
+tPU
 aaB
 abr
-abF
+vvt
 abh
 abr
 abK
@@ -108497,11 +108402,11 @@ aaa
 aaa
 aaf
 aaa
-aba
+tPU
 aaD
 aaJ
 aaS
-aba
+tPU
 abA
 abZ
 abG
@@ -108754,11 +108659,11 @@ aaa
 aaa
 aaf
 eMb
-aba
-aba
+tPU
+tPU
 aaK
-aba
-aba
+tPU
+tPU
 abB
 aca
 abI
@@ -109272,11 +109177,11 @@ aaf
 aaf
 aaa
 urv
-aba
-aba
-aba
-aba
-aba
+tPU
+tPU
+tPU
+tPU
+tPU
 ace
 ace
 ace
@@ -110822,11 +110727,11 @@ aax
 aax
 aaL
 aax
-aax
-aax
+kdT
+kdT
 afc
 afW
-vIh
+kdT
 adY
 aiz
 ajt
@@ -111079,7 +110984,7 @@ aaa
 aaa
 aaf
 mmU
-vIh
+kdT
 vBg
 lNm
 eBF
@@ -111336,7 +111241,7 @@ ack
 ack
 ack
 mmU
-vIh
+kdT
 pOg
 oeO
 eBF
@@ -111593,7 +111498,7 @@ aaa
 aaa
 aaf
 mmU
-vIh
+kdT
 lSb
 loC
 afZ
@@ -111845,12 +111750,12 @@ aaa
 aaa
 aaa
 aaa
-oVS
+tZn
 aaa
 aaa
 aaf
 mmU
-vIh
+kdT
 lfo
 aff
 eBF
@@ -113659,7 +113564,7 @@ aiD
 aiD
 akL
 amd
-ajD
+pKc
 ajD
 apR
 arl
@@ -113916,7 +113821,7 @@ oHe
 oHe
 akM
 alY
-ajD
+pKc
 cZR
 rQK
 arm
@@ -114173,7 +114078,7 @@ dSr
 gIn
 aiF
 aiF
-ajD
+pKc
 aoC
 apS
 arn
@@ -114687,7 +114592,7 @@ aiF
 ajF
 akP
 akP
-anx
+jMD
 qrq
 apU
 arp
@@ -114944,7 +114849,7 @@ aiG
 ajF
 akQ
 akP
-ajD
+pKc
 aoE
 apV
 apV
@@ -115201,7 +115106,7 @@ aiH
 ajH
 akR
 amk
-ajD
+pKc
 aoF
 apW
 gHF
@@ -115454,11 +115359,11 @@ aaa
 aaa
 aaa
 aqa
-aez
-aez
+gcd
+gcd
 akS
-aqa
-aqa
+vNH
+vNH
 aqa
 anx
 anx
@@ -116477,16 +116382,16 @@ aaa
 aaa
 aaf
 tZn
-aqa
-aqa
+pZN
+pZN
 aez
-aqa
-aqa
+pZN
+pZN
 aiJ
 tAD
 akW
 amp
-aqa
+pZN
 aoJ
 aqa
 arv
@@ -116734,16 +116639,16 @@ aaa
 aaa
 aaf
 tZn
-aqa
+pZN
 afp
 afp
 afp
-aqa
+pZN
 aiK
 ajL
 akX
 amq
-aqa
+pZN
 aoK
 aqa
 arv
@@ -117248,16 +117153,16 @@ aaa
 aaa
 aaf
 tZn
-aqa
+pZN
 afp
 agp
 kPY
-aqa
+pZN
 aiM
 ajN
 akZ
 ahc
-aqa
+pZN
 aoM
 ajD
 arw
@@ -117505,16 +117410,16 @@ aaa
 aaa
 aaf
 tZn
-aqa
-aqa
+pZN
+pZN
 aez
-aqa
-aqa
+pZN
+pZN
 aey
 eON
 hne
 ahc
-ajD
+ere
 aoN
 ajD
 arx
@@ -117766,12 +117671,12 @@ aaf
 aaa
 aaa
 agq
-ajD
+ere
 aey
 ajO
 hne
 ahc
-ajD
+ere
 aoM
 ajD
 ajD
@@ -118023,12 +117928,12 @@ aaf
 aaa
 agq
 agq
-ajD
-ajD
-ajD
-ajD
-ajD
-ajD
+ere
+ere
+ere
+ere
+ere
+ere
 aur
 aqb
 aqb
