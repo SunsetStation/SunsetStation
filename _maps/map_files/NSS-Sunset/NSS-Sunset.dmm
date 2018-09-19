@@ -7982,7 +7982,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
-/obj/structure/transit_tube/crossing,
+/obj/structure/transit_tube/crossing{
+	layer = 4.5
+	},
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "aqF" = (
@@ -9228,7 +9230,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/structure/transit_tube/crossing,
+/obj/structure/transit_tube/crossing{
+	layer = 4.5
+	},
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "atq" = (
@@ -27526,7 +27530,9 @@
 /turf/open/floor/plasteel,
 /area/security/checkpoint/customs)
 "bde" = (
-/obj/structure/transit_tube/curved/flipped,
+/obj/structure/transit_tube/curved/flipped{
+	level = 4.5
+	},
 /turf/open/floor/plasteel,
 /area/security/checkpoint/customs)
 "bdf" = (
@@ -76607,10 +76613,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/transit_tube/diagonal/crossing/topleft{
-	layer = 2.19
-	},
-/obj/structure/lattice/catwalk{
-	layer = 2.1
+	layer = 4.5
 	},
 /turf/open/floor/plating{
 	icon_state = "platingdmg2"
@@ -79275,7 +79278,8 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable/yellow,
 /obj/structure/transit_tube/diagonal{
-	dir = 4
+	dir = 4;
+	layer = 4.5
 	},
 /turf/open/floor/plating,
 /area/security/checkpoint/customs)
@@ -81836,7 +81840,7 @@
 "guO" = (
 /obj/structure/transit_tube/crossing,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "gyq" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /obj/machinery/door/poddoor/preopen{
@@ -82017,7 +82021,7 @@
 "hEL" = (
 /obj/structure/transit_tube/crossing/horizontal,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "hIt" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters{
@@ -82262,7 +82266,7 @@
 "jyV" = (
 /obj/structure/transit_tube/horizontal,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "jKK" = (
 /obj/machinery/door/airlock/external{
 	req_access_txt = "13"
@@ -82428,7 +82432,7 @@
 "kDC" = (
 /obj/structure/transit_tube/diagonal,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "kDM" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -82832,7 +82836,7 @@
 "npV" = (
 /obj/structure/transit_tube,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "nyo" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
@@ -82994,7 +82998,7 @@
 "orf" = (
 /obj/structure/transit_tube/curved,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "oub" = (
 /obj/structure/sign/poster/official/random,
 /turf/closed/wall,
@@ -83255,7 +83259,7 @@
 	dir = 4
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "qcZ" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /obj/structure/disposalpipe/segment,
@@ -83447,7 +83451,7 @@
 	dir = 4
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "rxn" = (
 /obj/machinery/power/apc/auto_name/south{
 	pixel_y = -26
@@ -83593,7 +83597,7 @@
 	dir = 8
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "sFv" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -83704,13 +83708,13 @@
 	dir = 8
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "tFp" = (
 /obj/structure/transit_tube/curved/flipped{
 	dir = 1
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "tFs" = (
 /obj/machinery/space_heater,
 /obj/effect/turf_decal/bot_white/left,
@@ -84227,7 +84231,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/structure/transit_tube/crossing,
+/obj/structure/transit_tube/crossing{
+	layer = 4.5
+	},
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "xjm" = (
@@ -84253,7 +84259,9 @@
 /area/security/checkpoint/customs)
 "xle" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/structure/transit_tube/diagonal/topleft,
+/obj/structure/transit_tube/diagonal/topleft{
+	layer = 4.5
+	},
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
 "xse" = (
