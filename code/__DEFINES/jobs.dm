@@ -12,7 +12,6 @@
 #define ROBOTICIST		(1<<8)
 #define AI_JF			(1<<9)
 #define CYBORG			(1<<10)
-#define BLUESHIELD (1<<11)
 
 
 #define MEDSCI			(1<<1)
@@ -42,6 +41,7 @@
 #define CLOWN			(1<<11)
 #define MIME			(1<<12)
 #define ASSISTANT		(1<<13)
+#define BLUESHIELD 		(1<<14)
 
 #define JOB_AVAILABLE 0
 #define JOB_UNAVAILABLE_GENERIC 1
