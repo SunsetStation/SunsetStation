@@ -16,7 +16,7 @@
 	var/base_icon_state = "enforcer_black"
 	mag_type = /obj/item/ammo_box/magazine/enforcer
 	can_flashlight = TRUE
-	unique_rename = TRUE
+	obj_flags = UNIQUE_RENAME
 	unique_reskin = list("Default" = "enforcer_black",
 						"Silver Finish" = "enforcer_silver",
 						"Red Finish" = "enforcer_red",
@@ -26,11 +26,13 @@
 						"Tan Finish" = "enforcer_tan",
 						"Tan Grip" = "enforcer_tangrip"
 						)
- /obj/item/gun/ballistic/automatic/pistol/enforcer/reskin_obj(mob/M)
+
+/obj/item/gun/ballistic/automatic/pistol/enforcer/reskin_obj(mob/M)
 	..()
 	base_icon_state = icon_state
 	update_icon()
- /obj/item/gun/ballistic/automatic/pistol/enforcer/update_icon()
+
+/obj/item/gun/ballistic/automatic/pistol/enforcer/update_icon()
 	cut_overlays()
 	icon_state = base_icon_state
 	if(!chambered)
@@ -42,14 +44,20 @@
 			add_overlay("enforcer_light-on")
 		else
 			add_overlay("enforcer_light")
- /obj/item/gun/ballistic/automatic/pistol/enforcer/ui_action_click()
+
+/obj/item/gun/ballistic/automatic/pistol/enforcer/ui_action_click()
 	toggle_gunlight()
+
+/obj/item/projectile/bullet/weakbullet2
+	damage = 15
+	stun = 5
+	knockdown = 5
 
 /obj/item/ammo_casing/rubber45
 	name = ".45 rubber bullet casing"
 	desc = "A .45 rubber bullet casing."
 	caliber = ".45"
-	projectile_type = /obj/item/projectile/bullet/weakbullet
+	projectile_type = /obj/item/projectile/bullet/weakbullet2
 
 /obj/item/ammo_casing/c45/nostamina
 	name = ".45 lethal bullet casing"
@@ -67,15 +75,18 @@
 	ammo_type = /obj/item/ammo_casing/rubber45
 	max_ammo = 7
 	caliber = ".45"
- /obj/item/ammo_box/magazine/enforcer/update_icon()
+
+/obj/item/ammo_box/magazine/enforcer/update_icon()
 	icon_state = "enforcer-[stored_ammo.len]"
- /obj/item/ammo_box/magazine/enforcer/examine(mob/user)
+
+/obj/item/ammo_box/magazine/enforcer/examine(mob/user)
 	..()
 	if(stored_ammo)
 		var/obj/item/ammo_casing/A = stored_ammo[stored_ammo.len]
 		to_chat(user, "TThere's a [A.name] at the top.")//it's either rubber or lead. better to know the difference
- /obj/item/ammo_box/magazine/enforcer/lethal
-	ammo_type = /obj/item/ammo_casing/c45nostamina
+
+/obj/item/ammo_box/magazine/enforcer/lethal
+	ammo_type = /obj/item/ammo_casing/c45/nostamina
 
 /datum/design/r45
 	name = "Ammo Box (.45 rubber)"

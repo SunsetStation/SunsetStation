@@ -8,7 +8,7 @@
 	".45 Enforcer Semi Automatic Pistol" = /obj/item/storage/box/blueshield/enforcer,
 	"Aegis SG7 Laser Gun" = /obj/item/storage/box/blueshield/laser)
 
- /obj/item/blueshield_gun_package/attack_self(mob/user)
+/obj/item/blueshield_gun_package/attack_self(mob/user)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
@@ -27,24 +27,24 @@
 	desc = "It's a box filled with a Blueshield's equipment."
 	illustration = "blu-box"
 
- /obj/item/storage/box/blueshield/laser
+/obj/item/storage/box/blueshield/laser
 	name = "Blueshield Equipment (Aegis SG7 laser gun)"
 
- /obj/item/storage/box/blueshield/laser/PopulateContents()
+/obj/item/storage/box/blueshield/laser/PopulateContents()
 	new /obj/item/gun/energy/e_gun/blueshield(src)
 
- /obj/item/storage/box/blueshield/revolver //go and die please
+/obj/item/storage/box/blueshield/revolver //go and die please
 	name = "Blueshield Equipment (.38 Mars Special revolver)"
 
- /obj/item/storage/box/blueshield/revolver/PopulateContents()
+/obj/item/storage/box/blueshield/revolver/PopulateContents()
 	new /obj/item/gun/ballistic/revolver/detective(src)
 	new /obj/item/ammo_box/c38(src)
 	new /obj/item/ammo_box/c38(src)
 
- /obj/item/storage/box/blueshield/enforcer
+/obj/item/storage/box/blueshield/enforcer
 	name = "Blueshield Equipment (.45 Enforcer semi automatic pistol)"
 
- /obj/item/storage/box/blueshield/enforcer/PopulateContents()
+/obj/item/storage/box/blueshield/enforcer/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/pistol/enforcer(src)
 	new /obj/item/ammo_box/magazine/enforcer(src)
 	new /obj/item/ammo_box/magazine/enforcer(src)
