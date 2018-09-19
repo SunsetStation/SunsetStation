@@ -19,7 +19,7 @@
 	area_type = /area
 	protected_areas = list(/area/maintenance, /area/ai_monitored/turret_protected/ai_upload, /area/ai_monitored/turret_protected/ai_upload_foyer,
 	/area/ai_monitored/turret_protected/ai, /area/storage/emergency/starboard, /area/storage/emergency/port, /area/shuttle,
-	/area/sunset/genpop) // sunset -- protect genpop
+	/area/security/sunset/genpop) // sunset -- protect genpop
 	target_trait = ZTRAIT_STATION
 
 	immunity_type = "rad"
