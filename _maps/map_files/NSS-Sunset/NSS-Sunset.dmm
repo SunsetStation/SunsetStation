@@ -1837,20 +1837,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/execution/education)
-"adO" = (
-/obj/machinery/door/poddoor/preopen{
-	id = "permacell1";
-	name = "Cell Shutters"
-	},
-/obj/machinery/door/airlock/public/glass{
-	id_tag = "permabolt1";
-	name = "Cell 1"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/general/visible,
-/turf/open/floor/plasteel,
-/area/security/sunset/genpop)
 "adP" = (
 /obj/structure/bed,
 /obj/machinery/camera{
@@ -2412,16 +2398,7 @@
 /turf/open/floor/plasteel,
 /area/security/prison)
 "aeV" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden{
-	dir = 4
-	},
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/simple/general/hidden,
 /turf/open/floor/plasteel,
 /area/security/prison)
 "aeW" = (
@@ -2909,25 +2886,6 @@
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 6
-	},
-/turf/open/floor/plasteel,
-/area/security/prison)
-"afP" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 4
-	},
-/obj/machinery/airalarm{
-	dir = 1;
-	pixel_y = -22
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 9
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
@@ -3570,11 +3528,12 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 9
-	},
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/general/hidden{
+	icon_state = "intact";
+	dir = 8
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
@@ -3591,6 +3550,10 @@
 	},
 /obj/machinery/computer/atmos_control,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/general/hidden{
+	icon_state = "intact";
+	dir = 9
+	},
 /turf/open/floor/plasteel/dark,
 /area/security/brig)
 "ahx" = (
@@ -3984,7 +3947,10 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 1
 	},
-/obj/machinery/jukebox,
+/obj/machinery/jukebox{
+	req_access = null;
+	req_access_txt = "3"
+	},
 /turf/open/floor/mineral/plastitanium,
 /area/security/warden)
 "aiy" = (
@@ -5126,9 +5092,8 @@
 /obj/item/storage/box/rubbershot,
 /obj/item/storage/box/rubbershot,
 /obj/item/storage/box/rubbershot,
-/obj/item/gun/ballistic/shotgun/sc_pump,
-/obj/item/gun/ballistic/shotgun/sc_pump,
-/obj/item/gun/ballistic/shotgun/sc_pump,
+/obj/item/gun/ballistic/shotgun/riot,
+/obj/item/gun/ballistic/shotgun/riot,
 /turf/open/floor/mineral/plastitanium,
 /area/ai_monitored/security/armory)
 "akJ" = (
@@ -5666,8 +5631,9 @@
 "alR" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/security{
-	name = "Evidence Storage";
-	req_one_access_txt = "1;4"
+	name = "Warden's Office";
+	req_access_txt = "3";
+	req_one_access_txt = null
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -5734,11 +5700,6 @@
 	dir = 1;
 	pixel_y = 2
 	},
-/obj/item/gun/energy/laser/scatter/shotty,
-/obj/item/gun/energy/laser/scatter/shotty,
-/obj/item/ammo_box/magazine/recharge,
-/obj/item/ammo_box/magazine/recharge,
-/obj/item/ammo_box/magazine/recharge,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/mineral/plastitanium,
 /area/ai_monitored/security/armory)
@@ -6844,7 +6805,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/door/airlock/security{
-	name = "Evidence Storage";
+	name = "Warden's Office";
 	req_access_txt = "3"
 	},
 /obj/effect/turf_decal/delivery,
@@ -10988,18 +10949,6 @@
 	},
 /turf/open/floor/plating,
 /area/security/brig)
-"awO" = (
-/obj/machinery/door/airlock/security/glass{
-	name = "Long-Term Cell 1";
-	req_access_txt = "2"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/general/visible,
-/turf/open/floor/plasteel,
-/area/security/sunset/genpop)
 "awP" = (
 /obj/item/clothing/gloves/color/rainbow,
 /obj/item/clothing/shoes/sneakers/rainbow,
@@ -44259,15 +44208,8 @@
 	dir = 4
 	},
 /obj/structure/closet/secure_closet/hos,
-/obj/item/gun/ballistic/revolver/mateba,
 /obj/item/firing_pin/implant/mindshield,
-/obj/item/ammo_box/a357,
-/obj/item/ammo_box/a357,
 /obj/item/melee/classic_baton/telescopic,
-/obj/item/melee/powerfist{
-	desc = "A metal gauntlet with a piston-powered ram ontop for that extra 'ompfh' in your punch. Aproved by CC For the HoS to beat those deemed KoS.";
-	name = "HoS's Power Gauntlet"
-	},
 /obj/machinery/light{
 	dir = 8
 	},
@@ -76664,7 +76606,12 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
-/obj/structure/transit_tube/diagonal/crossing/topleft,
+/obj/structure/transit_tube/diagonal/crossing/topleft{
+	layer = 2.19
+	},
+/obj/structure/lattice/catwalk{
+	layer = 2.1
+	},
 /turf/open/floor/plating{
 	icon_state = "platingdmg2"
 	},
@@ -80841,6 +80788,7 @@
 /obj/structure/chair/comfy/black{
 	dir = 8
 	},
+/obj/effect/landmark/start/warden,
 /turf/open/floor/carpet/black,
 /area/security/warden)
 "dCa" = (
@@ -81835,10 +81783,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/circuit)
-"glL" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible,
-/turf/closed/wall,
-/area/security/prison)
 "gnZ" = (
 /obj/item/radio/intercom{
 	pixel_y = -30
@@ -81986,7 +81930,7 @@
 /turf/open/floor/plasteel,
 /area/science/circuit)
 "gRN" = (
-/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/pipe/simple/general/hidden,
 /turf/closed/wall,
 /area/security/prison)
 "gXJ" = (
@@ -83337,8 +83281,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port)
 "qkm" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/machinery/atmospherics/pipe/simple/general/hidden,
 /turf/open/floor/plasteel,
 /area/security/sunset/genpop)
 "qlb" = (
@@ -108477,7 +108420,7 @@ avr
 avV
 aeU
 afO
-glL
+abe
 ahv
 ais
 ahx
@@ -108728,12 +108671,12 @@ aca
 abI
 jWM
 qkm
-adO
-qkm
-qkm
-awO
+adu
+abI
+abI
+avW
 aeV
-afP
+aeV
 gRN
 ahw
 ykj
@@ -113628,7 +113571,7 @@ ajD
 apR
 arl
 asy
-atT
+aqa
 avf
 awd
 axn
