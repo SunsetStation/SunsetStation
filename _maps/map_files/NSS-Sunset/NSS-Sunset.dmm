@@ -8880,6 +8880,7 @@
 /obj/machinery/button/door{
 	id = "Prison Gate";
 	name = "Prison Wing Lockdown";
+	pixel_x = -5;
 	pixel_y = 7;
 	req_access_txt = "2"
 	},
@@ -8903,6 +8904,12 @@
 	dir = 4;
 	pixel_x = 29;
 	pixel_y = -28
+	},
+/obj/machinery/button/door{
+	id = "visitation";
+	name = "Genpop Visitation Shutters";
+	pixel_x = 5;
+	pixel_y = 7
 	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/security/warden)
@@ -81892,6 +81899,9 @@
 	id = "Prison Gate";
 	name = "Security Blast Door"
 	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
 /turf/open/floor/plating,
 /area/security/sunset/genpop/visitation)
 "gyV" = (
@@ -82055,6 +82065,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
 /turf/open/floor/plasteel,
 /area/security/sunset/genpop)
 "hEL" = (
@@ -82094,12 +82107,12 @@
 /turf/open/floor/plasteel/white,
 /area/science/research)
 "iaD" = (
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
-	},
 /obj/machinery/door/airlock/public/glass{
 	id_tag = "permavisi";
 	name = "Visitation Module"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /turf/open/floor/plasteel,
 /area/security/sunset/genpop)
@@ -82189,6 +82202,12 @@
 /obj/structure/table,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
+"iOO" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/open/floor/plasteel,
+/area/security/sunset/genpop/visitation)
 "iSI" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -82220,6 +82239,9 @@
 /area/security/prison)
 "jcb" = (
 /obj/structure/transit_tube/station/reverse/flipped,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/open/floor/plasteel,
 /area/security/sunset/genpop/visitation)
 "jeV" = (
@@ -82359,13 +82381,20 @@
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor{
 	dir = 4;
-	name = "Security Desk";
+	name = "Genpop Visitation Desk";
 	req_access_txt = "1"
 	},
 /obj/machinery/door/window/brigdoor{
 	dir = 8;
-	name = "Brig Control Desk";
+	name = "Genpop Visitation Desk";
 	req_access_txt = "3"
+	},
+/obj/machinery/door/poddoor/shutters{
+	id = "visitation";
+	name = "Genpop Visitation Shutters"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
 	},
 /turf/open/floor/plasteel,
 /area/security/sunset/genpop)
@@ -82785,9 +82814,6 @@
 	},
 /turf/closed/wall,
 /area/hallway/secondary/service)
-"mxn" = (
-/turf/closed/wall/r_wall,
-/area/space)
 "mzh" = (
 /obj/machinery/firealarm{
 	dir = 1;
@@ -82851,6 +82877,10 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/sunset/podbay)
+"njm" = (
+/obj/structure/lattice,
+/turf/closed/wall/r_wall,
+/area/security/prison)
 "noG" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -82987,6 +83017,13 @@
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
+"ohX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/open/floor/plasteel,
+/area/security/sunset/genpop)
 "oje" = (
 /obj/machinery/disposal/bin,
 /obj/structure/disposalpipe/trunk{
@@ -83354,6 +83391,9 @@
 /obj/machinery/door/poddoor/preopen{
 	id = "Prison Gate";
 	name = "Security Blast Door"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
 	},
 /turf/open/floor/plating,
 /area/security/sunset/genpop/visitation)
@@ -83758,6 +83798,12 @@
 /obj/structure/window/plasma/reinforced/spawner/north,
 /obj/structure/grille,
 /obj/structure/barricade/security/ctf,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
 /turf/open/floor/plasteel,
 /area/security/sunset/genpop)
 "tOw" = (
@@ -83851,6 +83897,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/motion,
 /turf/open/floor/plasteel,
 /area/security/sunset/genpop/visitation)
 "ujW" = (
@@ -83999,6 +84046,12 @@
 /obj/structure/window/plasma/reinforced/spawner,
 /obj/structure/grille,
 /obj/structure/barricade/security/ctf,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
 /turf/open/floor/plasteel,
 /area/security/sunset/genpop)
 "vgd" = (
@@ -84126,12 +84179,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/prison)
-"wwf" = (
-/obj/machinery/camera/autoname{
-	dir = 4
-	},
-/turf/open/floor/plasteel,
-/area/security/sunset/genpop/visitation)
 "wwp" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable/yellow{
@@ -84284,12 +84331,24 @@
 /obj/structure/window/plasma/reinforced/spawner/east,
 /obj/structure/grille,
 /obj/structure/barricade/security/ctf,
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/open/floor/plasteel,
 /area/security/sunset/genpop)
 "xwi" = (
 /obj/structure/transit_tube/horizontal,
 /obj/machinery/light/small{
 	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plasteel,
 /area/security/sunset/genpop/visitation)
@@ -105592,9 +105651,9 @@ aax
 aax
 aax
 aax
-mxn
-mxn
-bpu
+aax
+aax
+njm
 dne
 dne
 dne
@@ -105833,7 +105892,7 @@ aaa
 aaj
 pLt
 uiA
-wwf
+abF
 abF
 xwi
 tPU
@@ -106089,7 +106148,7 @@ aaa
 aaa
 aai
 gyq
-abF
+iOO
 ujW
 lYw
 jcb
@@ -106606,7 +106665,7 @@ pXr
 abI
 oxr
 abI
-abI
+ohX
 iaD
 hDJ
 abG
