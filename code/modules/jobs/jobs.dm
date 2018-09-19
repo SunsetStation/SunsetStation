@@ -45,7 +45,7 @@ GLOBAL_LIST_INIT(civilian_positions, list(
 	"Clown",
 	"Mime",
 	"Assistant",
-	"Blueshield"))
+	"Blueshield")) //sunset -- adds the blueshit
 
 
 GLOBAL_LIST_INIT(security_positions, list(

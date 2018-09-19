@@ -2,6 +2,6 @@
 	name = "Genpop"
 	icon_state = "red"
 
-/area/blueshield
+/area/sunset/blueshield
 	name = "Blueshield Office"
 	icon_state = "blueold"

@@ -1,0 +1,1 @@
+#define BLUESHIELD 		(1<<14)
