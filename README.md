@@ -81,11 +81,7 @@ https://github.com/tgstation/tgstation-server
 
 ## MAPS
 
-<<<<<<< HEAD
-Sunsetstation currently comes equipped with five maps.
-=======
-/tg/station currently comes equipped with four maps.
->>>>>>> 0ef2572108... Merge pull request #40352 from 81Denton/remove-omega
+Sunsetstation currently comes equipped with four maps.
 
 * [BoxStation (default)](http://tgstation13.org/wiki/Boxstation)
 * [MetaStation](https://tgstation13.org/wiki/MetaStation)
