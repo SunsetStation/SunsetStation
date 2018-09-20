@@ -28414,6 +28414,7 @@
 /area/security/checkpoint/customs)
 "beT" = (
 /obj/machinery/quantumpad{
+	circuit = null;
 	map_pad_id = "visitation_entry";
 	map_pad_link_id = "visitation_desk"
 	},
@@ -84189,6 +84190,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/quantumpad{
+	circuit = null;
 	map_pad_id = "visitation_desk";
 	map_pad_link_id = "visitation_entry"
 	},
