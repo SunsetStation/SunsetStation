@@ -1,6 +1,6 @@
 /obj/item/blueshield_gun_package
 	name = "Blueshield equipment box"
-	desc = "You'll find the Blueshield's gun of choice inside. Schrödinger would be proud."
+	desc = "You'll find the Blueshield's gun of choice inside. SchrÃ¶dinger would be proud."
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'sunset/icons/obj/storage.dmi'
 	icon_state = "blu-wrapped"
@@ -49,14 +49,3 @@
 	new /obj/item/gun/ballistic/automatic/pistol/enforcer(src)
 	new /obj/item/ammo_box/magazine/enforcer(src)
 	new /obj/item/ammo_box/magazine/enforcer(src)
-
-/obj/item/storage/internal/pocket/holster/blueshield
-	storage_slots = 3
-	max_w_class = WEIGHT_CLASS_NORMAL
-	can_hold = list(
-		/obj/item/gun/energy/e_gun/blueshield,
-		/obj/item/gun/ballistic/revolver/detective,
-		/obj/item/ammo_box/c38,
-		/obj/item/gun/ballistic/automatic/pistol/enforcer,
-		/obj/item/ammo_box/magazine/enforcer
-		)
