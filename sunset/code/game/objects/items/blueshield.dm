@@ -2,7 +2,7 @@
 	name = "Blueshield equipment box"
 	desc = "You'll find the Blueshield's gun of choice inside. Schrödinger would be proud."
 	w_class = WEIGHT_CLASS_SMALL
-	icon = 'icons/obj/storage.dmi'
+	icon = 'sunset/icons/obj/storage.dmi'
 	icon_state = "blu-wrapped"
 	var/list/options = list(".38 Mars Special Revolver" = /obj/item/storage/box/blueshield/revolver,
 	".45 Enforcer Semi Automatic Pistol" = /obj/item/storage/box/blueshield/enforcer,
@@ -25,6 +25,7 @@
 
 /obj/item/storage/box/blueshield
 	desc = "It's a box filled with a Blueshield's equipment."
+	icon = 'sunset/icons/obj/storage.dmi'
 	illustration = "blu-box"
 
 /obj/item/storage/box/blueshield/laser
@@ -48,3 +49,14 @@
 	new /obj/item/gun/ballistic/automatic/pistol/enforcer(src)
 	new /obj/item/ammo_box/magazine/enforcer(src)
 	new /obj/item/ammo_box/magazine/enforcer(src)
+
+/obj/item/storage/internal/pocket/holster/blueshield
+	storage_slots = 3
+	max_w_class = WEIGHT_CLASS_NORMAL
+	can_hold = list(
+		/obj/item/gun/energy/e_gun/blueshield,
+		/obj/item/gun/ballistic/revolver/detective,
+		/obj/item/ammo_box/c38,
+		/obj/item/gun/ballistic/automatic/pistol/enforcer,
+		/obj/item/ammo_box/magazine/enforcer
+		)

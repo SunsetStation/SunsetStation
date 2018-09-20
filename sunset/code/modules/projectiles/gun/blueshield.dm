@@ -1,6 +1,7 @@
 /obj/item/gun/energy/e_gun/blueshield
 	name = "advanced stun revolver"
 	desc = "An advanced stun revolver with the capacity to shoot both electrodes and lasers."
+	icon = 'sunset/icons/obj/guns/energy.dmi'
 	icon_state = "bsgun"
 	item_state = "gun"
 	force = 7
@@ -12,6 +13,7 @@
 /obj/item/gun/ballistic/automatic/pistol/enforcer
 	name = "enforcer pistol"
 	desc = "A lightweight .45 pistol for modern asset protection units. Smells like justice."
+	icon = 'sunset/icons/obj/guns/projectile.dmi'
 	icon_state = "enforcer_black"
 	var/base_icon_state = "enforcer_black"
 	mag_type = /obj/item/ammo_box/magazine/enforcer
@@ -70,6 +72,7 @@
 
 /obj/item/ammo_box/magazine/enforcer
 	name = "pistol magazine (enforcer .45)"
+	icon = 'sunset/icons/obj/ammo.dmi'
 	icon_state = "enforcer"
 	desc = "A gun magazine. Compatible with the Enforcer series firearms."
 	ammo_type = /obj/item/ammo_casing/rubber45

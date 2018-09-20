@@ -1,4 +1,5 @@
 /obj/structure/closet/secure_closet/blueshield
+	icon = 'sunset/icons/obj/closet.dmi'
 	name = "\proper blueshield's locker"
 	req_access = list(ACCESS_BLUESHIELD)
 	icon_state = "blueshield"
@@ -14,5 +15,5 @@
 	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/suit/armor/vest/blueshield(src)
 	new /obj/item/clothing/suit/storage/blueshield(src)
-	new /obj/item/storage/belt/holster(src)
+	new /obj/item/storage/belt/holster/blueshield(src)
 	new /obj/item/clothing/shoes/jackboots(src)
