@@ -78,6 +78,9 @@
 		            /obj/item/storage/belt/fannypack = 1,
 		            /obj/item/storage/belt/fannypack/blue = 1,
 		            /obj/item/storage/belt/fannypack/red = 1,
+					/obj/item/clothing/suit/jacket/miljacket = 1,
+					/obj/item/clothing/suit/jacket/miljacket/desert = 1, 
+					/obj/item/clothing/suit/jacket/miljacket/navy = 1,
 		            /obj/item/clothing/suit/jacket/letterman = 2,
 		            /obj/item/clothing/head/beanie = 1,
 		            /obj/item/clothing/head/beanie/black = 1,
@@ -96,7 +99,15 @@
 		            /obj/item/clothing/suit/jacket/letterman_red = 1,
 		            /obj/item/clothing/ears/headphones = 10,
 		            /obj/item/clothing/suit/apron/purple_bartender = 2,
-		            /obj/item/clothing/under/rank/bartender/purple = 2)
+		            /obj/item/clothing/under/rank/bartender/purple = 2,
+					/obj/item/clothing/under/victorian_dress = 1, //added 9-22-18
+					/obj/item/clothing/under/victorian_dress/red = 1, 
+					/obj/item/clothing/under/victorian_suit = 1,
+					/obj/item/clothing/under/victorian_suit/redblack = 1, 
+					/obj/item/clothing/under/victorian_suit/red = 1, 
+					/obj/item/clothing/suit/tailcoat = 1, 
+					/obj/item/clothing/suit/victorian_coat = 1, 
+					/obj/item/clothing/suit/victorian_coat/red = 1)
 	contraband = list(/obj/item/clothing/under/syndicate/tacticool = 1,
 		              /obj/item/clothing/mask/balaclava = 1,
 		              /obj/item/clothing/head/ushanka = 1,
