@@ -7,3 +7,5 @@
 			return "Genpop Enter"
 		if(ACCESS_GENPOP_EXIT)
 			return "Genpop Exit"
+		if(ACCESS_BLUESHIELD)
+			return "Blueshield"

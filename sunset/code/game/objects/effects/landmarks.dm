@@ -17,3 +17,6 @@
 	..()
 	GLOB.infiltrator_objective_items += loc
 	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/start/blueshield
+	name = "Blueshield"
