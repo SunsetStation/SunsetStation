@@ -26,3 +26,6 @@
 						new eq_path(T)
 	else
 		..()
+
+/datum/objective/download/find_target()
+	return gen_amount_goal()
