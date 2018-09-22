@@ -10683,7 +10683,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine/vacuum,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "atK" = (
 /obj/machinery/computer/gulag_teleporter_computer{
 	dir = 1
@@ -66423,7 +66423,7 @@
 	},
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer,
 /obj/effect/turf_decal/stripes/line{
-	dir = 2
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/science/mixing)
@@ -66431,70 +66431,63 @@
 /obj/item/radio/intercom{
 	pixel_y = 25
 	},
-/obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/atmospherics/components/unary/thermomachine/heater,
 /obj/effect/turf_decal/stripes/line{
-	dir = 2
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/science/mixing)
 "cyD" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/turf_decal/stripes/line{
-	dir = 2
+	dir = 8
 	},
 /turf/open/floor/plasteel,
 /area/science/mixing)
 "cyE" = (
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/camera{
 	c_tag = "Toxins - Lab";
 	dir = 2;
 	network = list("ss13","rd")
 	},
 /obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/machinery/portable_atmospherics/canister,
-/obj/effect/turf_decal/stripes/line{
-	dir = 2
-	},
 /turf/open/floor/plasteel,
 /area/science/mixing)
 "cyF" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
 /obj/machinery/airalarm{
 	pixel_y = 23
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 2
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/science/mixing)
 "cyG" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/structure/sign/warning/nosmoking{
 	pixel_y = 32
 	},
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 2
+/obj/machinery/atmospherics/pipe/manifold/general/visible{
+	dir = 1
 	},
+/obj/machinery/meter,
 /turf/open/floor/plasteel,
 /area/science/mixing)
 "cyH" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 8
+	},
 /obj/effect/turf_decal/stripes/line{
-	dir = 2
+	dir = 4
 	},
 /turf/open/floor/plasteel,
 /area/science/mixing)
@@ -66511,10 +66504,10 @@
 /obj/machinery/light_switch{
 	pixel_y = 28
 	},
-/obj/machinery/portable_atmospherics/scrubber,
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
 	},
+/obj/machinery/portable_atmospherics/pump,
 /turf/open/floor/plasteel,
 /area/science/mixing)
 "cyK" = (
@@ -66880,31 +66873,47 @@
 /turf/open/floor/plasteel/white,
 /area/science/mixing)
 "czv" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
-/turf/open/floor/plasteel/white,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/plasteel,
 /area/science/mixing)
 "czw" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
-/obj/machinery/meter,
-/turf/open/floor/plasteel/white,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel,
 /area/science/mixing)
 "czx" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 9
+/obj/effect/turf_decal/stripes/line{
+	dir = 2
 	},
-/turf/open/floor/plasteel/white,
-/area/science/mixing)
-"czy" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
-	dir = 5
-	},
-/turf/open/floor/plasteel/white,
-/area/science/mixing)
-"czz" = (
 /obj/machinery/atmospherics/components/trinary/filter{
 	dir = 8
 	},
-/turf/open/floor/plasteel/white,
+/turf/open/floor/plasteel,
+/area/science/mixing)
+"czy" = (
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/plasteel,
+/area/science/mixing)
+"czz" = (
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel,
 /area/science/mixing)
 "czA" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
@@ -67557,7 +67566,6 @@
 "cAG" = (
 /obj/structure/window/reinforced,
 /obj/machinery/portable_atmospherics/scrubber,
-/obj/item/storage/firstaid/toxin,
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
@@ -67866,6 +67874,7 @@
 	dir = 5
 	},
 /obj/item/analyzer,
+/obj/item/pipe_dispenser,
 /turf/open/floor/plasteel,
 /area/science/mixing)
 "cBw" = (
@@ -68717,18 +68726,14 @@
 "cDk" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/closed/wall/r_wall,
-/area/science/mixing)
-"cDl" = (
-/obj/structure/sign/warning/securearea,
-/turf/closed/wall/r_wall,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cDm" = (
-/obj/machinery/shower{
+/obj/machinery/airalarm/mixingchamber{
 	dir = 4;
-	name = "emergency shower"
+	pixel_x = -24
 	},
 /turf/open/floor/plasteel/white,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cDn" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -68757,6 +68762,7 @@
 /obj/item/multitool{
 	pixel_x = 3
 	},
+/obj/item/storage/firstaid/toxin,
 /turf/open/floor/plasteel,
 /area/science/mixing)
 "cDq" = (
@@ -69351,23 +69357,23 @@
 "cEq" = (
 /obj/structure/lattice,
 /turf/open/space,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cEr" = (
 /obj/machinery/door/poddoor/incinerator_toxmix,
 /turf/open/floor/engine/vacuum,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cEs" = (
 /obj/structure/sign/warning/vacuum/external{
 	pixel_y = 32
 	},
 /turf/open/floor/engine/vacuum,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cEu" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 4
 	},
 /turf/closed/wall/r_wall,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cEv" = (
 /obj/machinery/airlock_sensor/incinerator_toxmix{
 	pixel_y = 24
@@ -69377,7 +69383,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cEw" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 4
@@ -69788,24 +69794,24 @@
 /area/science/research)
 "cFn" = (
 /turf/open/floor/engine/vacuum,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cFo" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/research/glass/incinerator/toxmix_exterior,
 /turf/open/floor/engine,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cFp" = (
 /obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_toxmix{
 	dir = 2
 	},
 /obj/effect/landmark/blobstart,
 /turf/open/floor/engine,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cFq" = (
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/door/airlock/research/glass/incinerator/toxmix_interior,
 /turf/open/floor/engine,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cFr" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -70271,7 +70277,7 @@
 	dir = 4
 	},
 /turf/open/floor/engine/vacuum,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cGk" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/sign/warning/fire{
@@ -70281,7 +70287,7 @@
 	dir = 8
 	},
 /turf/open/floor/engine,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "cGl" = (
 /obj/machinery/atmospherics/pipe/simple/general/visible{
 	dir = 4
@@ -70294,10 +70300,6 @@
 /obj/machinery/button/ignition/incinerator/toxmix{
 	pixel_x = -25;
 	pixel_y = -5
-	},
-/obj/machinery/airalarm{
-	dir = 1;
-	pixel_y = -22
 	},
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
@@ -82889,6 +82891,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/break_room)
+"ens" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/science/mixing/chamber)
 "eoK" = (
 /obj/structure/disposalpipe/segment{
 	dir = 9
@@ -82958,6 +82964,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/break_room)
+"eTw" = (
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 2
+	},
+/turf/open/floor/plasteel,
+/area/science/mixing)
 "eZe" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -83596,6 +83611,12 @@
 	},
 /turf/open/floor/plating,
 /area/engine/break_room)
+"nhI" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 6
+	},
+/turf/open/floor/plasteel,
+/area/science/mixing)
 "noG" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -83728,6 +83749,9 @@
 "owR" = (
 /turf/closed/wall,
 /area/engine/storage_shared)
+"oBj" = (
+/turf/closed/wall/r_wall,
+/area/science/mixing/chamber)
 "oJW" = (
 /obj/machinery/camera{
 	c_tag = "Engineering - Foyer - Shared Storage";
@@ -84218,7 +84242,7 @@
 "tXK" = (
 /obj/machinery/air_sensor/atmos/toxins_mixing_tank,
 /turf/open/floor/engine/vacuum,
-/area/science/mixing)
+/area/science/mixing/chamber)
 "uaC" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -115831,10 +115855,10 @@ czr
 cAw
 cBq
 cyy
-cyK
-cyK
-cAP
-cyK
+oBj
+oBj
+ens
+oBj
 cHd
 cHZ
 cIT
@@ -116088,7 +116112,7 @@ czs
 cAx
 cFr
 cCt
-cyK
+oBj
 cEq
 cEq
 cEq
@@ -116345,7 +116369,7 @@ czt
 cAy
 cBs
 cCt
-cyK
+oBj
 cEr
 cEr
 cEr
@@ -116602,7 +116626,7 @@ czy
 cAz
 cBt
 cCu
-cyK
+oBj
 cEs
 cFn
 cFn
@@ -116859,7 +116883,7 @@ czv
 dDA
 cBu
 cCv
-cyK
+oBj
 atJ
 tXK
 cGj
@@ -117116,7 +117140,7 @@ czw
 cAA
 cBv
 cCw
-cyK
+oBj
 cEu
 cFo
 cEu
@@ -117626,11 +117650,11 @@ crR
 crR
 crR
 cyF
-czy
+eTw
 cAC
 cBx
 cCy
-cDl
+oBj
 cEu
 cFq
 cEu
@@ -118140,7 +118164,7 @@ cuT
 cwW
 crR
 cyH
-czx
+nhI
 cAE
 cBz
 cCA
