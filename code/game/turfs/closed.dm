@@ -100,7 +100,7 @@
 	. = ..()
 	icon_state = null //set the icon state to null, so our base state isn't visible
 	underlays += mutable_appearance('icons/obj/structures.dmi', "grille") //add a grille underlay
-	underlays += mutable_appearance('icons/turf/floors.dmi', "plating") //add the plating underlay, below the grille
+	underlays += mutable_appearance('sunset/icons/turf/floors.dmi', "plating") //add the plating underlay, below the grille // sunset -- use our floors
 
 /turf/closed/indestructible/fakedoor
 	name = "CentCom Access"
@@ -142,7 +142,7 @@
 	baseturfs = /turf/closed/indestructible/necropolis
 
 /turf/closed/indestructible/necropolis/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
-	underlay_appearance.icon = 'icons/turf/floors.dmi'
+	underlay_appearance.icon = 'sunset/icons/turf/floors.dmi' // sunset -- use our floors
 	underlay_appearance.icon_state = "necro1"
 	return TRUE
 
