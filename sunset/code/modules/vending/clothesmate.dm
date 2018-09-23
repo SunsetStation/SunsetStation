@@ -1,12 +1,6 @@
 //DON'T FORGET TO CHANGE THE REFILL SIZE IF YOU CHANGE THE MACHINE'S CONTENTS!
 /obj/machinery/vending/clothing
-	name = "ClothesMate" //renamed to make the slogan rhyme
-	desc = "A vending machine for clothing."
-	icon_state = "clothes"
-	icon_deny = "clothes-deny"
-	product_slogans = "Dress for success!;Prepare to look swagalicious!;Look at all this free swag!;Why leave style up to fate? Use the ClothesMate!"
-	vend_reply = "Thank you for using the ClothesMate!"
-	/*products = list(/obj/item/clothing/head/that = 2, //disabled to not interfere with other changes in sunset\code\modules\vending\clothesmate
+	products = list(/obj/item/clothing/head/that = 2,
 		            /obj/item/clothing/head/fedora = 1,
 		            /obj/item/clothing/glasses/monocle = 1,
 		            /obj/item/clothing/suit/jacket = 2,
@@ -78,6 +72,9 @@
 		            /obj/item/storage/belt/fannypack = 1,
 		            /obj/item/storage/belt/fannypack/blue = 1,
 		            /obj/item/storage/belt/fannypack/red = 1,
+					/obj/item/clothing/suit/jacket/miljacket = 1,
+					/obj/item/clothing/suit/jacket/miljacket/desert = 1, 
+					/obj/item/clothing/suit/jacket/miljacket/navy = 1,
 		            /obj/item/clothing/suit/jacket/letterman = 2,
 		            /obj/item/clothing/head/beanie = 1,
 		            /obj/item/clothing/head/beanie/black = 1,
@@ -96,7 +93,15 @@
 		            /obj/item/clothing/suit/jacket/letterman_red = 1,
 		            /obj/item/clothing/ears/headphones = 10,
 		            /obj/item/clothing/suit/apron/purple_bartender = 2,
-		            /obj/item/clothing/under/rank/bartender/purple = 2)
+		            /obj/item/clothing/under/rank/bartender/purple = 2,
+					/obj/item/clothing/under/victorian_dress = 1, //added 9-22-18
+					/obj/item/clothing/under/victorian_dress/red = 1, 
+					/obj/item/clothing/under/victorian_suit = 1,
+					/obj/item/clothing/under/victorian_suit/redblack = 1, 
+					/obj/item/clothing/under/victorian_suit/red = 1, 
+					/obj/item/clothing/suit/tailcoat = 1, 
+					/obj/item/clothing/suit/victorian_coat = 1, 
+					/obj/item/clothing/suit/victorian_coat/red = 1)
 	contraband = list(/obj/item/clothing/under/syndicate/tacticool = 1,
 		              /obj/item/clothing/mask/balaclava = 1,
 		              /obj/item/clothing/head/ushanka = 1,
@@ -114,8 +119,4 @@
 		           /obj/item/clothing/under/pants/mustangjeans = 1,
 		           /obj/item/clothing/neck/necklace/dope = 3,
 		           /obj/item/clothing/suit/jacket/letterman_nanotrasen = 1)
-	refill_canister = /obj/item/vending_refill/clothing*/
-
-/obj/item/vending_refill/clothing
-	machine_name = "ClothesMate"
-	icon_state = "refill_clothes"
+	refill_canister = /obj/item/vending_refill/clothing
