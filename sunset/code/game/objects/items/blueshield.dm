@@ -4,8 +4,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	icon = 'sunset/icons/obj/storage.dmi'
 	icon_state = "blu-wrapped"
-	var/list/options = list(".38 Mars Special Revolver" = /obj/item/storage/box/blueshield/revolver,
-	".45 Enforcer Semi Automatic Pistol" = /obj/item/storage/box/blueshield/enforcer,
+	var/list/options = list(".45 Enforcer Semi Automatic Pistol" = /obj/item/storage/box/blueshield/enforcer,
 	"Aegis SG7 Laser Gun" = /obj/item/storage/box/blueshield/laser)
 
 /obj/item/blueshield_gun_package/attack_self(mob/user)
@@ -33,14 +32,6 @@
 
 /obj/item/storage/box/blueshield/laser/PopulateContents()
 	new /obj/item/gun/energy/e_gun/blueshield(src)
-
-/obj/item/storage/box/blueshield/revolver //go and die please
-	name = "Blueshield Equipment (.38 Mars Special revolver)"
-
-/obj/item/storage/box/blueshield/revolver/PopulateContents()
-	new /obj/item/gun/ballistic/revolver/detective(src)
-	new /obj/item/ammo_box/c38(src)
-	new /obj/item/ammo_box/c38(src)
 
 /obj/item/storage/box/blueshield/enforcer
 	name = "Blueshield Equipment (.45 Enforcer semi automatic pistol)"

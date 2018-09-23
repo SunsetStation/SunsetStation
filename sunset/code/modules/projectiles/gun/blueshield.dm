@@ -1,13 +1,13 @@
 /obj/item/gun/energy/e_gun/blueshield
 	name = "advanced stun revolver"
-	desc = "An advanced stun revolver with the capacity to shoot both electrodes and lasers."
+	desc = "An advanced stun revolver with the capacity to shoot both disablers and lasers."
 	icon = 'sunset/icons/obj/guns/energy.dmi'
+	cell_type = /obj/item/stock_parts/cell{charge = 750; maxcharge = 750}
 	icon_state = "bsgun"
 	item_state = "gun"
 	force = 7
-	ammo_type = list(/obj/item/ammo_casing/energy/electrode/hos, /obj/item/ammo_casing/energy/laser/hos)
+	ammo_type = list(/obj/item/ammo_casing/energy/disabler, /obj/item/ammo_casing/energy/laser/hos)
 	ammo_x_offset = 1
-
 
 //ENFORCER
 /obj/item/gun/ballistic/automatic/pistol/enforcer
