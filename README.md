@@ -81,9 +81,10 @@ https://github.com/tgstation/tgstation-server
 
 ## MAPS
 
-Sunsetstation currently comes equipped with four maps.
+SunsetStation currently comes equipped with five maps.
 
-* [BoxStation (default)](http://tgstation13.org/wiki/Boxstation)
+* NSS Sunset (default)
+* [BoxStation](http://tgstation13.org/wiki/Boxstation)
 * [MetaStation](https://tgstation13.org/wiki/MetaStation)
 * [DeltaStation](https://tgstation13.org/wiki/DeltaStation)
 * [PubbyStation](https://tgstation13.org/wiki/PubbyStation)

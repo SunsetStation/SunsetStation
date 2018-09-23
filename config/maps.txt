@@ -27,9 +27,6 @@ map nss-sunset
 	#voteweight 0.5
 endmap
 
-map pubbystation
-endmap
-
 map deltastation
 	minplayers 50
 endmap
