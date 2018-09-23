@@ -23,3 +23,8 @@
 
 /area/security/sunset/storage
 	name = "Security Storage"
+	icon_state = "red"
+
+/area/sunset/blueshield
+	name = "Blueshield Office"
+	icon_state = "blueold"
