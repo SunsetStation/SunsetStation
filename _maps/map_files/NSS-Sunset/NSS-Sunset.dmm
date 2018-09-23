@@ -4456,9 +4456,27 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/bar,
-/mob/living/simple_animal/hostile/poison/giant_spider{
-	aggro_vision_range = 0;
-	name = "Sergant Aranius"
+/mob/living/simple_animal/hostile/retaliate/bat{
+	desc = "A fierce companion for any person of power, this spider has been carefully trained by Nanotrasen specialists. Its beady, staring eyes send shivers down your spine.";
+	emote_hear = list("chitters");
+	faction = list("spiders");
+	harm_intent_damage = 3;
+	health = 200;
+	icon_dead = "guard_dead";
+	icon_gib = "guard_dead";
+	icon_living = "guard";
+	icon_state = "guard";
+	max_co2 = 5;
+	max_tox = 2;
+	maxHealth = 250;
+	melee_damage_lower = 15;
+	melee_damage_upper = 20;
+	min_oxy = 5;
+	name = "Sergeant Araneus";
+	real_name = "Sergeant Araneus";
+	movement_type = 1;
+	response_help = "pets";
+	turns_per_move = 10
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/security/sunset/storage)
@@ -11643,7 +11661,6 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
-/obj/structure/window/reinforced,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "axd" = (
@@ -11666,7 +11683,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/red,
-/obj/structure/window/reinforced,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "axf" = (
@@ -12878,10 +12894,6 @@
 /area/security/sunset/genpop/visitation)
 "azG" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/structure/window/reinforced{
-	dir = 1;
-	layer = 2.9
-	},
 /obj/structure/table,
 /obj/item/storage/box/cups,
 /turf/open/floor/plasteel,
@@ -80851,10 +80863,6 @@
 	},
 /area/maintenance/starboard/fore)
 "dCj" = (
-/obj/structure/window/reinforced{
-	dir = 1;
-	layer = 2.9
-	},
 /obj/structure/reagent_dispensers/water_cooler,
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/plasteel,
@@ -80895,9 +80903,6 @@
 	},
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
-	},
-/obj/structure/window/reinforced{
-	dir = 1
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/fore)
@@ -81662,7 +81667,6 @@
 /turf/open/floor/mineral/plastitanium,
 /area/security/sunset/storage)
 "eOP" = (
-/obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/shreds,
 /turf/open/floor/plasteel,
@@ -84035,10 +84039,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 8
 	},
-/obj/structure/window/reinforced{
-	dir = 1;
-	layer = 2.9
-	},
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/security/sunset/genpop/visitation)
@@ -84950,7 +84950,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/red,
-/obj/structure/window/reinforced,
 /turf/open/floor/plasteel,
 /area/security/brig)
 "xwG" = (
