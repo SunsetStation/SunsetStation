@@ -37,7 +37,7 @@
 /obj/item/gun/energy/decloner/update_icon()
 	..()
 	var/obj/item/ammo_casing/energy/shot = ammo_type[select]
-	if(cell.charge > shot.e_cost)
+	if(!QDELETED(cell) && (cell.charge > shot.e_cost))
 		add_overlay("decloner_spin")
 
 /obj/item/gun/energy/floragun
@@ -165,13 +165,6 @@
 // Can we weld? Plasma cutter does not use charge continuously.
 // Amount cannot be defaulted to 1: most of the code specifies 0 in the call.
 /obj/item/gun/energy/plasmacutter/tool_use_check(mob/living/user, amount)
-<<<<<<< HEAD
-	if(cell.charge >= amount * 100)
-		return TRUE
-
-	to_chat(user, "<span class='warning'>You need more charge to complete this task!</span>")
-	return FALSE
-=======
 	if(QDELETED(cell))
 		to_chat(user, "<span class='warning'>[src] does not have a cell, and cannot be used!</span>")
 		return FALSE
@@ -183,7 +176,6 @@
 		return FALSE
 
 	return TRUE
->>>>>>> 751e7c71b7... Fixes plasma cutters not using charge when used as welder, and adds flashing (#40423)
 
 /obj/item/gun/energy/plasmacutter/use(amount)
 	return (!QDELETED(cell) && cell.use(amount ? amount * charge_weld : charge_weld))
