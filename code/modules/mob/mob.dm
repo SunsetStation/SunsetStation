@@ -49,7 +49,7 @@
 			if(HUD_LIST_LIST)
 				hud_list[hud] = list()
 			else
-				var/image/I = image('icons/mob/hud.dmi', src, "")
+				var/image/I = image('sunset/icons/mob/hud.dmi', src, "") // sunset -- use our own hud.dmi to avoid conflicts
 				I.appearance_flags = RESET_COLOR|RESET_TRANSFORM
 				hud_list[hud] = I
 
