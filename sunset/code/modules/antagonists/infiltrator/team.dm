@@ -69,18 +69,14 @@
 /datum/team/infiltrator/proc/forge_single_objective() // Complete traitor copypasta!
 	if(prob(50))
 		if(prob(30))
-			var/datum/objective/maroon/maroon_objective = new
-			add_objective(maroon_objective)
+			add_objective(/datum/objective/maroon)
 		else
-			var/datum/objective/assassinate/kill_objective = new
-			add_objective(kill_objective)
+			add_objective(/datum/objective/assassinate)
 	else
 		if(prob(15) && !(locate(/datum/objective/download) in objectives))
-			var/datum/objective/download/download_objective = new
-			add_objective(download_objective)
+			add_objective(/datum/objective/download)
 		else
-			var/datum/objective/steal/steal_objective = new
-			add_objective(steal_objective)
+			add_objective(/datum/objective/steal)
 
 /datum/team/infiltrator/proc/get_result()
 	var/objectives_complete = 0
