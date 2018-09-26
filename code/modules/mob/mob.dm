@@ -49,7 +49,7 @@
 			if(HUD_LIST_LIST)
 				hud_list[hud] = list()
 			else
-				var/image/I = image('icons/mob/hud.dmi', src, "")
+				var/image/I = image('sunset/icons/mob/hud.dmi', src, "") // sunset -- use our own hud.dmi to avoid conflicts
 				I.appearance_flags = RESET_COLOR|RESET_TRANSFORM
 				hud_list[hud] = I
 
@@ -514,7 +514,7 @@
 	if(statpanel("Status"))
 		if (client)
 			stat(null, "Ping: [round(client.lastping, 1)]ms (Average: [round(client.avgping, 1)]ms)")
-		stat(null, "Map: [SSmapping.config.map_name]")
+		stat(null, "Map: [SSmapping.config?.map_name || "Loading..."]")
 		var/datum/map_config/cached = SSmapping.next_map_config
 		if(cached)
 			stat(null, "Next Map: [cached.map_name]")
@@ -812,7 +812,7 @@
 		replace_identification_name(oldname,newname)
 
 		for(var/datum/mind/T in SSticker.minds)
-			for(var/datum/objective/obj in T.objectives)
+			for(var/datum/objective/obj in T.get_all_objectives())
 				// Only update if this player is a target
 				if(obj.target && obj.target.current && obj.target.current.real_name == name)
 					obj.update_explanation_text()

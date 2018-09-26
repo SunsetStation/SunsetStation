@@ -56,7 +56,6 @@ GLOBAL_LIST_EMPTY(PDAs)
 	var/last_everyone //No text for everyone spamming
 	var/last_noise //Also no honk spamming that's bad too
 	var/ttone = "beep" //The ringtone!
-	var/lock_code = "" // Lockcode to unlock uplink
 	var/honkamt = 0 //How many honks left when infected with honk.exe
 	var/mimeamt = 0 //How many silence left when infected with mime.exe
 	var/note = "Congratulations, your station has chosen the Thinktronic 5230 Personal Data Assistant!" //Current note in the notepad function
@@ -175,6 +174,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		return attack_self(M)
 	return ..()
 
+/* sunset -- ensure old UI doesn't show
 /obj/item/pda/interact(mob/user)
 	if(!user.IsAdvancedToolUser())
 		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
@@ -373,7 +373,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		dat = replacetext(dat, "text-decoration:underline", "text-decoration:none")
 
 	user << browse(dat, "window=pda;size=400x450;border=1;can_resize=1;can_minimize=0")
-	onclose(user, "pda", src)
+	onclose(user, "pda", src)*/
 
 /obj/item/pda/Topic(href, href_list)
 	..()
@@ -732,6 +732,8 @@ GLOBAL_LIST_EMPTY(PDAs)
 	remove_pen()
 
 /obj/item/pda/proc/toggle_light()
+	if(issilicon(usr) || !usr.canUseTopic(src, BE_CLOSE))
+		return
 	if(fon)
 		fon = FALSE
 		set_light(0)

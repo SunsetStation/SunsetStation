@@ -1,7 +1,6 @@
 #define MIN_POWER_DRAIN 25000000
 #define MAX_POWER_DRAIN 100000000
 
-GLOBAL_LIST_INIT(minor_infiltrator_objectives, list(/datum/objective/assassinate, /datum/objective/steal, /datum/objective/download))
 GLOBAL_LIST_INIT(infiltrator_kidnap_areas, typecacheof(list(/area/shuttle/sunset/stealthcruiser, /area/sunset/infiltrator_base)))
 
 /datum/objective/infiltrator
@@ -38,9 +37,9 @@ GLOBAL_LIST_INIT(infiltrator_kidnap_areas, typecacheof(list(/area/shuttle/sunset
 /datum/objective/infiltrator/exploit/check_completion()
 	if(!target)
 		return LAZYLEN(get_antag_minds(/datum/antagonist/hijacked_ai))
-	if(isAI(target))
-		var/mob/living/silicon/ai/A = target
-		return A && A.mind && A.mind.has_antag_datum(/datum/antagonist/hijacked_ai)
+	if(istype(target, /datum/mind))
+		var/datum/mind/M = target
+		return M && M.has_antag_datum(/datum/antagonist/hijacked_ai)
 	return FALSE
 
 

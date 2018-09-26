@@ -255,6 +255,7 @@
 		add_overlay("can-open")
 	if(update & CONNECTED)
 		add_overlay("can-connector")
+	/* sunset -- use our overlays
 	if(update & LOW)
 		add_overlay("can-o0")
 	else if(update & MEDIUM)
@@ -262,7 +263,7 @@
 	else if(update & FULL)
 		add_overlay("can-o2")
 	else if(update & DANGER)
-		add_overlay("can-o3")
+		add_overlay("can-o3")*/
 #undef HOLDING
 #undef CONNECTED
 #undef EMPTY
@@ -480,6 +481,7 @@
 		if("eject")
 			if(holding)
 				if(valve_open)
+					message_admins("[ADMIN_LOOKUPFLW(usr)] removed [holding] from [src] with valve still open at [ADMIN_VERBOSEJMP(src)] releasing contents into the <span class='boldannounce'>air</span><br>.")
 					investigate_log("[key_name(usr)] removed the [holding], leaving the valve open and transferring into the <span class='boldannounce'>air</span><br>", INVESTIGATE_ATMOS)
 				holding.forceMove(get_turf(src))
 				holding = null
