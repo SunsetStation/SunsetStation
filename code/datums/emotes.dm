@@ -21,6 +21,7 @@
 	var/list/mob_type_ignore_stat_typecache
 	var/stat_allowed = CONSCIOUS
 	var/static/list/emote_list = list()
+	var/message_vox = "" // Message to display if the user is a vox sunset
 
 /datum/emote/New()
 	if(key_third_person)
@@ -98,6 +99,8 @@
 		. = message_monkey
 	else if(isanimal(user) && message_simple)
 		. = message_simple
+	else if(isvox(user) && message_vox)//sunset message vox
+		. = message_vox
 
 /datum/emote/proc/select_param(mob/user, params)
 	return replacetext(message_param, "%t", params)

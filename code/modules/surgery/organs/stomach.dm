@@ -66,3 +66,12 @@
 	name = "digestive crystal"
 	icon_state = "stomach-p"
 	desc = "A strange crystal that is responsible for metabolizing the unseen energy force that feeds plasmamen."
+
+/obj/item/organ/stomach/vox//something causing issues with sunset organs stomach vox, this is a temporary placeholder
+	name = "vox stomach"
+	icon_state = "stomach-vox"
+	desc = "A vox stomach. If the mere concept wasn't disgusting enough, it appears to have metal components grown into it."
+	status = ORGAN_ROBOTIC
+
+/obj/item/organ/stomach/vox/emp_act()
+	owner.adjust_disgust(10)

@@ -161,22 +161,22 @@ Detective
 	l_pocket = /obj/item/toy/crayon/white
 	r_pocket = /obj/item/lighter
 	backpack_contents = list(/obj/item/storage/box/evidence=1,\
-		/obj/item/detective_scanner=1,\
+		/obj/item/detective_scanner=1,
+		/obj/item/storage/fancy/cigarettes=1, //sunset vox port
 		/obj/item/melee/classic_baton=1)
-	mask = /obj/item/clothing/mask/cigarette
 
 	implants = list(/obj/item/implant/mindshield)
 
 	chameleon_extras = list(/obj/item/gun/ballistic/revolver/detective, /obj/item/clothing/glasses/sunglasses)
 
-/datum/outfit/job/detective/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	..()
-	var/obj/item/clothing/mask/cigarette/cig = H.wear_mask
-	if(istype(cig)) //Some species specfic changes can mess this up (plasmamen)
-		cig.light("")
+// /datum/outfit/job/detective/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE) Sunset vox merge
+//	..()
+//	var/obj/item/clothing/mask/cigarette/cig = H.wear_mask
+//	if(istype(cig)) //Some species specfic changes can mess this up (plasmamen)
+//		cig.light("")
 
-	if(visualsOnly)
-		return
+//	if(visualsOnly)
+//		return
 
 /*
 Security Officer
