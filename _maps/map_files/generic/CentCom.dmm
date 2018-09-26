@@ -10287,6 +10287,10 @@
 /obj/item/toy/cards/deck,
 /turf/open/floor/carpet,
 /area/wizard_station)
+"wR" = (
+/obj/effect/spawner/template/infiltrator,
+/turf/open/space/basic,
+/area/space)
 "wV" = (
 /obj/machinery/computer/telecrystals/boss{
 	dir = 1
@@ -54511,7 +54515,7 @@ aa
 aa
 aa
 aa
-aa
+wR
 aa
 aa
 aa
