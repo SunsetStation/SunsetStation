@@ -295,7 +295,7 @@ IF YOU MODIFY THE PRODUCTS LIST OF A MACHINE, MAKE SURE TO UPDATE ITS RESUPPLY C
 			return
 	return ..()
 
-/obj/machinery/vending/ui_interact(mob/user)
+/*/obj/machinery/vending/ui_interact(mob/user) disabled to not interfer with changes
 	var/onstation = FALSE
 	if(SSmapping.level_trait(z, ZTRAIT_STATION))
 		onstation = TRUE
@@ -358,7 +358,7 @@ IF YOU MODIFY THE PRODUCTS LIST OF A MACHINE, MAKE SURE TO UPDATE ITS RESUPPLY C
 	var/datum/browser/popup = new(user, "vending", (name))
 	popup.set_content(dat)
 	popup.set_title_image(user.browse_rsc_icon(icon, icon_state))
-	popup.open()
+	popup.open()*/
 
 /obj/machinery/vending/Topic(href, href_list)
 	if(..())
@@ -468,7 +468,12 @@ IF YOU MODIFY THE PRODUCTS LIST OF A MACHINE, MAKE SURE TO UPDATE ITS RESUPPLY C
 		use_power(5)
 		if(icon_vend) //Show the vending animation if needed
 			flick(icon_vend,src)
-		new R.product_path(get_turf(src))
+		var/vended = new R.product_path(get_turf(src))
+		if(usr.can_put_in_hands(vended))
+			usr.put_in_hands(vended)
+			to_chat(usr, "<span class='notice'>You take the [R.name] out of the slot.</span>")
+		else
+			to_chat(usr, "<span class='warning'>The [R.name] falls onto the floor!</span>")
 		R.amount--
 		SSblackbox.record_feedback("nested tally", "vending_machine_usage", 1, list("[type]", "[R.product_path]"))
 		vend_ready = 1
