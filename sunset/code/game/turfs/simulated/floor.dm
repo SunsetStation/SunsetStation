@@ -1,2 +1,2 @@
 /turf/open/floor/engine
-	icon = 'sunset/icons/turf/floors.dm'
+	icon = 'sunset/icons/turf/floors.dmi'
