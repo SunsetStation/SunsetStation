@@ -468,12 +468,14 @@ IF YOU MODIFY THE PRODUCTS LIST OF A MACHINE, MAKE SURE TO UPDATE ITS RESUPPLY C
 		use_power(5)
 		if(icon_vend) //Show the vending animation if needed
 			flick(icon_vend,src)
+		// sunset start
 		var/vended = new R.product_path(get_turf(src))
 		if(usr.can_put_in_hands(vended))
 			usr.put_in_hands(vended)
 			to_chat(usr, "<span class='notice'>You take the [R.name] out of the slot.</span>")
 		else
 			to_chat(usr, "<span class='warning'>The [R.name] falls onto the floor!</span>")
+		// sunset end
 		R.amount--
 		SSblackbox.record_feedback("nested tally", "vending_machine_usage", 1, list("[type]", "[R.product_path]"))
 		vend_ready = 1
