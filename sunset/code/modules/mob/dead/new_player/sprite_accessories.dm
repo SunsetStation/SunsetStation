@@ -1,3 +1,6 @@
+/datum/sprite_accessory
+	var/limbs_id //sunset new species limbs
+
 // Vox Accessories
 /datum/sprite_accessory/vox_quills
 	icon = 'icons/mob/vox_accessories.dmi'

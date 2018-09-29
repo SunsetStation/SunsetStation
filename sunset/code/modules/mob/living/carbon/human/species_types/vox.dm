@@ -29,6 +29,7 @@
 	breathid = "n2"
 	damage_overlay_type = "vox"
 	exotic_bloodtype = "V"
+	limbs_id = "grnvox"
 /datum/species/vox/random_name(unique)
 	var/sounds = rand(2,8)
 	var/newname = ""

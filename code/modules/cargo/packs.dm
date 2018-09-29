@@ -121,9 +121,11 @@
 					/obj/item/tank/internals/emergency_oxygen,
 					/obj/item/tank/internals/emergency_oxygen,
 					/obj/item/tank/internals/emergency_oxygen,
-					/obj/item/tank/internals/emergency_oxygen/vox,	// sunset vox emergency oxygen tank
-					/obj/item/tank/internals/emergency_oxygen/vox,	// sunset vox emergency oxygen tank
-					/obj/item/tank/internals/emergency_oxygen/vox,	// sunset vox emergency oxygen tank
+					// sunset start
+					/obj/item/tank/internals/emergency_oxygen/vox,
+					/obj/item/tank/internals/emergency_oxygen/vox,
+					/obj/item/tank/internals/emergency_oxygen/vox,
+					// sunset stop
 					/obj/item/tank/internals/air,
 					/obj/item/tank/internals/air,
 					/obj/item/tank/internals/air)

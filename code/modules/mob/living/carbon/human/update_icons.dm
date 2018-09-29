@@ -129,20 +129,24 @@ There are several things that need to be remembered:
 		if(dna && dna.species.sexes)
 			var/G = (gender == FEMALE) ? "f" : "m"
 			if(G == "f" && U.fitted != NO_FEMALE_UNIFORM)
-				if(U.icon_override)//Done for vox and future species Sunset
+				// sunset start
+				if(U.icon_override)
 					uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = U.icon_override, femaleuniform = U.fitted)
 				else if(U.sprite_sheets && U.sprite_sheets[dna.species.name])
 					uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = U.sprite_sheets[dna.species.name], femaleuniform = U.fitted)
 				else
 					uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/uniform.dmi', femaleuniform = U.fitted)
+				// sunset stop
 
 		if(!uniform_overlay)
-			if(U.icon_override)//Done for vox and future species Sunset
+			// sunset start
+			if(U.icon_override)
 				uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = U.icon_override)
 			else if(U.sprite_sheets && U.sprite_sheets[dna.species.name])
 				uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = U.sprite_sheets[dna.species.name])
 			else
 				uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/uniform.dmi')
+			// sunset stop
 
 		if(OFFSET_UNIFORM in dna.species.offset_features)
 			uniform_overlay.pixel_x += dna.species.offset_features[OFFSET_UNIFORM][1]
@@ -205,6 +209,7 @@ There are several things that need to be remembered:
 		var/t_state = gloves.item_state
 		if(!t_state)
 			t_state = gloves.icon_state
+		// sunset start
 		var/image/standing
 
 		if(gloves.icon_override)
@@ -219,6 +224,7 @@ There are several things that need to be remembered:
 			gloves_overlay.pixel_x += dna.species.offset_features[OFFSET_GLOVES][1]
 			gloves_overlay.pixel_y += dna.species.offset_features[OFFSET_GLOVES][2]
 	overlays_standing[GLOVES_LAYER] = gloves_overlay
+	// sunset stop
 	apply_overlay(GLOVES_LAYER)
 
 
@@ -239,7 +245,8 @@ There are several things that need to be remembered:
 				client.screen += glasses				//Either way, add the item to the HUD
 		update_observer_view(glasses,1)
 		if(!(head && (head.flags_inv & HIDEEYES)) && !(wear_mask && (wear_mask.flags_inv & HIDEEYES)))
-			var/image/standing//vox and other species sunsetstation
+			// sunset start
+			var/image/standing
 			if(glasses.icon_override)
 				standing = glasses.build_worn_icon(state = glasses.icon_state, default_layer = GLASSES_LAYER, default_icon_file = glasses.icon_override)
 			else if(glasses.sprite_sheets && glasses.sprite_sheets[dna.species.name])
@@ -247,6 +254,7 @@ There are several things that need to be remembered:
 			else
 				standing = glasses.build_worn_icon(state = glasses.icon_state, default_layer = GLASSES_LAYER, default_icon_file = 'icons/mob/eyes.dmi')
 			overlays_standing[GLASSES_LAYER] = standing
+			// sunset stop
 
 		var/mutable_appearance/glasses_overlay = overlays_standing[GLASSES_LAYER]
 		if(glasses_overlay)
@@ -273,7 +281,8 @@ There are several things that need to be remembered:
 			if(hud_used.inventory_shown)			//if the inventory is open
 				client.screen += ears					//add it to the client's screen
 		update_observer_view(ears,1)
-		var/image/standing //vox and other species sunsetstation
+		// sunset start
+		var/image/standing
 		if(ears.icon_override)
 			standing = ears.build_worn_icon(state = ears.icon_state, default_layer = EARS_LAYER, default_icon_file = ears.icon_override)
 		else if(ears.sprite_sheets && ears.sprite_sheets[dna.species.name])
@@ -287,6 +296,7 @@ There are several things that need to be remembered:
 			ears_overlay.pixel_y += dna.species.offset_features[OFFSET_EARS][2]
 		overlays_standing[EARS_LAYER] = ears_overlay
 	apply_overlay(EARS_LAYER)
+		// sunset stop
 
 
 /mob/living/carbon/human/update_inv_shoes()
@@ -305,6 +315,7 @@ There are several things that need to be remembered:
 			if(hud_used.inventory_shown)			//if the inventory is open
 				client.screen += shoes					//add it to client's screen
 		update_observer_view(shoes,1)
+		// sunset start
 		var/image/standing
 
 		if(shoes.icon_override)
@@ -319,6 +330,7 @@ There are several things that need to be remembered:
 			shoes_overlay.pixel_x += dna.species.offset_features[OFFSET_SHOES][1]
 			shoes_overlay.pixel_y += dna.species.offset_features[OFFSET_SHOES][2]
 		overlays_standing[SHOES_LAYER] = shoes_overlay
+		// sunset stop
 
 	apply_overlay(SHOES_LAYER)
 
@@ -375,6 +387,7 @@ There are several things that need to be remembered:
 		var/t_state = belt.item_state
 		if(!t_state)
 			t_state = belt.icon_state
+			// sunset start
 		var/image/standing
 
 		if(belt.icon_override)
@@ -386,6 +399,7 @@ There are several things that need to be remembered:
 			standing = belt.build_worn_icon(state = "[t_state]", default_layer = BELT_LAYER, default_icon_file = 'icons/mob/belt.dmi')
 
 		overlays_standing[BELT_LAYER] = standing
+		// sunset stop
 		var/mutable_appearance/belt_overlay = overlays_standing[BELT_LAYER]
 		if(OFFSET_BELT in dna.species.offset_features)
 			belt_overlay.pixel_x += dna.species.offset_features[OFFSET_BELT][1]
@@ -409,6 +423,7 @@ There are several things that need to be remembered:
 			if(hud_used.inventory_shown)
 				client.screen += wear_suit
 		update_observer_view(wear_suit,1)
+		// sunset start
 		var/image/standing
 
 		if(wear_suit.icon_override)
@@ -417,6 +432,7 @@ There are several things that need to be remembered:
 			standing = wear_suit.build_worn_icon(state = wear_suit.icon_state, default_layer = SUIT_LAYER, default_icon_file = wear_suit.sprite_sheets[dna.species.name])
 		else
 			standing = wear_suit.build_worn_icon(state = wear_suit.icon_state, default_layer = SUIT_LAYER, default_icon_file = 'icons/mob/suit.dmi')
+			// sunset stop
 
 		overlays_standing[SUIT_LAYER] = standing
 		var/mutable_appearance/suit_overlay = overlays_standing[SUIT_LAYER]
