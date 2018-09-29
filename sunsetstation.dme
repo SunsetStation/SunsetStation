@@ -2709,7 +2709,6 @@
 #include "code\modules\vehicles\cars\car.dm"
 #include "code\modules\vehicles\cars\clowncar.dm"
 #include "code\modules\vending\_vending.dm"
-#include "sunset\code\modules\vending\_vending.dm"
 #include "code\modules\vending\assist.dm"
 #include "code\modules\vending\autodrobe.dm"
 #include "code\modules\vending\boozeomat.dm"
@@ -2831,5 +2830,6 @@
 #include "sunset\code\modules\projectiles\gun\blueshield.dm"
 #include "sunset\code\modules\shuttle\syndicate.dm"
 #include "sunset\code\modules\uplink\uplink_items.dm"
+#include "sunset\code\modules\vending\_vending.dm"
 #include "sunset\interface\interface.dm"
 // END_INCLUDE
