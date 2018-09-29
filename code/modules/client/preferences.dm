@@ -1103,7 +1103,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							ghost_others = GHOST_OTHERS_SIMPLE
 
 				if("name")
-					var/new_name = input(user, "Choose your character's name:", "Character Preference")  as text|null , pref_species.allow_numbers_in_name) //sunset --adds species preferences for ipc names
+					var/new_name = (input(user, "Choose your character's name:", "Character Preference")  as text|null, pref_species.allow_numbers_in_name) //sunset --adds species preferences for ipc names
 					if(new_name)
 						new_name = reject_bad_name(new_name)
 						if(new_name)

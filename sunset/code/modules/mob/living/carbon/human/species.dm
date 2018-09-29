@@ -18,8 +18,8 @@
 
 	var/should_have_brain = TRUE
 	var/should_have_heart = !(NOBLOOD in species_traits)
-	var/should_have_lungs = !(NOBREATH in species_traits)
-	var/should_have_appendix = !(NOHUNGER in species_traits)
+	var/should_have_lungs = !(TRAIT_NOBREATH in inherent_traits)
+	var/should_have_appendix = !(TRAIT_NOHUNGER in inherent_traits)
 	var/should_have_eyes = TRUE
 	var/should_have_ears = TRUE
 	var/should_have_tongue = TRUE
@@ -113,9 +113,9 @@
 
 /datum/species/proc/on_species_gain(mob/living/carbon/C, datum/species/old_species)
 	if(ROBOTIC_LIMBS in species_traits)
-			for(var/obj/item/bodypart/B in C.bodyparts)
-				B.change_bodypart_status(BODYPART_ROBOTIC) // Makes all Bodyparts robotic.
-				B.render_like_organic = TRUE
+		for(var/obj/item/bodypart/B in C.bodyparts)
+			B.change_bodypart_status(BODYPART_ROBOTIC) // Makes all Bodyparts robotic.
+			B.render_like_organic = TRUE
  	if(NOMOUTH in species_traits)
 		for(var/obj/item/bodypart/head/head in C.bodyparts)
 			head.mouth = FALSE

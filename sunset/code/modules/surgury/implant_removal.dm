@@ -1,5 +1,5 @@
 /datum/surgery/implant_removal
-	requires_organic_bodypart = null
+	
 	bodypart_types = BODYPART_ORGANIC
 
 /datum/surgery/implant_removal/robotic

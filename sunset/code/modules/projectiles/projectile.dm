@@ -1,4 +1,5 @@
-/obj/item/projectile/proc/on_hit(atom/target, blocked = FALSE)
+/obj/item/projectile/proc/on_hit_sunset(atom/target)
+var/mob/living/L = target
 	if(blocked != 100) // not completely blocked
 		if(damage && L.blood_volume && damage_type == BRUTE)
 			var/splatter_dir = dir
@@ -17,4 +18,3 @@
 					L.add_splatter_floor(target_loca)
 			else if(impact_effect_type)
 				new impact_effect_type(target_loca, target, src)
-		. = .. ()

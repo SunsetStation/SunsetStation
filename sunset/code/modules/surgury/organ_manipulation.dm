@@ -1,11 +1,12 @@
 /datum/surgery/organ_manipulation
-	requires_organic_bodypart = null
+
 	bodypart_types = BODYPART_ORGANIC
 
 /datum/surgery_step/manipulate_organs
 	implements = list(/obj/item/organ = 100, /obj/item/reagent_containers/food/snacks/organ = 0, /obj/item/organ_storage = 100, /obj/item/device/mmi = 100)
 	var/mend_the_incision = "mend the incision in"//so we can reuse the whole thing for robotic surgery
 	var/mends_the_incision = "mends the incision in"
+	var/implements_mend = list(/obj/item/cautery = 100, /obj/item/weldingtool = 70, /obj/item/lighter = 45, /obj/item/match = 20)
 
 
 /datum/surgery_step/manipulate_organs/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)

@@ -7,31 +7,29 @@
 	burnmod = 2 // Wiring doesn't hold up to fire well.
 	brutemod = 1.8 // Thin metal, cheap materials.
 	siemens_coeff = 1.5 // Overload!
-	species_traits = list(NOBREATH, NOBLOOD, RADIMMUNE, VIRUSIMMUNE, NOZOMBIE, EASYDISMEMBER, EASYLIMBATTACHMENT, NOPAIN, NO_BONES, NOTRANSSTING, MUTCOLORS, REVIVESBYHEALING, NOSCAN, NOCHANGELING, NOHUSK, ROBOTIC_LIMBS, NOMOUTH)
+	species_traits = list(NOBLOOD, NOZOMBIE, TRAIT_EASYDISMEMBER, TRAIT_LIMBATTACHMENT, NOTRANSSTING, MUTCOLORS, REVIVESBYHEALING, NOSCAN, NOCHANGELING, NOHUSK, ROBOTIC_LIMBS, NOMOUTH)
+	inherent_traits = list(TRAIT_NOBREATH, TRAIT_RADIMMUNE, TRAIT_VIRUSIMMUNE,)
 	mutant_organs = list(/obj/item/organ/cyberimp/arm/power_cord)
 	mutant_bodyparts = list("ipc_screen", "ipc_antenna", "ipc_chassis")
 	default_features = list("mcolor" = "#7D7D7D", "ipc_screen" = "Static", "ipc_antenna" = "None", "ipc_chassis" = "Morpheus Cyberkinetics(Greyscale)")
 	meat = /obj/item/stack/sheet/plasteel{amount = 5}
 	skinned_type = /obj/item/stack/sheet/metal{amount = 10}
-	male_scream_sound = 'sound/effects/mob_effects/goonstation/robot_scream.ogg'
-	female_scream_sound = 'sound/effects/mob_effects/goonstation/robot_scream.ogg'
-	male_cough_sound = 'sound/effects/mob_effects/machine_cough.ogg'
-	female_cough_sound = 'sound/effects/mob_effects/machine_cough.ogg'
-	male_sneeze_sound = 'sound/effects/mob_effects/machine_sneeze.ogg'
-	female_sneeze_sound = 'sound/effects/mob_effects/machine_sneeze.ogg'
+	var/sound/male_scream_sound = 'sunset/sound/effects/mob_effects/goonstation/robot_scream.ogg'
+	var/sound/female_scream_sound = 'sunset/sound/effects/mob_effects/goonstation/robot_scream.ogg'
+	var/sound/male_cough_sound = 'sunset/sound/effects/mob_effects/machine_cough.ogg'
+	var/sound/female_cough_sound = 'sunset/sound/effects/mob_effects/machine_cough.ogg'
+	var/sound/male_sneeze_sound = 'sunset/sound/effects/mob_effects/machine_sneeze.ogg'
+	var/sound/female_sneeze_sound = 'sunset/sound/effects/mob_effects/machine_sneeze.ogg'
 	mutanteyes = /obj/item/organ/eyes/robotic
 	mutanttongue = /obj/item/organ/tongue/robot
 	mutantliver = /obj/item/organ/liver/cybernetic/upgraded/ipc
 	mutantstomach = /obj/item/organ/stomach/cell
 	mutantears = /obj/item/organ/ears/robot
 	mutant_brain = /obj/item/organ/brain/mmi_holder/posibrain
-	examine_text = "an IPC"
-	species_text_color = "#2e2e2e"
 	reagent_tag = PROCESS_SYNTHETIC
 	species_gibs = "robotic"
 	attack_sound = 'sound/items/trayhit1.ogg'
 	allow_numbers_in_name = TRUE
-	ass_pic = "ipc"
 	var/datum/action/innate/change_screen/change_screen
 
 /datum/species/ipc/random_name(unique)

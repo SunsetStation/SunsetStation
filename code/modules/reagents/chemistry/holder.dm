@@ -265,7 +265,7 @@
 			continue
 		if(!C)
 			C = R.holder.my_atom
-		sunset_process_reagent() //Sunset -- process species reagent
+		sunset_process_reagent(C, R) //Sunset -- process species reagent
 		if(C && R)
 			if(C.reagent_check(R) != 1)
 				if(can_overdose)

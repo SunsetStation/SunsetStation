@@ -156,6 +156,7 @@
 	var/mob/living/L = target
 
 	if(blocked != 100) // not completely blocked
+		on_hit_sunset(target) //Sunset -- adds in ipc blood splatter
 		if(damage && L.blood_volume && damage_type == BRUTE)
 			var/splatter_dir = dir
 			if(starting)
