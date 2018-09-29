@@ -265,6 +265,7 @@
 			continue
 		if(!C)
 			C = R.holder.my_atom
+		sunset_process_reagent() //Sunset -- process species reagent
 		if(C && R)
 			if(C.reagent_check(R) != 1)
 				if(can_overdose)
@@ -511,6 +512,11 @@
 		var/datum/reagent/R = reagent
 		switch(react_type)
 			if("LIVING")
+				//sunset start
+				var/check = reaction_check(A, R)
+				if(!check)
+					continue
+				// sunset stop
 				var/touch_protection = 0
 				if(method == VAPOR)
 					var/mob/living/L = A
@@ -550,7 +556,7 @@
 	if(!D)
 		WARNING("[my_atom] attempted to add a reagent called '[reagent]' which doesn't exist. ([usr])")
 		return FALSE
-	
+
 	update_total()
 	var/cached_total = total_volume
 	if(cached_total + amount > maximum_volume)
@@ -594,9 +600,9 @@
 	if(data)
 		R.data = data
 		R.on_new(data)
-	
+
 	if(isliving(my_atom))
-		R.on_mob_add(my_atom) //Must occur befor it could posibly run on_mob_delete 
+		R.on_mob_add(my_atom) //Must occur befor it could posibly run on_mob_delete
 	update_total()
 	if(my_atom)
 		my_atom.on_reagent_change(ADD_REAGENT)

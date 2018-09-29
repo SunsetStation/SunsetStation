@@ -3,3 +3,6 @@
 		return TRUE
 	if(GLOB.text_filter_datum.yeet_check(message))
 		return TRUE
+
+/mob/proc/has_mouth()
+	return FALSE 

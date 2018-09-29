@@ -7,3 +7,6 @@
 
 /obj/item/organ/eyes/vox/emp_act()
 	owner.hallucination += 10
+
+/obj/item/organ/eyes/robotic
+	desc = "A very basic set of optical sensors with no extra vision modes or functions."

@@ -567,7 +567,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		else if ("wings" in mutant_bodyparts)
 			bodyparts_to_add -= "wings_open"
 	else
-		bodyparts_to_add -= handle_vox_bodyparts(H) // sunset -- adds vox bodyparts
+		bodyparts_to_add -= handle_sunset_bodyparts(H) // sunset -- adds vox bodyparts
 
 	//Digitigrade legs are stuck in the phantom zone between true limbs and mutant bodyparts. Mainly it just needs more agressive updating than most limbs.
 	var/update_needed = FALSE
@@ -637,7 +637,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 				if("caps")
 					S = GLOB.caps_list[H.dna.features["caps"]]
 				else
-					handle_vox_bodyparts_features(H, S) // sunset -- adds vox bodyparts
+					handle_sunset_bodyparts_features(H, S) // sunset -- adds vox bodyparts
 			if(!S || S.icon_state == "none")
 				continue
 
