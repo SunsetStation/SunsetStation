@@ -1,4 +1,5 @@
 
+
 /datum/preferences/proc/vox_preference_data(mob/user)
 	var/list/dat = list()
 	if("vox_body" in pref_species.mutant_bodyparts) //sunset vox bodyparts
@@ -73,3 +74,6 @@
 		new_vox_tail_markings = input(user, "Choose your character's tail markings", "Character Preference") as null|anything in GLOB.vox_tail_markings_list
 		if(new_vox_tail_markings)
 			features["vox_tail_markings"] = new_vox_tail_markings
+      
+/datum/preferences
+	clientfps = 60

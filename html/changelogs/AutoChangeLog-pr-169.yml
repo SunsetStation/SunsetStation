@@ -1,0 +1,4 @@
+author: "Bksparkie1"
+delete-after: True
+changes: 
+  - bugfix: "client and server fps so movement doesn't look so blocky"
