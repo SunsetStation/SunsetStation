@@ -3,5 +3,6 @@
 
 
 /datum/emote/select_message_type(mob/user)
+	. = ..()
 	if(isvox(user) && message_vox)//sunset message vox
 		. = message_vox
