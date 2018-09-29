@@ -17,6 +17,7 @@
 		/datum/language/beachbum,
 		/datum/language/ratvar,
 		/datum/language/aphasia,
+		/datum/language/voxpidgin,// sunset -- adds vox language to tongue
 	))
 
 /obj/item/organ/tongue/Initialize(mapload)
