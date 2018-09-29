@@ -101,7 +101,7 @@
 					/obj/item/clothing/under/victorian_suit/red = 1, 
 					/obj/item/clothing/suit/tailcoat = 1, 
 					/obj/item/clothing/suit/victorian_coat = 1, 
-					/obj/item/clothing/suit/victorian_coat/red = 1)
+					/obj/item/clothing/suit/victorian_coat/red = 1) // end
 	contraband = list(/obj/item/clothing/under/syndicate/tacticool = 1,
 		              /obj/item/clothing/mask/balaclava = 1,
 		              /obj/item/clothing/head/ushanka = 1,
