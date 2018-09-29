@@ -2840,5 +2840,6 @@
 #include "sunset\code\modules\research\server.dm"
 #include "sunset\code\modules\shuttle\syndicate.dm"
 #include "sunset\code\modules\uplink\uplink_items.dm"
+#include "sunset\code\modules\vending\_vending.dm"
 #include "sunset\interface\interface.dm"
 // END_INCLUDE
