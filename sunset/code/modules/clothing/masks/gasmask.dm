@@ -1,7 +1,7 @@
 /obj/item/clothing/mask/gas
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/mask.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/mask.dmi'
 		)
 
 

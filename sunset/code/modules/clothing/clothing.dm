@@ -57,52 +57,52 @@
 
 /obj/item/clothing/gloves
 	species_fit = list("Vox Outcast")
-	sprite_sheets = list("Vox Outcast" = 'icons/mob/species/vox/gloves.dmi')
+	sprite_sheets = list("Vox Outcast" = 'sunset/icons/mob/species/vox/gloves.dmi')
 
 
 /obj/item/clothing/head
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/head.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/head.dmi'
 		)
 
 
 /obj/item/clothing/mask
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/mask.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/mask.dmi'
 		)
 
 
 /obj/item/clothing/shoes
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/shoes.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/shoes.dmi'
 		)
 
 
 /obj/item/clothing/suit
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/suit.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/suit.dmi'
 		)
 
 
 /obj/item/clothing/head/helmet/space
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/helmet.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/helmet.dmi'
 		)
 
 
 /obj/item/clothing/suit/space
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/suit.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/suit.dmi'
 		)
 
 /obj/item/clothing/under
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/uniform.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/uniform.dmi'
 		)

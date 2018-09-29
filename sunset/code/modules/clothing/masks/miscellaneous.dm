@@ -1,14 +1,14 @@
 /obj/item/clothing/mask/muzzle
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/mask.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/mask.dmi'
 		)
 
 
 /obj/item/clothing/mask/surgical
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/mask.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/mask.dmi'
 		)
 
 
@@ -35,7 +35,7 @@
 /obj/item/clothing/mask/bandana
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/mask.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/mask.dmi'
 		)
 
 

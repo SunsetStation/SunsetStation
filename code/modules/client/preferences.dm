@@ -443,7 +443,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(mutant_category)
 				dat += "</td>"
 				mutant_category = 0
-			dat += vox_preference_data(user)
+			dat += vox_preference_data(user) // sunset -- adds vox preferences
 			dat += "</tr></table>"
 
 
@@ -1348,7 +1348,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						pda_color = pickedPDAColor
 
 				else
-					process_vox(user)
+					process_vox(user) // sunset -- adds vox preferences
 
 		else
 			switch(href_list["preference"])

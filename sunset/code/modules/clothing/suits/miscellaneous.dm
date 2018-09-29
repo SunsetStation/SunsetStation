@@ -1,21 +1,21 @@
 /obj/item/clothing/suit/bluetag
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/suit.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/suit.dmi'
 		)
 
 
 /obj/item/clothing/suit/redtag
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/suit.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/suit.dmi'
 		)
 
 
 /obj/item/clothing/suit/pirate
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/suit.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/suit.dmi'
 		)
 
 
@@ -30,7 +30,7 @@
 /obj/item/clothing/suit/poncho
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/suit.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/suit.dmi'
 		)
 
 
@@ -69,7 +69,7 @@
 /obj/item/clothing/suit/security/officer/russian
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/suit.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/suit.dmi'
 		)
 
 
@@ -80,7 +80,7 @@
 /obj/item/clothing/suit/jacket
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/suit.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/suit.dmi'
 		)
 
 
@@ -99,12 +99,12 @@
 /obj/item/clothing/suit/hooded/wintercoat
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/suit.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/suit.dmi'
 		)
 
 
 /obj/item/clothing/head/hooded/winterhood
 	species_fit = list("Vox Outcast")
 	sprite_sheets = list(
-		"Vox Outcast" = 'icons/mob/species/vox/suit.dmi'
+		"Vox Outcast" = 'sunset/icons/mob/species/vox/suit.dmi'
 		)

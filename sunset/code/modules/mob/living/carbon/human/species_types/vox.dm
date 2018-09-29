@@ -8,12 +8,12 @@
 	attack_verb = "slash"
 	attack_sound = 'sound/weapons/slash.ogg'
 	miss_sound = 'sound/weapons/slashmiss.ogg'
-	var/sound/male_scream_sound = 'sound/voice/shriek1.ogg'
-	var/sound/female_scream_sound = 'sound/voice/shriek1.ogg'
-	var/sound/male_cough_sound = 'sound/voice/shriekcough.ogg'
-	var/sound/female_cough_sound = 'sound/voice/shriekcough.ogg'
-	var/sound/male_sneeze_sound = 'sound/voice/shrieksneeze.ogg'
-	var/sound/female_sneeze_sound = 'sound/voice/shrieksneeze.ogg'
+	var/sound/male_scream_sound = 'sunset/sound/voice/shriek1.ogg'
+	var/sound/female_scream_sound = 'sunset/sound/voice/shriek1.ogg'
+	var/sound/male_cough_sound = 'sunset/sound/voice/shriekcough.ogg'
+	var/sound/female_cough_sound = 'sunset/sound/voice/shriekcough.ogg'
+	var/sound/male_sneeze_sound = 'sunset/sound/voice/shrieksneeze.ogg'
+	var/sound/female_sneeze_sound = 'sunset/sound/voice/shrieksneeze.ogg'
 	mutant_brain = /obj/item/organ/brain/cybernetic/vox // Brain damage on EMP
 	mutant_heart = /obj/item/organ/heart/vox
 	mutantliver = /obj/item/organ/liver/vox // Liver damage on EMP
@@ -36,13 +36,20 @@
 	for(var/i = 1; i <= sounds, i++)
 		newname += pick("ti","hi","ki","ya","ta","ha","ka","yi","chi","cha","kah")
 	return capitalize(newname)
+
 /datum/species/vox/on_species_gain(mob/living/carbon/C) // The body color choice feature
+	C.draw_sunset_parts()
 	. = ..()
 	var/vox_body = C.dna.features["vox_body"]
 	var/datum/sprite_accessory/vox_bodies/vox_body_of_choice = GLOB.vox_bodies_list[vox_body]
 	C.dna.species.limbs_id = vox_body_of_choice.limbs_id
 	C.dna.features["vox_tail"] = vox_body_of_choice.limbs_id // The tail has to match the bodytype
 	C.dna.features["vox_eyes"] = vox_body_of_choice.eye_type // Auroras have three eyes, so we have to swap that
+
+/datum/species/vox/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
+	C.draw_sunset_parts(TRUE)
+	. = ..()
+
 /datum/species/vox/after_equip_job(datum/job/J, mob/living/carbon/human/H) // Don't forget your voxygen tank
 	H.equip_to_slot_or_del(new /obj/item/clothing/mask/breath(H), SLOT_WEAR_MASK)
 	H.put_in_r_hand(new /obj/item/tank/internals/emergency_oxygen/vox(H))

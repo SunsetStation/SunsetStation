@@ -1,4 +1,5 @@
 /obj/item/organ/lungs/vox
+	icon = 'sunset/icons/obj/surgery.dmi'
 	name = "vox lungs"
 	icon_state = "lungs-vox"
 	desc = "A pair of very thin, very light lungs that the vox use to process nitrogen. There are small, silver circuits inlaid into the flesh."

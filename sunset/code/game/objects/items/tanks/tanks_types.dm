@@ -1,4 +1,5 @@
 /obj/item/tank/internals/emergency_oxygen/vox
+	icon = 'sunset/icons/obj/tank.dmi'
 	name = "vox n2 tank"
 	desc = "A vox nitrogen tank made of a strong, light weight alloy; this tank is capable of holding gasses at high pressures without exploding. Due to its light weight, don't expect to robust any dustlungs with it, skrek."
 	icon_state = "emergency_vox"
