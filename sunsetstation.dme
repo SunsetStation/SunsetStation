@@ -2823,6 +2823,8 @@
 #include "sunset\code\modules\client\preferences_toggles.dm"
 #include "sunset\code\modules\client\verbs\looc.dm"
 #include "sunset\code\modules\clothing\suits\blueshield.dm"
+#include "sunset\code\modules\clothing\suits\miscellaneous.dm"
+#include "sunset\code\modules\clothing\under\miscellaneous.dm"
 #include "sunset\code\modules\events\infiltrators.dm"
 #include "sunset\code\modules\jobs\access.dm"
 #include "sunset\code\modules\jobs\job_type\blueshield.dm"
@@ -2843,5 +2845,6 @@
 #include "sunset\code\modules\shuttle\syndicate.dm"
 #include "sunset\code\modules\uplink\uplink_items.dm"
 #include "sunset\code\modules\vending\_vending.dm"
+#include "sunset\code\modules\vending\clothesmate.dm"
 #include "sunset\interface\interface.dm"
 // END_INCLUDE
