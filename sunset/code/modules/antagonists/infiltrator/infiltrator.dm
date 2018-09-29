@@ -35,15 +35,16 @@
 	to_chat(owner, "<span class='notice'>You also have an internal radio, for communicating with your team-mates at all times.</span>")
 	to_chat(owner, "<span class='notice'>You have a dusting implant, to ensure that Nanotrasen does not get their hands on Syndicate gear. Only activate it, if you are compromised.</span>")
 	to_chat(owner, "<span class='notice bold'>Do NOT kill or destroy needlessly, as this defeats the purpose of an 'infiltration'!</span>")
+	to_chat(owner, "<span class='notice bold italics'>Once your objectives are complete, return to base with all living infiltrators!</span>")
 
 /datum/antagonist/infiltrator/on_gain()
 	var/mob/living/carbon/human/H = owner.current
 	if(istype(H))
 		if(dress_up)
 			H.set_species(/datum/species/human)
+			var/new_name = H.dna.species.random_name(H.gender, TRUE)
+			H.fully_replace_character_name(H.real_name, new_name)
 			H.equipOutfit(/datum/outfit/infiltrator)
-			H.real_name = H.dna.species.random_name(H.gender, TRUE)
-			owner.name = H.real_name
 		purrbation_remove(H, silent=TRUE)
 	owner.store_memory("Do <B>NOT</B> kill or destroy needlessly, as this defeats the purpose of an 'infiltration'!")
 	objectives |= infiltrator_team.objectives
