@@ -3,7 +3,7 @@
 
 // Vox Accessories
 /datum/sprite_accessory/vox_quills
-	icon = 'icons/mob/vox_accessories.dmi'
+	icon = 'sunset/icons/mob/vox_accessories.dmi'
 	color_src = HAIR
 /datum/sprite_accessory/vox_quills/none
 	name = "None"
@@ -51,7 +51,7 @@
 	name = "Nights"
 	icon_state = "nights"
 /datum/sprite_accessory/vox_facial_quills
-	icon = 'icons/mob/vox_accessories.dmi'
+	icon = 'sunset/icons/mob/vox_accessories.dmi'
 	color_src = FACEHAIR
 /datum/sprite_accessory/vox_facial_quills/none
 	name = "None"
@@ -94,7 +94,7 @@
 	limbs_id = "aurvox"
 	eye_type = "three_eyes"
 /datum/sprite_accessory/vox_eyes
-	icon = 'icons/mob/vox_accessories.dmi'
+	icon = 'sunset/icons/mob/vox_accessories.dmi'
 	color_src = EYECOLOR
 /datum/sprite_accessory/vox_eyes/two_eyes
 	name = "two_eyes"
@@ -103,7 +103,7 @@
 	name = "three_eyes"
 	icon_state = "three_eyes"
 /datum/sprite_accessory/vox_tails
-	icon = 'icons/mob/vox_accessories.dmi'
+	icon = 'sunset/icons/mob/vox_accessories.dmi'
 	color_src = 0
 /datum/sprite_accessory/vox_tails/grnvox
 	name = "grnvox"
@@ -130,7 +130,7 @@
 	name = "voxhusk"
 	icon_state = "voxhusk"
 /datum/sprite_accessory/vox_body_markings
-	icon = 'icons/mob/vox_accessories.dmi'
+	icon = 'sunset/icons/mob/vox_accessories.dmi'
 /datum/sprite_accessory/vox_body_markings/none
 	name = "None"
 	icon_state = "none"
@@ -147,7 +147,7 @@
 	name = "Tiger"
 	icon_state = "tiger"
 /datum/sprite_accessory/vox_tail_markings
-	icon = 'icons/mob/vox_accessories.dmi'
+	icon = 'sunset/icons/mob/vox_accessories.dmi'
 /datum/sprite_accessory/vox_tail_markings/none
 	name = "None"
 	icon_state = "none"
