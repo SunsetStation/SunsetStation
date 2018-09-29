@@ -6,7 +6,7 @@
 	icon_deny = "clothes-deny"
 	product_slogans = "Dress for success!;Prepare to look swagalicious!;Look at all this free swag!;Why leave style up to fate? Use the ClothesMate!"
 	vend_reply = "Thank you for using the ClothesMate!"
-	/*products = list(/obj/item/clothing/head/that = 2, //disabled to not interfere with other changes in sunset\code\modules\vending\clothesmate
+	products = list(/obj/item/clothing/head/that = 2, // Overridden in sunset/code/modules/vending/clothesmate.dm
 		            /obj/item/clothing/head/fedora = 1,
 		            /obj/item/clothing/glasses/monocle = 1,
 		            /obj/item/clothing/suit/jacket = 2,
@@ -114,8 +114,10 @@
 		           /obj/item/clothing/under/pants/mustangjeans = 1,
 		           /obj/item/clothing/neck/necklace/dope = 3,
 		           /obj/item/clothing/suit/jacket/letterman_nanotrasen = 1)
-	refill_canister = /obj/item/vending_refill/clothing*/
-
+	refill_canister = /obj/item/vending_refill/clothing
+	default_price = 50
+	extra_price = 75
+	payment_department = NO_FREEBIES
 /obj/item/vending_refill/clothing
 	machine_name = "ClothesMate"
 	icon_state = "refill_clothes"
