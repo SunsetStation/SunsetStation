@@ -14,6 +14,5 @@
 	return message
 
 /obj/item/organ/tongue/robot/emp_act(severity)
-	owner.apply_effect(STUTTER, 120)
 	owner.emote("scream")
 	to_chat(owner, "<span class='warning'>Alert: Vocal cords are malfunctioning.</span>")

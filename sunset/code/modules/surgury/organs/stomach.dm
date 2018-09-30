@@ -11,7 +11,6 @@
 /obj/item/organ/stomach/cell
 	name = "micro-cell"
 	icon_state = "microcell"
-	origin_tech = "engineering=2"
 	w_class = WEIGHT_CLASS_NORMAL
 	zone = "chest"
 	slot = "stomach"

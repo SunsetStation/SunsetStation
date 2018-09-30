@@ -27,6 +27,7 @@ GLOBAL_VAR(posibrain_notify_cooldown)
 	var/recharge_message = "<span class='warning'>The positronic brain isn't ready to activate again yet! Give it some time to recharge.</span>"
 	var/list/possible_names //If you leave this blank, it will use the global posibrain names
 	var/picked_name
+	var/silenced = FALSE //sunset -- IPCS if set to TRUE, they can't talk.
 
 /obj/item/mmi/posibrain/Topic(href, href_list)
 	if(href_list["activate"])
