@@ -396,7 +396,7 @@
 				limb.icon_state = "[species_id]_[body_zone]"
 				//sunset start sunset races
 		if(should_draw_sunset)
-			limb.icon = 'icons/mob/human_parts.dmi'
+			limb.icon = 'sunset/icons/mob/human_parts.dmi'
 			if(should_draw_gender)
 				limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
 			else
