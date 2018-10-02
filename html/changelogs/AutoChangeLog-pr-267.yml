@@ -1,0 +1,4 @@
+author: "sunset-bot"
+delete-after: True
+changes: 
+  - bugfix: "Wizards will no longer be stuck after using rod form while in a container"
