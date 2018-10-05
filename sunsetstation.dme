@@ -2756,7 +2756,6 @@
 #include "interface\menu.dm"
 #include "interface\stylesheet.dm"
 #include "interface\skin.dmf"
-#include "sunset\code\world.dm"
 #include "sunset\code\__HELPERS\_logging.dm"
 #include "sunset\code\__HELPERS\game.dm"
 #include "sunset\code\__HELPERS\global_lists.dm"
