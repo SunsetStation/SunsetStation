@@ -48,7 +48,7 @@
 											'sound/ambience/ambiruin5.ogg',  'sound/ambience/ambiruin6.ogg',  'sound/ambience/ambiruin7.ogg',\
 											'sound/ambience/ambidanger.ogg', 'sound/ambience/ambidanger2.ogg', 'sound/ambience/ambimaint1.ogg', 'sound/ambience/ambilava.ogg',\
 											'sound/ambience/ambiruin8.ogg', 'sound/ambience/ambiruin9.ogg', 'sound/ambience/ambiruin10.ogg', 'sound/ambience/ambiruin11.ogg',\
-											'sound/ambience/ambiruin12.ogg', 'sound/ambience/ambiruin13.ogg', 'sound/ambience/ambiruin14.ogg', 'sound/ambience/ambiruin15.ogg')
+											'sound/ambience/ambiruin12.ogg')
 
 #define MEDICAL list('sound/ambience/ambinice.ogg')
 
@@ -75,3 +75,19 @@
 	'sound/hallucinations/growl3.ogg', 'sound/hallucinations/im_here1.ogg', 'sound/hallucinations/im_here2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg',\
 	'sound/hallucinations/look_up1.ogg', 'sound/hallucinations/look_up2.ogg', 'sound/hallucinations/over_here1.ogg', 'sound/hallucinations/over_here2.ogg', 'sound/hallucinations/over_here3.ogg',\
 	'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg', 'sound/hallucinations/veryfar_noise.ogg', 'sound/hallucinations/wail.ogg')
+
+//**********CREDITS************************************
+//
+// Each song was taken from the Youtube Audio Library
+//
+// ambiruin8 - A Singular Perversion to Darkness by Kevin MacLeod
+// ambispace3 - At Rest Romance by Kevin MacLeod
+// title3 - Cylinder Six by Chris Zabriskie
+// title1 - Fender Bender by Bad Snacks
+// ambiruin9 - Fresno Alley by Josh Lippi & The Overtimers
+// ambiruin10 - Gloom Horizon by Kevin MacLeod
+// ambispace4 - Impact Lento by Kevin MacLeod
+// ambiruin11 - Impromptu in Blue by Kevin MacLeod
+// ambiruin12 - Industrial Revolution by Kevin MacLeod
+// title2 - Tape Deck by Endless Love
+// ***************************************************
