@@ -1,0 +1,4 @@
+author: "sunset-bot"
+delete-after: True
+changes: 
+  - tweak: "you can now choose your instrument as musician"
