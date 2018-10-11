@@ -155,10 +155,10 @@
 	armrest = GetArmrest()
 	armrest.layer = ABOVE_MOB_LAYER
 	return ..()
-
+/* Commented out due to duplication conflicts with the sunset modularized version
 /obj/structure/chair/comfy/proc/GetArmrest()
 	return mutable_appearance('icons/obj/chairs.dmi', "comfychair_armrest")
-
+*/
 /obj/structure/chair/comfy/Destroy()
 	QDEL_NULL(armrest)
 	return ..()
