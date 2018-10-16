@@ -16,6 +16,9 @@ Clown
 
 	access = list(ACCESS_THEATRE)
 	minimal_access = list(ACCESS_THEATRE)
+	paycheck = PAYCHECK_MINIMAL
+	paycheck_department = ACCOUNT_SRV
+
 
 /datum/job/clown/after_spawn(mob/living/carbon/human/H, mob/M)
 	H.apply_pref_name("clown", M.client)
@@ -79,6 +82,9 @@ Mime
 
 	access = list(ACCESS_THEATRE)
 	minimal_access = list(ACCESS_THEATRE)
+	paycheck = PAYCHECK_MINIMAL
+	paycheck_department = ACCOUNT_SRV
+
 
 /datum/job/mime/after_spawn(mob/living/carbon/human/H, mob/M)
 	H.apply_pref_name("mime", M.client)
@@ -129,6 +135,9 @@ Curator
 
 	access = list(ACCESS_LIBRARY)
 	minimal_access = list(ACCESS_LIBRARY, ACCESS_CONSTRUCTION,ACCESS_MINING_STATION)
+	paycheck = PAYCHECK_EASY
+	paycheck_department = ACCOUNT_CIV
+
 
 /datum/outfit/job/curator
 	name = "Curator"
@@ -141,7 +150,7 @@ Curator
 	l_pocket = /obj/item/laser_pointer
 	accessory = /obj/item/clothing/accessory/pocketprotector/full
 	backpack_contents = list(
-		/obj/item/melee/curator_whip = 1,
+		/obj/item/herobeacon = 1,
 		/obj/item/soapstone = 1,
 		/obj/item/barcodescanner = 1
 	)
@@ -173,6 +182,9 @@ Lawyer
 
 	access = list(ACCESS_LAWYER, ACCESS_COURT, ACCESS_SEC_DOORS)
 	minimal_access = list(ACCESS_LAWYER, ACCESS_COURT, ACCESS_SEC_DOORS)
+	paycheck = PAYCHECK_EASY
+	paycheck_department = ACCOUNT_CIV
+
 
 /datum/outfit/job/lawyer
 	name = "Lawyer"

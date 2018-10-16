@@ -41,14 +41,14 @@ WALK_DELAY 4
 
 ## The variables below affect the movement of specific mob types. THIS AFFECTS ALL SUBTYPES OF THE TYPE YOU CHOOSE!
 ## Entries completely override all subtypes. Later entries have precedence over earlier entries.
-## This means if you put /mob 0 on the last entry, it will null out all changes, while if you put /mob as the first entry and 
+## This means if you put /mob 0 on the last entry, it will null out all changes, while if you put /mob as the first entry and
 ## /mob/living/carbon/human on the last entry, the last entry will override the first.
-MULTIPLICATIVE_MOVESPEED /mob/living/carbon/human 1.5
-MULTIPLICATIVE_MOVESPEED /mob/living/silicon/robot 1.5
-MULTIPLICATIVE_MOVESPEED /mob/living/carbon/monkey 1.5
-MULTIPLICATIVE_MOVESPEED /mob/living/carbon/alien 1.5
-MULTIPLICATIVE_MOVESPEED /mob/living/simple_animal/slime 1.5
-MULTIPLICATIVE_MOVESPEED /mob/living/simple_animal 1.5
+MULTIPLICATIVE_MOVESPEED /mob/living/carbon/human 1.3
+MULTIPLICATIVE_MOVESPEED /mob/living/silicon/robot 1.3
+MULTIPLICATIVE_MOVESPEED /mob/living/carbon/monkey 1.3
+MULTIPLICATIVE_MOVESPEED /mob/living/carbon/alien 1.3
+MULTIPLICATIVE_MOVESPEED /mob/living/simple_animal/slime 1.3
+MULTIPLICATIVE_MOVESPEED /mob/living/simple_animal 1.3
 
 
 ## NAMES ###
@@ -117,6 +117,7 @@ CONTINUOUS CLOCKWORK_CULT
 CONTINUOUS CHANGELING
 CONTINUOUS WIZARD
 #CONTINUOUS MONKEY
+CONTINUOUS HIVEMIND
 
 ##Note: do not toggle continuous off for these modes, as they have no antagonists and would thus end immediately!
 
@@ -140,10 +141,10 @@ MIDROUND_ANTAG CHANGELING
 MIDROUND_ANTAG WIZARD
 #MIDROUND_ANTAG  MONKEY
 
-## Uncomment these for overrides of the minimum / maximum number of players in a round type. 
+## Uncomment these for overrides of the minimum / maximum number of players in a round type.
 ## If you set any of these occasionally check to see if you still need them as the modes
 ## will still be actively rebalanced around the SUGGESTED populations, not your overrides.
-## Notes: For maximum number of players a value of -1 means no maximum. Setting minimums to 
+## Notes: For maximum number of players a value of -1 means no maximum. Setting minimums to
 ## VERY low numbers (< 5) can lead to errors if the roundtypes were not designed for that.
 
 #MIN_POP TRAITOR 0
@@ -409,6 +410,7 @@ SILICON_MAX_LAW_AMOUNT 12
 
 ## You probably want humans on your space station, but technically speaking you can turn them off without any ill effect
 ROUNDSTART_RACES human
+ROUNDSTART_RACES vox
 
 ## Races that are strictly worse than humans that could probably be turned on without balance concerns
 ROUNDSTART_RACES lizard
@@ -536,3 +538,6 @@ ROUNDSTART_TRAITS
 
 ## A cap on how many monkeys may be created via monkey cubes
 MONKEYCAP 64
+
+## Enable the capitalist agenda on your server.
+ECONOMY
