@@ -1,7 +1,6 @@
 /datum/surgery/organ_manipulation/robotic
 	name = "robotic bodypart organ manipulation"
 	steps = list(/datum/surgery_step/unscrew, /datum/surgery_step/pry_off, /datum/surgery_step/manipulate_organs/robotic)
-	species = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
 	possible_locs = list("chest", "head", "groin", "eyes", "mouth", "l_arm", "r_arm")
 	bodypart_types = BODYPART_ROBOTIC
 /datum/surgery_step/manipulate_organs/robotic

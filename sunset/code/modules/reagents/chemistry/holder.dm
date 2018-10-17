@@ -11,7 +11,7 @@
 				can_process = TRUE
 
 	//If handle_reagents returns 0, it's doing the reagent removal on its own
-		var/species_handled = !(H.dna.species.handle_reagents(H, R))
+		var/species_handled = !(H.dna.species.handle_chemicals(H, R))
 		can_process = can_process && !species_handled
 	//If the mob can't process it, remove the reagent at it's normal rate without doing any addictions, overdoses, or on_mob_life() for the reagent
 		if(!can_process)

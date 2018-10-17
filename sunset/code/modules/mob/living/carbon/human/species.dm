@@ -34,15 +34,3 @@
 		for(var/O in bodyparts)
 			var/obj/item/bodypart/B = O
 			B.should_draw_sunset = FALSE
-
-/obj/item/bodypart/var/should_draw_sunset = FALSE
-
-/mob/living/carbon/proc/draw_sunset_parts(undo = FALSE)
-	if(!undo)
-		for(var/O in bodyparts)
-			var/obj/item/bodypart/B = O
-			B.should_draw_sunset = TRUE
-	else
-		for(var/O in bodyparts)
-			var/obj/item/bodypart/B = O
-			B.should_draw_sunset = FALSE
