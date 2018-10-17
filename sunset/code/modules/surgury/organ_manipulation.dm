@@ -3,7 +3,7 @@
 	bodypart_types = BODYPART_ORGANIC
 
 /datum/surgery_step/manipulate_organs
-	implements = list(/obj/item/organ = 100, /obj/item/reagent_containers/food/snacks/organ = 0, /obj/item/organ_storage = 100, /obj/item/device/mmi = 100)
+	implements = list(/obj/item/organ = 100, /obj/item/reagent_containers/food/snacks/organ = 0, /obj/item/organ_storage = 100, /obj/item/mmi = 100)
 	var/mend_the_incision = "mend the incision in"//so we can reuse the whole thing for robotic surgery
 	var/mends_the_incision = "mends the incision in"
 	var/implements_mend = list(/obj/item/cautery = 100, /obj/item/weldingtool = 70, /obj/item/lighter = 45, /obj/item/match = 20)
@@ -20,7 +20,7 @@
 			to_chat(user, "<span class='notice'>You cannot put [I] into [target]'s [parse_zone(target_zone)]!</span>")
 			return -1
 		tool = I
-	if(istype(tool, /obj/item/device/mmi))//this whole thing is only used for robotic surgery in organ_mani_robotic.dm :*
+	if(istype(tool, /obj/item/mmi))//this whole thing is only used for robotic surgery in organ_mani_robotic.dm :*
 		current_type = "posibrain"
 		var/obj/item/bodypart/affected = target.get_bodypart(check_zone(target_zone))
 		if(!affected)
@@ -36,7 +36,7 @@
 		if(target.internal_organs_slot["brain"])
 			to_chat(user, "<span class='notice'>[target] already has a brain! You'd rather not find out what would happen with two in there.</span>")
 			return -1
-		var/obj/item/device/mmi/P = tool
+		var/obj/item/mmi/P = tool
 		if(!istype(P))
 			return -1
 		if(!P.brainmob || !P.brainmob.client)

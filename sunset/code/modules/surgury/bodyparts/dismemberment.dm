@@ -1,8 +1,3 @@
-/obj/item/bodypart/chest/dismember()
-	if(status != BODYPART_ROBOTIC)
-		playsound(get_turf(C), 'sound/misc/splort.ogg', 80, 1)
-	. = .. ()
-
 /mob/living/carbon/regenerate_limb(limb_zone, noheal)
 	var/obj/item/bodypart/L
 	if(get_bodypart(limb_zone))

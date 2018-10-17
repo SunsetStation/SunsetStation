@@ -20,20 +20,9 @@
 					return
 	..()
 
-/obj/item/bodypart/proc/heal_damage(brute, burn, only_robotic = 0, only_organic = 1, updating_health = 1)
-
-	if(only_robotic && status != BODYPART_ROBOTIC) //This makes organic limbs not heal when the proc is in Robotic mode.
-		return
-
-	if(only_organic && status != BODYPART_ORGANIC) //This makes robolimbs not healable by chems.
-		return
-
-	brute_dam	= max(brute_dam - brute, 0)
-	burn_dam	= max(burn_dam - burn, 0)
-	if(owner && updating_health)
-		owner.updatehealth()
+/obj/item/bodypart/heal_damage(brute, burn, only_robotic = 0, only_organic = 1, updating_health = 1)
 	if(owner.dna && owner.dna.species && (REVIVESBYHEALING in owner.dna.species.species_traits))
 		if(owner.health > 0 && !owner.hellbound)
 			owner.revive(0)
 			owner.cure_husk(0) // If it has REVIVESBYHEALING, it probably can't be cloned. No husk cure.
-	return update_bodypart_damage_state()
+	. = ..()

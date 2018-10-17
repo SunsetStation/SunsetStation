@@ -109,7 +109,7 @@ datum/species/ipc/on_species_loss(mob/living/carbon/C)
 		to_chat(H, "<span class='warning'>You try to siphon energy from the [A], but your power cell is gone!</span>")
 		return
 
-	if(A.emagged || A.stat & BROKEN)
+	if(A.stat & EMAGGED || A.stat & BROKEN)
 		do_sparks(3, FALSE, A)
 		to_chat(H, "<span class='warning'>The [A] power currents surge erratically, damaging your chassis!</span>")
 		H.adjustFireLoss(10)

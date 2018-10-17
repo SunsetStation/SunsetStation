@@ -1,5 +1,5 @@
 // IPC Replacement Parts
- /datum/design/robotic_liver
+/datum/design/robotic_liver
 	name = "Substance Processor"
 	id = "robotic_liver"
 	build_type = MECHFAB
@@ -8,7 +8,7 @@
 	construction_time = 100
 	category = list("IPC Components")
 
- /datum/design/robotic_eyes
+/datum/design/robotic_eyes
 	name = "Basic Robotic Eyes"
 	id = "robotic_eyes"
 	build_type = MECHFAB
@@ -17,7 +17,7 @@
 	construction_time = 100
 	category = list("IPC Components")
 
- /datum/design/robotic_tongue
+/datum/design/robotic_tongue
 	name = "Robotic Voicebox"
 	id = "robotic_tongue"
 	build_type = MECHFAB
@@ -26,7 +26,7 @@
 	construction_time = 100
 	category = list("IPC Components")
 
- /datum/design/robotic_stomach
+/datum/design/robotic_stomach
 	name = "Micro-cell"
 	id = "robotic_stomach"
 	build_type = MECHFAB
@@ -35,7 +35,7 @@
 	construction_time = 100
 	category = list("IPC Components")
 
- /datum/design/robotic_ears
+/datum/design/robotic_ears
 	name = "Auditory Sensors"
 	id = "robotic_ears"
 	build_type = MECHFAB
@@ -44,11 +44,11 @@
 	construction_time = 100
 	category = list("IPC Components")
 
- /datum/design/power_cord
+/datum/design/power_cord
 	name = "Recharging Electronics"
 	id = "power_cord"
 	build_type = MECHFAB
 	build_path = /obj/item/organ/cyberimp/arm/power_cord
 	materials = list(MAT_METAL=2000, MAT_GLASS=1000)
 	construction_time = 100
-	category = list("IPC Components") 
+	category = list("IPC Components")
