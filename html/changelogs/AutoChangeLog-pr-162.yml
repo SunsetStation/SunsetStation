@@ -1,0 +1,6 @@
+author: "alexkar598"
+delete-after: True
+changes: 
+  - rscdel: "Removed the detective gun from the blueshield.
+tweak:The blueshield Aegis SG7 Laser Gun have seen a rework,it can now fire 15 disabler shot and 7 lethal shot."
+  - balance: "The blueshield access has been significantly reduced."
