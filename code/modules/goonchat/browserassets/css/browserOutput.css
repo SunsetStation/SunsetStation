@@ -273,11 +273,11 @@ em						{font-style: normal;	font-weight: bold;}
 .name					{					font-weight: bold;}
 
 .say					{}
-.deadsay				{color: #5c00e6;}
 .binarysay    			{color: #20c20e; background-color: #000000; display: block;}
 .binarysay a  			{color: #00ff00;}
 .binarysay a:active, .binarysay a:visited {color: #88ff88;}
 //sunset start
+.deadsay				{color: #5c00e6;}
 .radio					{color: #408010;}
 .sciradio				{color: #993399;}
 .comradio				{color: #204090;}
