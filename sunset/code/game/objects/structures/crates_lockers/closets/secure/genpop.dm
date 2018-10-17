@@ -90,7 +90,10 @@
 	return ..()
 
 /obj/structure/closet/secure_closet/genpop/attack_hand(mob/user)
-	if(user.lying && get_dist(src, user) > 0)
+	var/mob/living/carbon/C = user
+	if(!istype(C))
+		return
+	if(!(C.mobility_flags & MOBILITY_STAND) || get_dist(src, user) > 0)
 		return
 	if(!broken && registered_id && user.is_holding(registered_id))
 		handle_prisoner_id(user)

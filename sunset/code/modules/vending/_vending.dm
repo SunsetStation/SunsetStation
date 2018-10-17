@@ -40,12 +40,12 @@ GLOBAL_LIST_EMPTY(vending_machine_icon)
 			var/is_hidden = hidden_records.Find(R)
 			if(is_hidden && !extended_inventory)
 				continue
-			if(coin_records.Find(R) || is_hidden)
-				price_listed = "$[extra_price]"
 			if(R.custom_price)
 				price_listed = "$[R.custom_price]"
 			if(!onstation || account && account.account_job && account.account_job.paycheck_department == payment_department)
 				price_listed = "FREE"
+			if(coin_records.Find(R) || is_hidden)
+				price_listed = "$[extra_price]"
 			dat += "<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(R)]'/></td>"
 			dat += "<td><b>[sanitize(R.name)] ([price_listed])</b>:</td>"
 			dat += " <td><b>[R.amount]</b></td>"
