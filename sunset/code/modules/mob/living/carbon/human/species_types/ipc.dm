@@ -1,4 +1,5 @@
 /datum/species/ipc
+	limbs_id = "mcgipc"
 	name = "IPC"
 	id = "ipc"
 	say_mod = "states"
@@ -31,15 +32,14 @@
 	attack_sound = 'sound/items/trayhit1.ogg'
 	allow_numbers_in_name = TRUE
 	var/datum/action/innate/change_screen/change_screen
-	limbs_id = "bshipc"
 
 /datum/species/ipc/random_name(unique)
 	var/ipc_name = "[pick(GLOB.posibrain_names)]-[rand(100, 999)]"
 	return ipc_name
 
 /datum/species/ipc/on_species_gain(mob/living/carbon/C) // Let's make that IPC actually robotic.
-	C.draw_sunset_parts()
 	. = ..()
+	C.draw_sunset_parts()
 	var/obj/item/organ/appendix/appendix = C.getorganslot("appendix") // Easiest way to remove it.
 	appendix.Remove(C)
 	QDEL_NULL(appendix)
