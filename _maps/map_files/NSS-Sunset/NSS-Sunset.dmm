@@ -31920,12 +31920,14 @@
 /obj/structure/chair/office/dark{
 	dir = 8
 	},
+/obj/effect/landmark/start/blueshield,
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "bjb" = (
 /obj/structure/chair/office/dark{
 	dir = 1
 	},
+/obj/effect/landmark/start/blueshield,
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "bjc" = (
@@ -31938,12 +31940,14 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
+/obj/effect/landmark/start/blueshield,
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "bje" = (
 /obj/structure/chair/office/dark{
 	dir = 4
 	},
+/obj/effect/landmark/start/blueshield,
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "bjf" = (
@@ -33909,6 +33913,7 @@
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
 	},
+/obj/effect/landmark/start/blueshield,
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "bmI" = (
