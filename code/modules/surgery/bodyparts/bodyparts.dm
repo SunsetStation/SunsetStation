@@ -395,17 +395,34 @@
 			else
 				limb.icon_state = "[species_id]_[body_zone]"
 				//sunset start sunset races
-	if(should_draw_sunset)
-		limb.icon = 'sunset/icons/mob/human_parts.dmi'
-		if(should_draw_gender)
-			limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
-		else
-			limb.icon_state = "[species_id]_[body_zone]"
-				//sunset stop
+		if(should_draw_sunset)
+			limb.icon = 'sunset/icons/mob/human_parts.dmi'
+			if(should_draw_gender)
+				limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
+			else
+				limb.icon_state = "[species_id]_[body_zone]"
+							//sunset stop
 		if(aux_zone)
 			aux = image(limb.icon, "[species_id]_[aux_zone]", -aux_layer, image_dir)
 			. += aux
+	//sunset start
+	else if(BODYPART_ROBOTIC && render_like_organic == TRUE && (should_draw_sunset)) // So IPC augments can be colorful without disrupting normal BODYPART_ROBOTIC render code.
+		if(should_draw_greyscale)
+			limb.icon = 'sunset/icons/mob/human_parts_greyscale.dmi'
+			if(should_draw_gender)
+				limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
+			else if(use_digitigrade)
+				limb.icon_state = "digitigrade_[use_digitigrade]_[body_zone]"
+			else
+				limb.icon_state = "[species_id]_[body_zone]"
 
+		else
+			limb.icon = 'sunset/icons/mob/human_parts.dmi'
+			if(should_draw_gender)
+				limb.icon_state = "[species_id]_[body_zone]_[icon_gender]"
+			else
+				limb.icon_state = "[species_id]_[body_zone]"
+		//sunset stop
 	else
 		limb.icon = icon
 		if(should_draw_gender)
