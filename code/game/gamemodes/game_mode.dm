@@ -347,7 +347,6 @@
 	var/list/candidates = list()
 	var/list/drafted = list()
 	var/datum/mind/applicant = null
-	removes_protected_sunset(candidates)
 	// Ultimate randomizing code right here
 	for(var/mob/dead/new_player/player in GLOB.player_list)
 		if(player.client && player.ready == PLAYER_READY_TO_PLAY)

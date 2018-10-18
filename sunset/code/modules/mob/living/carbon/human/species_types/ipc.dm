@@ -8,7 +8,7 @@
 	burnmod = 2 // Wiring doesn't hold up to fire well.
 	brutemod = 1.8 // Thin metal, cheap materials.
 	siemens_coeff = 1.5 // Overload!
-	species_traits = list(NOBLOOD, NOZOMBIE, TRAIT_EASYDISMEMBER, TRAIT_LIMBATTACHMENT, NOTRANSSTING, MUTCOLORS, REVIVESBYHEALING, NOSCAN, NOCHANGELING, NOHUSK, ROBOTIC_LIMBS, NOMOUTH)
+	species_traits = list(NOBLOOD, NOZOMBIE, TRAIT_EASYDISMEMBER, TRAIT_LIMBATTACHMENT, NOTRANSSTING, MUTCOLORS, TRAIT_REVIVESBYHEALING, TRAIT_NOSCAN, TRAIT_NOCHANGELING, TRAIT_NOHUSK, TRAIT_ROBOTIC_LIMBS, TRAIT_NOMOUTH)
 	inherent_traits = list(TRAIT_NOBREATH, TRAIT_RADIMMUNE, TRAIT_VIRUSIMMUNE,)
 	mutant_organs = list(/obj/item/organ/cyberimp/arm/power_cord)
 	mutant_bodyparts = list("ipc_screen", "ipc_antenna", "ipc_chassis")
