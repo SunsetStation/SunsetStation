@@ -2,22 +2,22 @@
     var/obj/machinery/cryopod/cryo_cell
     var/name
     var/access
-	var/uniform
-	var/suit
-	var/back
-	var/belt
-	var/gloves
-	var/shoes
-	var/head
-	var/mask
-	var/neck
-	var/ears
-	var/glasses
-	var/l_pocket
-	var/r_pocket
-	var/suit_store
-	var/r_hand
-	var/l_hand
+    var/uniform
+    var/suit
+    var/back
+    var/belt
+    var/gloves
+    var/shoes
+    var/head
+    var/mask
+    var/neck
+    var/ears
+    var/glasses
+    var/l_pocket
+    var/r_pocket
+    var/suit_store
+    var/r_hand
+    var/l_hand
 
 /datum/sunset/cryo_store/New(mob/living/carbon/C,/obj/machinery/cryopod/P
     cryo_cell = P
