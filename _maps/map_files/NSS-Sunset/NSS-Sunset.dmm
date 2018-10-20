@@ -28959,7 +28959,7 @@
 "bdA" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/closed/wall,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bdB" = (
 /obj/machinery/airalarm{
 	pixel_y = 28
@@ -28976,7 +28976,7 @@
 	},
 /obj/item/storage/secure/briefcase,
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bdC" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 6
@@ -28997,7 +28997,7 @@
 	},
 /obj/item/pen,
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bdD" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 9
@@ -29025,7 +29025,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bdE" = (
 /obj/structure/closet/firecloset,
 /turf/open/floor/plating,
@@ -29838,13 +29838,13 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bfk" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/open/floor/plating,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bfl" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -29854,7 +29854,7 @@
 /obj/machinery/holopad,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bfm" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -29868,7 +29868,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bfn" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -30795,7 +30795,7 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bhb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/chair/stool,
@@ -30806,12 +30806,12 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bhc" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bhd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/yellow{
@@ -30833,7 +30833,7 @@
 	},
 /obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "bhe" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/plating,
@@ -31798,7 +31798,7 @@
 	dir = 1
 	},
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "biU" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
 	dir = 1
@@ -31808,10 +31808,10 @@
 	pixel_y = -30
 	},
 /turf/open/floor/plating,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "biV" = (
 /obj/machinery/power/apc{
-	areastring = "/area/security/vacantcommissary";
+	areastring = "/area/vacant_room/commissary";
 	dir = 4;
 	name = "Vacant Commissary APC";
 	pixel_x = 27;
@@ -31833,7 +31833,7 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "biW" = (
 /obj/item/storage/box/lights/mixed,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
@@ -40480,11 +40480,11 @@
 /area/maintenance/port)
 "bzx" = (
 /turf/closed/wall,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bzy" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/closed/wall,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bzz" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/grunge/abandoned{
@@ -40497,7 +40497,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bzA" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable/yellow{
@@ -41200,22 +41200,22 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/item/folder,
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bBg" = (
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bBh" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bBi" = (
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp,
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bBj" = (
 /obj/effect/spawner/lootdrop/maintenance,
 /turf/open/floor/plating{
@@ -41232,7 +41232,7 @@
 	pixel_y = 5
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bBl" = (
 /obj/structure/urinal{
 	pixel_y = 29
@@ -41956,17 +41956,17 @@
 	dir = 1
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bCM" = (
 /obj/structure/table/wood,
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bCN" = (
 /obj/structure/chair/office/dark{
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bCP" = (
 /obj/machinery/light/small,
 /obj/machinery/camera{
@@ -42673,7 +42673,7 @@
 	dir = 8
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bEs" = (
 /obj/item/paper_bin{
 	pixel_x = -2;
@@ -42681,7 +42681,7 @@
 	},
 /obj/structure/table/wood,
 /turf/open/floor/carpet,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bEt" = (
 /obj/machinery/door/airlock{
 	id_tag = "AuxShower";
@@ -43754,7 +43754,7 @@
 	dir = 6
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bGk" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
@@ -43763,7 +43763,7 @@
 	dir = 9
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bGl" = (
 /obj/machinery/shower{
 	dir = 4
@@ -44420,13 +44420,13 @@
 	},
 /obj/structure/table/wood,
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bHL" = (
 /obj/structure/chair/comfy/black{
 	dir = 4
 	},
 /turf/open/floor/carpet,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bHM" = (
 /obj/item/folder/white{
 	pixel_x = 4;
@@ -44434,7 +44434,7 @@
 	},
 /obj/structure/table/wood,
 /turf/open/floor/carpet,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bHN" = (
 /obj/machinery/shower{
 	dir = 4
@@ -45240,7 +45240,7 @@
 	pixel_x = -29
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bJu" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
@@ -45249,25 +45249,25 @@
 	dir = 9
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bJv" = (
 /obj/item/folder/blue,
 /obj/structure/table/wood,
 /turf/open/floor/carpet,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bJw" = (
 /obj/structure/chair/office/dark{
 	dir = 8
 	},
 /turf/open/floor/carpet,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bJx" = (
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bJy" = (
 /obj/machinery/light/small{
 	dir = 8
@@ -46031,26 +46031,26 @@
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "Vacant Office APC";
-	areastring = "/area/security/vacantoffice";
+	areastring = "/area/vacant_room/office";
 	pixel_x = -25
 	},
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bKZ" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bLa" = (
 /obj/structure/light_construct{
 	dir = 4
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bLb" = (
 /obj/structure/table,
 /obj/effect/spawner/lootdrop/maintenance,
@@ -46829,7 +46829,7 @@
 "bMC" = (
 /obj/structure/chair/office/dark,
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bMD" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -46837,7 +46837,7 @@
 	pixel_y = 9
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bME" = (
 /obj/structure/mirror{
 	pixel_x = -28
@@ -47151,7 +47151,7 @@
 	pixel_y = 2
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bNi" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -47433,7 +47433,7 @@
 	pixel_x = 24
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bNL" = (
 /obj/structure/table,
 /obj/item/stock_parts/subspace/transmitter,
@@ -47621,12 +47621,12 @@
 	pixel_y = -3
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bOh" = (
 /obj/item/toy/cards/deck,
 /obj/structure/table/wood,
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "bOi" = (
 /obj/structure/table,
 /obj/item/clothing/mask/cigarette/pipe,
@@ -80805,7 +80805,7 @@
 	pixel_x = -32
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "dif" = (
 /obj/item/soap/nanotrasen,
 /obj/machinery/light/small{
@@ -80822,7 +80822,7 @@
 	pixel_x = 32
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "dih" = (
 /obj/machinery/light/small,
 /obj/structure/sign/poster/official/random{
@@ -80888,7 +80888,7 @@
 	pixel_y = -32
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/vacant_room/office)
 "dio" = (
 /obj/structure/closet/crate,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -81429,7 +81429,7 @@
 	pixel_y = 32
 	},
 /turf/open/floor/wood,
-/area/security/vacantoffice)
+/area/space)
 "djX" = (
 /obj/structure/closet/crate/coffin,
 /obj/machinery/door/window/eastleft{
@@ -83172,7 +83172,7 @@
 /obj/effect/turf_decal/bot,
 /obj/machinery/vending/cigarette,
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "hIt" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/poddoor/shutters{
@@ -83832,7 +83832,7 @@
 /area/space)
 "oTQ" = (
 /turf/closed/wall,
-/area/space)
+/area/vacant_room/commissary)
 "oUA" = (
 /obj/structure/table/reinforced,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
@@ -84197,7 +84197,7 @@
 "stA" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "svg" = (
 /obj/structure/lattice,
 /obj/structure/girder/reinforced,
@@ -84543,7 +84543,7 @@
 "wNo" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/plasteel,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "wOE" = (
 /turf/open/floor/plating,
 /area/maintenance/aft)
@@ -84586,7 +84586,7 @@
 "xlq" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/closed/wall,
-/area/security/vacantcommissary)
+/area/vacant_room/commissary)
 "xse" = (
 /obj/machinery/door/airlock/external{
 	name = "Solar Maintenance";
