@@ -19,7 +19,7 @@
     var/r_hand
     var/l_hand
 
-/datum/sunset/cryo_store/New(mob/living/carbon/C,/obj/machinery/cryopod/P
+/datum/sunset/cryo_store/New(mob/living/carbon/C,/obj/machinery/cryopod/P)
     cryo_cell = P
     name = C.real_name
     access = C.wear_id.access
