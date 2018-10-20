@@ -1,4 +1,0 @@
-author: "sunset-bot"
-delete-after: True
-changes: 
-  - bugfix: "now you dont lose you pulled item on world edge."
