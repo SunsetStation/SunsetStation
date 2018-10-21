@@ -923,7 +923,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				else
 					dat += "<font color='[font_color]'>[quirk_name]</font> - [initial(T.desc)] \
 					<a href='?_src_=prefs;preference=trait;task=update;trait=[quirk_name]'>[has_quirk ? "Lose" : "Take"] ([quirk_cost] pts.)</a><br>"
-		dat += "<br><center><a href='?_src_=prefs;preference=trait;task=reset'>Reset Traits</a></center>"
+		dat += "<br><center><a href='?_src_=prefs;preference=trait;task=reset'>Reset Quirks</a></center>"
 
 	user << browse(null, "window=preferences")
 	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Quirk Preferences</div>", 900, 600) //no reason not to reuse the occupation window, as it's cleaner that way
@@ -950,13 +950,13 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		if(query_get_jobban.NextRow())
 			var/reason = query_get_jobban.item[1]
 			var/bantime = query_get_jobban.item[2]
-			var/duration = query_get_jobban.item[3]
+			var/duration = text2num(query_get_jobban.item[3])
 			var/expiration_time = query_get_jobban.item[4]
 			var/admin_key = query_get_jobban.item[5]
 			var/text
 			text = "<span class='redtext'>You, or another user of this computer, ([user.key]) is banned from playing [job]. The ban reason is:<br>[reason]<br>This ban was applied by [admin_key] on [bantime]"
-			if(text2num(duration) > 0)
-				text += ". The ban is for [duration] minutes and expires on [expiration_time] (server time)"
+			if(duration > 0)
+				text += ". The ban is for [DisplayTimeText(duration MINUTES)] and expires on [expiration_time] (server time)"
 			text += ".</span>"
 			to_chat(user, text)
 		qdel(query_get_jobban)
