@@ -33,7 +33,7 @@
 /obj/item/storage/belt/holster/blueshield
 	name = "blueshield's shoulder holster"
 	desc = "A holster specifically designed to carry the blueshield's weapon."
-	
+
 /obj/item/storage/belt/holster/ComponentInitialize()
 	. = ..()
 	GET_COMPONENT(STR, /datum/component/storage)
@@ -41,8 +41,6 @@
 	STR.max_w_class = WEIGHT_CLASS_NORMAL
 	STR.can_hold = typecacheof(list(
 		/obj/item/gun/energy/e_gun/blueshield,
-		/obj/item/gun/ballistic/revolver/detective,
-		/obj/item/ammo_box/c38,
 		/obj/item/gun/ballistic/automatic/pistol/enforcer,
 		/obj/item/ammo_box/magazine/enforcer,
 		))

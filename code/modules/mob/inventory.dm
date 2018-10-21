@@ -195,19 +195,17 @@
 /mob/proc/put_in_l_hand(obj/item/I)
 	return put_in_hand(I, get_empty_held_index_for_side("l"))
 
-
 //Puts the item into the first available right hand if possible and calls all necessary triggers/updates. returns 1 on success.
 /mob/proc/put_in_r_hand(obj/item/I)
 	return put_in_hand(I, get_empty_held_index_for_side("r"))
 
-
 /mob/proc/put_in_hand_check(obj/item/I)
-	if(lying && !(I.item_flags & ABSTRACT))
-		return FALSE
-	if(!istype(I))
-		return FALSE
-	return TRUE
+	return FALSE					//nonliving mobs don't have hands
 
+/mob/living/put_in_hand_check(obj/item/I)
+	if(istype(I) && ((mobility_flags & MOBILITY_PICKUP) || (I.item_flags & ABSTRACT)))
+		return TRUE
+	return FALSE
 
 //Puts the item into our active hand if possible. returns TRUE on success.
 /mob/proc/put_in_active_hand(obj/item/I, forced = FALSE, ignore_animation = TRUE)
