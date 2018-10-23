@@ -1,5 +1,6 @@
 /obj/machinery/computer/teleporter
 	var/obj/item/gps/locked
+	var/target_note = ""
 
 /obj/machinery/computer/teleporter/attackby(obj/I, mob/living/user, params)
 	if(istype(I, /obj/item/gps))
@@ -22,7 +23,7 @@
 		data += "<div class='statusDisplay'>No hub linked.</div>"
 	else
 		data += "<div class='statusDisplay'>Current regime: [regime_set]<BR>"
-		data += "Current target: [(!target) ? "None" : "[get_area(target)] [(regime_set != "Gate") ? "" : "Teleporter"]"]<BR>"
+		data += "Current target: [(!target) ? "None" : "[get_area(target)] [(regime_set != "Gate") ? " "+target_note : "Teleporter"]"]<BR>"
 		if(calibrating)
 			data += "Calibration: <font color='yellow'>In Progress</font>"
 		else if(power_station.teleporter_hub.calibrated || power_station.teleporter_hub.accurate >= 3)
@@ -91,3 +92,55 @@
 	if(locked)
 		locked.forceMove(get_turf(src))
 		locked = null
+
+/obj/machinery/computer/teleporter/set_target(mob/user)
+	var/list/L = list()
+	var/list/areaindex = list()
+	if(regime_set == "Teleporter")
+		for(var/obj/item/beacon/R in GLOB.teleportbeacons)
+			if(is_eligible(R))
+				var/area/A = get_area(R)
+				L[avoid_assoc_duplicate_keys(A.name+" "+R.beacon_note, areaindex)] = R
+
+		for(var/obj/item/implant/tracking/I in GLOB.tracked_implants)
+			if(!I.imp_in || !isliving(I.loc))
+				continue
+			else
+				var/mob/living/M = I.loc
+				if(M.stat == DEAD)
+					if(M.timeofdeath + 6000 < world.time)
+						continue
+				if(is_eligible(I))
+					L[avoid_assoc_duplicate_keys(M.real_name, areaindex)] = I
+					target_note = " - "+M.real_name
+
+		var/desc = input("Please select a location to lock in.", "Locking Computer") as null|anything in L
+		target = L[desc]
+		target_note = L[desc].beacon_note
+		var/turf/T = get_turf(target)
+		log_game("[key_name(user)] has set the teleporter target to [target] at [AREACOORD(T)]")
+
+	else
+		var/list/S = power_station.linked_stations
+		for(var/obj/machinery/teleport/station/R in S)
+			if(is_eligible(R) && R.teleporter_hub)
+				var/area/A = get_area(R)
+				L[avoid_assoc_duplicate_keys(A.name, areaindex)] = R
+		if(!L.len)
+			to_chat(user, "<span class='alert'>No active connected stations located.</span>")
+			return
+		var/desc = input("Please select a station to lock in.", "Locking Computer") as null|anything in L
+		var/obj/machinery/teleport/station/target_station = L[desc]
+		if(!target_station || !target_station.teleporter_hub)
+			return
+		var/turf/T = get_turf(target_station)
+		log_game("[key_name(user)] has set the teleporter target to [target_station] at [AREACOORD(T)]")
+		target = target_station.teleporter_hub
+		target_station.linked_stations |= power_station
+		target_station.stat &= ~NOPOWER
+		if(target_station.teleporter_hub)
+			target_station.teleporter_hub.stat &= ~NOPOWER
+			target_station.teleporter_hub.update_icon()
+		if(target_station.teleporter_console)
+			target_station.teleporter_console.stat &= ~NOPOWER
+			target_station.teleporter_console.update_icon()
