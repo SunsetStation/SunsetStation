@@ -56,6 +56,18 @@
 
 #define SUPERMATTER_COUNTDOWN_TIME 30 SECONDS
 
+//sunset start
+#define TRITIUM_HEAT_PENALTY 35
+#define PLUOX_HEAT_PENALTY 6
+#define HYPER_NOBLE_HEAT_MODIFIER -3.5
+
+#define TRITIUM_TRANSMIT_MODIFIER 8
+#define HYPER_NOBLE_TRANSMIT_MODIFIER 0.2
+#define PLUOX_TRANSMIT_MODIFIER 3
+
+#define NITRYL_HEAT_RESISTANCE 14
+//sunset end
+
 GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 /obj/machinery/power/supermatter_crystal
@@ -102,7 +114,12 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 	var/o2comp = 0
 	var/co2comp = 0
 	var/n2ocomp = 0
-
+	//sunset start
+	var/tritcomp = 0
+	var/hypnobcomp = 0
+	var/pluoxcomp = 0
+	var/nitcomp = 0
+	//sunset end
 	var/combined_gas = 0
 	var/gasmix_power_ratio = 0
 	var/dynamic_heat_modifier = 1
@@ -339,7 +356,7 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 			if(damage > damage_archived && prob(10))
 				playsound(get_turf(src), 'sound/effects/empulse.ogg', 50, 1)
 
-		removed.assert_gases(/datum/gas/oxygen, /datum/gas/plasma, /datum/gas/carbon_dioxide, /datum/gas/nitrous_oxide, /datum/gas/nitrogen)
+		removed.assert_gases(/datum/gas/oxygen, /datum/gas/plasma, /datum/gas/carbon_dioxide, /datum/gas/nitrous_oxide, /datum/gas/nitrogen, /datum/gas/tritium, /datum/gas/hypernoblium, /datum/gas/pluoxium, /datum/gas/nitryl)
 		//calculating gas related values
 		combined_gas = max(removed.total_moles(), 0)
 
@@ -349,14 +366,19 @@ GLOBAL_DATUM(main_supermatter_engine, /obj/machinery/power/supermatter_crystal)
 
 		n2ocomp = max(removed.gases[/datum/gas/nitrous_oxide][MOLES]/combined_gas, 0)
 		n2comp = max(removed.gases[/datum/gas/nitrogen][MOLES]/combined_gas, 0)
+		//sunset start
+		tritcomp = max(removed.gases[/datum/gas/tritium][MOLES]/combined_gas, 0)
+		hypnobcomp = max(removed.gases[/datum/gas/hypernoblium][MOLES]/combined_gas, 0)
+		pluoxcomp = max(removed.gases[/datum/gas/pluoxium][MOLES]/combined_gas, 0)
+		nitcomp = max(removed.gases[/datum/gas/nitryl][MOLES]/combined_gas, 0)
 
-		gasmix_power_ratio = min(max(plasmacomp + o2comp + co2comp - n2comp, 0), 1)
+		gasmix_power_ratio = min(max(plasmacomp + o2comp + co2comp + tritcomp + pluoxcomp - n2comp - hypnobcomp, 0), 1)
 
-		dynamic_heat_modifier = max((plasmacomp * PLASMA_HEAT_PENALTY)+(o2comp * OXYGEN_HEAT_PENALTY)+(co2comp * CO2_HEAT_PENALTY)+(n2comp * NITROGEN_HEAT_MODIFIER), 0.5)
-		dynamic_heat_resistance = max(n2ocomp * N2O_HEAT_RESISTANCE, 1)
+		dynamic_heat_modifier = max((plasmacomp * PLASMA_HEAT_PENALTY)+(o2comp * OXYGEN_HEAT_PENALTY)+(co2comp * CO2_HEAT_PENALTY)+(tritcomp * TRITIUM_HEAT_PENALTY)+(pluoxcomp * PLUOX_HEAT_PENALTY)+(hypnobcomp * HYPER_NOBLE_HEAT_MODIFIER)+(n2comp * NITROGEN_HEAT_MODIFIER), 0.5)
+		dynamic_heat_resistance = max((n2ocomp * N2O_HEAT_RESISTANCE)+(nitcomp * NITRYL_HEAT_RESISTANCE), 1)
 
-		power_transmission_bonus = max((plasmacomp * PLASMA_TRANSMIT_MODIFIER) + (o2comp * OXYGEN_TRANSMIT_MODIFIER), 0)
-
+		power_transmission_bonus = max((plasmacomp * PLASMA_TRANSMIT_MODIFIER) + (o2comp * OXYGEN_TRANSMIT_MODIFIER) + (tritcomp * TRITIUM_TRANSMIT_MODIFIER) + (hypnobcomp * HYPER_NOBLE_TRANSMIT_MODIFIER) + (pluoxcomp * PLUOX_TRANSMIT_MODIFIER) , 0)
+		//sunset end
 		//more moles of gases are harder to heat than fewer, so let's scale heat damage around them
 		mole_heat_penalty = max(combined_gas / MOLE_HEAT_PENALTY, 0.25)
 
