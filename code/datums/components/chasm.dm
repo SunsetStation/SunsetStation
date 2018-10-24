@@ -19,7 +19,8 @@
 		/obj/effect/temp_visual,
 		/obj/effect/light_emitter/tendril,
 		/obj/effect/collapse,
-		/obj/effect/particle_effect/ion_trails
+		/obj/effect/particle_effect/ion_trails,
+		/obj/effect/dummy/phased_mob
 		))
 
 /datum/component/chasm/Initialize(turf/target)
@@ -99,7 +100,7 @@
 		AM.forceMove(T)
 		if(isliving(AM))
 			var/mob/living/L = AM
-			L.Knockdown(100)
+			L.Paralyze(100)
 			L.adjustBruteLoss(30)
 		falling_atoms -= AM
 
