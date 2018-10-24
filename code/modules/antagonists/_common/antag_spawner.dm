@@ -208,7 +208,7 @@
 		brainopslastname = creator_op.nuke_team.syndicate_name
 	var/brainopsname = "[brainfirstname] [brainopslastname]"
 
-	R.mmi.name = "Man-Machine Interface: [brainopsname]"
+	R.mmi.name = "[initial(R.mmi.name)]: [brainopsname]"
 	R.mmi.brain.name = "[brainopsname]'s brain"
 	R.mmi.brainmob.real_name = brainopsname
 	R.mmi.brainmob.name = brainopsname
@@ -257,7 +257,7 @@
 
 
 /obj/item/antag_spawner/slaughter_demon/spawn_antag(client/C, turf/T, kind = "", datum/mind/user)
-	var/obj/effect/dummy/slaughter/holder = new /obj/effect/dummy/slaughter(T)
+	var/obj/effect/dummy/phased_mob/slaughter/holder = new /obj/effect/dummy/phased_mob/slaughter(T)
 	var/mob/living/simple_animal/slaughter/S = new demon_type(holder)
 	S.holder = holder
 	S.key = C.key

@@ -81,12 +81,12 @@ https://github.com/tgstation/tgstation-server
 
 ## MAPS
 
-Sunsetstation currently comes equipped with five maps.
+SunsetStation currently comes equipped with five maps.
 
-* [BoxStation (default)](http://tgstation13.org/wiki/Boxstation)
+* NSS Sunset (default)
+* [BoxStation](http://tgstation13.org/wiki/Boxstation)
 * [MetaStation](https://tgstation13.org/wiki/MetaStation)
 * [DeltaStation](https://tgstation13.org/wiki/DeltaStation)
-* [OmegaStation](https://tgstation13.org/wiki/OmegaStation)
 * [PubbyStation](https://tgstation13.org/wiki/PubbyStation)
 
 All maps have their own code file that is in the base of the `_maps` directory. Maps are loaded dynamically when the game starts. Follow this guideline when adding your own map, to your fork, for easy compatibility.
