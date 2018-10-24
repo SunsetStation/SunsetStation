@@ -2891,8 +2891,6 @@
 #include "sunset\code\modules\mob\living\carbon\human\species_types\vox.dm"
 #include "sunset\code\modules\mob\living\silicon\ai\ai.dm"
 #include "sunset\code\modules\mob\living\silicon\ai\life.dm"
-<<<<<<< HEAD
-=======
 #include "sunset\code\modules\power\supermatter\supermatter.dm"
 #include "sunset\code\modules\modular_computers\computers\machinery\modular_console.dm"
 #include "sunset\code\modules\projectiles\gun\blueshield.dm"
@@ -2902,7 +2900,6 @@
 #include "sunset\code\modules\research\destructive_analyzer.dm"
 #include "sunset\code\modules\research\rdmachines.dm"
 #include "sunset\code\modules\research\server.dm"
->>>>>>> 2d31a25f91604570ad48d46a5dcb571f78979e90
 #include "sunset\code\modules\shuttle\syndicate.dm"
 #include "sunset\code\modules\surgury\organs\ears.dm"
 #include "sunset\code\modules\surgury\organs\eyes.dm"
