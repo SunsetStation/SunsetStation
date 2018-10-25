@@ -3665,7 +3665,7 @@
 "WM" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/smes{
-	charge = 50000
+	charge = 500000
 	},
 /obj/structure/cable{
 	icon_state = "0-2"
