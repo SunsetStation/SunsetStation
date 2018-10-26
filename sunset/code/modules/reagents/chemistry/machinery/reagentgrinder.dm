@@ -1,6 +1,3 @@
-
-#define MILK_TO_BUTTER_COEFF 15
-
 /obj/machinery/reagentgrinder/blender
 	name = "Kitchen Blender"
 	desc = "From BlenderTech. This blender will not only blend, it will look in place in your kitchen!"

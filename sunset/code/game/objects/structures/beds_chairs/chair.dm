@@ -4,7 +4,7 @@
 /obj/structure/chair/comfy
 	icon = 'sunset/icons/obj/chairs.dmi'
 
-/obj/structure/chair/comfy/proc/GetArmrest()
+/obj/structure/chair/comfy/GetArmrest()
 	return mutable_appearance('sunset/icons/obj/chairs.dmi', "comfychair_armrest")
 
 /obj/structure/chair/office

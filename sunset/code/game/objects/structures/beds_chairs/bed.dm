@@ -37,7 +37,7 @@
 	M.pixel_y = M.get_standard_pixel_y_offset(M.lying)
 
 /obj/structure/bed/patient/Initialize()
-	bedrest = Getbedrest()
+	bedrest = mutable_appearance('sunset/icons/obj/objects.dmi', "medbed_overlay")
 	bedrest.layer = ABOVE_MOB_LAYER
 	return ..()
 
