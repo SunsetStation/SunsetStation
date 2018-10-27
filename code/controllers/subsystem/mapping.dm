@@ -235,7 +235,7 @@ SUBSYSTEM_DEF(mapping)
 		++space_levels_so_far
 		add_new_zlevel("Empty Area [space_levels_so_far]", ZTRAITS_SPACE)
 
-	// load sunset mining
+	// load sunset's mining
 	if(config.minetype == "lavaland")
 		LoadGroup(FailedZs, "Lavaland", "map_files/Mining", "SunsetLavaland.dmm", default_traits = ZTRAITS_LAVALAND)
 	else if (!isnull(config.minetype))
