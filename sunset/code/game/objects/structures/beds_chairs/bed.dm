@@ -41,9 +41,6 @@
 	bedrest.layer = ABOVE_MOB_LAYER
 	return ..()
 
-/obj/structure/bed/patient/proc/Getbedrest()
-	return mutable_appearance('sunset/icons/obj/objects.dmi', "medbed_overlay")
-
 /obj/structure/bed/patient/Destroy()
 	QDEL_NULL(bedrest)
 	return ..()
