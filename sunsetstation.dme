@@ -2820,6 +2820,7 @@
 #include "sunset\code\game\objects\items\devices\radio\headset.dm"
 #include "sunset\code\game\objects\items\implants\implant_dusting.dm"
 #include "sunset\code\game\objects\items\implants\implantuplink.dm"
+#include "sunset\code\game\objects\items\stacks\rods.dm"
 #include "sunset\code\game\objects\items\stacks\sheets\leather.dm"
 #include "sunset\code\game\objects\items\storage\backpack.dm"
 #include "sunset\code\game\objects\items\tanks\tanks_types.dm"

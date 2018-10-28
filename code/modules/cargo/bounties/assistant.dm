@@ -4,6 +4,7 @@
 	reward = 1200
 	wanted_types = list(/obj/item/relic)
 
+/*sunset code
 /datum/bounty/item/assistant/scooter
 	name = "Scooter"
 	description = "Nanotrasen has determined walking to be wasteful. Ship a scooter to CentCom to speed operations up."
@@ -11,11 +12,13 @@
 	wanted_types = list(/obj/vehicle/ridden/scooter)
 	include_subtypes = FALSE
 
+
 /datum/bounty/item/assistant/skateboard
 	name = "Skateboard"
 	description = "Nanotrasen has determined walking to be wasteful. Ship a skateboard to CentCom to speed operations up."
 	reward = 900 // the tony hawk
 	wanted_types = list(/obj/vehicle/ridden/scooter/skateboard, /obj/item/melee/skateboard)
+*/
 
 /datum/bounty/item/assistant/stunprod
 	name = "Stunprod"
