@@ -275,8 +275,9 @@ em						{font-style: normal;	font-weight: bold;}
 .say					{}
 .binarysay    			{color: #20c20e; background-color: #000000; display: block;}
 .binarysay a  			{color: #00ff00;}
-.binarysay a:active, .binarysay a:visited {color: #88ff88;}
-//sunset start
+.binarysay a:active, .binarysay a:visited {color: #88ff88;}/
+
+/* sunset start */
 .deadsay				{color: #5c00e6;}
 .radio					{color: #408010;}
 .sciradio				{color: #993399;}
@@ -291,7 +292,7 @@ em						{font-style: normal;	font-weight: bold;}
 .aiprivradio			{color: #FF00FF;}
 .redteamradio           {color: #FF0000;}
 .blueteamradio          {color: #0000FF;}
-//sunset stop
+/* sunset stop */
 
 .yell					{					font-weight: bold;}
 
