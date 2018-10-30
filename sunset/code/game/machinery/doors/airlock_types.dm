@@ -1,9 +1,9 @@
 /obj/machinery/door/airlock
 	icon = 'sunset/icons/obj/doors/airlocks/station/public.dmi'
-	var/doorOpen = 'sunset/sound/machines/airlock.ogg'
-	var/doorClose = 'sunset/sound/machines/airlockclose.ogg'
-	var/overlays_file = 'sunset/icons/obj/doors/airlocks/station/overlays.dmi'
-	var/note_overlay_file = 'sunset/icons/obj/doors/airlocks/station/overlays.dmi'
+	doorOpen = 'sunset/sound/machines/airlock.ogg'
+	doorClose = 'sunset/sound/machines/airlockclose.ogg'
+	overlays_file = 'sunset/icons/obj/doors/airlocks/station/overlays.dmi'
+	note_overlay_file = 'sunset/icons/obj/doors/airlocks/station/overlays.dmi'
 
 /obj/machinery/door/airlock/command
 	icon = 'sunset/icons/obj/doors/airlocks/station/command.dmi'
