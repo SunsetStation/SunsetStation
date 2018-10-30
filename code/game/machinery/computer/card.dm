@@ -34,7 +34,8 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 		"Head of Security",
 		"Chief Engineer",
 		"Research Director",
-		"Chief Medical Officer")
+		"Chief Medical Officer",
+		"Blueshield") //sunset -- adds the blueshit
 
 	//The scaling factor of max total positions in relation to the total amount of people on board the station in %
 	var/max_relative_positions = 30 //30%: Seems reasonable, limit of 6 @ 20 players
@@ -434,6 +435,8 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 						to_chat(usr, "<span class='error'>No log exists for this job.</span>")
 						updateUsrDialog()
 						return
+					if(modify.registered_account)
+						modify.registered_account.account_job = jobdatum // this is a terrible idea and people will grief but sure whatever
 
 					modify.access = ( istype(src, /obj/machinery/computer/card/centcom) ? get_centcom_access(t1) : jobdatum.get_access() )
 				if (modify)

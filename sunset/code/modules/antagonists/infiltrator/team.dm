@@ -54,16 +54,29 @@
 	if(LAZYLEN(objectives))
 		return
 	var/list/major_objectives = subtypesof(/datum/objective/infiltrator)
-	var/list/minor_objectives = GLOB.minor_infiltrator_objectives.Copy()
 	var/major = rand(MIN_MAJOR_OBJECTIVES, MAX_MAJOR_OBJECTIVES)
 	var/minor = rand(MIN_MINOR_OBJECTIVES, MAX_MINOR_OBJECTIVES)
 	for(var/i in 1 to major)
 		add_objective(pick_n_take(major_objectives))
 	for(var/i in 1 to minor)
-		add_objective(pick(minor_objectives))
+		forge_single_objective()
 	for(var/datum/mind/M in members)
-		M.objectives |= objectives
-		M.announce_objectives()
+		var/datum/antagonist/infiltrator/I = M.has_antag_datum(/datum/antagonist/infiltrator)
+		if(I)
+			I.objectives |= objectives
+			M.announce_objectives()
+
+/datum/team/infiltrator/proc/forge_single_objective() // Complete traitor copypasta!
+	if(prob(50))
+		if(prob(30))
+			add_objective(/datum/objective/maroon)
+		else
+			add_objective(/datum/objective/assassinate)
+	else
+		if(prob(15) && !(locate(/datum/objective/download) in objectives))
+			add_objective(/datum/objective/download)
+		else
+			add_objective(/datum/objective/steal)
 
 /datum/team/infiltrator/proc/get_result()
 	var/objectives_complete = 0

@@ -1,8 +1,8 @@
 language: generic
 sudo: false
 branches:
-  except:
-  - ___TGS3TempBranch
+  only:
+    - master
 matrix:
   include:
     - env:

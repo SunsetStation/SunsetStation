@@ -10,6 +10,9 @@
 	icon_plating = "asteroid"
 	postdig_icon_change = TRUE
 	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	var/environment_type = "asteroid"
 	var/turf_type = /turf/open/floor/plating/asteroid //Because caves do whacky shit to revert to normal
 	var/floor_variance = 20 //probability floor has a different icon state
@@ -32,6 +35,12 @@
 			icon_state = "[environment_type]_dug"
 	dug = TRUE
 
+/turf/open/floor/plating/asteroid/proc/can_dig(mob/user)
+	if(!dug)
+		return TRUE
+	if(user)
+		to_chat(user, "<span class='notice'>Looks like someone has dug here already.</span>")
+
 /turf/open/floor/plating/asteroid/try_replace_tile(obj/item/stack/tile/T, mob/user, params)
 	return
 
@@ -48,8 +57,7 @@
 	. = ..()
 	if(!.)
 		if(W.tool_behaviour == TOOL_SHOVEL || W.tool_behaviour == TOOL_MINING)
-			if(dug)
-				to_chat(user, "<span class='notice'>Looks like someone has dug here already.</span>")
+			if(!can_dig(user))
 				return TRUE
 
 			if(!isturf(user.loc))
@@ -58,6 +66,8 @@
 			to_chat(user, "<span class='notice'>You start digging...</span>")
 
 			if(W.use_tool(src, user, 40, volume=50))
+				if(!can_dig(user))
+					return TRUE
 				to_chat(user, "<span class='notice'>You dig a hole.</span>")
 				getDug()
 				SSblackbox.record_feedback("tally", "pick_used_mining", 1, W.type)
@@ -65,11 +75,6 @@
 		else if(istype(W, /obj/item/storage/bag/ore))
 			for(var/obj/item/stack/ore/O in src)
 				SEND_SIGNAL(W, COMSIG_PARENT_ATTACKBY, O)
-
-/turf/open/floor/plating/asteroid/singularity_act()
-	if(is_planet_level(z))
-		return ..()
-	ScrapeAway()
 
 /turf/open/floor/plating/asteroid/ex_act(severity, target)
 	. = SEND_SIGNAL(src, COMSIG_ATOM_EX_ACT, severity, target)
@@ -326,6 +331,9 @@
 	icon_plating = "snow-ice"
 	environment_type = "snow_cavern"
 	footstep = FOOTSTEP_FLOOR
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/floor/plating/asteroid/snow/ice/burn_tile()
 	return FALSE
