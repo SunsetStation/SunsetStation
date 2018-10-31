@@ -373,6 +373,7 @@
 				/obj/item/stack/rods = 10)
 	category = CAT_MISC
 
+/*Sunset Code
 /datum/crafting_recipe/scooter
 	name = "Scooter"
 	result = /obj/vehicle/ridden/scooter
@@ -380,6 +381,7 @@
 	reqs = list(/obj/item/stack/sheet/metal = 5,
 				/obj/item/stack/rods = 12)
 	category = CAT_MISC
+*/
 
 /datum/crafting_recipe/mousetrap
 	name = "Mouse Trap"

@@ -4,12 +4,14 @@
 	reward = 1200
 	wanted_types = list(/obj/item/relic)
 
+/*Sunset Code
 /datum/bounty/item/assistant/scooter
 	name = "Scooter"
 	description = "Nanotrasen has determined walking to be wasteful. Ship a scooter to CentCom to speed operations up."
 	reward = 1080 // the mat hoffman
 	wanted_types = list(/obj/vehicle/ridden/scooter)
 	include_subtypes = FALSE
+*/
 
 /datum/bounty/item/assistant/skateboard
 	name = "Skateboard"
