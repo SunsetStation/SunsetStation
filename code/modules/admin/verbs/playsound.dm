@@ -86,7 +86,8 @@
 					data = json_decode(stdout)
 				catch(var/exception/e)
 					to_chat(src, "<span class='boldwarning'>Youtube-dl JSON parsing FAILED:</span>")
-					to_chat(src, "<span class='warning'>[e]: [stdout]</span>")
+					to_chat(src, "<span class='warning'>[e]: STDOUT [stdout]</span>")
+					to_chat(src, "<span class='warning'>[e]: STDERR [stderr]</span>")
 					return
 
 				if (data["url"])
