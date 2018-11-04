@@ -1,0 +1,4 @@
+author: "Quantum-M"
+delete-after: True
+changes: 
+  - bugfix: "Warden's office is now connected and powered."
