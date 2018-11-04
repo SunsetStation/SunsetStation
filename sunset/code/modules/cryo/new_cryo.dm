@@ -8,18 +8,12 @@
 	state_open = TRUE
 
 /obj/machinery/cryopod/close_machine(mob/user)
-	if(!control_computer)
-		find_control_computer(TRUE)
 	if((isnull(user) || istype(user)) && state_open && !panel_open)
 		..(user)
 		var/mob/living/mob_occupant = occupant
 		if(mob_occupant && mob_occupant.stat != DEAD)
 			to_chat(occupant, "<span class='boldnotice'>You feel cool air surround you. You go numb as your senses turn inward.</span>")
-		if(mob_occupant.client)//if they're logged in
-			despawn_world_time = world.time + (time_till_despawn * 0.1) //tochange to timers
-		else
-			despawn_world_time = world.time + time_till_despawn //tochange
-	icon_state = "cryopod"
+			icon_state = "cryopod"
 
 /obj/machinery/cryopod/open_machine()
 	..()
@@ -38,12 +32,8 @@
 /obj/machinery/cryopod/proc/despawn_occupant()
 	var/mob/living/mob_occupant = occupant
 	if(mob_occupant.mind && mob_occupant.mind.assigned_role)
-		//Handle job slot/tater cleanup.
 		var/job = mob_occupant.mind.assigned_role
 		SSjob.FreeRole(job)
-		if(mob_occupant.mind.objectives.len)
-			mob_occupant.mind.objectives.Cut()
-			mob_occupant.mind.special_role = null
 
 	// Delete them from datacore.
 
@@ -70,22 +60,6 @@
 		visible_message("<span class='notice'>\The [src] hums and hisses as it moves [mob_occupant.real_name] into storage.</span>")
 
 
-	for(var/obj/item/W in mob_occupant.GetAllContents())
-		if(W.loc.loc && (( W.loc.loc == loc ) || (W.loc.loc == control_computer)))
-			continue//means we already moved whatever this thing was in
-			//I'm a professional, okay
-		for(var/T in preserve_items)
-			if(istype(W, T))
-				if(control_computer && control_computer.allow_items)
-					control_computer.frozen_items += W
-					mob_occupant.transferItemToLoc(W, control_computer, TRUE)
-				else
-					mob_occupant.transferItemToLoc(W, loc, TRUE)
-
-	for(var/obj/item/W in mob_occupant.GetAllContents())
-		qdel(W)//because we moved all items to preserve away
-		//and yes, this totally deletes their bodyparts one by one, I just couldn't bother
-
 	if(iscyborg(mob_occupant))
 		var/mob/living/silicon/robot/R = occupant
 		if(!istype(R)) return ..()
@@ -95,10 +69,6 @@
 
 	// Ghost and delete the mob.
 	if(!mob_occupant.get_ghost(1))
-		if(world.time < 30 * 600)//before the 30 minute mark
-			mob_occupant.ghostize(0) // Players despawned too early may not re-enter the game
-		else
-			mob_occupant.ghostize(1)
+		mob_occupant.ghostize(0) // Players despawned may not re-enter their non existant body
 	QDEL_NULL(occupant)
 	open_machine()
-	name = initial(name)

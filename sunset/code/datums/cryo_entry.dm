@@ -2,47 +2,51 @@
     var/obj/machinery/cryopod/cryo_cell
     var/name
     var/access
-    var/uniform
-    var/suit
-    var/back
-    var/belt
-    var/gloves
-    var/shoes
-    var/head
-    var/mask
-    var/neck
-    var/ears
-    var/glasses
-    var/l_pocket
-    var/r_pocket
-    var/suit_store
-    var/r_hand
-    var/l_hand
+    var/list/uniform
+    var/list/suit
+    var/list/back
+    var/list/belt
+    var/list/gloves
+    var/list/shoes
+    var/list/head
+    var/list/mask
+    var/list/neck
+    var/list/ears
+    var/list/glasses
+    var/list/l_pocket
+    var/list/r_pocket
+    var/list/suit_stores
+    var/list/hands
 
-/datum/sunset/cryo_store/New(mob/living/carbon/C,/obj/machinery/cryopod/P)
+/datum/sunset/cryo_store/New(mob/living/carbon/human/H,obj/machinery/cryopod/P)
     cryo_cell = P
-    name = C.real_name
-    access = C.wear_id.access
-    uniform = getItemAndContentsAndSlapItIntoCryopodContents(C.w_uniform)
-    suit = getItemAndContentsAndSlapItIntoCryopodContents(C.wear_suit)
-    back = getItemAndContentsAndSlapItIntoCryopodContents(C.back)
-    belt = getItemAndContentsAndSlapItIntoCryopodContents(C.belt)
-    gloves = getItemAndContentsAndSlapItIntoCryopodContents(C.gloves)
-    shoes = getItemAndContentsAndSlapItIntoCryopodContents(C.shoes)
-    head = getItemAndContentsAndSlapItIntoCryopodContents(C.head)
-    mask = getItemAndContentsAndSlapItIntoCryopodContents(C.wear_mask)
-    neck = getItemAndContentsAndSlapItIntoCryopodContents(C.wear_neck)
-    ears = getItemAndContentsAndSlapItIntoCryopodContents(C.ears)
-    glasses = getItemAndContentsAndSlapItIntoCryopodContents(C.glasses)
+    name = H.real_name
+    var/obj/item/card/id/I
+    access = I.access
+    uniform = getItemAndContentsAndSlapItIntoCryopodContents(H.w_uniform,H)
+    suit = getItemAndContentsAndSlapItIntoCryopodContents(H.wear_suit,H)
+    back = getItemAndContentsAndSlapItIntoCryopodContents(H.back,H)
+    belt = getItemAndContentsAndSlapItIntoCryopodContents(H.belt,H)
+    gloves = getItemAndContentsAndSlapItIntoCryopodContents(H.gloves,H)
+    shoes = getItemAndContentsAndSlapItIntoCryopodContents(H.shoes,H)
+    head = getItemAndContentsAndSlapItIntoCryopodContents(H.head,H)
+    mask = getItemAndContentsAndSlapItIntoCryopodContents(H.wear_mask,H)
+    neck = getItemAndContentsAndSlapItIntoCryopodContents(H.wear_neck,H)
+    ears = getItemAndContentsAndSlapItIntoCryopodContents(H.ears,H)
+    glasses = getItemAndContentsAndSlapItIntoCryopodContents(H.glasses,H)
+    l_pocket = getItemAndContentsAndSlapItIntoCryopodContents(H.l_store,H)
+    r_pocket = getItemAndContentsAndSlapItIntoCryopodContents(H.r_store,H)
+    suit_stores = getItemAndContentsAndSlapItIntoCryopodContents(H.s_store,H)
+    for(var/obj/item/I in H.held_items)
+        hands += getItemAndContentsAndSlapItIntoCryopodContents(I)
     
-    
-/datum/sunset/cryo_store/getItemAndContentsAndSlapItIntoCryopodContents(var/O) //the name is just glorius right?
+/datum/sunset/cryo_store/proc/getItemAndContentsAndSlapItIntoCryopodContents(var/atom/O,var/mob/living/carbon/h) //the name is just glorius right?
     if(QDELETED(O))
         return
     var/list/items = list()
     items |= O
     if(SEND_SIGNAL(O, COMSIG_CONTAINS_STORAGE))
         SEND_SIGNAL(O, COMSIG_TRY_STORAGE_RETURN_INVENTORY, items, TRUE)
-    for(atom/movable/A in items)
-        A.forceMove(cryo_cell)
+    for(var/obj/item/I in items)
+        H.transferItemToLoc(I,cryo_cell)
     return items
