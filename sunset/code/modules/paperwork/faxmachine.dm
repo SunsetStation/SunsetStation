@@ -142,11 +142,11 @@ GLOBAL_LIST_EMPTY(alldepartments)
 			else
 				var/obj/item/I = usr.get_active_held_item()
 				if(istype(I, /obj/item/paper))
-					usr.drop_item()
+					usr.dropItemToGround()
 					copy = I
 					do_insertion(I, usr)
 				else if (istype(I, /obj/item/photo))
-					usr.drop_item()
+					usr.dropItemToGround()
 					photocopy = I
 					do_insertion(I, usr)
 		if("scan")
@@ -200,12 +200,12 @@ GLOBAL_LIST_EMPTY(alldepartments)
 		if(!card)
 			var/obj/item/I = usr.get_active_held_item()
 			if(istype(I, /obj/item/card/id))
-				if(!usr.drop_item())
+				if(!usr.dropItemToGround())
 					return
 				I.forceMove(src)
 				scan = I
 		else if(istype(card))
-			if(!usr.drop_item())
+			if(!usr.dropItemToGround())
 				return
 			card.forceMove(src)
 			scan = card

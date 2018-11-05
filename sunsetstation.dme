@@ -2863,6 +2863,7 @@
 #include "sunset\code\modules\paperwork\fax.dm"
 #include "sunset\code\modules\paperwork\faxmachine.dm"
 #include "sunset\code\modules\paperwork\paper.dm"
+#include "sunset\code\modules\paperwork\photocopier.dm"
 #include "sunset\code\modules\projectiles\gun\blueshield.dm"
 #include "sunset\code\modules\reagents\chemistry\recipes\others.dm"
 #include "sunset\code\modules\reagents\reagent_containers\blood_pack.dm"
