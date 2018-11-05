@@ -60,11 +60,12 @@ GLOBAL_LIST_EMPTY(alldepartments)
 		return
 
 /obj/machinery/photocopier/faxmachine/emag_act(mob/user)
-	if(!EMAGGED)
-		EMAGGED = TRUE
+	if(!(obj_flags & EMAGGED))
+		obj_flags |= EMAGGED
 		to_chat(user, "<span class='notice'>The transmitters realign to an unknown source!</span>")
 	else
 		to_chat(user, "<span class='warning'>You swipe the card through [src], but nothing happens.</span>")
+
 
 /obj/machinery/photocopier/faxmachine/ui_interact(mob/user, ui_key = "main", datum/tgui/ui = null, force_open = 0, datum/tgui/master_ui = null, datum/ui_state/state = GLOB.default_state)
 	ui = SStgui.try_update_ui(user, src, ui_key, ui, force_open)
@@ -80,7 +81,7 @@ GLOBAL_LIST_EMPTY(alldepartments)
 		data["scan_name"] = scan.name
 	else
 		data["scan_name"] = "-----"
-	data["authenticated"] = is_authenticated
+		data["authenticated"] = is_authenticated
 	if(!is_authenticated)
 		data["network"] = "Disconnected"
 		data["network_class"] = "bad"
@@ -99,13 +100,12 @@ GLOBAL_LIST_EMPTY(alldepartments)
 	else
 		data["paper"] = "-----"
 		data["paperinserted"] = TRUE
-	data["destination"] = destination
-	data["cooldown"] = sendcooldown
+		data["destination"] = destination
+		data["cooldown"] = sendcooldown
 	if((destination in GLOB.admin_departments) || (destination in GLOB.hidden_admin_departments))
 		data["respectcooldown"] = TRUE
 	else
 		data["respectcooldown"] = FALSE
-
 	return data
 
 /obj/machinery/photocopier/faxmachine/ui_act(action, params)

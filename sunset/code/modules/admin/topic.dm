@@ -80,7 +80,7 @@
 		else
 			for(var/thing in GLOB.allfaxes)
 				var/obj/machinery/photocopier/faxmachine/F = thing
-				if(F.z in GLOB.station_z_levels)
+				if(is_station_level(F.z))
 					addtimer(CALLBACK(src, .proc/handle_sendall, F, P), 0)
 
 		var/datum/fax/admin/A = new /datum/fax/admin()

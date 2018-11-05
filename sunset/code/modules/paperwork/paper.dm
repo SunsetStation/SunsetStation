@@ -1,3 +1,4 @@
+/* custom ui needs to be created for this to be usable
 /obj/item/paper/oui_canview(mob/target)
 	if(check_rights_for(target.client, R_FUN)) //Allows admins to view faxes
 		return TRUE
@@ -7,7 +8,10 @@
 	if(iscyborg(target))
 		return get_dist(src, target) < 2
 	return ..()
-
+*/
+/obj/item/paper/proc/show_content(var/mob/user)
+	user.examinate(src)
+	
 /obj/item/paper/evilfax
 	name = "Centcomm Reply"
 	info = ""

@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(adminfaxes)
 	set category = "Fun"
 	if(holder)
 		holder.fax_panel(usr)
-	SSblackbox.add_details("admin_verb","FXP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+	SSblackbox.record_feedback("admin_verb","FXP") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return
 
 /datum/admins/proc/fax_panel(var/mob/living/user)
