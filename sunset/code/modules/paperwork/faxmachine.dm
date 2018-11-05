@@ -5,7 +5,7 @@ GLOBAL_LIST_EMPTY(alldepartments)
 
 /obj/machinery/photocopier/faxmachine
 	name = "fax machine"
-	icon = 'icons/obj/library.dmi'
+	icon = 'sunset/icons/obj/library.dmi'
 	icon_state = "fax"
 	var/insert_anim = "faxsend"
 	var/print_anim = "faxreceive"
