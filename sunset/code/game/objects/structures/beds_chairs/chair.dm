@@ -1,6 +1,9 @@
 /obj/structure/chair/wood
 	icon = 'sunset/icons/obj/chairs.dmi'
 
+/obj/structure/chair/wood/wings
+	icon = 'icons/obj/chairs.dmi'
+
 /obj/structure/chair/comfy
 	icon = 'sunset/icons/obj/chairs.dmi'
 
@@ -33,6 +36,11 @@
 	else
 		cut_overlay(armrest)
 
+/obj/structure/chair/comfy/shuttle
+	icon = 'icons/obj/chairs.dmi'
+
+/obj/structure/chair/comfy/shuttle/GetArmrest()
+	return mutable_appearance('icons/obj/chairs.dmi', "shuttle_chair_armrest")
 
 /obj/structure/chair/stool
  	icon = 'sunset/icons/obj/chairs.dmi'
