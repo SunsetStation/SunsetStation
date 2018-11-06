@@ -2,13 +2,18 @@
 #define FONT_SIZE "5pt"
 #define FONT_COLOR "#09f"
 #define FONT_STYLE "Arial Black"
+/*
 #define MAX_TIMER 9000
 
 #define PRESET_SHORT 1200
 #define PRESET_MEDIUM 1800
 #define PRESET_LONG 3000
+*/
+#define MAX_TIMER 27000
 
-
+#define PRESET_SHORT 3000
+#define PRESET_MEDIUM 6000
+#define PRESET_LONG 9000
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // Brig Door control displays.
