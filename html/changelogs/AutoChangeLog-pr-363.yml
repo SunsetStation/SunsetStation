@@ -1,0 +1,7 @@
+author: "Quantum-M"
+delete-after: True
+changes: 
+  - rscadd: "Adds a retro TV, medical dividers, table sink, blenders (a grinder with different sprite_, and patient beds."
+  - tweak: "Changes the sprites for wooden table, metal table, glass table, and poker table"
+  - tweak: "Changes the sprites for office chairs, comfy chairs, and the stools."
+  - tweak: "Changes the sprites for the chef's fridge, and the microwave."
