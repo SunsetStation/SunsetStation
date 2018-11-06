@@ -1,0 +1,1 @@
+#define BLOOD_VOLUME_ARREST	155
