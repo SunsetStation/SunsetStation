@@ -1,4 +1,0 @@
-author: "alexkar598"
-delete-after: True
-changes: 
-  - bugfix: "Brig Timers now follow the 5,10,15 presets"
