@@ -6,6 +6,8 @@
 	name = "Blueshield Office"
 	icon_state = "blueold"
 
+//Security
+
 /area/security/processing/holding
 	name = "Processing"
 	icon_state = "sec_prison"
@@ -37,3 +39,26 @@
 	name = "Security Toilets"
 	icon_state = "toilet"
 	ambientsounds = HIGHSEC
+
+//Medbay
+
+/area/medical/storage/secondary
+	name = "Medbay Secondary Storage"
+	icon_state = "medbay2"
+	music = 'sound/ambience/signal.ogg'
+
+/area/medical/surgery/one
+	name = "Surgery One"
+	icon_state = "surgery"
+
+/area/medical/surgery/two
+	name = "Surgery Two"
+	icon_state = "surgery"
+
+/area/medical/patients_rooms/breakroom
+	name = "Breakroom"
+	icon_state = "patients"
+
+/area/crew_quarters/toilet/medbay
+	name = "Medbay Restroom"
+	icon_state = "toilet"

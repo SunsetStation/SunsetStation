@@ -14,6 +14,21 @@
 	icon = 'sunset/icons/obj/chairs.dmi'
 	var/mutable_appearance/armrest
 
+/obj/structure/chair/office/blue
+	icon_state = "officechair_blue"
+
+/obj/structure/chair/office/orange
+	icon_state = "officechair_orange"
+
+/obj/structure/chair/office/red
+	icon_state = "officechair_red"
+
+/obj/structure/chair/office/green
+	icon_state = "officechair_green"
+
+/obj/structure/chair/office/black
+	icon_state = "officechair_black"
+
 /obj/structure/chair/office/Initialize()
 	armrest = GetArmrest()
 	armrest.layer = ABOVE_MOB_LAYER

@@ -12,7 +12,7 @@
 	layer = WALL_OBJ_LAYER
 	anchored = TRUE
 	opacity = 1
-	density = FALSE
+	density = TRUE
 	var/open = FALSE
 
 /obj/structure/patient_divider/proc/toggle()
