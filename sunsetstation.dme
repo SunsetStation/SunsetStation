@@ -2900,6 +2900,7 @@
 #include "sunset\code\modules\research\destructive_analyzer.dm"
 #include "sunset\code\modules\research\rdmachines.dm"
 #include "sunset\code\modules\research\server.dm"
+#include "sunset\code\modules\salvage\craftables.dm"
 #include "sunset\code\modules\salvage\makeshift-parts.dm"
 #include "sunset\code\modules\salvage\salvage.dm"
 #include "sunset\code\modules\salvage\salvagetool.dm"

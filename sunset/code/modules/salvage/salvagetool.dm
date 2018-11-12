@@ -14,5 +14,5 @@
 	else
 		icon_state = "reclaimer"
 
-/obj/item/makeshift/reclaimer/afterattack(atom/A, mob/user, proximity)
+/obj/item/makeshift/reclaimer/attackby(atom/A, mob/user, proximity)
 	A.rec_act(user, src)

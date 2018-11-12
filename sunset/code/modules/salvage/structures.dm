@@ -16,17 +16,27 @@
 	desc = "You shouldnt be here."
 	icon = 'sunset/icons/obj/salvage_structure.dmi'
 	var/material = "Wooden" //use to define what variant to use. Wooden and Metal variants. purely cosmetic
+	density = TRUE
 
-/obj/machinery/makeshift/frame //needed to build basically everything listed here. made from scrap metal or wood.
-	material = "Wooden"
-	name = "error"
-	desc = "A loosely assembled frame of parts and components."
+/obj/structure/makeshift/frame //needed to build basically everything listed here. made from scrap metal or wood.
+	name = "frame"
+	desc = "fuck"
+	icon = 'sunset/icons/obj/salvage_structure.dmi'
 	icon_state = "error"
+	var/material = "Wooden"
+	density = TRUE
 
-/obj/machinery/makeshift/frame/Initialize()
-	. = ..()
-	name = "[material] Makeshift Frame"
-	icon_state = "makeshift_frame_[material]"
+/obj/structure/makeshift/frame/wood
+	material = "Wooden"
+	name = "Wooden Makeshift Frame"
+	desc = "A loosely assembled frame of parts and components."
+	icon_state = "makeshift_frame_Wooden"
+
+/obj/structure/makeshift/frame/metal
+	material = "Metal"
+	name = "Metal Makeshift Frame"
+	desc = "A loosely assembled frame of parts and components."
+	icon_state = "makeshift_frame_Metal"
 
 /obj/machinery/makeshift/boardcrafter //circuit imprinter but it can only make boards for this stuff (atleast for now)
 	material = "Wooden"

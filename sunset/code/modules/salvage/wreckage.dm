@@ -24,6 +24,7 @@
 	var/drops = list() //object to be dropped upon destruction, overwritten if randenable is set TRUE
 	var/randenable = TRUE //mappers set to FALSE if they want the wreck to drop a specific item
 	var/purity = 1 //changes the type of drops to make, higher is rarer
+	density = TRUE
 
 /obj/structure/wreckage/Initialize()
 	. = ..()
@@ -52,7 +53,6 @@
 		SCRAP_PLASMA = SCRAP_PLASMA_STATS, \
 		SCRAP_URANIUM = SCRAP_URANIUM_STATS, \
 		SCRAP_BLUESPACE = SCRAP_BLUESPACE_STATS ))
-
 
 
 /obj/structure/wreckage/autolathe
@@ -84,3 +84,17 @@
 	desc = "I dont think turning it off and on again wont fix this one. Maybe there is something to salvage?"
 	icon_state = "wreck_server"
 	purity = 4
+
+/obj/structure/wreckage/console
+	name = "Busted Console"
+	desc = "I think something is living in there. Maybe there is something to salvage?"
+	icon = 'sunset/icons/obj/computer.dmi'
+	icon_state = "computer_broken"
+	purity = 4
+
+/obj/structure/wreckage/machine
+	name = "Abandoned Terminal"
+	desc = "It looks and smells burnt. Maybe there is something to salvage?"
+	icon = 'sunset/icons/obj/pda.dmi'
+	icon_state = "pdapainter-broken"
+	purity = 3
