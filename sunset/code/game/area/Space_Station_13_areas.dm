@@ -45,7 +45,6 @@
 /area/medical/storage/secondary
 	name = "Medbay Secondary Storage"
 	icon_state = "medbay2"
-	music = 'sound/ambience/signal.ogg'
 
 /area/medical/surgery/one
 	name = "Surgery One"
