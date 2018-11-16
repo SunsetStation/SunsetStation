@@ -1,4 +1,0 @@
-author: "sunset-bot"
-delete-after: True
-changes: 
-  - bugfix: "now checks throwforce of objects, so you can't push tendrils around"
