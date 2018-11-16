@@ -61,3 +61,11 @@
 /area/crew_quarters/toilet/medbay
 	name = "Medbay Restroom"
 	icon_state = "toilet"
+
+/area/medical/medbay/zone3
+	name = "Zone 3"
+	icon_state = "medbay3"
+
+/area/medical/medbay/front_office
+	name = "Front Office"
+	icon_state = "medbay2"
