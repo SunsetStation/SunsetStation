@@ -76,7 +76,8 @@
 	if(connected && connected.is_operational())
 		if(connected.occupant)	//set occupant_status message
 			viable_occupant = connected.occupant
-			if(viable_occupant.has_dna() && !viable_occupant.has_trait(TRAIT_RADIMMUNE) && !viable_occupant.has_trait(TRAIT_NOCLONE) || (connected.scan_level == 3)) //occupant is viable for dna modification
+			var/datum/dna/D = viable_occupant.has_dna()
+			if(viable_occupant.has_dna() && (!D || !(NOSCAN in D.species.species_traits)) && !viable_occupant.has_trait(TRAIT_RADIMMUNE) && !viable_occupant.has_trait(TRAIT_NOCLONE) || (connected.scan_level == 3)) //occupant is viable for dna modification | sunset -- make it so IPCs can't get genetics crap
 				occupant_status += "[viable_occupant.name] => "
 				switch(viable_occupant.stat)
 					if(CONSCIOUS)

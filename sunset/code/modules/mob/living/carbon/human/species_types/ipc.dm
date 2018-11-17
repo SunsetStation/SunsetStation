@@ -8,11 +8,11 @@
 	burnmod = 2 // Wiring doesn't hold up to fire well.
 	brutemod = 1.8 // Thin metal, cheap materials.
 	siemens_coeff = 1.5 // Overload!
-	species_traits = list(NOBLOOD, NOZOMBIE, TRAIT_EASYDISMEMBER, TRAIT_LIMBATTACHMENT, NOTRANSSTING, MUTCOLORS, TRAIT_REVIVESBYHEALING, TRAIT_NOSCAN, TRAIT_NOCHANGELING, TRAIT_NOHUSK, TRAIT_ROBOTIC_LIMBS, TRAIT_NOMOUTH)
-	inherent_traits = list(TRAIT_NOBREATH, TRAIT_RADIMMUNE, TRAIT_VIRUSIMMUNE,)
+	species_traits = list(NOBLOOD, NOZOMBIE, EASYDISMEMBER, EASYLIMBATTACHMENT, NOTRANSSTING, MUTCOLORS, REVIVESBYHEALING, NOSCAN, NOCHANGELING, NOHUSK, ROBOTIC_LIMBS, NOMOUTH, NOEYES)
+	inherent_traits = list(TRAIT_NOBREATH, TRAIT_RADIMMUNE, TRAIT_VIRUSIMMUNE)
 	mutant_organs = list(/obj/item/organ/cyberimp/arm/power_cord)
 	mutant_bodyparts = list("ipc_screen", "ipc_antenna", "ipc_chassis")
-	default_features = list("mcolor" = "#7D7D7D", "ipc_screen" = "Static", "ipc_antenna" = "None", "ipc_chassis" = "Morpheus Cyberkinetics(Greyscale)")
+	default_features = list("mcolor" = "#7D7D7D", "ipc_screen" = "Static", "ipc_antenna" = "None", "ipc_chassis" = "Morpheus Cyberkinetics (Greyscale)")
 	meat = /obj/item/stack/sheet/plasteel{amount = 5}
 	skinned_type = /obj/item/stack/sheet/metal{amount = 10}
 	var/sound/male_scream_sound = 'sunset/sound/effects/mob_effects/goonstation/robot_scream.ogg'

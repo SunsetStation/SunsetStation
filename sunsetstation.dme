@@ -2884,6 +2884,7 @@
 #include "sunset\code\modules\mob\living\carbon\human\human.dm"
 #include "sunset\code\modules\mob\living\carbon\human\human_defence.dm"
 #include "sunset\code\modules\mob\living\carbon\human\species.dm"
+#include "sunset\code\modules\mob\living\carbon\human\status_procs.dm"
 #include "sunset\code\modules\mob\living\carbon\human\species_types\abductors.dm"
 #include "sunset\code\modules\mob\living\carbon\human\species_types\ipc.dm"
 #include "sunset\code\modules\mob\living\carbon\human\species_types\vox.dm"

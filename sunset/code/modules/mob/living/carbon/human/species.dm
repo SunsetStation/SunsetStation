@@ -4,21 +4,21 @@
 	var/allow_numbers_in_name // Can this species use numbers in its name?
 
 /datum/species/on_species_gain(mob/living/carbon/C, datum/species/old_species)
-	if(TRAIT_ROBOTIC_LIMBS in species_traits)
+	if(ROBOTIC_LIMBS in species_traits)
 		for(var/obj/item/bodypart/B in C.bodyparts)
 			B.change_bodypart_status(BODYPART_ROBOTIC) // Makes all Bodyparts robotic.
 			B.render_like_organic = TRUE
-	if(TRAIT_NOMOUTH in species_traits)
+	if(NOMOUTH in species_traits)
 		for(var/obj/item/bodypart/head/head in C.bodyparts)
 			head.mouth = FALSE
 	. = .. ()
 
 /datum/species/on_species_loss(mob/living/carbon/C)
-	if(TRAIT_ROBOTIC_LIMBS in species_traits)
+	if(ROBOTIC_LIMBS in species_traits)
 		for(var/obj/item/bodypart/B in C.bodyparts)
 			B.change_bodypart_status(BODYPART_ORGANIC, FALSE, TRUE)
 			B.render_like_organic = FALSE
-	if(TRAIT_NOMOUTH in species_traits)
+	if(NOMOUTH in species_traits)
 		for(var/obj/item/bodypart/head/head in C.bodyparts)
 			head.mouth = TRUE
 	. = .. ()

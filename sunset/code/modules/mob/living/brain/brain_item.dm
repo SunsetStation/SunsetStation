@@ -67,7 +67,7 @@
 
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
-		if(H.dna && H.dna.species && (TRAIT_REVIVESBYHEALING in H.dna.species.species_traits))
+		if(H.dna && H.dna.species && (REVIVESBYHEALING in H.dna.species.species_traits))
 			if(H.health > 0 && !H.hellbound)
 				H.revive(0)
 
