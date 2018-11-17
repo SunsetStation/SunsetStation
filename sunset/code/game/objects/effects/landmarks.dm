@@ -18,5 +18,16 @@
 	GLOB.infiltrator_objective_items += loc
 	return INITIALIZE_HINT_QDEL
 
+/obj/effect/landmark/swarmerstart
+	name = "swarmerstart"
+	icon = 'icons/mob/swarmer.dmi'
+	icon_state = "swarmer_unactivated"
+
+/obj/effect/landmark/swarmerstart/Initialize(mapload)
+	..()
+	GLOB.swarmerstart += loc
+	return INITIALIZE_HINT_QDEL
+
+
 /obj/effect/landmark/start/blueshield
 	name = "Blueshield"

@@ -2,14 +2,13 @@
 #define FONT_SIZE "5pt"
 #define FONT_COLOR "#09f"
 #define FONT_STYLE "Arial Black"
-#define MAX_TIMER 9000
+//sunset start -- replaces brig timers to fit our current set
+#define MAX_TIMER 27000
 
-#define PRESET_SHORT 1200
-#define PRESET_MEDIUM 1800
-#define PRESET_LONG 3000
-
-
-
+#define PRESET_SHORT 3000
+#define PRESET_MEDIUM 6000
+#define PRESET_LONG 9000
+//sunset end
 ///////////////////////////////////////////////////////////////////////////////////////////////
 // Brig Door control displays.
 //  Description: This is a controls the timer for the brig doors, displays the timer on itself and

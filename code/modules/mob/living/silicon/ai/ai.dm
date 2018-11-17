@@ -188,10 +188,19 @@
 	set name = "Set AI Core Display"
 	if(incapacitated())
 		return
-	var/ai_core_icon = input(src, "Please select a display!", "AI Core Display Screen Selection", null) as null|anything in GLOB.ai_core_display_screens
+	var/list/iconstates = GLOB.ai_core_display_screens
+	for(var/option in iconstates)
+		if(option == "Random")
+			iconstates[option] = image(icon = src.icon, icon_state = "ai-random")
+			continue
+		iconstates[option] = image(icon = src.icon, icon_state = resolve_ai_icon(option))
+
+	view_core()
+	var/ai_core_icon = show_radial_menu(src, src , iconstates, radius = 42)
+
 	if(!ai_core_icon || incapacitated())
 		return
-	to_chat(src, "<span class='notice'>Core display screen set to \"[ai_core_icon]\".</span>")
+
 	display_icon_override = ai_core_icon
 	set_core_display_icon(ai_core_icon)
 
