@@ -1,18 +1,5 @@
 // Used for translating channels to tokens on examination
 GLOBAL_LIST_INIT(channel_tokens, list(
-<<<<<<< HEAD
-	"Common" = ";",
-	"Science" = ":n",
-	"Command" = ":c",
-	"Medical" = ":m",
-	"Engineering" = ":e",
-	"Security" = ":s",
-	"CentCom" = ":y",
-	"Syndicate" = ":t",
-	"Supply" = ":u",
-	"Service" = ":v",
-	"Binary" = ":b"
-=======
 	RADIO_CHANNEL_COMMON = RADIO_KEY_COMMON,
 	RADIO_CHANNEL_SCIENCE = RADIO_TOKEN_SCIENCE,
 	RADIO_CHANNEL_COMMAND = RADIO_TOKEN_COMMAND,
@@ -25,7 +12,6 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	RADIO_CHANNEL_SERVICE = RADIO_TOKEN_SERVICE,
 	MODE_BINARY = MODE_TOKEN_BINARY,
 	RADIO_CHANNEL_AI_PRIVATE = RADIO_TOKEN_AI_PRIVATE
->>>>>>> f55196f765... Redundant
 ))
 
 /obj/item/radio/headset
