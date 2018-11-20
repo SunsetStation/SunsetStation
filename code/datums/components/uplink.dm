@@ -147,8 +147,6 @@ GLOBAL_LIST_EMPTY(uplinks)
 							is_inaccessible = 0
 					if(is_inaccessible)
 						continue
-<<<<<<< HEAD
-=======
 				if(I.restricted_species)
 					if(ishuman(user))
 						var/is_inaccessible = TRUE
@@ -159,7 +157,6 @@ GLOBAL_LIST_EMPTY(uplinks)
 								break
 						if(is_inaccessible)
 							continue
->>>>>>> 35ae754d0e... Fixes uplink.dm not accepting null values for restricted species (#41597)
 				cat["items"] += list(list(
 					"name" = I.name,
 					"cost" = I.cost,
