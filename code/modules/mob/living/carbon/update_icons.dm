@@ -122,7 +122,7 @@
 		inv.update_icon()
 
 	if(wear_mask)
-		if(!(head && (head.flags_inv & HIDEMASK)))
+		if(!(SLOT_WEAR_MASK in check_obscured_slots()))
 			//sunset start
 			var/image/standing
 			if(wear_mask.icon_override)
@@ -145,6 +145,7 @@
 		inv.update_icon()
 
 	if(wear_neck)
+<<<<<<< HEAD
 		if(!(head && (head.flags_inv & HIDENECK)))
 			//sunset start
 			var/image/standing
@@ -155,6 +156,10 @@
 			else
 				standing = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = NECK_LAYER, default_icon_file = 'icons/mob/neck.dmi')
 			overlays_standing[NECK_LAYER] = standing
+=======
+		if(!(SLOT_NECK in check_obscured_slots()))
+			overlays_standing[NECK_LAYER] = wear_neck.build_worn_icon(state = wear_neck.icon_state, default_layer = NECK_LAYER, default_icon_file = 'icons/mob/neck.dmi')
+>>>>>>> e288c61677b331c271af95457b2b6c5614fba775
 		update_hud_neck(wear_neck)
 		//sunset stop
 
