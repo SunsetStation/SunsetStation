@@ -64,3 +64,15 @@
 
 /obj/machinery/door/airlock/wood
 	icon = 'sunset/icons/obj/doors/airlocks/station/wood.dmi'
+
+/obj/machinery/door/airlock/highsecurty
+	icon = 'sunset/icons/obj/doors/airlocks/highsec/highsec.dmi'
+	overlays_file = 'sunset/icons/obj/doors/airlocks/highsec/overlays.dmi'
+
+/obj/machinery/door/airlock/external
+	icon = 'sunset/icons/obj/doors/airlocks/external/external.dmi'
+	overlays_file = 'sunset/icons/obj/doors/airlocks/external/overlays.dmi'
+
+/obj/machinery/door/airlock/public
+	icon = 'sunset/icons/obj/doors/airlocks/station2/glass.dmi'
+	overlays_file = 'sunset/icons/obj/doors/airlocks/station2/overlays.dmi'
