@@ -116,6 +116,7 @@
 #include "code\__DEFINES\~sunset_defines\misc.dm"
 #include "code\__DEFINES\~sunset_defines\mobs.dm"
 #include "code\__DEFINES\~sunset_defines\preferences.dm"
+#include "code\__DEFINES\~sunset_defines\sound.dm"
 #include "code\__HELPERS\_lists.dm"
 #include "code\__HELPERS\_logging.dm"
 #include "code\__HELPERS\_string_lists.dm"
