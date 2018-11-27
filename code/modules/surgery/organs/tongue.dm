@@ -17,7 +17,11 @@
 		/datum/language/beachbum,
 		/datum/language/ratvar,
 		/datum/language/aphasia,
+<<<<<<< HEAD
 		/datum/language/voxpidgin,// sunset -- adds vox language to tongue
+=======
+		/datum/language/piratespeak,
+>>>>>>> 31386f8f93... Pirate language (#41489)
 	))
 
 /obj/item/organ/tongue/Initialize(mapload)
