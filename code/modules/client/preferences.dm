@@ -69,11 +69,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/skin_tone = "caucasian1"		//Skin color
 	var/eye_color = "000"				//Eye color
 	var/datum/species/pref_species = new /datum/species/human()	//Mutant race
-<<<<<<< HEAD
-	var/list/features = list("mcolor" = "FFF", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "vox_quills" = "None", "vox_facial_quills" = "None", "vox_body_markings" = "None", "vox_body" = "Green", "vox_tail_markings" = "None") /*Sunset vox included*/
-=======
-	var/list/features = list("mcolor" = "FFF", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain")
->>>>>>> b9f5dbac6b... Adds a new race: Ethereal (also adds wrappers for nutrition adjustment) (#40995)
+	var/list/features = list("mcolor" = "FFF", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "vox_quills" = "None", "vox_facial_quills" = "None", "vox_body_markings" = "None", "vox_body" = "Green", "vox_tail_markings" = "None") /*Sunset vox included*/
 
 	var/list/custom_names = list()
 	var/preferred_ai_core_display = "Blue"
