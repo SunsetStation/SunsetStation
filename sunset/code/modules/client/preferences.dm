@@ -69,7 +69,7 @@
 			var/new_vox_tail_markings
 			new_vox_tail_markings = input(user, "Choose your character's tail markings", "Character Preference") as null|anything in GLOB.vox_tail_markings_list
 			if(new_vox_tail_markings)
-			features["vox_tail_markings"] = new_vox_tail_markings
+				features["vox_tail_markings"] = new_vox_tail_markings
       
 /datum/preferences
 	clientfps = 60
