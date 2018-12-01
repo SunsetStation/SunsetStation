@@ -65,7 +65,7 @@
 /obj/machinery/door/airlock/wood
 	icon = 'sunset/icons/obj/doors/airlocks/station/wood.dmi'
 
-/obj/machinery/door/airlock/highsecurty
+/obj/machinery/door/airlock/highsecurity
 	icon = 'sunset/icons/obj/doors/airlocks/highsec/highsec.dmi'
 	overlays_file = 'sunset/icons/obj/doors/airlocks/highsec/overlays.dmi'
 
