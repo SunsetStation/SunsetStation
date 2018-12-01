@@ -122,7 +122,7 @@
 		inv.update_icon()
 
 	if(wear_mask)
-		if(!(head && (head.flags_inv & HIDEMASK)))
+		if(!(SLOT_WEAR_MASK in check_obscured_slots()))
 			//sunset start
 			var/image/standing
 			if(wear_mask.icon_override)
@@ -145,7 +145,7 @@
 		inv.update_icon()
 
 	if(wear_neck)
-		if(!(head && (head.flags_inv & HIDENECK)))
+		if(!(SLOT_NECK in check_obscured_slots()))
 			//sunset start
 			var/image/standing
 			if(wear_neck.icon_override)

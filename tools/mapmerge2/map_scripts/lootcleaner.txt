@@ -1,0 +1,7 @@
+/obj/effect/spawner/lootdrop/maintenance {lootcount=2} : /obj/effect/spawner/lootdrop/maintenance/two
+/obj/effect/spawner/lootdrop/maintenance {lootcount=3} : /obj/effect/spawner/lootdrop/maintenance/three
+/obj/effect/spawner/lootdrop/maintenance {lootcount=4} : /obj/effect/spawner/lootdrop/maintenance/four
+/obj/effect/spawner/lootdrop/maintenance {lootcount=5} : /obj/effect/spawner/lootdrop/maintenance/five
+/obj/effect/spawner/lootdrop/maintenance {lootcount=6} : /obj/effect/spawner/lootdrop/maintenance/six
+/obj/effect/spawner/lootdrop/maintenance {lootcount=7} : /obj/effect/spawner/lootdrop/maintenance/seven
+/obj/effect/spawner/lootdrop/maintenance {lootcount=8} : /obj/effect/spawner/lootdrop/maintenance/eight

@@ -46,14 +46,16 @@
 #define MINING list('sound/ambience/ambimine.ogg', 'sound/ambience/ambicave.ogg', 'sound/ambience/ambiruin.ogg',\
 											'sound/ambience/ambiruin2.ogg',  'sound/ambience/ambiruin3.ogg',  'sound/ambience/ambiruin4.ogg',\
 											'sound/ambience/ambiruin5.ogg',  'sound/ambience/ambiruin6.ogg',  'sound/ambience/ambiruin7.ogg',\
-											'sound/ambience/ambidanger.ogg', 'sound/ambience/ambidanger2.ogg', 'sound/ambience/ambimaint1.ogg', 'sound/ambience/ambilava.ogg')
+											'sound/ambience/ambidanger.ogg', 'sound/ambience/ambidanger2.ogg', 'sound/ambience/ambimaint1.ogg', 'sound/ambience/ambilava.ogg',\
+											'sunset/sound/ambience/ambiruin8.ogg', 'sunset/sound/ambience/ambiruin9.ogg', 'sunset/sound/ambience/ambiruin10.ogg', 'sunset/sound/ambience/ambiruin11.ogg',\
+											'sunset/sound/ambience/ambiruin12.ogg')
 
 #define MEDICAL list('sound/ambience/ambinice.ogg')
 
 #define SPOOKY list('sound/ambience/ambimo1.ogg','sound/ambience/ambimo2.ogg','sound/ambience/ambiruin7.ogg','sound/ambience/ambiruin6.ogg',\
 										'sound/ambience/ambiodd.ogg', 'sound/ambience/ambimystery.ogg')
 
-#define SPACE list('sound/ambience/ambispace.ogg', 'sound/ambience/ambispace2.ogg', 'sound/ambience/title2.ogg', 'sound/ambience/ambiatmos.ogg')
+#define SPACE list('sound/ambience/ambispace.ogg', 'sound/ambience/ambispace2.ogg', 'sunset/sound/ambience/ambispace3.ogg', 'sunset/sound/ambience/ambispace4.ogg', 'sound/ambience/ambiatmos.ogg')
 
 #define MAINTENANCE list('sound/ambience/ambimaint1.ogg', 'sound/ambience/ambimaint2.ogg', 'sound/ambience/ambimaint3.ogg', 'sound/ambience/ambimaint4.ogg',\
 											'sound/ambience/ambimaint5.ogg', 'sound/voice/lowHiss2.ogg', 'sound/voice/lowHiss3.ogg', 'sound/voice/lowHiss4.ogg', 'sound/ambience/ambitech2.ogg' )
@@ -73,3 +75,19 @@
 	'sound/hallucinations/growl3.ogg', 'sound/hallucinations/im_here1.ogg', 'sound/hallucinations/im_here2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg',\
 	'sound/hallucinations/look_up1.ogg', 'sound/hallucinations/look_up2.ogg', 'sound/hallucinations/over_here1.ogg', 'sound/hallucinations/over_here2.ogg', 'sound/hallucinations/over_here3.ogg',\
 	'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg', 'sound/hallucinations/veryfar_noise.ogg', 'sound/hallucinations/wail.ogg')
+
+//**********CREDITS************************************
+//
+// Each song was taken from the Youtube Audio Library
+//
+// ambiruin8 - A Singular Perversion to Darkness by Kevin MacLeod
+// ambispace3 - At Rest Romance by Kevin MacLeod
+// title3 - Cylinder Six by Chris Zabriskie
+// title1 - Fender Bender by Bad Snacks
+// ambiruin9 - Fresno Alley by Josh Lippi & The Overtimers
+// ambiruin10 - Gloom Horizon by Kevin MacLeod
+// ambispace4 - Impact Lento by Kevin MacLeod
+// ambiruin11 - Impromptu in Blue by Kevin MacLeod
+// ambiruin12 - Industrial Revolution by Kevin MacLeod
+// title2 - Tape Deck by Endless Love
+// ***************************************************

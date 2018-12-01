@@ -63,58 +63,48 @@ datum/preferences/proc/sunset_preference_data(mob/user, var/list/dat)
 	return dat
 
 
-datum/preferences/proc/process_sunset(mob/user, href_list)
-//sunset start
-	switch(href_list["preference"])
+/datum/preferences/proc/process_sunset(mob/user, pref)
+	switch(pref)
 		if("vox_body") //sunset vox included
 			var/new_vox_body
 			new_vox_body = input(user, "Choose your character's body color:", "Character Preference") as null|anything in GLOB.vox_bodies_list
 			if(new_vox_body)
 				features["vox_body"] = new_vox_body
-
 		if("vox_quills") //sunset vox included
 			var/new_vox_quills
 			new_vox_quills = input(user, "Choose your character's quills:", "Character Preference") as null|anything in GLOB.vox_quills_list
 			if(new_vox_quills)
 				features["vox_quills"] = new_vox_quills
-
 		if("vox_facial_quills") //sunset vox included
 			var/new_vox_facial_quills
 			new_vox_facial_quills = input(user, "Choose your character's facial quills:", "Character Preference") as null|anything in GLOB.vox_facial_quills_list
 			if(new_vox_facial_quills)
 				features["vox_facial_quills"] = new_vox_facial_quills
-
 		if("vox_body_markings") //sunset vox included
 			var/new_vox_body_markings
 			new_vox_body_markings = input(user, "Choose your character's body markings", "Character Preference") as null|anything in GLOB.vox_body_markings_list
 			if(new_vox_body_markings)
 				features["vox_body_markings"] = new_vox_body_markings
-
 		if("vox_tail_markings") //sunset vox included
 			var/new_vox_tail_markings
 			new_vox_tail_markings = input(user, "Choose your character's tail markings", "Character Preference") as null|anything in GLOB.vox_tail_markings_list
 			if(new_vox_tail_markings)
 				features["vox_tail_markings"] = new_vox_tail_markings
-
 		if("ipc_screen")
 			var/new_ipc_screen
 			new_ipc_screen = input(user, "Choose your character's screen:", "Character Preference") as null|anything in GLOB.ipc_screens_list
 			if(new_ipc_screen)
 				features["ipc_screen"] = new_ipc_screen
-
 		if("ipc_antenna")
 			var/new_ipc_antenna
 			new_ipc_antenna = input(user, "Choose your character's antenna:", "Character Preference") as null|anything in GLOB.ipc_antennas_list
 			if(new_ipc_antenna)
 				features["ipc_antenna"] = new_ipc_antenna
-
 		if("ipc_chassis")
 			var/new_ipc_chassis
 			new_ipc_chassis = input(user, "Choose your character's chassis:", "Character Preference") as null|anything in GLOB.ipc_chassis_list
 			if(new_ipc_chassis)
 				features["ipc_chassis"] = new_ipc_chassis
-//sunset stop
-
 
 /datum/preferences
 	clientfps = 60
