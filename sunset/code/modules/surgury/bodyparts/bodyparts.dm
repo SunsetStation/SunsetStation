@@ -20,9 +20,9 @@
 					return
 	..()
 
-/obj/item/bodypart/heal_damage(brute, burn, only_robotic = 0, only_organic = 1, updating_health = 1)
+/obj/item/bodypart/heal_damage(brute, burn, stamina, only_robotic = FALSE, only_organic = TRUE, updating_health = TRUE)
+	. = ..()
 	if(owner.dna && owner.dna.species && (REVIVESBYHEALING in owner.dna.species.species_traits))
 		if(owner.health > 0 && !owner.hellbound)
 			owner.revive(0)
 			owner.cure_husk(0) // If it has TRAIT_REVIVESBYHEALING, it probably can't be cloned. No husk cure.
-	. = ..()
