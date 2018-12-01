@@ -43,36 +43,32 @@
 	return dat
 
 
-/datum/preferences/proc/process_vox(mob/user)
-
-	if("vox_body") //sunset vox included
-		var/new_vox_body
-		new_vox_body = input(user, "Choose your character's body color:", "Character Preference") as null|anything in GLOB.vox_bodies_list
-		if(new_vox_body)
-			features["vox_body"] = new_vox_body
-
-	if("vox_quills") //sunset vox included
-		var/new_vox_quills
-		new_vox_quills = input(user, "Choose your character's quills:", "Character Preference") as null|anything in GLOB.vox_quills_list
-		if(new_vox_quills)
-			features["vox_quills"] = new_vox_quills
-
-	if("vox_facial_quills") //sunset vox included
-		var/new_vox_facial_quills
-		new_vox_facial_quills = input(user, "Choose your character's facial quills:", "Character Preference") as null|anything in GLOB.vox_facial_quills_list
-		if(new_vox_facial_quills)
-			features["vox_facial_quills"] = new_vox_facial_quills
-
-	if("vox_body_markings") //sunset vox included
-		var/new_vox_body_markings
-		new_vox_body_markings = input(user, "Choose your character's body markings", "Character Preference") as null|anything in GLOB.vox_body_markings_list
-		if(new_vox_body_markings)
-			features["vox_body_markings"] = new_vox_body_markings
-
-	if("vox_tail_markings") //sunset vox included
-		var/new_vox_tail_markings
-		new_vox_tail_markings = input(user, "Choose your character's tail markings", "Character Preference") as null|anything in GLOB.vox_tail_markings_list
-		if(new_vox_tail_markings)
+/datum/preferences/proc/process_sunset(mob/user, pref)
+	switch(pref)
+		if("vox_body") //sunset vox included
+			var/new_vox_body
+			new_vox_body = input(user, "Choose your character's body color:", "Character Preference") as null|anything in GLOB.vox_bodies_list
+			if(new_vox_body)
+				features["vox_body"] = new_vox_body
+		if("vox_quills") //sunset vox included
+			var/new_vox_quills
+			new_vox_quills = input(user, "Choose your character's quills:", "Character Preference") as null|anything in GLOB.vox_quills_list
+			if(new_vox_quills)
+				features["vox_quills"] = new_vox_quills
+		if("vox_facial_quills") //sunset vox included
+			var/new_vox_facial_quills
+			new_vox_facial_quills = input(user, "Choose your character's facial quills:", "Character Preference") as null|anything in GLOB.vox_facial_quills_list
+			if(new_vox_facial_quills)
+				features["vox_facial_quills"] = new_vox_facial_quills
+		if("vox_body_markings") //sunset vox included
+			var/new_vox_body_markings
+			new_vox_body_markings = input(user, "Choose your character's body markings", "Character Preference") as null|anything in GLOB.vox_body_markings_list
+			if(new_vox_body_markings)
+				features["vox_body_markings"] = new_vox_body_markings
+		if("vox_tail_markings") //sunset vox included
+			var/new_vox_tail_markings
+			new_vox_tail_markings = input(user, "Choose your character's tail markings", "Character Preference") as null|anything in GLOB.vox_tail_markings_list
+			if(new_vox_tail_markings)
 			features["vox_tail_markings"] = new_vox_tail_markings
       
 /datum/preferences

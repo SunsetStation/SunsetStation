@@ -1393,7 +1393,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						pda_color = pickedPDAColor
 
 				else
-					process_vox(user) // sunset -- adds vox preferences
+					process_sunset(user, href_list["preference"]) // sunset -- adds our preferences
 
 		else
 			switch(href_list["preference"])
