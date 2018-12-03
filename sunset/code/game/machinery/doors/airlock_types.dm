@@ -76,3 +76,15 @@
 /obj/machinery/door/airlock/public
 	icon = 'sunset/icons/obj/doors/airlocks/station2/glass.dmi'
 	overlays_file = 'sunset/icons/obj/doors/airlocks/station2/overlays.dmi'
+
+/obj/machinery/door/airlock/titanium
+	icon = 'sunset/icons/obj/doors/airlocks/shuttle/shuttle.dmi'
+	overlays_file = 'sunset/icons/obj/doors/airlocks/shuttle/overlays.dmi'
+
+/obj/machinery/door/airlock/centcom
+	icon = 'sunset/icons/obj/doors/airlocks/centcom/centcom.dmi'
+	overlays_file = 'sunset/icons/obj/doors/airlocks/centcom/overlays.dmi'
+
+/obj/machinery/door/airlock/grunge
+	icon = 'sunset/icons/obj/doors/airlocks/centcom/centcom.dmi'
+	overlays_file = 'sunset/icons/obj/doors/airlocks/centcom/overlays.dmi'
