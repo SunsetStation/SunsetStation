@@ -33,3 +33,15 @@
 		icon_state = "blenderG1"
 	else
 		icon_state = "blenderG0"
+
+/obj/machinery/reagentgrinder/blender/purple
+	name = "Green Blender"
+	desc = "From BlenderTech. Guaranteed to be 100 percent grind whatever unnatural biological materials you place in it!"
+	icon = 'sunset/icons/obj/kitchen.dmi'
+	icon_state = "blenderP1"
+
+/obj/machinery/reagentgrinder/blender/purple/update_icon()
+	if(beaker)
+		icon_state = "blenderP1"
+	else
+		icon_state = "blenderP0"

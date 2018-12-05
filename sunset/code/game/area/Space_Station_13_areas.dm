@@ -69,3 +69,82 @@
 /area/medical/medbay/front_office
 	name = "Front Office"
 	icon_state = "medbay2"
+
+//Science
+/area/science
+	icon = 'sunset/icons/turf/areas.dmi'
+	icon_state = "science"
+
+/area/science/lab
+	name = "Research and Development"
+	icon_state = "rnd"
+
+/area/science/xenobiology
+	name = "Xenobiology Lab"
+	icon_state = "xenobiology"
+
+/area/science/storage
+	name = "Toxins Storage"
+	icon_state = "toxinsstorage"
+
+/area/science/test_area
+	valid_territory = FALSE
+	name = "Toxins Test Area"
+	icon_state = "toxinsrange"
+
+/area/science/mixing
+	name = "Toxins Mixing Lab"
+	icon_state = "toxins"
+
+/area/science/mixing/chamber
+	name = "Toxins Mixing Chamber"
+	icon_state = "toxinsrange"
+	valid_territory = FALSE
+
+/area/science/misc_lab
+	name = "Testing Lab"
+	icon_state = "miscscience"
+
+/area/science/misc_lab/range
+	name = "Research Testing Range"
+	icon_state = "toxinsrange"
+
+/area/science/server
+	name = "Research Division Server Room"
+	icon_state = "data"
+
+/area/science/explab
+	name = "Experimentation Lab"
+	icon_state = "experimentor"
+
+/area/science/robotics
+	name = "Robotics"
+	icon_state = "generalrobots"
+
+/area/science/robotics/mechbay
+	name = "Mech Bay"
+	icon_state = "mecharea"
+
+/area/science/robotics/lab
+	name = "Robotics Lab"
+	icon_state = "robots"
+
+/area/science/research
+	name = "Research Division"
+	icon_state = "generalresearch"
+
+/area/science/research/abandoned
+	name = "Abandoned Research Lab"
+	icon_state = "brokenscience"
+
+/area/science/nanite
+	name = "Nanite Lab"
+	icon_state = "nanites"
+
+/area/science/xenoflora
+	name = "Xenofloara Lab"
+	icon_state = "xenoflora"
+
+/area/science/breakroom
+	name = "Science Breakroom"
+	icon_state = "sciencebreakroom"

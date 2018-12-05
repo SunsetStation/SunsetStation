@@ -45,7 +45,7 @@
 	req_access = list(ACCESS_VIROLOGY)
 	icon_state = "viro_secure"
 
-/obj/structure/closet/secure_closet/virology/PopulateContents() //Contains equipment for two geneticists per locker.
+/obj/structure/closet/secure_closet/virology/PopulateContents()
 	..()
 	new /obj/item/radio/headset/headset_med(src)
 	new /obj/item/radio/headset/headset_med(src)
@@ -58,3 +58,5 @@
 	new /obj/item/clothing/under/rank/virologist(src)
 	new /obj/item/clothing/under/rank/virologist(src)
 	new /obj/item/storage/bag/bio(src)
+	new /obj/item/storage/backpack/virology(src)
+	new /obj/item/storage/backpack/satchel/vir(src)
