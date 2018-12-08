@@ -30,6 +30,8 @@
 		A.skin = "blue"
 	else if(istype(src, /obj/item/storage/firstaid/brute))
 		A.skin = "red"
+	else if(istype(src, /obj/item/storage/firstaid/advanced))
+		A.skin = "purple"
 	user.put_in_hands(A)
 	to_chat(user, "<span class='notice'>You add [S] to [src].</span>")
 	A.robot_arm = S.type
