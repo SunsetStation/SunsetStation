@@ -1,0 +1,6 @@
+author: "Quantum-M"
+delete-after: True
+changes: 
+  - tweak: "Advanced medkit now uses a purple color, along with allowing it to make a purple medibot."
+  - rscadd: "Adds in hand sprites for purple medkits."
+  - tweak: "Minor tuning to the medibot sprites."
