@@ -2758,6 +2758,8 @@
 #include "sunset\code\_globalvars\lists\names.dm"
 #include "sunset\code\controllers\configuration\entries\config.dm"
 #include "sunset\code\controllers\configuration\entries\general.dm"
+#include "sunset\code\controllers\subsystem\ticker.dm"
+#include "sunset\code\controllers\subsystem\vote.dm"
 #include "sunset\code\datums\action.dm"
 #include "sunset\code\datums\emotes.dm"
 #include "sunset\code\datums\shuttles.dm"

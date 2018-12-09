@@ -71,6 +71,8 @@ SUBSYSTEM_DEF(vote)
 					choices[GLOB.master_mode] += non_voters.len
 					if(choices[GLOB.master_mode] >= greatest_votes)
 						greatest_votes = choices[GLOB.master_mode]
+			else
+				sunset_votes(greatest_votes) // sunset -- add our vote stuff
 	//get all options with that many votes and return them in a list
 	. = list()
 	if(greatest_votes)
@@ -123,6 +125,8 @@ SUBSYSTEM_DEF(vote)
 						restart = 1
 					else
 						GLOB.master_mode = .
+			else
+				sunset_results(mode) // sunset -- our vote stuff
 	if(restart)
 		var/active_admins = 0
 		for(var/client/C in GLOB.admins)
@@ -181,7 +185,7 @@ SUBSYSTEM_DEF(vote)
 						break
 					choices.Add(option)
 			else
-				return 0
+				return sunset_initiate_vote()
 		mode = vote_type
 		initiator = initiator_key
 		started_time = world.time
@@ -247,11 +251,12 @@ SUBSYSTEM_DEF(vote)
 			. += "<font color='grey'>GameMode (Disallowed)</font>"
 		if(trialmin)
 			. += "\t(<a href='?src=[REF(src)];vote=toggle_gamemode'>[avm ? "Allowed" : "Disallowed"]</a>)"
-
 		. += "</li>"
 		//custom
 		if(trialmin)
 			. += "<li><a href='?src=[REF(src)];vote=custom'>Custom</a></li>"
+		. += "</li>"
+		. += sunset_vote_menu(trialmin) // sunset -- what it says on the tin
 		. += "</ul><hr>"
 	. += "<a href='?src=[REF(src)];vote=close' style='position:absolute;right:50px'>Close</a>"
 	return .
@@ -284,7 +289,8 @@ SUBSYSTEM_DEF(vote)
 			if(usr.client.holder)
 				initiate_vote("custom",usr.key)
 		else
-			submit_vote(round(text2num(href_list["vote"])))
+			if(!sunset_vote_topic(href_list["vote"])) // sunset
+				submit_vote(round(text2num(href_list["vote"])))
 	usr.vote()
 
 /datum/controller/subsystem/vote/proc/remove_action_buttons()

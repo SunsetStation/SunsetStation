@@ -560,3 +560,12 @@ MONKEYCAP 64
 
 ## Enable the capitalist agenda on your server.
 ECONOMY
+
+## Allow crew transfer votes
+ALLOW_VOTE_TRANSFER
+
+## Autovote initial delay (seconds) before first automatic transfer vote call (default 180 minutes). Autotransfer will be disabled if it's 0.
+VOTE_AUTOTRANSFER_INITIAL 72000
+
+## Autovote delay (seconds) before sequential automatic transfer votes are called (default 60 minutes). Repeating autotransfer ill be disabled if it's 0.
+VOTE_AUTOTRANSFER_INTERVAL 18000
