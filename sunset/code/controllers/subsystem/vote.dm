@@ -38,8 +38,8 @@
 	else
 		. += "<font color='grey'>Crew Transfer (Disallowed)</font>"
 
-/datum/controller/subsystem/vote/proc/sunset_vote_topic(option)
-	if(option == "crew_transfer" && usr.client.holder)
-		initiate_vote("crew_transfer", usr.key)
+/datum/controller/subsystem/vote/proc/sunset_vote_topic(option, mob/user)
+	if(option == "crew_transfer" && user.client.holder)
+		initiate_vote("crew_transfer", user.key)
 		return TRUE
 	return FALSE

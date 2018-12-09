@@ -256,7 +256,7 @@ SUBSYSTEM_DEF(vote)
 		if(trialmin)
 			. += "<li><a href='?src=[REF(src)];vote=custom'>Custom</a></li>"
 		. += "</li>"
-		. += sunset_vote_menu(trialmin) // sunset -- what it says on the tin
+		. += sunset_vote_menu(trialmin, usr) // sunset -- what it says on the tin
 		. += "</ul><hr>"
 	. += "<a href='?src=[REF(src)];vote=close' style='position:absolute;right:50px'>Close</a>"
 	return .
@@ -289,7 +289,7 @@ SUBSYSTEM_DEF(vote)
 			if(usr.client.holder)
 				initiate_vote("custom",usr.key)
 		else
-			if(!sunset_vote_topic(href_list["vote"])) // sunset
+			if(!sunset_vote_topic(href_list["vote"], usr)) // sunset
 				submit_vote(round(text2num(href_list["vote"])))
 	usr.vote()
 
