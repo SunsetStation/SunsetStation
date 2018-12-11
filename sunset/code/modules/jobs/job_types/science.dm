@@ -15,3 +15,6 @@
 
 /datum/job/roboticist
 	access = list(ACCESS_ROBOTICS, ACCESS_TOX, ACCESS_TOX_STORAGE, ACCESS_TECH_STORAGE, ACCESS_MORGUE, ACCESS_MECH_SCIENCE, ACCESS_RESEARCH, ACCESS_MINERAL_STOREROOM, ACCESS_XENOBIOLOGY)
+
+/datum/outfit/job/roboticist
+	ears = /obj/item/radio/headset/headset_rob

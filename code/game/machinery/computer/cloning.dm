@@ -52,7 +52,10 @@
 			else if(!. && pod.is_operational() && !(pod.occupant || pod.mess) && pod.efficiency > 5)
 				. = pod
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c96e209f7e2c5512917c3c0af005a5bd465d438b
 /obj/machinery/computer/cloning/proc/updatemodules(findfirstcloner)
 	src.scanner = findscanner()
 	if(findfirstcloner && !LAZYLEN(pods))
@@ -125,7 +128,10 @@
 
 	dat += "<h3>Cloning Pod Status</h3>"
 	dat += "<div class='statusDisplay'>[temp]&nbsp;</div>"
+<<<<<<< HEAD
 
+=======
+>>>>>>> c96e209f7e2c5512917c3c0af005a5bd465d438b
 	// Modules
 	if (isnull(src.scanner) || !LAZYLEN(pods))
 		dat += "<h3>Modules</h3>"
@@ -158,7 +164,10 @@
 			dat += "<br><a href='byond://?src=[REF(src)];lock=1'>[src.scanner.locked ? "Unlock Scanner" : "Lock Scanner"]</a>"
 		else
 			dat += "<span class='linkOff'>Start Scan</span>"
+<<<<<<< HEAD
 
+=======
+>>>>>>> c96e209f7e2c5512917c3c0af005a5bd465d438b
 
 	var/datum/browser/popup = new(user, "cloning", "Cloning System Control")
 	popup.set_content(dat)
@@ -200,7 +209,6 @@
 	else if (href_list["refresh"])
 		src.updateUsrDialog()
 		playsound(src, "terminal_type", 25, 0)
-
 
 	src.add_fingerprint(usr)
 	src.updateUsrDialog()
@@ -254,7 +262,7 @@
 
 	var/mind
 	if(mob_occupant.mind)
-		mind = "[REF(mob_occupant.mind)]"	
+		mind = "[REF(mob_occupant.mind)]"
 
 	var/quirks = list()
 	for(var/V in mob_occupant.roundstart_quirks)
@@ -275,7 +283,7 @@
 	else if(pod.occupant)
 		temp = "<font class='bad'>Cloning cycle already in progress.</font>"
 		playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
-	else if(pod.growclone(mob_occupant.ckey, mob_occupant.real_name, dna.uni_identity, dna.struc_enzymes, mind, mrace, dna.features, mob_occupant.faction, quirks, has_bank_account))
+	else if(pod.growclone(mob_occupant.ckey, mob_occupant.real_name, dna.uni_identity, dna.mutation_index, mind, mrace, dna.features, mob_occupant.faction, quirks, has_bank_account))
 		temp = "[mob_occupant.real_name] => <font class='good'>Cloning cycle in progress...</font>"
 		playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, 0)
 	else

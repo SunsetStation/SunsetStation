@@ -29,6 +29,12 @@
 /obj/structure/chair/office/black
 	icon_state = "officechair_black"
 
+/obj/structure/chair/office/purple
+	icon_state = "officechair_purple"
+
+/obj/structure/chair/office/darkblue
+	icon_state = "officechair_darkblue"
+
 /obj/structure/chair/office/Initialize()
 	armrest = GetArmrest()
 	armrest.layer = ABOVE_MOB_LAYER

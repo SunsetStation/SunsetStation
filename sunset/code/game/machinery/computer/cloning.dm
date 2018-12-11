@@ -452,7 +452,7 @@
 		scantemp = "<font class='bad'>Unable to locate valid genetic data.</font>"
 		playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 		return
-  if(dna.species && (NOSCAN in dna.species.species_traits))
+	if(dna.species && (NOSCAN in dna.species.species_traits))
 		scantemp = "<span class='bad'>Subject has no valid, scannable biological tissue.</span>"
 		playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 		return
@@ -493,7 +493,7 @@
 	R.fields["id"] = copytext(md5(mob_occupant.real_name), 2, 6)
 	R.fields["UE"] = dna.unique_enzymes
 	R.fields["UI"] = dna.uni_identity
-	R.fields["SE"] = dna.struc_enzymes
+	R.fields["SE"] = dna.mutation_index
 	R.fields["blood_type"] = dna.blood_type
 	R.fields["features"] = dna.features
 	R.fields["factions"] = mob_occupant.faction
