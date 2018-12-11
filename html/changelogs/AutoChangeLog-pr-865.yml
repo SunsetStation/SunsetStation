@@ -1,0 +1,6 @@
+author: "Quantum-M"
+delete-after: True
+changes: 
+  - tweak: "Updates the science area of the map."
+  - tweak: "Updates several sprites."
+  - bugfix: "Fixes several bugs from the previous mapping PRs."
