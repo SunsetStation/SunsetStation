@@ -1,0 +1,5 @@
+author: "dor-a-thon"
+delete-after: True
+changes: 
+  - rscadd: "Added new appearances for station airlocks"
+  - soundadd: "Added new sounds for airlocks"
