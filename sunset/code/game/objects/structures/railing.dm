@@ -3,12 +3,18 @@
 	desc = "Do not lean!"
 	icon = 'sunset/icons/obj/railing.dmi'
 	icon_state = "straight"
+	layer = ABOVE_MOB_LAYER
 	density = TRUE
+	anchored = TRUE
 
 /obj/structure/railing/CanPass(atom/movable/mover, turf/target)
 	if(get_dir(loc, target) == dir)
 		return !density
 	return TRUE
+
+/obj/structure/railing/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/simple_rotation, ROTATION_ALTCLICK | ROTATION_CLOCKWISE | ROTATION_COUNTERCLOCKWISE | ROTATION_VERBS )
 
 /obj/structure/railing/corner
 	icon_state = "corner"
@@ -17,13 +23,13 @@
 /obj/structure/railing/corner/CanPass(atom/movable/mover, turf/target)
 	switch(dir)
 		if(SOUTH)
-			no_no_dirs = WEST|NORTH
-		if(NORTH)
 			no_no_dirs = EAST|SOUTH
+		if(NORTH)
+			no_no_dirs = WEST|NORTH
 		if(EAST)
-			no_no_dirs = EAST|NORTH
-		if(WEST)
 			no_no_dirs = WEST|SOUTH
+		if(WEST)
+			no_no_dirs = EAST|NORTH
 	if(no_no_dirs & get_dir(loc, target))
 		return !density
 	return TRUE
@@ -41,16 +47,16 @@
 	icon_state = "construction_corner"
 	var/no_no_dirs = NONE
 
-/obj/structure/railing/construction/corner/CanPass(atom/movable/mover, turf/target)
+/obj/structure/railing/corner/CanPass(atom/movable/mover, turf/target)
 	switch(dir)
 		if(SOUTH)
-			no_no_dirs = WEST|NORTH
-		if(NORTH)
 			no_no_dirs = EAST|SOUTH
+		if(NORTH)
+			no_no_dirs = WEST|NORTH
 		if(EAST)
-			no_no_dirs = EAST|NORTH
-		if(WEST)
 			no_no_dirs = WEST|SOUTH
+		if(WEST)
+			no_no_dirs = EAST|NORTH
 	if(no_no_dirs & get_dir(loc, target))
 		return !density
 	return TRUE
