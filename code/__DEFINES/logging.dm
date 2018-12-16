@@ -15,7 +15,11 @@
 #define INVESTIGATE_RADIATION		"radiation"
 #define INVESTIGATE_EXONET			"exonet"
 #define INVESTIGATE_NANITES			"nanites"
+<<<<<<< HEAD
 #define INVESTIGATE_CIRCUIT			"circuit"
+=======
+#define INVESTIGATE_PRESENTS        "presents"
+>>>>>>> e8e77047b9... The admin Investigate shows which categories are empty (#41924)
 
 // Logging types for log_message()
 #define LOG_ATTACK		(1 << 0)
