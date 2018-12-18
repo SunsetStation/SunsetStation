@@ -13,7 +13,6 @@
 	name = "salvage"
 	icon = 'sunset/icons/obj/salvage.dmi'
 
-
 /obj/item/stack/ore/salvage/scrapmetal
 	name = "scrap metal"
 	desc = "A collection of metal peices and parts."

@@ -1,15 +1,55 @@
 
 //im just filling stuff in here so its just here, i dont expect this to work at all or even compile at this point
 
-/obj/item/circuitboard //the sweet meat of the makeshift structures
+/obj/item/circuitboard/machine/controlboard //the sweet meat of the makeshift structures
 	name = "error"
 	desc = "A control board that looks to be made by hand."
 	icon = 'sunset/icons/obj/salvage.dmi'
 	icon_state = "makeshift_circuit"
-	var/circuit = "basic"
+	var/material = "error"
 
-/obj/item/circuitboard/Initialize()
-	name = "[circuit] control board"
+/obj/item/circuitboard/machine/controlboard
+	name = "Board Crafter (Control Board)"
+	build_path = /obj/machinery/makeshift/boardcrafter
+	req_components = list(
+		/obj/item/stock_parts/makeshift/matter_bin = 1,
+		/obj/item/stock_parts/makeshift/capacitor = 1,
+		/obj/item/stack/cable_coil = 1)
+
+/obj/item/circuitboard/machine/controlboard/assembler
+	name = "Assembler (Control Board)"
+	build_path = /obj/machinery/makeshift/assembler
+	req_components = list(
+		/obj/item/stock_parts/makeshift/matter_bin = 1,
+		/obj/item/stock_parts/makeshift/manipulator = 1)
+
+/obj/item/circuitboard/machine/controlboard/matprocessor
+	name = "Material Processor (Control Board)"
+	build_path = /obj/machinery/makeshift/matprocessor
+	req_components = list(
+		/obj/item/stock_parts/makeshift/scanning_module = 1,
+		/obj/item/stock_parts/makeshift/manipulator = 1,
+		/obj/item/stock_parts/makeshift/capacitor = 1)
+
+/obj/item/circuitboard/machine/controlboard/generator
+	name = "Generator (Control Board)"
+	build_path = /obj/machinery/makeshift/generator
+	req_components = list(
+		/obj/item/stock_parts/makeshift/micro_laser = 1,
+		/obj/item/stock_parts/makeshift/capacitor = 1,
+		/obj/item/stack/cable_coil = 1)
+
+/obj/item/circuitboard/machine/controlboard/badsmes
+	name = "Battery Bank (Control Board)"
+	build_path = /obj/machinery/makeshift/badsmes
+	req_components = list(
+		/obj/item/stock_parts/makeshift/scanning_module = 1,
+		/obj/item/stock_parts/makeshift/capacitor = 1,
+		/obj/item/stack/cable_coil = 1)
+
+//===================
+//makeshift building frames and base object
+//===================
 
 /obj/machinery/makeshift
 	name = "makeshift"
@@ -38,6 +78,10 @@
 	desc = "A loosely assembled frame of parts and components."
 	icon_state = "makeshift_frame_Metal"
 
+//===================
+//board crafter
+//===================
+
 /obj/machinery/makeshift/boardcrafter //circuit imprinter but it can only make boards for this stuff (atleast for now)
 	material = "Wooden"
 	name = "error"
@@ -48,6 +92,10 @@
 	. = ..()
 	name = "[material] Board Crafter"
 	icon_state = "board_crafter_[material]"
+
+//===================
+//makeshift assembler
+//===================
 
 /obj/machinery/makeshift/assembler //discount autolathe but with some more added options
 	material = "Wooden"
@@ -71,16 +119,67 @@
 	name = "[material] Material Processor"
 	icon_state = "material_processor_[material]"
 
+//===================
+//makeshift generator
+//===================
+
 /obj/machinery/makeshift/generator //like a pacman except it runs off burnables
 	material = "Wooden"
 	name = "error"
 	desc = "Makes some power for your machines and wakes the neighbors. You should really put a proper muffler on it."
 	icon_state = "error"
+	amchored = FALSE
+	use_power = NO_POWER_USE
+
+	var/active = 0
+	var/power_gen = 3500
+	var/recent_fault = 0
+	var/consumption = 0
+
+	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND | INTERACT_ATOM_UI_INTERACT | INTERACT_ATOM_REQUIRES_ANCHORED
 
 /obj/machinery/makeshift/generator/Initialize()
 	. = ..()
 	name = "[material] Generator"
-	icon_state = "generator_[material]"
+	icon_state = "generator_[material]_[active]"
+	soundloop = new(list(src), active)
+
+/obj/machinery/makeshift/generator/proc/HasFuel()
+	return 1
+
+/obj/machinery/makeshift/generator/proc/UseFuel()
+	return
+
+/obj/machinery/makeshift/generator/proc/DropFuel()
+	return
+
+/obj/machinery/makeshift/generator/proc/handleInactive()
+	return
+
+/obj/machinery/power/port_gen/update_icon()
+	icon_state = "generator_[material]_[active]"
+
+/obj/machinery/power/port_gen/process()
+	if(active && HasFuel() && !crit_fail && anchored && powernet)
+		add_avail(power_gen * power_output)
+		UseFuel()
+		src.updateDialog()
+		soundloop.start()
+
+	else
+		active = 0
+		handleInactive()
+		update_icon()
+		soundloop.stop()
+
+/obj/machinery/power/port_gen/examine(mob/user)
+	..()
+	to_chat(user, "It is[!active?"n't":""] running.")
+
+
+//===================
+//battery bank
+//===================
 
 /obj/machinery/makeshift/badsmes //its a battery array, not much else to add here
 	material = "Wooden"
@@ -92,3 +191,46 @@
 	. = ..()
 	name = "[material] Battery Bank"
 	icon_state = "power_storage_[material]"
+
+//===================
+//portable floodlight
+//===================
+
+/obj/structure/makeshift/floodlight
+	name = "rugged floodlight"
+	desc = "A tough and sturdy halo light with an internal power source. Good for outposts and work sites."
+	icon = 'sunset/icons/obj/salvage_structure.dmi'
+	icon_state = "floodlight"
+	var/active = FALSE
+	density = TRUE
+
+/obj/structure/makeshift/floodlight/Initialize()
+	. = ..()
+	light_color = LIGHT_COLOR_WHITE
+	if(active)
+		update_icon()
+
+/obj/structure/makeshift/floodlight/update_icon()
+	icon_state = active ? "floodlight_on" : "floodlight"
+
+/obj/structure/makeshift/floodlight/attack_hand(mob/user)
+	active = !active
+	active ? set_light(10) : set_light(0)
+	update_icon()
+
+//===================
+//manually-operated airlock
+//===================
+
+/obj/structure/mineral_door/airlock
+	name = "manual airlock"
+	desc = "A heavy, hand-operated airlock. Slow, but tough."
+	icon = 'sunset/icons/obj/salvage_structure.dmi'
+	icon_state = "airlock"
+	max_integrity = 800
+	openSound = 'sunset/sound/effects/handlock_open.ogg'
+	closeSound = 'sunset/sound/effects/handlock_close.ogg'
+	opacity = FALSE
+	rad_insulation = RAD_HEAVY_INSULATION
+	sheetType = /obj/item/stack/ore/salvage/scrapmetal
+	sheetAmount = 6

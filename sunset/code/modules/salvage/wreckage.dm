@@ -21,6 +21,7 @@
 	icon = 'sunset/icons/obj/salvage_structure.dmi'
 	icon_state = "wreck_remains"
 	max_integrity = 50
+	density = TRUE
 	var/drops = list() //object to be dropped upon destruction, overwritten if randenable is set TRUE
 	var/randenable = TRUE //mappers set to FALSE if they want the wreck to drop a specific item
 	var/purity = 1 //changes the type of drops to make, higher is rarer
