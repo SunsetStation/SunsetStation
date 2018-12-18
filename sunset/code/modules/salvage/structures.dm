@@ -1,5 +1,9 @@
 
-//im just filling stuff in here so its just here, i dont expect this to work at all or even compile at this point
+//************************************
+//
+//	TODO: Make structures work
+//
+//************************************
 
 /obj/item/circuitboard/machine/controlboard //the sweet meat of the makeshift structures
 	name = "error"
@@ -60,7 +64,7 @@
 
 /obj/structure/makeshift/frame //needed to build basically everything listed here. made from scrap metal or wood.
 	name = "frame"
-	desc = "fuck"
+	desc = "i didnt initialize correctly"
 	icon = 'sunset/icons/obj/salvage_structure.dmi'
 	icon_state = "error"
 	var/material = "Wooden"
@@ -84,7 +88,7 @@
 
 /obj/machinery/makeshift/boardcrafter //circuit imprinter but it can only make boards for this stuff (atleast for now)
 	material = "Wooden"
-	name = "error"
+	name = "i didnt initialize correctly"
 	desc = "This workbench has various tools and parts to make electronics."
 	icon_state = "error"
 
@@ -99,7 +103,7 @@
 
 /obj/machinery/makeshift/assembler //discount autolathe but with some more added options
 	material = "Wooden"
-	name = "error"
+	name = "i didnt initialize correctly"
 	desc = "A simple assembling machine to make rudimentary and basic items."
 	icon_state = "error"
 
@@ -110,7 +114,7 @@
 
 /obj/machinery/makeshift/matprocessor //discount orm without the mining points
 	material = "Wooden"
-	name = "error"
+	name = "i didnt initialize correctly"
 	desc = "This machine is able to take salvage and ore and turn it into more useful products."
 	icon_state = "error"
 
@@ -125,57 +129,14 @@
 
 /obj/machinery/makeshift/generator //like a pacman except it runs off burnables
 	material = "Wooden"
-	name = "error"
+	name = "i didnt initialize correctly"
 	desc = "Makes some power for your machines and wakes the neighbors. You should really put a proper muffler on it."
 	icon_state = "error"
-	amchored = FALSE
-	use_power = NO_POWER_USE
-
-	var/active = 0
-	var/power_gen = 3500
-	var/recent_fault = 0
-	var/consumption = 0
-
-	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND | INTERACT_ATOM_UI_INTERACT | INTERACT_ATOM_REQUIRES_ANCHORED
 
 /obj/machinery/makeshift/generator/Initialize()
 	. = ..()
 	name = "[material] Generator"
-	icon_state = "generator_[material]_[active]"
-	soundloop = new(list(src), active)
-
-/obj/machinery/makeshift/generator/proc/HasFuel()
-	return 1
-
-/obj/machinery/makeshift/generator/proc/UseFuel()
-	return
-
-/obj/machinery/makeshift/generator/proc/DropFuel()
-	return
-
-/obj/machinery/makeshift/generator/proc/handleInactive()
-	return
-
-/obj/machinery/power/port_gen/update_icon()
-	icon_state = "generator_[material]_[active]"
-
-/obj/machinery/power/port_gen/process()
-	if(active && HasFuel() && !crit_fail && anchored && powernet)
-		add_avail(power_gen * power_output)
-		UseFuel()
-		src.updateDialog()
-		soundloop.start()
-
-	else
-		active = 0
-		handleInactive()
-		update_icon()
-		soundloop.stop()
-
-/obj/machinery/power/port_gen/examine(mob/user)
-	..()
-	to_chat(user, "It is[!active?"n't":""] running.")
-
+	icon_state = "generator_[material]"
 
 //===================
 //battery bank
@@ -183,7 +144,7 @@
 
 /obj/machinery/makeshift/badsmes //its a battery array, not much else to add here
 	material = "Wooden"
-	name = "error"
+	name = "i didnt initialize correctly"
 	desc = "A group of energy cells connected to a control box. Some chump is going to be late to work."
 	icon_state = "error"
 

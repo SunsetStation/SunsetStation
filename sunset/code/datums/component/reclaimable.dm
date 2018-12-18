@@ -28,7 +28,7 @@
 
 /datum/component/reclaimable/proc/reclaim(probmultiplier)
 	if(!QDELETED(parent) || reclaimed)
-		return
+		return FALSE
 	var/turf/T = get_turf(parent)
 	for(var/thing in recdrops)
 		var/maxtodrop = recdrops[thing][REC_MAXDROP]
@@ -42,8 +42,6 @@
 	return TRUE
 
 /datum/component/reclaimable/proc/reclaimer_reclaim(mob/user,obj/item/makeshift/reclaimer/rec)
-	if(!istype(rec))
-		return
 	if(!rec.rec_ready)
 		return
 	if(reclaim(rec.efficency))
