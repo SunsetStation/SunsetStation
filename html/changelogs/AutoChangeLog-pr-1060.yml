@@ -1,4 +1,0 @@
-author: "sunset-bot"
-delete-after: True
-changes: 
-  - bugfix: "separated chemicals now works"

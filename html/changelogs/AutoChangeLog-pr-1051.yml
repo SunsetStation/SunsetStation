@@ -1,4 +1,0 @@
-author: "sunset-bot"
-delete-after: True
-changes: 
-  - bugfix: "squashed plants react on the turf they are squashed"
