@@ -28,7 +28,11 @@ GLOBAL_LIST_INIT(huds, list(
 	ANTAG_HUD_CLOCKWORK = new/datum/atom_hud/antag(),
 	ANTAG_HUD_BROTHER = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_HIVE = new/datum/atom_hud/antag/hidden(),
+<<<<<<< HEAD
 	ANTAG_HUD_INFILTRATOR = new/datum/atom_hud/antag(), // sunset -- adds infiltrator hud
+=======
+	ANTAG_HUD_CREEP = new/datum/atom_hud/antag/hidden()
+>>>>>>> 240cb31e12... [READY] New Side Antagonist: The Creep! (#42021)
 	))
 
 /datum/atom_hud
