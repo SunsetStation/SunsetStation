@@ -148,3 +148,12 @@
 /area/science/breakroom
 	name = "Science Breakroom"
 	icon_state = "sciencebreakroom"
+
+/area/crew_quarters/cryodorms
+	name = "Cryodorms"
+	icon = 'sunset/icons/turf/areas.dmi'
+	icon_state = "cryodorms"
+
+	blob_allowed = FALSE
+	xenobiology_compatible = FALSE
+	valid_territory = FALSE
