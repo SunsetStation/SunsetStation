@@ -36,3 +36,32 @@ random_features()
 	if(!GLOB.vox_tail_markings_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/vox_tail_markings, GLOB.vox_tail_markings_list)
 	return(list("mcolor" = pick("FFFFFF","7F7F7F", "7FFF7F", "7F7FFF", "FF7F7F", "7FFFFF", "FF7FFF", "FFFF7F"), "tail_lizard" = pick(GLOB.tails_list_lizard), "tail_human" = "None", "wings" = "None", "snout" = pick(GLOB.snouts_list), "horns" = pick(GLOB.horns_list), "ears" = "None", "frills" = pick(GLOB.frills_list), "spines" = pick(GLOB.spines_list), "body_markings" = pick(GLOB.body_markings_list), "legs" = "Normal Legs", "caps" = pick(GLOB.caps_list), "moth_wings" = pick(GLOB.moth_wings_list), "vox_body" = pick(GLOB.vox_bodies_list),"vox_quills" = pick(GLOB.vox_quills_list),"vox_facial_quills" = pick(GLOB.vox_facial_quills_list),"vox_body_markings" = pick(GLOB.vox_body_markings_list),"vox_tail_markings" = pick(GLOB.vox_tail_markings_list)))
+
+/proc/slot_to_string(slot)
+	switch(slot)
+		if(SLOT_BACK)
+			return "Backpack"
+		if(SLOT_WEAR_MASK)
+			return "Mask"
+		if(SLOT_HANDS)
+			return "Hands"
+		if(SLOT_BELT)
+			return "Belt"
+		if(SLOT_EARS)
+			return "Ears"
+		if(SLOT_GLASSES)
+			return "Glasses"
+		if(SLOT_GLOVES)
+			return "Gloves"
+		if(SLOT_NECK)
+			return "Neck"
+		if(SLOT_HEAD)
+			return "Head"
+		if(SLOT_SHOES)
+			return "Shoes"
+		if(SLOT_WEAR_SUIT)
+			return "Suit"
+		if(SLOT_W_UNIFORM)
+			return "Jumpsuit"
+		if(SLOT_IN_BACKPACK)
+			return "In backpack"
