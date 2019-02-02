@@ -414,6 +414,7 @@ SUBSYSTEM_DEF(job)
 
 	if(H.mind)
 		H.mind.assigned_role = rank
+	equip_loadout(N, H) // Sunset -- loadouts
 
 	if(job)
 		var/new_mob = job.equip(H, null, null, joined_late , null, M.client)
