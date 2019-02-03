@@ -533,7 +533,7 @@
 	STR.can_hold = typecacheof(list(
 		/obj/item/ammo_casing/shotgun
 		))
-/* Disabled due to change to holsters to be sloted in pockets instead of belt slot
+/* Sunset - Disabled due to change to holsters to be sloted in pockets instead of belt slot
 /obj/item/storage/belt/holster
 	name = "shoulder holster"
 	desc = "A holster to carry a handgun and ammo. WARNING: Badasses only."
