@@ -75,8 +75,14 @@ GLOBAL_LIST_INIT(admin_verbs_admin, world.AVerbsAdmin())
 	/client/proc/toggleadminhelpsound,
 	/client/proc/respawn_character,
 	/datum/admins/proc/open_borgopanel,
-	/client/proc/cmd_admin_freeze //sunset adds in admin freezing
+	/client/proc/cmd_admin_freeze, //sunset adds in admin freezing
+	/client/proc/cmd_mentor_say,//sunset adds in mentor
+	/client/proc/mentor_memo//sunset adds in mentor
 	)
+//Sunset Start --Mentor System
+GLOBAL_PROTECT(mentor_verbs)
+GLOBAL_LIST_INIT(mentor_verbs, list(/client/proc/cmd_mentor_pm_panel, /client/proc/show_mentor_memo, /client/proc/cmd_mentor_say))
+//Sunset Stop
 GLOBAL_PROTECT(admin_verbs_ban)
 GLOBAL_LIST_INIT(admin_verbs_ban, list(/client/proc/unban_panel, /client/proc/ban_panel, /client/proc/stickybanpanel))
 GLOBAL_PROTECT(admin_verbs_sounds)
@@ -171,7 +177,7 @@ GLOBAL_LIST_INIT(admin_verbs_debug, world.AVerbsDebug())
 GLOBAL_PROTECT(admin_verbs_possess)
 GLOBAL_LIST_INIT(admin_verbs_possess, list(/proc/possess, /proc/release))
 GLOBAL_PROTECT(admin_verbs_permissions)
-GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions))
+GLOBAL_LIST_INIT(admin_verbs_permissions, list(/client/proc/edit_admin_permissions, /client/proc/edit_mentor_permissions))//Sunset Gives admins ability to hire mentors
 GLOBAL_PROTECT(admin_verbs_poll)
 GLOBAL_LIST_INIT(admin_verbs_poll, list(/client/proc/create_poll))
 
@@ -273,6 +279,8 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 				verbs += /client/proc/play_web_sound
 		if(rights & R_SPAWN)
 			verbs += GLOB.admin_verbs_spawn
+		if(rights & R_MENTOR)//sunset adds mentor system
+			verbs += GLOB.mentor_verbs
 
 /client/proc/remove_admin_verbs()
 	verbs.Remove(
@@ -285,6 +293,7 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 		GLOB.admin_verbs_debug,
 		GLOB.admin_verbs_possess,
 		GLOB.admin_verbs_permissions,
+		GLOB.mentor_verbs,//sunset adds mentor system
 		/client/proc/stealth,
 		GLOB.admin_verbs_poll,
 		GLOB.admin_verbs_sounds,

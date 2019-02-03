@@ -39,6 +39,12 @@ ADMIN_LEGACY_SYSTEM
 ##Uncomment this to stop any admins loaded by the legacy system from having their rank edited by the permissions panel
 #PROTECT_LEGACY_ADMINS
 
+## Comment this out if you want to use the SQL based mentor system, the legacy system uses mentors.txt You need to set up your database to use the SQL based system.
+MENTOR_LEGACY_SYSTEM
+
+#Mentors only see ckeys by default. Uncomment to have them only see mob names.
+#MENTORS_MOBNAME_ONLY
+
 ##Uncomment this to stop any ranks loaded by the legacy system from having their flags edited by the permissions panel
 #PROTECT_LEGACY_RANKS
 

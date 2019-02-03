@@ -451,7 +451,22 @@ CREATE TABLE `schema_revision` (
   `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`major`, `minor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*Sunset Start*/
+DROP TABLE IF EXISTS `mentor`;
+CREATE TABLE `mentor` (
+  `ckey` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `mentor_memo`;
+CREATE TABLE `mentor_memo` (
+  `ckey` varchar(32) NOT NULL,
+  `memotext` text NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `last_editor` varchar(32) DEFAULT NULL,
+  `edits` text,
+  PRIMARY KEY (`ckey`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*Sunset Stop*/
 DELIMITER $$
 CREATE TRIGGER `role_timeTlogupdate` AFTER UPDATE ON `role_time` FOR EACH ROW BEGIN INSERT into role_time_log (ckey, job, delta) VALUES (NEW.CKEY, NEW.job, NEW.minutes-OLD.minutes);
 END
