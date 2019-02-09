@@ -81,7 +81,7 @@ GLOBAL_VAR_INIT(security_level, SEC_LEVEL_GREEN)
 					playsound(D, 'sound/machines/boltsup.ogg', 50, TRUE)
 		SSblackbox.record_feedback("tally", "security_level_changes", 1, get_security_level())
 		SSnightshift.check_nightshift()
-		sunset_get_atc_to_fuck_off(level) // sunset
+		sunset_get_atc_to_fuck_off_if_its_red(level) // sunset
 	else
 		return
 

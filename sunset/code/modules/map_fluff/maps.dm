@@ -1,5 +1,5 @@
 
-GLOBAL_DATUM_INIT(using_map, /datum/map/sunset, new) // too lazy to make a dynamic system for this
+GLOBAL_DATUM(using_map, /datum/map)
 
 /datum/map
 	var/name = "Unnamed Map"

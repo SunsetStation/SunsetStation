@@ -106,8 +106,6 @@ GLOBAL_DATUM_INIT(atc, /datum/lore/atc_controller, new)
 			full_request = "[callname], this is [combined_name] on a [mission] [pick(mission_noun)] to [destname], [pick(request_verb)] [request]."
 			full_response = "[combined_name], this is [GLOB.using_map.station_short] TraCon, wrong frequency. Switch to [rand(700,999)].[rand(1,9)]."
 			full_closure = "[GLOB.using_map.station_short] TraCon, copy, apologies."
-		if("wrong_lang")
-			//Can't implement this until autosay has language support
 		if("emerg")
 			var/problem = pick("hull breaches on multiple decks","unknown life forms on board","a drive about to go critical","asteroids impacting the hull","a total loss of engine power","people trying to board the ship")
 			full_request = "Mayday, mayday, mayday, this is [combined_name] declaring an emergency! We have [problem]!"
