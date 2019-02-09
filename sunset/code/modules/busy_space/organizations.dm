@@ -124,9 +124,10 @@
 	addtimer(CALLBACK(src, .proc/ActualNew), 1)
 
 /datum/lore/organization/tsc/nanotrasen/proc/ActualNew()
-	var/string_to_test = "[GLOB.using_map.station_name] in [GLOB.using_map.starsys_name]"
-	if(string_to_test in destination_names)
-		destination_names.Remove(string_to_test)
+	if(GLOB.using_map)
+		var/string_to_test = "[GLOB.using_map.station_name] in [GLOB.using_map.starsys_name]"
+		if(string_to_test in destination_names)
+			destination_names.Remove(string_to_test)
 
 /datum/lore/organization/tsc/donk
 	name = "Donk Corporation"
