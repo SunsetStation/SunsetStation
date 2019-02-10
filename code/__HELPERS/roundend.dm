@@ -217,7 +217,22 @@
 	for(var/antag_name in total_antagonists)
 		var/list/L = total_antagonists[antag_name]
 		log_game("[antag_name]s :[L.Join(", ")].")
+	
+	CHECK_TICK
 
+	// Sunset - added to display if own personal objectives were a success
+	if(CONFIG_GET(flag/allow_crew_objectives))
+		for(var/datum/mind/crewMind in minds)
+			if(!crewMind.current || !crewMind.crew_objectives.len)
+				continue
+			for(var/datum/objective/crew/CO in crewMind.crew_objectives)
+				if(CO.check_completion())
+					to_chat(crewMind.current, "<br><B>Your optional objective</B>: [CO.explanation_text] <span class='green'><B>Success!</B></span>")
+					SSticker.successfulCrew += "<B>[crewMind.current.real_name]</B> (Played by: <B>[crewMind.key]</B>)<BR><B>Optional Objective</B>: [CO.explanation_text] <span class='green'><B>Success!</B></span>"
+				else
+					to_chat(crewMind.current, "<br><B>Your optional objective</B>: [CO.explanation_text] <span class='warning'><B>Failed.</B></span>")
+
+	
 	CHECK_TICK
 	SSdbcore.SetRoundEnd()
 	//Collects persistence features

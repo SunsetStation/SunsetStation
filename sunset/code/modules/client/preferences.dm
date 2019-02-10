@@ -8,6 +8,7 @@
 	var/list/gear_categories
 	var/list/chosen_gear
 	var/gear_tab
+	var/crew_objectives = TRUE // added to enable crew objectives
 
 /datum/preferences/New(client/C)
 	..()
@@ -171,3 +172,5 @@
 					if(gear_points >= initial(G.cost))
 						LAZYADD(chosen_gear, G.type)
 						gear_points -= initial(G.cost)
+
+
