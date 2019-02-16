@@ -30,8 +30,9 @@ GLOBAL_LIST_INIT(huds, list(
 	ANTAG_HUD_HIVE = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_CREEP = new/datum/atom_hud/antag/hidden(),
 	ANTAG_HUD_OBSESSED = new/datum/atom_hud/antag/hidden(),
-	ANTAG_HUD_INFILTRATOR = new/datum/atom_hud/antag() // sunset -- adds infiltrator hud
-	))
+	ANTAG_HUD_HIVEAWAKE = new/datum/atom_hud/antag(),
+	ANTAG_HUD_INFILTRATOR = new/datum/atom_hud/antag() )) // sunset -- adds infiltrator hud
+
 
 /datum/atom_hud
 	var/list/atom/hudatoms = list() //list of all atoms which display this hud
