@@ -1,5 +1,0 @@
-author: "Original code by ike709 ported by MemeProof"
-delete-after: True
-changes: 
-  - tweak: "Holsters are now accessories"
-  - imageadd: "added object for holsters"
