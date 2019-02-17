@@ -37,7 +37,7 @@
 	jobtype = /datum/job/rd
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/pda/heads/rd
+	pda_slot = /obj/item/pda/heads/rd//sunset adds pda
 	ears = /obj/item/radio/headset/heads/rd
 	uniform = /obj/item/clothing/under/rank/research_director
 	shoes = /obj/item/clothing/shoes/sneakers/brown

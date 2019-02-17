@@ -23,7 +23,7 @@
 	name = "Medical Doctor"
 	jobtype = /datum/job/doctor
 
-	belt = /obj/item/pda/medical
+	pda_slot = /obj/item/pda/medical//sunset adds pda
 	ears = /obj/item/radio/headset/headset_med
 	uniform = /obj/item/clothing/under/rank/medical
 	shoes = /obj/item/clothing/shoes/sneakers/white

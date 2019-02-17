@@ -24,8 +24,8 @@
 	name = "Atmospheric Technician"
 	jobtype = /datum/job/atmos
 
-	belt = /obj/item/storage/belt/utility/atmostech
-	l_pocket = /obj/item/pda/atmos
+	belt = /obj/item/storage/belt/utility/atmostech//sunset adds pda
+	pda_slot = /obj/item/pda/atmos
 	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	r_pocket = /obj/item/analyzer
@@ -34,7 +34,6 @@
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
-	pda_slot = SLOT_L_STORE
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1)
 
 /datum/outfit/job/atmos/rig

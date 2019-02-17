@@ -27,7 +27,7 @@
 	name = "Clown"
 	jobtype = /datum/job/clown
 
-	belt = /obj/item/pda/clown
+	pda_slot = /obj/item/pda/clown//sunset adds pda
 	uniform = /obj/item/clothing/under/rank/clown
 	shoes = /obj/item/clothing/shoes/clown_shoes
 	mask = /obj/item/clothing/mask/gas/clown_hat

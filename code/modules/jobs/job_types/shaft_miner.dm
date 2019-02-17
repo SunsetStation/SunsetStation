@@ -22,7 +22,7 @@
 	name = "Shaft Miner"
 	jobtype = /datum/job/mining
 
-	belt = /obj/item/pda/shaftminer
+	pda_slot = /obj/item/pda/shaftminer//sunset adds pda
 	ears = /obj/item/radio/headset/headset_cargo/mining
 	shoes = /obj/item/clothing/shoes/workboots/mining
 	gloves = /obj/item/clothing/gloves/color/black
@@ -69,4 +69,3 @@
 	name = "Shaft Miner (Equipment + Hardsuit)"
 	suit = /obj/item/clothing/suit/space/hardsuit/mining
 	mask = /obj/item/clothing/mask/breath
-
