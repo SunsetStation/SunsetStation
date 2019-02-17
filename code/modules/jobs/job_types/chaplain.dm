@@ -89,7 +89,7 @@
 	name = "Chaplain"
 	jobtype = /datum/job/chaplain
 
-	slot_pda = /obj/item/pda/chaplain
+	pda_slot = /obj/item/pda/chaplain
 	uniform = /obj/item/clothing/under/rank/chaplain
 	backpack_contents = list(/obj/item/camera/spooky = 1)
 	backpack = /obj/item/storage/backpack/cultpack
