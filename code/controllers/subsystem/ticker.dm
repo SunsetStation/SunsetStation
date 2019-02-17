@@ -124,13 +124,14 @@ SUBSYSTEM_DEF(ticker)
 		gametime_offset = rand(0, 23) HOURS
 	else if(CONFIG_GET(flag/shift_time_realtime))
 		gametime_offset = world.timeofday
-	
+	// Sunset -- for crew objectives ----start----
 	crewobjlist = typesof(/datum/objective/crew)
 	for(var/hooray in crewobjlist) //taken from old Hippie's "job2obj" proc with adjustments.
 		var/datum/objective/crew/obj = hooray
 		var/list/availableto = splittext(initial(obj.jobs),",")
 		for(var/job in availableto)
 			crewobjjobs["[job]"] += list(obj)
+	// Sunset  ----end----
 			
 	return ..()
 
