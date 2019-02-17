@@ -18,6 +18,8 @@
 			return belt
 		if(SLOT_WEAR_ID)
 			return wear_id
+		if(SLOT_WEAR_PDA)//sunset adds pda
+			return wear_pda
 		if(SLOT_EARS)
 			return ears
 		if(SLOT_GLASSES)
@@ -89,8 +91,13 @@
 			update_inv_belt()
 		if(SLOT_WEAR_ID)
 			wear_id = I
-			sec_hud_set_ID()
 			update_inv_wear_id()
+			//sunset start
+		if(SLOT_WEAR_PDA)
+			wear_pda = I
+			sec_hud_set_ID()
+			update_inv_wear_pda()
+			//sunset stop
 		if(SLOT_EARS)
 			ears = I
 			update_inv_ears()
@@ -169,6 +176,8 @@
 				dropItemToGround(l_store, TRUE)
 			if(wear_id)
 				dropItemToGround(wear_id)
+			if(wear_pda)//sunset--adds pda slot
+				dropItemToGround(wear_pda)
 			if(belt)
 				dropItemToGround(belt)
 		w_uniform = null
@@ -211,6 +220,12 @@
 		sec_hud_set_ID()
 		if(!QDELETED(src))
 			update_inv_wear_id()
+			//sunset start
+	else if(I == wear_pda)
+		wear_pda = null
+		if(!QDELETED(src))
+			update_inv_wear_pda()
+			//sunset stop
 	else if(I == r_store)
 		r_store = null
 		if(!QDELETED(src))

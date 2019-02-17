@@ -25,7 +25,7 @@
 	name = "Scientist"
 	jobtype = /datum/job/scientist
 
-	belt = /obj/item/pda/toxins
+	pda_slot = /obj/item/pda/toxins//sunset adds pda
 	ears = /obj/item/radio/headset/headset_sci
 	uniform = /obj/item/clothing/under/rank/scientist
 	shoes = /obj/item/clothing/shoes/sneakers/white
@@ -33,4 +33,3 @@
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
-

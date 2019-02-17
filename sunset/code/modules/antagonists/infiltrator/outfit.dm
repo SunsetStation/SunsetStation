@@ -8,7 +8,7 @@
 	ears = /obj/item/radio/headset/chameleon
 	id = /obj/item/card/id/syndicate
 	mask = /obj/item/clothing/mask/chameleon
-	belt = /obj/item/pda/chameleon
+	pda_slot = /obj/item/pda/chameleon//sunset adds pda
 	backpack_contents = list(/obj/item/storage/box/syndie=1,\
 		/obj/item/kitchen/knife/combat/survival=1,\
 		/obj/item/gun/ballistic/automatic/pistol=1)

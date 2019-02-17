@@ -159,7 +159,15 @@
 	inv_box.screen_loc = ui_mask
 	inv_box.slot_id = SLOT_WEAR_MASK
 	toggleable_inventory += inv_box
-
+	//sunset start-- Pda slot
+	inv_box = new /obj/screen/inventory()
+	inv_box.name = "pda"
+	inv_box.icon = ui_style
+	inv_box.icon_state = "pda"
+	inv_box.screen_loc = ui_pda
+	inv_box.slot_id = SLOT_WEAR_PDA
+	static_inventory += inv_box
+	//sunset stop
 	inv_box = new /obj/screen/inventory()
 	inv_box.name = "neck"
 	inv_box.icon = ui_style
@@ -389,6 +397,11 @@
 			if(H.wear_id)
 				H.wear_id.screen_loc = ui_id
 				screenmob.client.screen += H.wear_id
+				//sunset start --adds pda
+			if(H.wear_pda)
+				H.wear_pda.screen_loc = ui_pda
+				screenmob.client.screen += H.wear_pda
+				//sunset stop
 			if(H.belt)
 				H.belt.screen_loc = ui_belt
 				screenmob.client.screen += H.belt
@@ -406,6 +419,10 @@
 				screenmob.client.screen -= H.s_store
 			if(H.wear_id)
 				screenmob.client.screen -= H.wear_id
+				//sunset start adds pda
+			if(H.wear_pda)
+				screenmob.client.screen -= H.wear_pda
+				//sunset stop
 			if(H.belt)
 				screenmob.client.screen -= H.belt
 			if(H.back)

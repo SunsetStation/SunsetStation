@@ -894,6 +894,20 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if( !(I.slot_flags & ITEM_SLOT_ID) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
+			if(SLOT_WEAR_PDA)
+			//sunset start adds pda slot
+		if(H.wear_pda)
+			return FALSE
+
+		var/obj/item/bodypart/O = H.get_bodypart("chest")
+		if(!H.w_uniform && !nojumpsuit && (!O || O.status != BODYPART_ROBOTIC))
+			if(!disable_warning)
+				to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [I.name]!</span>")
+			return FALSE
+		if( !(I.slot_flags & SLOT_PDA) )
+			return FALSE
+		return equip_delay_self_check(I, H, bypass_equip_delay_self)
+		//sunset stop
 		if(SLOT_L_STORE)
 			if(I.has_trait(TRAIT_NODROP)) //Pockets aren't visible, so you can't move TRAIT_NODROP items into them.
 				return FALSE

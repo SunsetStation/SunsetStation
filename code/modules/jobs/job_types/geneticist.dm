@@ -24,7 +24,7 @@
 	name = "Geneticist"
 	jobtype = /datum/job/geneticist
 
-	belt = /obj/item/pda/geneticist
+	pda_slot = /obj/item/pda/geneticist//sunset adds pda
 	ears = /obj/item/radio/headset/headset_medsci
 	uniform = /obj/item/clothing/under/rank/geneticist
 	shoes = /obj/item/clothing/shoes/sneakers/white
@@ -35,4 +35,3 @@
 	backpack = /obj/item/storage/backpack/genetics
 	satchel = /obj/item/storage/backpack/satchel/gen
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
-

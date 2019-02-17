@@ -46,9 +46,6 @@
 	var/y_off = round((M.held_items.len-1) / 2)
 	return "CENTER+[x_off]:16,SOUTH+[y_off+1]:5"
 
-#define ui_storage1 "CENTER+1:18,SOUTH:5"
-#define ui_storage2 "CENTER+2:20,SOUTH:5"
-
 #define ui_borg_sensor "CENTER-3:16, SOUTH:5"		//borgs
 #define ui_borg_lamp "CENTER-4:16, SOUTH:5"			//borgs
 #define ui_borg_thrusters "CENTER-5:16, SOUTH:5"	//borgs

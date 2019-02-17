@@ -27,7 +27,7 @@
 	jobtype = /datum/job/engineer
 
 	belt = /obj/item/storage/belt/utility/full/engi
-	l_pocket = /obj/item/pda/engineering
+	pda_slot = /obj/item/pda/engineering
 	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/rank/engineer
 	shoes = /obj/item/clothing/shoes/workboots
@@ -38,7 +38,6 @@
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
-	pda_slot = SLOT_L_STORE
 	backpack_contents = list(/obj/item/modular_computer/tablet/preset/advanced=1)
 
 /datum/outfit/job/engineer/gloved
@@ -52,5 +51,3 @@
 	suit_store = /obj/item/tank/internals/oxygen
 	head = null
 	internals_slot = SLOT_S_STORE
-
-

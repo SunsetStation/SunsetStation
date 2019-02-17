@@ -24,7 +24,7 @@
 	name = "Lawyer"
 	jobtype = /datum/job/lawyer
 
-	belt = /obj/item/pda/lawyer
+	pda_slot = /obj/item/pda/lawyer//sunset adds pda
 	ears = /obj/item/radio/headset/headset_sec
 	uniform = /obj/item/clothing/under/lawyer/bluesuit
 	suit = /obj/item/clothing/suit/toggle/lawyer

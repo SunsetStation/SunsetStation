@@ -1,0 +1,2 @@
+#define ITEM_SLOT_PDA		16384
+#define SLOT_WEAR_PDA		21

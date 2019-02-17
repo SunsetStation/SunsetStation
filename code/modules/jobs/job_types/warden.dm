@@ -33,7 +33,7 @@
 	name = "Warden"
 	jobtype = /datum/job/warden
 
-	belt = /obj/item/pda/warden
+	pda_slot = /obj/item/pda/warden//sunset adds pda
 	ears = /obj/item/radio/headset/headset_sec/alt
 	uniform = /obj/item/clothing/under/rank/warden
 	shoes = /obj/item/clothing/shoes/jackboots
@@ -54,4 +54,3 @@
 	implants = list(/obj/item/implant/mindshield)
 
 	chameleon_extras = /obj/item/gun/ballistic/shotgun/automatic/combat/compact
-

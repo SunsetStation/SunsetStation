@@ -23,7 +23,7 @@
 	name = "Cook"
 	jobtype = /datum/job/cook
 
-	belt = /obj/item/pda/cook
+	pda_slot = /obj/item/pda/cook//sunset adds pda
 	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/chef
 	suit = /obj/item/clothing/suit/toggle/chef
@@ -51,4 +51,3 @@
 	H.equip_to_slot_or_del(I,SLOT_IN_BACKPACK)
 	var/datum/martial_art/cqc/under_siege/justacook = new
 	justacook.teach(H)
-

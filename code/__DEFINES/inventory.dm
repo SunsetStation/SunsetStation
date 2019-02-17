@@ -52,7 +52,7 @@
 #define SLOT_LEGCUFFED		19
 #define SLOT_GENERC_DEXTROUS_STORAGE	20
 
-#define SLOTS_AMT			20 // Keep this up to date!
+#define SLOTS_AMT			21 // Keep this up to date! //adds sunset slot for pda
 
 //I hate that this has to exist
 /proc/slotdefine2slotbit(slotdefine) //Keep this up to date with the value of SLOT BITMASKS and SLOTS (the two define sections above)
