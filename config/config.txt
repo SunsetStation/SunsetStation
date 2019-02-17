@@ -432,6 +432,8 @@ MINUTE_CLICK_LIMIT 400
 ## Send a message with the station name starting a new game
 #CHAT_ANNOUNCE_NEW_GAME
 
+## Command to invoke on the local machine to process external commands
+#SERVICE_COMMAND python bot.py
 
 ## Allow admin hrefs that don't use the new token system, will eventually be removed
 DEBUG_ADMIN_HREFS

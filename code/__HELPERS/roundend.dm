@@ -164,7 +164,7 @@
 
 	to_chat(world, "<BR><BR><BR><span class='big bold'>The round has ended.</span>")
 	if(LAZYLEN(GLOB.round_end_notifiees))
-		send2irc("Notice", "[GLOB.round_end_notifiees.Join(", ")] the round has ended.")
+		world.IRCBroadcast("Notice", "[GLOB.round_end_notifiees.Join(", ")] the round has ended.")//susnet discord bot
 
 	for(var/I in round_end_events)
 		var/datum/callback/cb = I
@@ -414,7 +414,7 @@
 		if(!A.members)
 			continue
 		all_teams |= A
-	
+
 	for(var/datum/antagonist/A in GLOB.antagonists)
 		if(!A.owner)
 			continue

@@ -570,6 +570,9 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 			final = "[msg] - All admins stealthed\[[english_list(stealthmins)]\], AFK\[[english_list(afkmins)]\], or lacks +BAN\[[english_list(powerlessmins)]\]! Total: [allmins.len] "
 		send2irc(source,final)
 		send2otherserver(source,final)
+	else//sunset discord bot
+		send2irc(source,msg)
+		send2otherserver(source,msg)
 
 
 /proc/send2irc(msg,msg2)
