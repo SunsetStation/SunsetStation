@@ -202,7 +202,26 @@
 
 	else if(href_list["editrights"])
 		edit_rights_topic(href_list)
-
+//Sunset Start Admins Can Hire Mentors
+	else if(href_list["editmentor"])
+		var/input_ckey = href_list["ckey"]
+		switch(href_list["editmentor"])
+			if("add")
+				input_ckey = input("Enter ckey to grant mentor rank:","Mentor Permissions", "CKEY")
+				if(!input_ckey)
+					return
+				log_mentor_rank_given(input_ckey)
+				load_mentors(TRUE)
+			if("remove")
+				if(!input_ckey)
+					return
+				var/confirm = alert("Are you sure you want to remove [input_ckey] from the mentor list?", "Mentor Removal", "No", "Yes")
+				if(confirm != "Yes")
+					return
+				log_mentor_rank_delete(input_ckey)
+				load_mentors(TRUE)
+		return
+//Sunset Stop
 	else if(href_list["call_shuttle"])
 		if(!check_rights(R_ADMIN))
 			return

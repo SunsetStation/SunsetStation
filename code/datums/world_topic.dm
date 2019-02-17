@@ -154,6 +154,10 @@
 	var/list/adm = get_admin_counts()
 	var/list/presentmins = adm["present"]
 	var/list/afkmins = adm["afk"]
+//Sunset Start-Implements Mentor System
+	var/list/mnt = get_mentor_counts()
+		.["mentors"] = mnt["total"] // we don't have stealth mentors, so we can just use the total.
+	//Sunset Stop
 	.["admins"] = presentmins.len + afkmins.len //equivalent to the info gotten from adminwho
 	.["gamestate"] = SSticker.current_state
 
@@ -168,7 +172,7 @@
 	.["security_level"] = get_security_level()
 	.["round_duration"] = SSticker ? round((world.time-SSticker.round_start_time)/10) : 0
 	// Amount of world's ticks in seconds, useful for calculating round duration
-	
+
 	//Time dilation stats.
 	.["time_dilation_current"] = SStime_track.time_dilation_current
 	.["time_dilation_avg"] = SStime_track.time_dilation_avg
@@ -180,4 +184,3 @@
 		// Shuttle status, see /__DEFINES/stat.dm
 		.["shuttle_timer"] = SSshuttle.emergency.timeLeft()
 		// Shuttle timer, in seconds
-	

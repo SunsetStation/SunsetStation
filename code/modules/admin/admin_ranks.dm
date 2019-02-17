@@ -58,6 +58,10 @@ GLOBAL_PROTECT(protected_ranks)
 		switch(k)
 			if("BUILD")
 				flag = R_BUILD
+			//sunset adds mentor system
+			if("mentor")
+				flag = R_MENTOR
+			//Sunset Stop
 			if("ADMIN")
 				flag = R_ADMIN
 			if("BAN")

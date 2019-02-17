@@ -451,7 +451,22 @@ CREATE TABLE `SS13_schema_revision` (
   `date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`major`,`minor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--Sunset Start
+DROP TABLE IF EXISTS `SS13_mentor`;
+CREATE TABLE `SS13_mentor` (
+  `ckey` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `SS13_mentor_memo`;
+CREATE TABLE `SS13_mentor_memo` (
+  `ckey` varchar(32) NOT NULL,
+  `memotext` text NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `last_editor` varchar(32) DEFAULT NULL,
+  `edits` text,
+  PRIMARY KEY (`ckey`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--Sunset Stop
 DELIMITER $$
 CREATE TRIGGER `SS13_role_timeTlogupdate` AFTER UPDATE ON `SS13_role_time` FOR EACH ROW BEGIN INSERT into SS13_role_time_log (ckey, job, delta) VALUES (NEW.CKEY, NEW.job, NEW.minutes-OLD.minutes);
 END
