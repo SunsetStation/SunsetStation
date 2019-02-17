@@ -22,7 +22,7 @@
 	name = "Cargo Technician"
 	jobtype = /datum/job/cargo_tech
 
-pda_slot = /obj/item/pda/cargo//sunset adds pda
+	pda_slot = /obj/item/pda/cargo//sunset adds pda
 	ears = /obj/item/radio/headset/headset_cargo
 	uniform = /obj/item/clothing/under/rank/cargotech
 	l_hand = /obj/item/export_scanner
