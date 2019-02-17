@@ -910,12 +910,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if( !(I.slot_flags & ITEM_SLOT_PDA) )
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
-		if(SLOT_L_STORE)
-			if(I.flags_1 & TRAIT_NODROP) //Pockets aren't visible, so you can't move NODROP_1 items into them.
-				return FALSE
-			if(H.l_store)
-				return FALSE
-		//sunset stop
+			//sunset stop
 		if(SLOT_L_STORE)
 			if(I.has_trait(TRAIT_NODROP)) //Pockets aren't visible, so you can't move TRAIT_NODROP items into them.
 				return FALSE
