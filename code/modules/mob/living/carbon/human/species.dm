@@ -907,7 +907,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			if(!disable_warning)
 				to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [I.name]!</span>")
 			return FALSE
-		if( !(I.slot_flags & SLOT_PDA) )
+		if( !(I.slot_flags & ITEM_SLOT_PDA) )
 			return FALSE
 		return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		//sunset stop
