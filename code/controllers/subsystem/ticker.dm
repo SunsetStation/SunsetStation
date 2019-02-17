@@ -57,11 +57,6 @@ SUBSYSTEM_DEF(ticker)
 	var/mode_result = "undefined"
 	var/end_state = "undefined"
 
-	//Sunset - Crew Objectives
-	var/list/successfulCrew = list()
-	var/list/crewobjlist = list()
-	var/list/crewobjjobs = list()
-
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	load_mode()
 
@@ -317,8 +312,10 @@ SUBSYSTEM_DEF(ticker)
 	send2irc("Server", "Round [GLOB.round_id ? "#[GLOB.round_id]:" : "of"] [hide_mode ? "secret":"[mode.name]"] has started[allmins.len ? ".":" with no active admins online!"]")
 	setup_done = TRUE
 
-	if(CONFIG_GET(flag/allow_crew_objectives)) // Sunset - to generate crew objectives
+ 	// Sunset - to generate crew objectives -----start-----
+	if(CONFIG_GET(flag/allow_crew_objectives))
 		generate_crew_objectives()
+	// Sunset  -----end-----
 
 	for(var/i in GLOB.start_landmarks_list)
 		var/obj/effect/landmark/start/S = i

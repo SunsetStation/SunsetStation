@@ -220,7 +220,7 @@
 	
 	CHECK_TICK
 
-	// Sunset - added to display if own personal objectives were a success
+	// Sunset - added to display if own personal objectives were a success -----start-----
 	if(CONFIG_GET(flag/allow_crew_objectives))
 		for(var/datum/mind/crewMind in minds)
 			if(!crewMind.current || !crewMind.crew_objectives.len)
@@ -231,6 +231,7 @@
 					SSticker.successfulCrew += "<B>[crewMind.current.real_name]</B> (Played by: <B>[crewMind.key]</B>)<BR><B>Optional Objective</B>: [CO.explanation_text] <span class='green'><B>Success!</B></span>"
 				else
 					to_chat(crewMind.current, "<br><B>Your optional objective</B>: [CO.explanation_text] <span class='warning'><B>Failed.</B></span>")
+	// sunset  -----end-----
 
 	
 	CHECK_TICK

@@ -2803,6 +2803,7 @@
 #include "sunset\code\controllers\configuration\entries\game_options.dm"
 #include "sunset\code\controllers\configuration\entries\general.dm"
 #include "sunset\code\controllers\subsystem\job.dm"
+#include "sunset\code\controllers\subsystem\ticker.dm"
 #include "sunset\code\datums\action.dm"
 #include "sunset\code\datums\cryo_entry.dm"
 #include "sunset\code\datums\emotes.dm"
