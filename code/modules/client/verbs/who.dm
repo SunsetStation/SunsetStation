@@ -52,7 +52,7 @@
 
 	for(var/line in sortList(Lines))
 		msg += "[line]\n"
-	var/player_number = length(Lines)
+	var/player_number = length(Lines)		//sunset station mentors
 	msg += "<b>Total Players: [player_number]</b>"
 	to_chat(src, msg)
 
@@ -83,8 +83,10 @@
 			if(C.is_afk())
 				continue //Don't show afk admins to adminwho
 			if(!C.holder.fakekey)
+			//sunset start--mentors
 				msg += "<b>\t[C]</b> is a [C.holder.rank]\n"
 	if(length(GLOB.mentors) > 0)
+	//sunset stop mentors
 		msg += "<b>Mentors:</b> \n"
 		for(var/client/C in sortList(GLOB.clients))
 			var/mentor = GLOB.mentor_datums[C.ckey]

@@ -2868,6 +2868,8 @@
 #include "sunset\code\game\objects\structures\signs\signs_plaques.dm"
 #include "sunset\code\game\turfs\simulated\floor.dm"
 #include "sunset\code\modules\admin\admin.dm"
+#include "sunset\code\modules\admin\admin_verbs.dm"
+#include "sunset\code\modules\admin\holder2.dm"
 #include "sunset\code\modules\admin\topic.dm"
 #include "sunset\code\modules\admin\permissionverbs\permissionedit.dm"
 #include "sunset\code\modules\admin\verbs\one_click_antag.dm"

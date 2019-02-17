@@ -279,8 +279,6 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 				verbs += /client/proc/play_web_sound
 		if(rights & R_SPAWN)
 			verbs += GLOB.admin_verbs_spawn
-		if(rights & R_MENTOR)//sunset adds mentor system
-			verbs += GLOB.mentor_verbs
 
 /client/proc/remove_admin_verbs()
 	verbs.Remove(

@@ -11,7 +11,7 @@
 			<A href='?src=[REF(src)];[HrefToken()];secrets=mentor_log'>Mentor Log</A><BR>
 			<A href='?src=[REF(src)];[HrefToken()];secrets=show_admins'>Show Admin List</A><BR>
 			<BR>
-			"}
+			"}/*sunset mentors*/
 
 	if(check_rights(R_ADMIN,0))
 		dat += {"
