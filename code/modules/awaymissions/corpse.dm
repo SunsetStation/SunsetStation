@@ -145,6 +145,7 @@
 	var/l_pocket = -1
 	var/back = -1
 	var/id = -1
+	var/pda_slot = -1//susnet fixes runtime issues with pda slots
 	var/neck = -1
 	var/backpack_contents = -1
 	var/suit_store = -1
