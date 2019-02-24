@@ -2951,6 +2951,7 @@
 #include "sunset\code\modules\jobs\job_type\job.dm"
 #include "sunset\code\modules\jobs\job_type\job_override.dm"
 #include "sunset\code\modules\jobs\job_type\medical.dm"
+#include "sunset\code\modules\jobs\job_types\janitor.dm"
 #include "sunset\code\modules\jobs\job_types\medical.dm"
 #include "sunset\code\modules\jobs\job_types\science.dm"
 #include "sunset\code\modules\language\language_holder.dm"
@@ -2999,5 +3000,6 @@
 #include "sunset\code\modules\vending\_vending.dm"
 #include "sunset\code\modules\vending\clothesmate.dm"
 #include "sunset\code\modules\vending\medical_wall.dm"
+#include "sunset\code\modules\vending\wardrobes.dm"
 #include "sunset\interface\interface.dm"
 // END_INCLUDE
