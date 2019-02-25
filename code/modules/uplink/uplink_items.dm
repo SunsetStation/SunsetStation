@@ -772,14 +772,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 /datum/uplink_item/ammo/rocket/basic
 	name = "84mm HE Rocket"
 	desc = "A low-yield anti-personnel HE rocket. Gonna take you out in style!"
-	item = /obj/item/ammo_box/magazine/rocket
+	item = /obj/item/ammo_casing/caseless/rocket
 	cost = 4
 
 /datum/uplink_item/ammo/rocket/hedp
 	name = "84mm HEDP Rocket"
 	desc = "A high-yield HEDP rocket; extremely effective against armored targets, as well as surrounding personnel. \
 			Strike fear into the hearts of your enemies."
-	item = /obj/item/ammo_box/magazine/rocket/hedp
+	item = /obj/item/ammo_casing/caseless/rocket/hedp
 	cost = 6
 
 /datum/uplink_item/ammo/pistolaps
@@ -1774,6 +1774,7 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			manufactured to pack a little bit more of a punch if your client needs some convincing."
 	item = /obj/item/storage/secure/briefcase/syndie
 	cost = 1
+	restricted = TRUE
 
 /datum/uplink_item/badass/syndiecards
 	name = "Syndicate Playing Cards"
