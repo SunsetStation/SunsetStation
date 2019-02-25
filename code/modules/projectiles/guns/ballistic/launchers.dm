@@ -9,11 +9,7 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/grenadelauncher
 	fire_sound = 'sound/weapons/grenadelaunch.ogg'
 	w_class = WEIGHT_CLASS_NORMAL
-	pin = /obj/item/firing_pin/implant/pindicate
 	bolt_type = BOLT_TYPE_NO_BOLT
-
-/obj/item/gun/ballistic/revolver/grenadelauncher/unrestricted
-	pin = /obj/item/firing_pin
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/attackby(obj/item/A, mob/user, params)
 	..()
@@ -26,7 +22,6 @@
 	icon = 'icons/mecha/mecha_equipment.dmi'
 	icon_state = "mecha_grenadelnchr"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/grenademulti
-	pin = /obj/item/firing_pin
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/cyborg/attack_self()
 	return
@@ -51,7 +46,6 @@
 	fire_sound = 'sound/weapons/rocketlaunch.ogg'
 	w_class = WEIGHT_CLASS_BULKY
 	can_suppress = FALSE
-	pin = /obj/item/firing_pin/implant/pindicate
 	burst_size = 1
 	fire_delay = 0
 	casing_ejector = FALSE
@@ -75,8 +69,7 @@
 /obj/item/gun/ballistic/rocketlauncher/can_shoot()
 	return chambered?.BB
 
-/obj/item/gun/ballistic/rocketlauncher/unrestricted
-	pin = /obj/item/firing_pin
+/obj/item/gun/ballistic/rocketlauncher
 
 /obj/item/gun/ballistic/rocketlauncher/process_chamber()
 	if(chambered)
@@ -129,9 +122,3 @@
 			"<span class='userdanger'>You look around after realizing you're still here, then proceed to choke yourself to death with [src]!</span>")
 		sleep(20)
 		return OXYLOSS
-
-
-
-
-
-	

@@ -44,8 +44,6 @@
 	lefthand_file = 'icons/mob/inhands/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/guns_righthand.dmi'
 
-	var/obj/item/firing_pin/pin = /obj/item/firing_pin //standard firing pin for most guns
-
 	var/can_flashlight = FALSE //if a flashlight can be added or removed if it already has one.
 	var/obj/item/flashlight/seclite/gun_light
 	var/mutable_appearance/flashlight_overlay
@@ -71,14 +69,11 @@
 
 /obj/item/gun/Initialize()
 	. = ..()
-	if(pin)
-		pin = new pin(src)
 	if(gun_light)
 		alight = new(src)
 	build_zooming()
 
 /obj/item/gun/Destroy()
-	QDEL_NULL(pin)
 	QDEL_NULL(gun_light)
 	QDEL_NULL(bayonet)
 	QDEL_NULL(chambered)
@@ -86,8 +81,6 @@
 	return ..()
 
 /obj/item/gun/handle_atom_del(atom/A)
-	if(A == pin)
-		pin = null
 	if(A == chambered)
 		chambered = null
 		update_icon()
@@ -102,17 +95,10 @@
 	var/obj/item/gun/G = locate(/obj/item/gun) in contents
 	if(G)
 		G.forceMove(loc)
-		QDEL_NULL(G.pin)
-		visible_message("[G] can now fit a new pin, but the old one was destroyed in the process.", null, null, 3)
 		qdel(src)
 
 /obj/item/gun/examine(mob/user)
 	..()
-	if(pin)
-		to_chat(user, "It has \a [pin] installed.")
-	else
-		to_chat(user, "It doesn't have a <b>firing pin</b> installed, and won't fire.")
-
 	if(gun_light)
 		to_chat(user, "It has \a [gun_light] [can_flashlight ? "" : "permanently "]mounted on it.")
 		if(can_flashlight) //if it has a light and this is false, the light is permanent.
@@ -228,19 +214,6 @@
 
 /obj/item/gun/can_trigger_gun(mob/living/user)
 	. = ..()
-	if(!handle_pins(user))
-		return FALSE
-
-/obj/item/gun/proc/handle_pins(mob/living/user)
-	if(pin)
-		if(pin.pin_auth(user) || (pin.obj_flags & EMAGGED))
-			return TRUE
-		else
-			pin.auth_fail(user)
-			return FALSE
-	else
-		to_chat(user, "<span class='warning'>[src]'s trigger is locked. This weapon doesn't have a firing pin installed!</span>")
-	return FALSE
 
 /obj/item/gun/proc/recharge_newshot()
 	return
@@ -526,11 +499,6 @@
 		chambered.BB.damage *= 5
 
 	process_fire(target, user, TRUE, params)
-
-/obj/item/gun/proc/unlock() //used in summon guns and as a convience for admins
-	if(pin)
-		qdel(pin)
-	pin = new /obj/item/firing_pin
 
 /////////////
 // ZOOMING //

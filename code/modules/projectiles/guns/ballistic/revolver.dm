@@ -38,7 +38,7 @@
 
 	if(M.stat || !in_range(M,src))
 		return
-	
+
 	if (recent_spin > world.time)
 		return
 	recent_spin = world.time + spin_delay
@@ -140,7 +140,6 @@
 	icon_state = "goldrevolver"
 	fire_sound = 'sound/weapons/resonator_blast.ogg'
 	recoil = 8
-	pin = /obj/item/firing_pin
 
 /obj/item/gun/ballistic/revolver/nagant
 	name = "\improper Nagant revolver"
