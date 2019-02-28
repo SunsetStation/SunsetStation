@@ -71,7 +71,6 @@
 	return chambered?.BB
 
 /obj/item/gun/ballistic/rocketlauncher/unrestricted
-	pin = /obj/item/firing_pin
 
 /obj/item/gun/ballistic/rocketlauncher/afterattack()
 	. = ..()
