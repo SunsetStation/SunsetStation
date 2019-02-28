@@ -70,8 +70,6 @@
 /obj/item/gun/ballistic/rocketlauncher/can_shoot()
 	return chambered?.BB
 
-/obj/item/gun/ballistic/rocketlauncher/unrestricted
-
 /obj/item/gun/ballistic/rocketlauncher/afterattack()
 	. = ..()
 	magazine.get_round(FALSE) //Hack to clear the mag after it's fired
