@@ -105,10 +105,6 @@
 /obj/effect/landmark/vr_spawn,
 /turf/open/indestructible,
 /area/awaymission/vr/murderdome)
-"n" = (
-/obj/item/firing_pin,
-/turf/open/indestructible,
-/area/awaymission/vr/murderdome)
 "o" = (
 /obj/structure/rack,
 /obj/item/gun/ballistic/shotgun/automatic/combat,
@@ -461,7 +457,7 @@ b
 b
 f
 j
-n
+j
 q
 E
 b
@@ -504,7 +500,7 @@ j
 b
 f
 q
-n
+j
 j
 E
 b
@@ -773,7 +769,7 @@ b
 b
 f
 j
-n
+j
 q
 E
 b
@@ -816,7 +812,7 @@ j
 b
 f
 q
-n
+j
 j
 E
 b
@@ -1085,7 +1081,7 @@ b
 b
 f
 j
-n
+j
 q
 E
 b
@@ -1128,7 +1124,7 @@ j
 b
 f
 q
-n
+j
 j
 E
 b
@@ -1397,7 +1393,7 @@ b
 b
 f
 j
-n
+j
 q
 E
 b
@@ -1440,7 +1436,7 @@ j
 b
 f
 q
-n
+j
 j
 E
 b
@@ -1709,7 +1705,7 @@ b
 b
 f
 j
-n
+j
 q
 E
 b
@@ -1752,7 +1748,7 @@ j
 b
 f
 q
-n
+j
 j
 E
 b
@@ -2021,7 +2017,7 @@ b
 b
 f
 j
-n
+j
 q
 E
 b
@@ -2064,7 +2060,7 @@ j
 b
 f
 q
-n
+j
 j
 E
 b
@@ -2376,7 +2372,7 @@ j
 b
 f
 q
-n
+j
 j
 E
 b
@@ -2645,7 +2641,7 @@ b
 b
 f
 j
-n
+j
 q
 E
 b
@@ -2688,7 +2684,7 @@ j
 b
 f
 q
-n
+j
 j
 E
 b

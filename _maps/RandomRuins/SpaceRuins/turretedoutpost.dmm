@@ -114,17 +114,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/turretedoutpost)
-"av" = (
-/obj/structure/rack,
-/obj/item/firing_pin,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/turf/open/floor/plasteel/dark,
-/area/ruin/space/has_grav/turretedoutpost)
 "aw" = (
 /obj/machinery/door/airlock/public/glass,
 /turf/open/floor/plasteel,
@@ -557,7 +546,7 @@ ab
 aa
 al
 ad
-av
+as
 az
 az
 az
