@@ -63,6 +63,7 @@
 
 	user.log_message(msg, LOG_EMOTE)
 	msg = "<b>[user]</b> " + msg
+	user.emote_cooldown = world.time + cooldown // Sunset - for emote cooldowns
 
 	var/tmp_sound = get_sound(user)
 	if(tmp_sound && (!only_forced_audio || !intentional))
@@ -120,6 +121,8 @@
 		return FALSE
 	if(is_type_in_typecache(user, mob_type_blacklist_typecache))
 		return FALSE
+	if(world.time < user.emote_cooldown) // Sunset - for emote cooldowns -----start-----
+		return FALSE //  -----end-----
 	if(status_check && !is_type_in_typecache(user, mob_type_ignore_stat_typecache))
 		if(user.stat > stat_allowed)
 			if(!intentional)
