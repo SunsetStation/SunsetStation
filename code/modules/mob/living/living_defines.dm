@@ -116,3 +116,5 @@
 	//List of active diseases
 	var/list/diseases = list() // list of all diseases in a mob
 	var/list/disease_resistances = list()
+
+	var/player_logged = FALSE //keep track at login and logout; used for SSD
