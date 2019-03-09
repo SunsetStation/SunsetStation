@@ -11,7 +11,7 @@
 			B.should_draw_sunset = FALSE
 
 /datum/species
-	// H for human because vox was setup like this already
+	// H for human because Voxies were setup with the non prefixed var names
 	var/sound/Hfemale_scream_sound = 'sound/effects/mob_effects/goonstation/female_scream.ogg'
 	var/sound/Hmale_scream_sound = 'sound/effects/mob_effects/goonstation/male_scream.ogg'
 	var/sound/Hfemale_cough_sound = 'sound/effects/mob_effects/f_cough.ogg'

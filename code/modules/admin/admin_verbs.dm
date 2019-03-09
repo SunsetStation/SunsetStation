@@ -243,7 +243,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/add_admin_verbs()
 	if(holder)
-		//control_freak = CONTROL_FREAK_SKIN | CONTROL_FREAK_MACROS // Sunset - Adds macro support under client_defines.dm
+		control_freak = CONTROL_FREAK_SKIN //| CONTROL_FREAK_MACROS // Sunset - Adds macro support under client_defines.dm
 
 		var/rights = holder.rank.rights
 		verbs += GLOB.admin_verbs_default
