@@ -27202,6 +27202,11 @@
 /obj/item/stack/packageWrap,
 /obj/item/stack/packageWrap,
 /obj/item/gun/ballistic/shotgun/doublebarrel,
+/obj/machinery/requests_console{
+	department = "Security";
+	departmentType = 5;
+	pixel_y = 30
+	},
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "boS" = (
@@ -31249,21 +31254,21 @@
 	icon_state = "1-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
 /turf/open/floor/carpet,
 /area/crew_quarters/bar)
 "bwW" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
 /turf/open/floor/carpet,
 /area/crew_quarters/bar)
 "bwX" = (
 /obj/machinery/light{
 	dir = 4
-	},
-/obj/machinery/requests_console{
-	department = "Cargo Bay";
-	departmentType = 2;
-	pixel_y = -30
 	},
 /turf/open/floor/carpet,
 /area/crew_quarters/bar)
@@ -32032,16 +32037,14 @@
 /turf/open/floor/carpet,
 /area/crew_quarters/bar)
 "byG" = (
-/obj/structure/disposalpipe/segment{
-	dir = 10
-	},
-/obj/machinery/door/airlock{
-	name = "Bar Access";
-	req_access_txt = "25"
-	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 4
 	},
+/obj/machinery/door/window/southright{
+	name = "Bar Door";
+	req_one_access_txt = "25;28"
+	},
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/carpet,
 /area/crew_quarters/bar)
 "byH" = (
@@ -68250,9 +68253,6 @@
 /obj/item/reagent_containers/food/condiment/peppermill{
 	pixel_x = 3
 	},
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 5
 	},
@@ -69028,6 +69028,10 @@
 /obj/structure/closet/bombcloset/white,
 /turf/open/floor/plasteel,
 /area/science/mixing)
+"gID" = (
+/obj/structure/window/reinforced,
+/turf/open/floor/carpet,
+/area/crew_quarters/bar)
 "gJs" = (
 /obj/effect/spawner/structure/window/plasma/reinforced,
 /turf/open/floor/plating,
@@ -123196,7 +123200,7 @@ brq
 bmP
 buT
 bwX
-bmP
+gID
 bAr
 byH
 bDJ
