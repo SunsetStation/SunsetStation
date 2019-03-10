@@ -28430,8 +28430,8 @@
 	dir = 2;
 	sortType = 19
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
@@ -29572,7 +29572,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/machinery/door/airlock{
 	name = "Bar Storage";
 	req_access_txt = "25"
@@ -30219,7 +30218,6 @@
 /area/crew_quarters/bar)
 "buR" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
@@ -31252,7 +31250,6 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
@@ -32051,21 +32048,13 @@
 /obj/item/storage/box/matches,
 /turf/open/floor/carpet,
 /area/crew_quarters/bar)
-"byF" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
-	dir = 5
-	},
-/turf/closed/wall,
-/area/crew_quarters/bar)
 "byG" = (
 /obj/machinery/door/airlock{
 	name = "Bar Access";
 	req_access_txt = "25"
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/carpet,
 /area/crew_quarters/bar)
 "byH" = (
@@ -122663,7 +122652,7 @@ bro
 bts
 buR
 bwV
-byF
+bmP
 mrg
 byC
 cTR
