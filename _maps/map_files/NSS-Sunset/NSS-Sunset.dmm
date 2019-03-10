@@ -73632,6 +73632,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plasteel,
 /area/sunset/genpop)
+"kUh" = (
+/obj/effect/spawner/structure/window,
+/turf/open/floor/plating,
+/area/crew_quarters/bar)
 "kVo" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 10
@@ -119332,9 +119336,9 @@ boL
 bmO
 bmM
 bmO
-bmP
+kUh
 dhT
-bmP
+kUh
 bmP
 bDC
 bFj
@@ -119592,7 +119596,7 @@ bmO
 bwK
 haw
 pYh
-bmP
+kUh
 bwO
 bFk
 bGZ
@@ -119849,7 +119853,7 @@ bmO
 oGQ
 byy
 bAi
-bmP
+kUh
 bDD
 bFl
 bHa
