@@ -31163,7 +31163,7 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/obj/structure/chair/wood/wings,
+/obj/structure/chair/sofa/right,
 /turf/open/floor/plasteel,
 /area/crew_quarters/bar)
 "bwN" = (
@@ -31191,8 +31191,8 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/obj/structure/chair/wood/wings,
 /obj/effect/landmark/start/assistant,
+/obj/structure/chair/sofa/left,
 /turf/open/floor/plasteel,
 /area/crew_quarters/bar)
 "bwR" = (
@@ -32835,7 +32835,8 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/obj/structure/chair/wood/wings{
+/obj/structure/chair/sofa{
+	icon_state = "sofamiddle";
 	dir = 1
 	},
 /turf/open/floor/plasteel,
@@ -32853,7 +32854,8 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/bar,
-/obj/structure/chair/wood/wings{
+/obj/structure/chair/sofa/right{
+	icon_state = "sofaend_right";
 	dir = 1
 	},
 /turf/open/floor/plasteel,
@@ -77093,6 +77095,17 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden,
 /turf/open/floor/engine,
 /area/science/mixing/chamber)
+"onX" = (
+/obj/effect/turf_decal/tile/bar,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/obj/structure/chair/sofa/left{
+	icon_state = "sofaend_left";
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/crew_quarters/bar)
 "oob" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 5
@@ -77497,6 +77510,14 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/port/fore)
+"oGQ" = (
+/obj/effect/turf_decal/tile/bar,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/obj/structure/chair/sofa,
+/turf/open/floor/plasteel,
+/area/crew_quarters/bar)
 "oGS" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -78863,10 +78884,11 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/obj/structure/chair/wood/wings{
+/obj/effect/landmark/start/assistant,
+/obj/structure/chair/sofa/right{
+	icon_state = "sofaend_right";
 	dir = 1
 	},
-/obj/effect/landmark/start/assistant,
 /turf/open/floor/plasteel,
 /area/crew_quarters/bar)
 "pYz" = (
@@ -81840,6 +81862,14 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/security/gearRoom)
+"tfM" = (
+/obj/effect/turf_decal/tile/bar,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/obj/structure/chair/sofa/left,
+/turf/open/floor/plasteel,
+/area/crew_quarters/bar)
 "tgj" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/closet/emcloset,
@@ -119824,7 +119854,7 @@ boN
 bre
 btm
 bmO
-bwK
+oGQ
 byy
 bAi
 byB
@@ -120081,9 +120111,9 @@ boO
 brf
 btn
 bmO
-bwK
+tfM
 byy
-bAi
+onX
 byB
 csP
 bFm
@@ -121111,7 +121141,7 @@ btq
 bmP
 bwQ
 vNq
-bAi
+onX
 byB
 bwO
 bFk
