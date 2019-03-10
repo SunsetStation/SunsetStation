@@ -31214,6 +31214,7 @@
 /obj/structure/sign/barsign{
 	pixel_y = 32
 	},
+/obj/effect/landmark/start/bartender,
 /turf/open/floor/carpet,
 /area/crew_quarters/bar)
 "bwT" = (
@@ -85940,7 +85941,10 @@
 	codes_txt = "patrol;next_patrol=14.8-Dorms-Lockers";
 	location = "14.5-Recreation"
 	},
-/turf/open/floor/plating,
+/obj/effect/turf_decal/bot{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
 /area/crew_quarters/bar)
 "xGW" = (
 /obj/effect/turf_decal/tile/red{
