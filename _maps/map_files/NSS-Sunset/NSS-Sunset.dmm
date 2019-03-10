@@ -61701,7 +61701,7 @@
 "dbd" = (
 /obj/machinery/vending/wardrobe/bar_wardrobe,
 /obj/machinery/camera{
-	c_tag = "Bar Backroom";
+	c_tag = "Bar - Backroom";
 	dir = 2;
 	network = list("ss13")
 	},
@@ -65242,7 +65242,7 @@
 	dir = 1
 	},
 /obj/machinery/camera{
-	c_tag = "Bar - Backroom";
+	c_tag = "Bar - Tables";
 	dir = 2
 	},
 /turf/open/floor/plasteel,
