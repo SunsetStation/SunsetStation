@@ -27203,8 +27203,8 @@
 /obj/item/stack/packageWrap,
 /obj/item/gun/ballistic/shotgun/doublebarrel,
 /obj/machinery/requests_console{
-	department = "Security";
-	departmentType = 5;
+	department = "Bar";
+	departmentType = 2;
 	pixel_y = 30
 	},
 /turf/open/floor/wood,
@@ -27216,14 +27216,12 @@
 /turf/open/floor/wood,
 /area/crew_quarters/dorms)
 "boU" = (
-/obj/item/radio/intercom{
-	dir = 8;
-	freerange = 1;
-	name = "Station Intercom (Telecomms)";
-	pixel_y = 30
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
+	},
+/obj/item/radio/intercom{
+	dir = 1;
+	pixel_y = 29
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
@@ -28436,10 +28434,6 @@
 	dir = 4
 	},
 /obj/machinery/light/small,
-/obj/machinery/camera{
-	c_tag = "Central Primary Hallway - Aft-Starboard";
-	dir = 1
-	},
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "bro" = (
@@ -29554,10 +29548,6 @@
 /area/storage/art)
 "bto" = (
 /obj/structure/reagent_dispensers/beerkeg,
-/obj/machinery/camera{
-	c_tag = "Bridge - Starboard Access";
-	dir = 4
-	},
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "btq" = (
@@ -61710,6 +61700,11 @@
 /area/engine/supermatter)
 "dbd" = (
 /obj/machinery/vending/wardrobe/bar_wardrobe,
+/obj/machinery/camera{
+	c_tag = "Bar Backroom";
+	dir = 2;
+	network = list("ss13")
+	},
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
 "dbe" = (
