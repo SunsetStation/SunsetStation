@@ -32013,13 +32013,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/bar)
-"byB" = (
-/obj/effect/turf_decal/tile/bar,
-/obj/effect/turf_decal/tile/bar{
-	dir = 1
-	},
-/turf/closed/wall,
-/area/crew_quarters/bar)
 "byC" = (
 /turf/open/floor/wood,
 /area/crew_quarters/bar)
@@ -119604,7 +119597,7 @@ bmO
 bwK
 haw
 pYh
-byB
+bmP
 bwO
 bFk
 bGZ
@@ -119861,7 +119854,7 @@ bmO
 oGQ
 byy
 bAi
-byB
+bmP
 bDD
 bFl
 bHa
@@ -120118,7 +120111,7 @@ bmO
 tfM
 byy
 onX
-byB
+bmP
 csP
 bFm
 bGZ
@@ -120889,7 +120882,7 @@ bmP
 bwK
 byy
 bAm
-byB
+bmP
 bDF
 bFo
 bwO
@@ -121146,7 +121139,7 @@ bmP
 bwQ
 vNq
 onX
-byB
+bmP
 bwO
 bFk
 bwO
@@ -121401,7 +121394,7 @@ brj
 btr
 bmP
 bmP
-byB
+bmP
 bmP
 bmP
 bDG
