@@ -31189,6 +31189,7 @@
 	dir = 1
 	},
 /obj/structure/chair/wood/wings,
+/obj/effect/landmark/start/assistant,
 /turf/open/floor/plasteel,
 /area/crew_quarters/bar)
 "bwR" = (
@@ -78875,6 +78876,17 @@
 	icon_state = "platingdmg3"
 	},
 /area/maintenance/aft)
+"pYh" = (
+/obj/effect/turf_decal/tile/bar,
+/obj/effect/turf_decal/tile/bar{
+	dir = 1
+	},
+/obj/structure/chair/wood/wings{
+	dir = 1
+	},
+/obj/effect/landmark/start/assistant,
+/turf/open/floor/plasteel,
+/area/crew_quarters/bar)
 "pYz" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Pipe Maintenance";
@@ -119565,7 +119577,7 @@ btl
 bmO
 bwK
 haw
-bAi
+pYh
 byB
 bwO
 bFk
