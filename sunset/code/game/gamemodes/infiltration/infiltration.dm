@@ -12,6 +12,8 @@
 	<span class='danger'>Infiltrators</span>: Board the station stealthfully and complete your objectives!\n\
 	<span class='notice'>Crew</span>: Prevent the infiltrators from completing their objectives!"
 
+	title_icon = "infiltration"
+
 	var/agents_possible = 5
 	var/agents_left = 1
 	var/list/pre_sit = list()
