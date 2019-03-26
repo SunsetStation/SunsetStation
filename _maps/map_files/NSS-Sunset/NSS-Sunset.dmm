@@ -1566,7 +1566,7 @@
 "aer" = (
 /obj/structure/rack,
 /obj/item/gun/energy/ionrifle{
-	pin = /obj/item/firing_pin
+	
 	},
 /obj/machinery/light{
 	dir = 1
@@ -72471,9 +72471,7 @@
 	pixel_x = -2;
 	pixel_y = -2
 	},
-/obj/effect/turf_decal/bot,
-/obj/item/storage/box/firingpins,
-/obj/item/storage/box/firingpins{
+/obj/effect/turf_decal/bot{
 	pixel_x = 3;
 	pixel_y = 3
 	},

@@ -9062,7 +9062,6 @@
 /turf/open/floor/plasteel,
 /area/centcom/ferry)
 "tH" = (
-/obj/item/gun/energy/pulse/carbine/loyalpin,
 /obj/item/flashlight/seclite,
 /obj/structure/table/reinforced,
 /obj/machinery/airalarm{
@@ -11440,7 +11439,7 @@
 "zy" = (
 /obj/structure/table,
 /obj/item/gun/energy/ionrifle{
-	pin = /obj/item/firing_pin
+	
 	},
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
