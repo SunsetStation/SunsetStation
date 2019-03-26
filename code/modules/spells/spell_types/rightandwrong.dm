@@ -117,7 +117,6 @@ GLOBAL_VAR_INIT(summon_magic_triggered, FALSE)
 
 	var/gun_type = pick(GLOB.summoned_guns)
 	var/obj/item/gun/G = new gun_type(get_turf(H))
-	G.unlock()
 	playsound(get_turf(H),'sound/magic/summon_guns.ogg', 50, 1)
 
 	var/in_hand = H.put_in_hands(G) // not always successful
