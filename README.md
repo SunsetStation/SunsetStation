@@ -1,6 +1,8 @@
 # SunsetStation
 
-[![Build Status](https://travis-ci.com/SunsetStation/SunsetStation.svg?branch=master)](https://travis-ci.com/SunsetStation/SunsetStation)
+[![Build Status](https://travis-ci.org/SunsetStation/SunsetStation.png)](https://travis-ci.org/SunsetStation/SunsetStation) [![Krihelimeter](https://www.krihelinator.xyz/badge/SunsetStation)](https://www.krihelinator.xyz)  
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/SunsetStation/SunsetStation.svg)](https://isitmaintained.com/project/SunsetStation/SunsetStation "Percentage of issues still open") [![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/SunsetStation/SunsetStation.svg)](https://isitmaintained.com/project/SunsetStation/SunsetStation "Average time to resolve an issue") ![Coverage](https://img.shields.io/badge/coverage---2%25-red.svg)  
+[![forthebadge](https://forthebadge.com/images/badges/built-with-resentment.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/contains-technical-debt.svg)](https://user-images.githubusercontent.com/8171642/50290880-ffef5500-043a-11e9-8270-a2e5b697c86c.png) [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
 ## DOWNLOADING
 
@@ -76,7 +78,7 @@ the new version.
 
 If you'd like a more robust server hosting option for tgstation and its
 derivatives. Check out our server tools suite at
-https://github.com/tgstation/tgstation-server
+https://github.com/SunsetStation/SunsetStation-server
 -->
 
 ## MAPS

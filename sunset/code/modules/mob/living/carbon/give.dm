@@ -15,7 +15,7 @@
 	if(!I)
 		to_chat(usr, "<span class='warning'>You don't have anything in your active hand to give to [target.name].</span>")
 		return
-	if((I.flags_1 & NODROP) || (I.flags_1 & ABSTRACT))
+	if(I.has_trait(TRAIT_NODROP) || (I.flags_1 & ABSTRACT))
 		to_chat(usr, "<span class='notice'>That's not something you can give.</span>")
 		return
 	if(target.can_put_in_hands(I))

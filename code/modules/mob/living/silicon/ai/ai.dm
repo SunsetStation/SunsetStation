@@ -14,6 +14,7 @@
 
 /mob/living/silicon/ai
 	name = "AI"
+	real_name = "AI"
 	icon = 'icons/mob/ai.dmi'
 	icon_state = "ai"
 	move_resist = MOVE_FORCE_VERY_STRONG
@@ -125,7 +126,8 @@
 	job = "AI"
 
 	create_eye()
-	apply_pref_name("ai")
+	if(client)
+		apply_pref_name("ai",client)
 
 	set_core_display_icon()
 
@@ -138,9 +140,9 @@
 	verbs += /mob/living/silicon/ai/proc/show_laws_verb
 
 	aiPDA = new/obj/item/pda/ai(src)
-	aiPDA.owner = name
+	aiPDA.owner = real_name
 	aiPDA.ownjob = "AI"
-	aiPDA.name = name + " (" + aiPDA.ownjob + ")"
+	aiPDA.name = real_name + " (" + aiPDA.ownjob + ")"
 
 	aiMulti = new(src)
 	radio = new /obj/item/radio/headset/ai(src)
@@ -188,10 +190,19 @@
 	set name = "Set AI Core Display"
 	if(incapacitated())
 		return
-	var/ai_core_icon = input(src, "Please select a display!", "AI Core Display Screen Selection", null) as null|anything in GLOB.ai_core_display_screens
+	var/list/iconstates = GLOB.ai_core_display_screens
+	for(var/option in iconstates)
+		if(option == "Random")
+			iconstates[option] = image(icon = src.icon, icon_state = "ai-random")
+			continue
+		iconstates[option] = image(icon = src.icon, icon_state = resolve_ai_icon(option))
+
+	view_core()
+	var/ai_core_icon = show_radial_menu(src, src , iconstates, radius = 42)
+
 	if(!ai_core_icon || incapacitated())
 		return
-	to_chat(src, "<span class='notice'>Core display screen set to \"[ai_core_icon]\".</span>")
+
 	display_icon_override = ai_core_icon
 	set_core_display_icon(ai_core_icon)
 
@@ -279,14 +290,17 @@
 
 /mob/living/silicon/ai/can_interact_with(atom/A)
 	. = ..()
+	var/turf/ai = get_turf(src)
+	var/turf/target = get_turf(A)
 	if (.)
 		return
+	if ((ai.z != target.z) && !is_station_level(ai))
+		return FALSE
+
 	if (istype(loc, /obj/item/aicard))
-		var/turf/T0 = get_turf(src)
-		var/turf/T1 = get_turf(A)
-		if (!T0 || ! T1)
+		if (!ai || !target)
 			return FALSE
-		return ISINRANGE(T1.x, T0.x - interaction_range, T0.x + interaction_range) && ISINRANGE(T1.y, T0.y - interaction_range, T0.y + interaction_range)
+		return ISINRANGE(target.x, ai.x - interaction_range, ai.x + interaction_range) && ISINRANGE(target.y, ai.y - interaction_range, ai.y + interaction_range)
 	else
 		return GLOB.cameranet.checkTurfVis(get_turf(A))
 
@@ -337,7 +351,7 @@
 		unset_machine()
 		src << browse(null, t1)
 	if (href_list["switchcamera"])
-		switchCamera(locate(href_list["switchcamera"])) in GLOB.cameranet.cameras
+		switchCamera(locate(href_list["switchcamera"]) in GLOB.cameranet.cameras)
 	if (href_list["showalerts"])
 		ai_alerts()
 #ifdef AI_VOX
@@ -350,7 +364,7 @@
 			src << browse(last_paper_seen, "window=show_paper")
 	//Carn: holopad requests
 	if(href_list["jumptoholopad"])
-		var/obj/machinery/holopad/H = locate(href_list["jumptoholopad"])
+		var/obj/machinery/holopad/H = locate(href_list["jumptoholopad"]) in GLOB.machines
 		if(H)
 			H.attack_ai(src) //may as well recycle
 		else
@@ -392,7 +406,19 @@
 		return
 
 	if (href_list["ai_take_control"]) //Mech domination
-		var/obj/mecha/M = locate(href_list["ai_take_control"])
+		var/obj/mecha/M = locate(href_list["ai_take_control"]) in GLOB.mechas_list
+		if (!M)
+			return
+
+		var/mech_has_controlbeacon = FALSE
+		for(var/obj/item/mecha_parts/mecha_tracking/ai_control/A in M.trackers)
+			mech_has_controlbeacon = TRUE
+			break
+		if(!can_dominate_mechs && !mech_has_controlbeacon)
+			message_admins("Warning: possible href exploit by [key_name(usr)] - attempted control of a mecha without can_dominate_mechs or a control beacon in the mech.")
+			log_game("Warning: possible href exploit by [key_name(usr)] - attempted control of a mecha without can_dominate_mechs or a control beacon in the mech.")
+			return
+
 		if(controlled_mech)
 			to_chat(src, "<span class='warning'>You are already loaded into an onboard computer!</span>")
 			return
@@ -403,7 +429,7 @@
 			to_chat(src, "<span class='warning'>You aren't in your core!</span>")
 			return
 		if(M)
-			M.transfer_ai(AI_MECH_HACK,src, usr) //Called om the mech itself.
+			M.transfer_ai(AI_MECH_HACK, src, usr) //Called om the mech itself.
 
 
 /mob/living/silicon/ai/proc/switchCamera(obj/machinery/camera/C)

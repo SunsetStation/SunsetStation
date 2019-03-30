@@ -104,6 +104,7 @@
 	new /obj/item/radio/headset/headset_sec(src)
 	new /obj/item/clothing/suit/armor/vest/warden(src)
 	new /obj/item/clothing/head/warden(src)
+	new /obj/item/clothing/head/warden/drill(src)
 	new /obj/item/clothing/head/beret/sec/navywarden(src)
 	new /obj/item/clothing/suit/armor/vest/warden/alt(src)
 	new /obj/item/clothing/under/rank/warden/navyblue(src)
@@ -191,7 +192,7 @@
 	new /obj/item/holosign_creator/security(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/clothing/suit/armor/vest/det_suit(src)
-	new /obj/item/storage/belt/holster/full(src)
+	//new /obj/item/storage/belt/holster/full(src) sunset - disabled due to change in holsters
 	new /obj/item/pinpointer/crew(src)
 	new /obj/item/twohanded/binoculars(src)
 
@@ -267,7 +268,6 @@
 
 /obj/structure/closet/secure_closet/armory2/PopulateContents()
 	..()
-	new /obj/item/storage/box/firingpins(src)
 	for(var/i in 1 to 3)
 		new /obj/item/storage/box/rubbershot(src)
 	for(var/i in 1 to 3)
@@ -280,7 +280,6 @@
 
 /obj/structure/closet/secure_closet/armory3/PopulateContents()
 	..()
-	new /obj/item/storage/box/firingpins(src)
 	new /obj/item/gun/energy/ionrifle(src)
 	for(var/i in 1 to 3)
 		new /obj/item/gun/energy/e_gun(src)

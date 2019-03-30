@@ -14,17 +14,13 @@
 /obj/item/gun/energy/pulse/emp_act(severity)
 	return
 
-/obj/item/gun/energy/pulse/prize
-	pin = /obj/item/firing_pin
-
 /obj/item/gun/energy/pulse/prize/Initialize()
 	. = ..()
 	GLOB.poi_list += src
 	var/turf/T = get_turf(src)
-	var/msg = "A pulse rifle prize has been created at [ADMIN_VERBOSEJMP(T)]"
 
-	message_admins(msg)
-	log_game(msg)
+	message_admins("A pulse rifle prize has been created at [ADMIN_VERBOSEJMP(T)]")
+	log_game("A pulse rifle prize has been created at [AREACOORD(T)]")
 
 	notify_ghosts("Someone won a pulse rifle as a prize!", source = src, action = NOTIFY_ORBIT)
 
@@ -32,8 +28,7 @@
 	GLOB.poi_list -= src
 	. = ..()
 
-/obj/item/gun/energy/pulse/loyalpin
-	pin = /obj/item/firing_pin/implant/mindshield
+/obj/item/gun/energy/pulse
 
 /obj/item/gun/energy/pulse/carbine
 	name = "pulse carbine"
@@ -43,12 +38,11 @@
 	icon_state = "pulse_carbine"
 	item_state = null
 	cell_type = "/obj/item/stock_parts/cell/pulse/carbine"
-	can_flashlight = 1
+	can_flashlight = TRUE
 	flight_x_offset = 18
 	flight_y_offset = 12
 
-/obj/item/gun/energy/pulse/carbine/loyalpin
-	pin = /obj/item/firing_pin/implant/mindshield
+/obj/item/gun/energy/pulse/carbine
 
 /obj/item/gun/energy/pulse/pistol
 	name = "pulse pistol"
@@ -59,8 +53,7 @@
 	item_state = "gun"
 	cell_type = "/obj/item/stock_parts/cell/pulse/pistol"
 
-/obj/item/gun/energy/pulse/pistol/loyalpin
-	pin = /obj/item/firing_pin/implant/mindshield
+/obj/item/gun/energy/pulse/pistol
 
 /obj/item/gun/energy/pulse/destroyer
 	name = "pulse destroyer"

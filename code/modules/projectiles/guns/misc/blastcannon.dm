@@ -26,11 +26,6 @@
 	debug_power = 80
 	bombcheck = FALSE
 
-/obj/item/gun/blastcannon/Initialize()
-	. = ..()
-	if(!pin)
-		pin = new
-
 /obj/item/gun/blastcannon/Destroy()
 	QDEL_NULL(bomb)
 	return ..()
@@ -102,7 +97,7 @@
 	playsound(user, "explosion", 100, 1)
 	var/turf/starting = get_turf(user)
 	var/turf/targturf = get_turf(target)
-	message_admins("Blast wave fired from [ADMIN_VERBOSEJMP(starting)] at [ADMIN_VERBOSEJMP(targturf)] ([target.name]) by [key_name_admin(user)] with power [heavy]/[medium]/[light].")
+	message_admins("Blast wave fired from [ADMIN_VERBOSEJMP(starting)] at [ADMIN_VERBOSEJMP(targturf)] ([target.name]) by [ADMIN_LOOKUPFLW(user)] with power [heavy]/[medium]/[light].")
 	log_game("Blast wave fired from [AREACOORD(starting)] at [AREACOORD(targturf)] ([target.name]) by [key_name(user)] with power [heavy]/[medium]/[light].")
 	var/obj/item/projectile/blastwave/BW = new(loc, heavy, medium, light)
 	BW.hugbox = hugbox
@@ -114,7 +109,7 @@
 	icon_state = "blastwave"
 	damage = 0
 	nodamage = FALSE
-	forcedodge = TRUE
+	movement_type = FLYING | UNSTOPPABLE
 	var/heavyr = 0
 	var/mediumr = 0
 	var/lightr = 0

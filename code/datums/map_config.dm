@@ -125,6 +125,19 @@
 	if ("minetype" in json)
 		minetype = json["minetype"]
 
+	// sunset start
+	if ("map_datum" in json)
+		var/md = text2path(json["map_datum"])
+		if(md)
+			GLOB.using_map = new md
+		else 
+			log_world("No map datum specified, defaulting to /datum/map!")
+			GLOB.using_map = new /datum/map
+	else
+		log_world("No map datum specified, defaulting to /datum/map!")
+		GLOB.using_map = new /datum/map
+	// sunset end
+
 	allow_custom_shuttles = json["allow_custom_shuttles"] != FALSE
 
 	defaulted = FALSE

@@ -378,9 +378,9 @@
 	back = /obj/item/storage/backpack/security
 	l_pocket = /obj/item/melee/transforming/energy/sword/saber
 	r_pocket = /obj/item/shield/energy
-	suit_store = /obj/item/tank/internals/emergency_oxygen
+	suit_store = /obj/item/tank/internals/emergency_oxygen/double
 	belt = /obj/item/gun/ballistic/revolver/mateba
-	r_hand = /obj/item/gun/energy/pulse/loyalpin
+	r_hand = /obj/item/gun/energy/pulse
 	id = /obj/item/card/id
 	ears = /obj/item/radio/headset/headset_cent/alt
 
@@ -426,7 +426,7 @@
 
 /datum/outfit/debug //Debug objs plus hardsuit
 	name = "Debug outfit"
-	uniform = /obj/item/clothing/under/patriotsuit 
+	uniform = /obj/item/clothing/under/patriotsuit
 	suit = /obj/item/clothing/suit/space/hardsuit/syndi/elite
 	shoes = /obj/item/clothing/shoes/magboots/advance
 	suit_store = /obj/item/tank/internals/oxygen
@@ -437,4 +437,9 @@
 	glasses = /obj/item/clothing/glasses/meson/night
 	ears = /obj/item/radio/headset/headset_cent/commander
 	back = /obj/item/storage/backpack/holding
-	backpack_contents = list(/obj/item/card/emag=1,	/obj/item/flashlight/emp/debug=1, /obj/item/construction/rcd/combat=1, /obj/item/gun/magic/wand/resurrection/debug=1, /obj/item/melee/transforming/energy/axe=1)
+	backpack_contents = list(/obj/item/card/emag=1,\
+		/obj/item/flashlight/emp/debug=1,\
+		/obj/item/construction/rcd/combat=1,\
+		/obj/item/gun/magic/wand/resurrection/debug=1,\
+		/obj/item/melee/transforming/energy/axe=1,\
+		/obj/item/storage/part_replacer/bluespace/tier4=1)

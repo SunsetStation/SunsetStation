@@ -38,6 +38,7 @@
 	icon_state = "utilitybelt"
 	item_state = "utility"
 	content_overlays = TRUE
+	custom_price = 50
 
 /obj/item/storage/belt/utility/ComponentInitialize()
 	. = ..()
@@ -57,9 +58,11 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/radio,
 		/obj/item/clothing/gloves,
-		/obj/item/holosign_creator,
+		/obj/item/holosign_creator/atmos,
+		/obj/item/holosign_creator/engineering,
 		/obj/item/forcefield_projector,
-		/obj/item/assembly/signaler
+		/obj/item/assembly/signaler,
+		/obj/item/lightreplacer
 		))
 	STR.can_hold = can_hold
 
@@ -171,7 +174,8 @@
 		/obj/item/implantcase,
 		/obj/item/implant,
 		/obj/item/implanter,
-		/obj/item/pinpointer/crew
+		/obj/item/pinpointer/crew,
+		/obj/item/holosign_creator/medical
 		))
 
 /obj/item/storage/belt/security
@@ -202,7 +206,8 @@
 		/obj/item/melee/classic_baton/telescopic,
 		/obj/item/radio,
 		/obj/item/clothing/gloves,
-		/obj/item/restraints/legcuffs/bola
+		/obj/item/restraints/legcuffs/bola,
+		/obj/item/holosign_creator/security
 		))
 
 /obj/item/storage/belt/security/full/PopulateContents()
@@ -212,6 +217,19 @@
 	new /obj/item/assembly/flash/handheld(src)
 	new /obj/item/melee/baton/loaded(src)
 	update_icon()
+
+/obj/item/storage/belt/security/webbing
+	name = "security webbing"
+	desc = "Unique and versatile chest rig, can hold security gear."
+	icon_state = "securitywebbing"
+	item_state = "securitywebbing"
+	content_overlays = FALSE
+	custom_premium_price = 800
+
+/obj/item/storage/belt/security/webbing/ComponentInitialize()
+	. = ..()
+	GET_COMPONENT(STR, /datum/component/storage)
+	STR.max_items = 6
 
 /obj/item/storage/belt/mining
 	name = "explorer's webbing"
@@ -366,7 +384,7 @@
 		/obj/item/reagent_containers/food/snacks/cheesynachos,
 		/obj/item/reagent_containers/food/snacks/cubannachos,
 		/obj/item/reagent_containers/food/snacks/nugget,
-		/obj/item/reagent_containers/food/snacks/pastatomato,
+		/obj/item/reagent_containers/food/snacks/spaghetti/pastatomato,
 		/obj/item/reagent_containers/food/snacks/rofflewaffles,
 		/obj/item/reagent_containers/food/snacks/donkpocket,
 		/obj/item/reagent_containers/food/drinks/soda_cans/cola,
@@ -436,34 +454,20 @@
 		))
 
 /obj/item/storage/belt/grenade/full/PopulateContents()
-	new /obj/item/grenade/flashbang(src)
-	new /obj/item/grenade/smokebomb(src)
-	new /obj/item/grenade/smokebomb(src)
-	new /obj/item/grenade/smokebomb(src)
-	new /obj/item/grenade/smokebomb(src)
-	new /obj/item/grenade/empgrenade(src)
-	new /obj/item/grenade/empgrenade(src)
-	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	new /obj/item/grenade/syndieminibomb/concussion/frag(src)
-	new /obj/item/grenade/gluon(src)
-	new /obj/item/grenade/gluon(src)
-	new /obj/item/grenade/gluon(src)
-	new /obj/item/grenade/gluon(src)
-	new /obj/item/grenade/chem_grenade/incendiary(src)
-	new /obj/item/grenade/chem_grenade/incendiary(src)
-	new /obj/item/grenade/chem_grenade/facid(src)
-	new /obj/item/grenade/syndieminibomb(src)
-	new /obj/item/grenade/syndieminibomb(src)
-	new /obj/item/screwdriver(src)
-	new /obj/item/multitool(src)
+	var/static/items_inside = list(
+		/obj/item/grenade/flashbang = 1,
+		/obj/item/grenade/smokebomb = 4,
+		/obj/item/grenade/empgrenade = 1,
+		/obj/item/grenade/empgrenade = 1,
+		/obj/item/grenade/syndieminibomb/concussion/frag = 10,
+		/obj/item/grenade/gluon = 4,
+		/obj/item/grenade/chem_grenade/incendiary = 2,
+		/obj/item/grenade/chem_grenade/facid = 1,
+		/obj/item/grenade/syndieminibomb = 2,
+		/obj/item/screwdriver = 1,
+		/obj/item/multitool = 1)
+	generate_items_inside(items_inside,src)
+
 
 /obj/item/storage/belt/wands
 	name = "wand belt"
@@ -508,13 +512,20 @@
 		/obj/item/flashlight,
 		/obj/item/reagent_containers/spray,
 		/obj/item/soap,
-		/obj/item/holosign_creator,
+		/obj/item/holosign_creator/janibarrier,
 		/obj/item/forcefield_projector,
 		/obj/item/key/janitor,
 		/obj/item/clothing/gloves,
 		/obj/item/melee/flyswatter,
 		/obj/item/assembly/mousetrap
 		))
+
+/obj/item/storage/belt/janitor/full/PopulateContents()
+	new /obj/item/lightreplacer(src)
+	new /obj/item/reagent_containers/spray/cleaner(src)
+	new /obj/item/soap/nanotrasen(src)
+	new /obj/item/holosign_creator/janibarrier(src)
+	new /obj/item/melee/flyswatter(src)
 
 /obj/item/storage/belt/bandolier
 	name = "bandolier"
@@ -530,7 +541,7 @@
 	STR.can_hold = typecacheof(list(
 		/obj/item/ammo_casing/shotgun
 		))
-
+/* Sunset - Disabled due to change to holsters to be sloted in pockets instead of belt slot
 /obj/item/storage/belt/holster
 	name = "shoulder holster"
 	desc = "A holster to carry a handgun and ammo. WARNING: Badasses only."
@@ -550,16 +561,18 @@
 		))
 
 /obj/item/storage/belt/holster/full/PopulateContents()
-	new /obj/item/gun/ballistic/revolver/detective(src)
-	new /obj/item/ammo_box/c38(src)
-	new /obj/item/ammo_box/c38(src)
-
+	var/static/items_inside = list(
+		/obj/item/gun/ballistic/revolver/detective = 1,
+		/obj/item/ammo_box/c38 = 2)
+	generate_items_inside(items_inside,src)
+*/
 /obj/item/storage/belt/fannypack
 	name = "fannypack"
 	desc = "A dorky fannypack for keeping small items in."
 	icon_state = "fannypack_leather"
 	item_state = "fannypack_leather"
 	item_color = "fannypackleather"
+	custom_price = 15
 
 /obj/item/storage/belt/fannypack/ComponentInitialize()
 	. = ..()

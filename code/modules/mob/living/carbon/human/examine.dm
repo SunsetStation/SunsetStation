@@ -35,7 +35,7 @@
 	if(wear_suit)
 		msg += "[t_He] [t_is] wearing [wear_suit.get_examine_string(user)].\n"
 		//suit/armor storage
-		if(s_store)
+		if(s_store && !(SLOT_S_STORE in obscured))
 			msg += "[t_He] [t_is] carrying [s_store.get_examine_string(user)] on [t_his] [wear_suit.name].\n"
 	//back
 	if(back)
@@ -76,7 +76,7 @@
 	if(wear_mask && !(SLOT_WEAR_MASK in obscured))
 		msg += "[t_He] [t_has] [wear_mask.get_examine_string(user)] on [t_his] face.\n"
 
-	if (wear_neck && !(SLOT_NECK in obscured))
+	if(wear_neck && !(SLOT_NECK in obscured))
 		msg += "[t_He] [t_is] wearing [wear_neck.get_examine_string(user)] around [t_his] neck.\n"
 
 	//eyes
@@ -115,17 +115,8 @@
 			msg += "<span class='warning'>[t_His] soul seems to have been ripped out of [t_his] body.  Revival is impossible.</span>\n"
 		msg += "<span class='deadsay'>[t_He] [t_is] limp and unresponsive; there are no signs of life"
 		if(getorgan(/obj/item/organ/brain))
-			if(!key)
-				var/foundghost = 0
-				if(mind)
-					for(var/mob/dead/observer/G in GLOB.player_list)
-						if(G.mind == mind)
-							foundghost = 1
-							if (G.can_reenter_corpse == 0)
-								foundghost = 0
-							break
-				if(!foundghost)
-					msg += " and [t_his] soul has departed"
+			if(!key && !get_ghost(FALSE, TRUE))
+				msg += " and [t_his] soul has departed"
 		msg += "...</span>\n"
 
 	if(get_bodypart(BODY_ZONE_HEAD) && !getorgan(/obj/item/organ/brain))
@@ -151,8 +142,7 @@
 		if(!(BP.get_damage(include_stamina = FALSE) >= BP.max_damage)) //Stamina is disabling the limb
 			damage_text = "limp and lifeless"
 		else
-			var/more_brute = BP.brute_dam >= BP.burn_dam
-			damage_text = more_brute ? "broken and mangled" : "burnt and blistered"
+			damage_text = (BP.brute_dam >= BP.burn_dam) ? BP.heavy_brute_msg : BP.heavy_burn_msg
 		msg += "<B>[capitalize(t_his)] [BP.name] is [damage_text]!</B>\n"
 
 	//stores missing limbs
@@ -276,7 +266,7 @@
 			if(!key)
 				msg += "<span class='deadsay'>[t_He] [t_is] totally catatonic. The stresses of life in deep-space must have been too much for [t_him]. Any recovery is unlikely.</span>\n"
 			else if(!client)
-				msg += "[t_He] [t_has] a blank, absent-minded stare and appears completely unresponsive to anything. [t_He] may snap out of it soon.\n"
+				msg += "<span class='warning'>[t_He] appears to be suffering from SSD - Space Sleep Disorder. [t_He] may snap out of it at any time! Or maybe never. It's best to leave [t_him] be.</span>\n"
 
 		if(digitalcamo)
 			msg += "[t_He] [t_is] moving [t_his] body in an unnatural and blatantly inhuman manner.\n"

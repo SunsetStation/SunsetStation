@@ -19,6 +19,8 @@
 	reroll_friendly = 1
 	enemy_minimum_age = 0
 
+	title_icon = "traitor"
+
 	announce_span = "danger"
 	announce_text = "There are Syndicate agents on the station!\n\
 	<span class='danger'>Traitors</span>: Accomplish your objectives.\n\
@@ -86,7 +88,7 @@
 		return
 	if((SSticker.mode.traitors.len + pre_traitors.len) <= (traitorcap - 2) || prob(100 / (tsc * 2)))
 		if(antag_flag in character.client.prefs.be_special)
-			if(!jobban_isbanned(character, ROLE_TRAITOR) && !QDELETED(character) && !jobban_isbanned(character, ROLE_SYNDICATE) && !QDELETED(character))
+			if(!is_banned_from(character.ckey, list(ROLE_TRAITOR, ROLE_SYNDICATE)) && !QDELETED(character))
 				if(age_check(character.client))
 					if(!(character.job in restricted_jobs))
 						add_latejoin_traitor(character.mind)
@@ -98,3 +100,18 @@
 /datum/game_mode/traitor/generate_report()
 	return "Although more specific threats are commonplace, you should always remain vigilant for Syndicate agents aboard your station. Syndicate communications have implied that many \
 		Nanotrasen employees are Syndicate agents with hidden memories that may be activated at a moment's notice, so it's possible that these agents might not even know their positions."
+
+/datum/game_mode/traitor/generate_credit_text()
+	var/list/round_credits = list()
+	var/len_before_addition
+
+	round_credits += "<center><h1>The [syndicate_name()] Spies:</h1>"
+	len_before_addition = round_credits.len
+	for(var/datum/mind/traitor in get_antag_minds(/datum/antagonist/traitor))
+		round_credits += "<center><h2>[traitor.name] as a [syndicate_name()] traitor</h2>"
+	if(len_before_addition == round_credits.len)
+		round_credits += list("<center><h2>The traitors have concealed their treachery!</h2>", "<center><h2>We couldn't locate them!</h2>")
+	round_credits += "<br>"
+
+	round_credits += ..()
+	return round_credits

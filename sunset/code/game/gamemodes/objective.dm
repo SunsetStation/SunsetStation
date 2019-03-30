@@ -1,3 +1,5 @@
+GLOBAL_LIST_EMPTY(objectives)
+
 /datum/objective/steal/check_completion()
 	. = ..()
 	var/list/ok_areas = list(/area/sunset/infiltrator_base, /area/syndicate_mothership, /area/shuttle/sunset/stealthcruiser)
@@ -29,3 +31,7 @@
 
 /datum/objective/download/find_target()
 	return gen_amount_goal()
+
+/datum/objective/New(text)
+	. = ..()
+	GLOB.objectives |= src

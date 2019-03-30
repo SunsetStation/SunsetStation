@@ -30,9 +30,12 @@
 	var/combat_armor = list("melee" = 50, "bullet" = 50, "laser" = 50, "energy" = 50, "bomb" = 50, "bio" = 50, "rad" = 50, "fire" = 90, "acid" = 90)
 
 /obj/item/clothing/suit/armor/abductor/vest/proc/toggle_nodrop()
-	item_flags ^= NODROP
+	if(has_trait(TRAIT_NODROP, ABDUCTOR_VEST_TRAIT))
+		remove_trait(TRAIT_NODROP, ABDUCTOR_VEST_TRAIT)
+	else
+		add_trait(TRAIT_NODROP, ABDUCTOR_VEST_TRAIT)
 	if(ismob(loc))
-		to_chat(loc, "<span class='notice'>Your vest is now [item_flags & NODROP ? "locked" : "unlocked"].</span>")
+		to_chat(loc, "<span class='notice'>Your vest is now [has_trait(TRAIT_NODROP, ABDUCTOR_VEST_TRAIT) ? "locked" : "unlocked"].</span>")
 
 /obj/item/clothing/suit/armor/abductor/vest/proc/flip_mode()
 	switch(mode)
@@ -134,22 +137,24 @@
 	lefthand_file = 'icons/mob/inhands/antag/abductor_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/antag/abductor_righthand.dmi'
 
-/obj/item/abductor/proc/AbductorCheck(user)
-	if(isabductor(user))
+/obj/item/abductor/proc/AbductorCheck(mob/user)
+	if(user.has_trait(TRAIT_ABDUCTOR_TRAINING))
 		return TRUE
 	to_chat(user, "<span class='warning'>You can't figure how this works!</span>")
 	return FALSE
 
-/obj/item/abductor/proc/ScientistCheck(user)
-	if(!AbductorCheck(user))
-		return FALSE
+/obj/item/abductor/proc/ScientistCheck(mob/user)
+	var/training = user.has_trait(TRAIT_ABDUCTOR_TRAINING)
+	var/sci_training = user.has_trait(TRAIT_ABDUCTOR_SCIENTIST_TRAINING)
 
-	var/mob/living/carbon/human/H = user
-	var/datum/species/abductor/S = H.dna.species
-	if(S.scientist)
-		return TRUE
-	to_chat(user, "<span class='warning'>You're not trained to use this!</span>")
-	return FALSE
+	if(training && !sci_training)
+		to_chat(user, "<span class='warning'>You're not trained to use this!</span>")
+		. = FALSE
+	else if(!training && !sci_training)
+		to_chat(user, "<span class='warning'>You can't figure how this works!</span>")
+		. = FALSE
+	else
+		. = TRUE
 
 /obj/item/abductor/gizmo
 	name = "science tool"
@@ -360,23 +365,10 @@
 		to_chat(user, "<span class='notice'>You send the message to your target.</span>")
 		log_directed_talk(user, L, message, LOG_SAY, "abductor whisper")
 
-
-/obj/item/firing_pin/abductor
-	name = "alien firing pin"
-	icon_state = "firing_pin_ayy"
-	desc = "This firing pin is slimy and warm; you can swear you feel it \
-		constantly trying to mentally probe you."
-	fail_message = "<span class='abductor'>\
-		Firing error, please contact Command.</span>"
-
-/obj/item/firing_pin/abductor/pin_auth(mob/living/user)
-	. = isabductor(user)
-
 /obj/item/gun/energy/alien
 	name = "alien pistol"
 	desc = "A complicated gun that fires bursts of high-intensity radiation."
 	ammo_type = list(/obj/item/ammo_casing/energy/declone)
-	pin = /obj/item/firing_pin/abductor
 	icon_state = "alienpistol"
 	item_state = "alienpistol"
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
@@ -675,7 +667,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 	desc = "Abduct with style - spiky style. Prevents digital tracking."
 	icon_state = "alienhelmet"
 	item_state = "alienhelmet"
-	blockTracking = 1
+	blockTracking = TRUE
 	flags_inv = HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
 
 // Operating Table / Beds / Lockers
@@ -787,3 +779,11 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 	airlock_type = /obj/machinery/door/airlock/abductor
 	material_type = /obj/item/stack/sheet/mineral/abductor
 	noglass = TRUE
+
+/obj/item/clothing/under/abductor
+	desc = "The most advanced form of jumpsuit known to reality, looks uncomfortable."
+	name = "alien jumpsuit"
+	icon_state = "abductor-suit"
+	item_state = "bl_suit"
+	armor = list(melee = 0, bullet = 0, laser = 0, energy = 0, bomb = 10, bio = 10, rad = 0, fire = 0, acid = 0)
+	can_adjust = 0

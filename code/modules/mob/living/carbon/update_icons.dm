@@ -23,7 +23,7 @@
 
 	if(changed)
 		animate(src, transform = ntransform, time = 2, pixel_y = final_pixel_y, dir = final_dir, easing = EASE_IN|EASE_OUT)
-		floating = FALSE  // If we were without gravity, the bouncing animation got stopped, so we make sure we restart it in next life().
+		setMovetype(movement_type & ~FLOATING)  // If we were without gravity, the bouncing animation got stopped, so we make sure we restart it in next life().
 
 /mob/living/carbon
 	var/list/overlays_standing[TOTAL_LAYERS]
@@ -92,8 +92,6 @@
 
 	apply_overlay(FIRE_LAYER)
 
-
-
 /mob/living/carbon/update_damage_overlays()
 	remove_overlay(DAMAGE_LAYER)
 
@@ -122,7 +120,7 @@
 		inv.update_icon()
 
 	if(wear_mask)
-		if(!(head && (head.flags_inv & HIDEMASK)))
+		if(!(SLOT_WEAR_MASK in check_obscured_slots()))
 			//sunset start
 			var/image/standing
 			if(wear_mask.icon_override)
@@ -145,7 +143,7 @@
 		inv.update_icon()
 
 	if(wear_neck)
-		if(!(head && (head.flags_inv & HIDENECK)))
+		if(!(SLOT_NECK in check_obscured_slots()))
 			//sunset start
 			var/image/standing
 			if(wear_neck.icon_override)
