@@ -2816,6 +2816,7 @@
 #include "sunset\code\datums\emotes.dm"
 #include "sunset\code\datums\shuttles.dm"
 #include "sunset\code\datums\sunsetbot.dm"
+#include "sunset\code\datums\component\reclaimable.dm"
 #include "sunset\code\datums\components\storage\concrete\pockets.dm"
 #include "sunset\code\datums\diseases\transformation.dm"
 #include "sunset\code\datums\mood_events\generic_positive_events.dm"

@@ -10,7 +10,7 @@
 	desc = "A collection of metal peices and parts."
 	icon_state = "smetal"
 	item_state = "smetal"
-	materials = list(MAT_METAL
+	materials = list(MAT_METAL)
 	points = 1
 	refined_type = /obj/item/stack/sheet/metal
 
