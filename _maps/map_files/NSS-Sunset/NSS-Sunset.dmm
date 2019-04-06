@@ -1565,9 +1565,7 @@
 /area/ai_monitored/security/armory)
 "aer" = (
 /obj/structure/rack,
-/obj/item/gun/energy/ionrifle{
-	
-	},
+/obj/item/gun/energy/ionrifle,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -31990,7 +31988,7 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/obj/structure/table/wood/bar,
+/obj/structure/table/wood,
 /turf/open/floor/plasteel/white,
 /area/crew_quarters/bar)
 "byz" = (
@@ -69432,10 +69430,10 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/obj/structure/table/wood/bar,
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/table/wood,
 /turf/open/floor/plasteel/white,
 /area/crew_quarters/bar)
 "haG" = (
@@ -84141,10 +84139,10 @@
 /obj/effect/turf_decal/tile/bar{
 	dir = 1
 	},
-/obj/structure/table/wood/bar,
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/structure/table/wood,
 /turf/open/floor/plasteel/white,
 /area/crew_quarters/bar)
 "vNB" = (
