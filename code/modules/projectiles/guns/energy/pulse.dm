@@ -14,9 +14,6 @@
 /obj/item/gun/energy/pulse/emp_act(severity)
 	return
 
-/obj/item/gun/energy/pulse/prize
-	pin = /obj/item/firing_pin
-
 /obj/item/gun/energy/pulse/prize/Initialize()
 	. = ..()
 	GLOB.poi_list += src
@@ -31,8 +28,7 @@
 	GLOB.poi_list -= src
 	. = ..()
 
-/obj/item/gun/energy/pulse/loyalpin
-	pin = /obj/item/firing_pin/implant/mindshield
+/obj/item/gun/energy/pulse
 
 /obj/item/gun/energy/pulse/carbine
 	name = "pulse carbine"
@@ -46,8 +42,7 @@
 	flight_x_offset = 18
 	flight_y_offset = 12
 
-/obj/item/gun/energy/pulse/carbine/loyalpin
-	pin = /obj/item/firing_pin/implant/mindshield
+/obj/item/gun/energy/pulse/carbine
 
 /obj/item/gun/energy/pulse/pistol
 	name = "pulse pistol"
@@ -58,8 +53,7 @@
 	item_state = "gun"
 	cell_type = "/obj/item/stock_parts/cell/pulse/pistol"
 
-/obj/item/gun/energy/pulse/pistol/loyalpin
-	pin = /obj/item/firing_pin/implant/mindshield
+/obj/item/gun/energy/pulse/pistol
 
 /obj/item/gun/energy/pulse/destroyer
 	name = "pulse destroyer"

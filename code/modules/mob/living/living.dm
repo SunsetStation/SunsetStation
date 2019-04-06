@@ -1283,3 +1283,7 @@
 			update_transform()
 		if("lighting_alpha")
 			sync_lighting_plane_alpha()
+
+/mob/living/proc/isLivingSSD()
+	if(player_logged && stat != DEAD)
+		return TRUE
