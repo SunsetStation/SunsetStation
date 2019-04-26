@@ -2845,8 +2845,6 @@
 /area/ai_monitored/security/armory)
 "aiO" = (
 /obj/structure/table,
-/obj/item/storage/box/firingpins,
-/obj/item/storage/box/firingpins,
 /obj/item/key/security,
 /obj/machinery/power/apc/highcap/five_k{
 	dir = 4;

@@ -123,7 +123,6 @@
 	can_suppress = FALSE
 	burst_size = 1
 	fire_delay = 0
-	pin = /obj/item/firing_pin/implant/pindicate
 	actions_types = list()
 	mag_display = TRUE
 	empty_indicator = TRUE
@@ -133,9 +132,6 @@
 	internal_magazine = FALSE
 	tac_reloads = TRUE
 
-
-/obj/item/gun/ballistic/shotgun/bulldog/unrestricted
-	pin = /obj/item/firing_pin
 /////////////////////////////
 // DOUBLE BARRELED SHOTGUN //
 /////////////////////////////
@@ -225,4 +221,3 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	sawn_off = TRUE
 	slot_flags = ITEM_SLOT_BELT
-

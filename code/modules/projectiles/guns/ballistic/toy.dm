@@ -17,9 +17,6 @@
 	. = ..()
 	add_overlay("[icon_state]_toy")
 
-/obj/item/gun/ballistic/automatic/toy/unrestricted
-	pin = /obj/item/firing_pin
-
 /obj/item/gun/ballistic/automatic/toy/pistol
 	name = "foam force pistol"
 	desc = "A small, easily concealable toy handgun. Ages 8 and up."
@@ -44,12 +41,6 @@
 	magazine = new /obj/item/ammo_box/magazine/toy/pistol/riot(src)
 	return ..()
 
-/obj/item/gun/ballistic/automatic/toy/pistol/unrestricted
-	pin = /obj/item/firing_pin
-
-/obj/item/gun/ballistic/automatic/toy/pistol/riot/unrestricted
-	pin = /obj/item/firing_pin
-
 /obj/item/gun/ballistic/shotgun/toy
 	name = "foam force shotgun"
 	desc = "A toy shotgun with wood furniture and a four-shell capacity underneath. Ages 8 and up."
@@ -69,9 +60,6 @@
 	..()
 	if(chambered && !chambered.BB)
 		qdel(chambered)
-
-/obj/item/gun/ballistic/shotgun/toy/unrestricted
-	pin = /obj/item/firing_pin
 
 /obj/item/gun/ballistic/shotgun/toy/crossbow
 	name = "foam force crossbow"
@@ -93,11 +81,10 @@
 	casing_ejector = FALSE
 	clumsy_check = FALSE
 
-/obj/item/gun/ballistic/automatic/c20r/toy/unrestricted //Use this for actual toys
-	pin = /obj/item/firing_pin
+/obj/item/gun/ballistic/automatic/c20r/toy //Use this for actual toys
 	mag_type = /obj/item/ammo_box/magazine/toy/smgm45
 
-/obj/item/gun/ballistic/automatic/c20r/toy/unrestricted/riot
+/obj/item/gun/ballistic/automatic/c20r/toy/riot
 	mag_type = /obj/item/ammo_box/magazine/toy/smgm45/riot
 
 /obj/item/gun/ballistic/automatic/c20r/toy/update_icon()
@@ -113,11 +100,10 @@
 	casing_ejector = FALSE
 	clumsy_check = FALSE
 
-/obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted //Use this for actual toys
-	pin = /obj/item/firing_pin
+/obj/item/gun/ballistic/automatic/l6_saw/toy//Use this for actual toys
 	mag_type = /obj/item/ammo_box/magazine/toy/m762
 
-/obj/item/gun/ballistic/automatic/l6_saw/toy/unrestricted/riot
+/obj/item/gun/ballistic/automatic/l6_saw/toy/riot
 	mag_type = /obj/item/ammo_box/magazine/toy/m762/riot
 
 /obj/item/gun/ballistic/automatic/l6_saw/toy/update_icon()

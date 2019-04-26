@@ -26,11 +26,6 @@
 	debug_power = 80
 	bombcheck = FALSE
 
-/obj/item/gun/blastcannon/Initialize()
-	. = ..()
-	if(!pin)
-		pin = new
-
 /obj/item/gun/blastcannon/Destroy()
 	QDEL_NULL(bomb)
 	return ..()
