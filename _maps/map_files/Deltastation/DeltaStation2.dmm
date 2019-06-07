@@ -7252,7 +7252,7 @@
 /area/maintenance/starboard/fore)
 "asc" = (
 /obj/structure/table/wood,
-/obj/item/gun/ballistic/automatic/toy/pistol/unrestricted,
+/obj/item/gun/ballistic/automatic/toy/pistol,
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
@@ -53323,8 +53323,6 @@
 /turf/open/floor/plasteel/dark,
 /area/ai_monitored/security/armory)
 "bNs" = (
-/obj/item/storage/box/firingpins,
-/obj/item/storage/box/firingpins,
 /obj/item/key/security,
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/neutral{

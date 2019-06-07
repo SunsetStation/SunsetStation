@@ -88,6 +88,8 @@ GLOBAL_LIST_EMPTY(announcement_systems)
 		message = CompileText(arrival, user, rank)
 	else if(message_type == "NEWHEAD" && newheadToggle)
 		message = CompileText(newhead, user, rank)
+	else if(message_type == "AIWIPE" && newheadToggle)//sunset ai wipe core
+		message = CompileText("%PERSON has been moved to intelligence storage.", user, rank)
 	else if(message_type == "ARRIVALS_BROKEN")
 		message = "The arrivals shuttle has been damaged. Docking for repairs..."
 	//sunset start

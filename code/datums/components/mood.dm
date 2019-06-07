@@ -10,7 +10,7 @@
 	var/breakdowns = 0 //How many breakdowns you've had
 	var/mood_modifier = 1 //Modifier to allow certain mobs to be less affected by moodlets
 	var/AffectedByActiveSanityLoss = TRUE //Are we currently affected by active sanity loss?
-	var/datum/mood_event/list/mood_events = list()
+	var/list/datum/mood_event/mood_events = list()
 	var/insanity_effect = 0 //is the owner being punished for low mood? If so, how much?
 	var/obj/screen/mood/screen_obj
 	var/obj/screen/sanity/screen_obj_sanity

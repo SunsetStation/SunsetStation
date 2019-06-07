@@ -105,6 +105,9 @@
 	description = "<span class='nicegreen'>You are comforted by the presence of a holy person.</span>"
 	mood_change = 3
 
+/datum/mood_event/clownshoes
+	description = "<span class='nicegreen'>The shoes are a clown's legacy, I never want to take them off!</span>\n"
+	mood_change = 5
 
 /datum/mood_event/area
 	description = "fill this in in the area"
