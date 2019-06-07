@@ -5,8 +5,8 @@
 
 /datum/mood_event/arcade
 	description = "<span class='nicegreen'>I beat the arcade game!</span>\n"
-	mood_change = 3
-	timeout = 3000
+	mood_change = 2
+	timeout = 2400
 
 /datum/mood_event/blessing
 	description = "<span class='nicegreen'>I've been blessed.</span>\n"
@@ -15,17 +15,17 @@
 
 /datum/mood_event/book_nerd
 	description = "<span class='nicegreen'>I have recently read a book.</span>\n"
-	mood_change = 3
-	timeout = 3000
+	mood_change = 1
+	timeout = 2400
 
 /datum/mood_event/exercise
 	description = "<span class='nicegreen'>Working out releases those endorphins!</span>\n"
-	mood_change = 3
+	mood_change = 2
 	timeout = 3000
 
 /datum/mood_event/pet_animal
 	description = "<span class='nicegreen'>Animals are adorable! I can't stop petting them!</span>\n"
-	mood_change = 3
+	mood_change = 2
 	timeout = 3000
 
 /datum/mood_event/pet_animal/add_effects(mob/animal)
@@ -33,7 +33,7 @@
 
 /datum/mood_event/honk
 	description = "<span class='nicegreen'>Maybe clowns aren't so bad after all. Honk!</span>\n"
-	mood_change = 2
+	mood_change = 1
 	timeout = 2400
 
 /datum/mood_event/perform_cpr
@@ -104,3 +104,8 @@
 /datum/mood_event/religiously_comforted
 	description = "<span class='nicegreen'>You are comforted by the presence of a holy person.</span>"
 	mood_change = 3
+
+
+/datum/mood_event/area
+	description = "fill this in in the area"
+	mood_change = 0

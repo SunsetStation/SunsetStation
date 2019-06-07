@@ -434,6 +434,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	flags_1 = NONE
 	clockwork_warp_allowed = FALSE
 	clockwork_warp_fail = "The consecration here prevents you from warping in."
+	mood_bonus = 5
+	mood_message = "<span class='nicegreen'>I feel safe in the arms of god!</span>\n"
 
 /area/chapel/main
 	name = "Chapel"

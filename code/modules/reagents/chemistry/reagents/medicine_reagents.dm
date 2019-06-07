@@ -547,7 +547,8 @@
 	color = "#D2FFFA"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	overdose_threshold = 30
-	addiction_threshold = 25
+	addiction_threshold = 20
+	addiction_chance = 0.5
 
 /datum/reagent/medicine/ephedrine/on_mob_add(mob/living/L)
 	..()
@@ -656,7 +657,8 @@
 	color = "#A9FBFB"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	overdose_threshold = 30
-	addiction_threshold = 25
+	addiction_threshold = 20
+	addiction_chance = 0.5
 
 /datum/reagent/medicine/morphine/on_mob_add(mob/living/L)
 	..()

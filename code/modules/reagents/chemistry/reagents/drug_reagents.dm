@@ -41,7 +41,8 @@
 	description = "Slightly reduces stun times. If overdosed it will deal toxin and oxygen damage."
 	reagent_state = LIQUID
 	color = "#60A584" // rgb: 96, 165, 132
-	addiction_threshold = 10
+	addiction_threshold = 0
+	addiction_chance = 0.5
 	taste_description = "smoke"
 	trippy = FALSE
 	overdose_threshold=15
@@ -73,7 +74,8 @@
 	reagent_state = LIQUID
 	color = "#FA00C8"
 	overdose_threshold = 20
-	addiction_threshold = 10
+	addiction_threshold = 0
+	addiction_chance = 0.5
 
 /datum/reagent/drug/crank/on_mob_life(mob/living/carbon/M)
 	if(prob(5))
@@ -122,7 +124,8 @@
 	reagent_state = LIQUID
 	color = "#0064B4"
 	overdose_threshold = 20
-	addiction_threshold = 15
+	addiction_threshold = 0
+	addiction_chance = 0.4
 
 
 /datum/reagent/drug/krokodil/on_mob_life(mob/living/carbon/M)
@@ -173,7 +176,8 @@
 	reagent_state = LIQUID
 	color = "#FAFAFA"
 	overdose_threshold = 20
-	addiction_threshold = 10
+	addiction_threshold = 0
+	addiction_chance = 0.4
 	metabolization_rate = 0.75 * REAGENTS_METABOLISM
 
 /datum/reagent/drug/methamphetamine/on_mob_add(mob/living/L)
@@ -257,7 +261,8 @@
 	reagent_state = LIQUID
 	color = "#FAFAFA"
 	overdose_threshold = 20
-	addiction_threshold = 10
+	addiction_threshold = 0
+	addiction_chance = 0.5
 	taste_description = "salt" // because they're bathsalts?
 	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
 
@@ -375,7 +380,8 @@
 	description = "Fills you with ecstasic numbness and causes minor brain damage. Highly addictive. If overdosed causes sudden mood swings."
 	reagent_state = LIQUID
 	color = "#FFF378"
-	addiction_threshold = 10
+	addiction_threshold = 0
+	addiction_chance = 1
 	overdose_threshold = 20
 
 /datum/reagent/drug/happiness/on_mob_add(mob/living/L)
@@ -415,7 +421,7 @@
 
 /datum/reagent/drug/happiness/addiction_act_stage1(mob/living/M)// all work and no play makes jack a dull boy
 	GET_COMPONENT_FROM(mood, /datum/component/mood, M)
-	mood.setSanity(min(mood.sanity, SANITY_DISTURBED))
+	mood.setSanity(min(mood.sanity, SANITY_NEUTRAL))
 	M.Jitter(5)
 	if(prob(20))
 		M.emote(pick("twitch","laugh","frown"))
@@ -423,7 +429,7 @@
 
 /datum/reagent/drug/happiness/addiction_act_stage2(mob/living/M)
 	GET_COMPONENT_FROM(mood, /datum/component/mood, M)
-	mood.setSanity(min(mood.sanity, SANITY_UNSTABLE))
+	mood.setSanity(min(mood.sanity, SANITY_NEUTRAL - 10))
 	M.Jitter(10)
 	if(prob(30))
 		M.emote(pick("twitch","laugh","frown"))
@@ -431,7 +437,7 @@
 
 /datum/reagent/drug/happiness/addiction_act_stage3(mob/living/M)
 	GET_COMPONENT_FROM(mood, /datum/component/mood, M)
-	mood.setSanity(min(mood.sanity, SANITY_CRAZY))
+	mood.setSanity(min(mood.sanity, SANITY_CREEPING))
 	M.Jitter(15)
 	if(prob(40))
 		M.emote(pick("twitch","laugh","frown"))
@@ -439,7 +445,7 @@
 
 /datum/reagent/drug/happiness/addiction_act_stage4(mob/living/carbon/human/M)
 	GET_COMPONENT_FROM(mood, /datum/component/mood, M)
-	mood.setSanity(SANITY_INSANE)
+	mood.setSanity(SANITY_CREEPING - 20)
 	M.Jitter(20)
 	if(prob(50))
 		M.emote(pick("twitch","laugh","frown"))
