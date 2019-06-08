@@ -94,6 +94,8 @@
 /mob/living/carbon/proc/bleed(amt)
 	if(blood_volume)
 		blood_volume = max(blood_volume - amt, 0)
+		if(has_trait(TRAIT_HEMOPHOBIA))
+			SEND_SIGNAL(src, COMSIG_ADJUST_SANITY, amt * 0.01)
 		if(isturf(src.loc)) //Blood loss still happens in locker, floor stays clean
 			if(amt >= 10)
 				add_splatter_floor(src.loc)

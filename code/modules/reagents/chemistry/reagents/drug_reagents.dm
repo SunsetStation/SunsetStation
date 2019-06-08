@@ -3,10 +3,16 @@
 	id = "drug"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	taste_description = "bitterness"
-	var/trippy = TRUE //Does this drug make you trip?
+	var/trip_mood = 10
+
+/datum/reagent/drug/on_mob_add(mob/living/M)
+	. = ..()
+	if(trip_mood)
+		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[id]_high", /datum/mood_event/drugs, name)
 
 /datum/reagent/drug/on_mob_delete(mob/living/M)
-	if(trippy)
+	. = ..()
+	if(trip_mood)
 		SEND_SIGNAL(M, COMSIG_CLEAR_MOOD_EVENT, "[id]_high")
 
 /datum/reagent/drug/space_drugs
@@ -42,9 +48,9 @@
 	reagent_state = LIQUID
 	color = "#60A584" // rgb: 96, 165, 132
 	addiction_threshold = 0
-	addiction_chance = 0.5
+	addiction_chance = 3
 	taste_description = "smoke"
-	trippy = FALSE
+	trip_mood = 0
 	overdose_threshold=15
 	metabolization_rate = 0.125 * REAGENTS_METABOLISM
 
@@ -75,7 +81,7 @@
 	color = "#FA00C8"
 	overdose_threshold = 20
 	addiction_threshold = 0
-	addiction_chance = 0.5
+	addiction_chance = 3
 
 /datum/reagent/drug/crank/on_mob_life(mob/living/carbon/M)
 	if(prob(5))
@@ -125,7 +131,7 @@
 	color = "#0064B4"
 	overdose_threshold = 20
 	addiction_threshold = 0
-	addiction_chance = 0.4
+	addiction_chance = 3
 
 
 /datum/reagent/drug/krokodil/on_mob_life(mob/living/carbon/M)
@@ -177,7 +183,7 @@
 	color = "#FAFAFA"
 	overdose_threshold = 20
 	addiction_threshold = 0
-	addiction_chance = 0.4
+	addiction_chance = 3
 	metabolization_rate = 0.75 * REAGENTS_METABOLISM
 
 /datum/reagent/drug/methamphetamine/on_mob_add(mob/living/L)
@@ -262,7 +268,7 @@
 	color = "#FAFAFA"
 	overdose_threshold = 20
 	addiction_threshold = 0
-	addiction_chance = 0.5
+	addiction_chance = 3
 	taste_description = "salt" // because they're bathsalts?
 	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
 
@@ -381,8 +387,9 @@
 	reagent_state = LIQUID
 	color = "#FFF378"
 	addiction_threshold = 0
-	addiction_chance = 1
+	addiction_chance = 5
 	overdose_threshold = 20
+	trip_mood = 0
 
 /datum/reagent/drug/happiness/on_mob_add(mob/living/L)
 	..()

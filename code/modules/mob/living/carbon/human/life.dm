@@ -331,34 +331,46 @@
 		return
 
 	var/hygiene_loss = -HYGIENE_FACTOR * 0.25 //Small loss per life
+	var/sanity_loss = 0
 
 	//If you're covered in blood, you'll start smelling like shit faster.
 	var/obj/item/head = get_item_by_slot(SLOT_HEAD)
 	if(head)
 		IF_HAS_BLOOD_DNA(head)
 			hygiene_loss -= 1 * HYGIENE_FACTOR
+			if(has_trait(TRAIT_HEMOPHOBIA))
+				sanity_loss -= 0.15
 
 	var/obj/item/mask = get_item_by_slot(SLOT_HEAD)
 	if(mask)
 		IF_HAS_BLOOD_DNA(mask)
 			hygiene_loss -= 1 * HYGIENE_FACTOR
+			if(has_trait(TRAIT_HEMOPHOBIA))
+				sanity_loss -= 0.15
 
 	var/obj/item/uniform = get_item_by_slot(SLOT_W_UNIFORM)
 	if(uniform)
 		IF_HAS_BLOOD_DNA(uniform)
 			hygiene_loss -= 4 * HYGIENE_FACTOR
+			if(has_trait(TRAIT_HEMOPHOBIA))
+				sanity_loss -= 0.3
 
 	var/obj/item/suit = get_item_by_slot(SLOT_WEAR_SUIT)
 	if(suit)
 		IF_HAS_BLOOD_DNA(suit)
 			hygiene_loss -= 3 * HYGIENE_FACTOR
+			if(has_trait(TRAIT_HEMOPHOBIA))
+				sanity_loss -= 0.25
 
 	var/obj/item/feet = get_item_by_slot(SLOT_SHOES)
 	if(feet)
 		IF_HAS_BLOOD_DNA(feet)
 			hygiene_loss -= 0.5 * HYGIENE_FACTOR
+			if(has_trait(TRAIT_HEMOPHOBIA))
+				sanity_loss -= 0.1
 
 	adjust_hygiene(hygiene_loss)
+	SEND_SIGNAL(src, COMSIG_ADJUST_SANITY, sanity_loss)
 
 
 #undef THERMAL_PROTECTION_HEAD

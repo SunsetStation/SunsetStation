@@ -161,3 +161,8 @@
 #define NINJA_SUIT_TRAIT "ninja-suit"
 #define ANTI_DROP_IMPLANT_TRAIT "anti-drop-implant"
 #define HIVEMIND_ONE_MIND_TRAIT "one_mind"
+
+
+//Affliction traits
+#define TRAIT_HEMOPHOBIA "hemophobia"
+#define TRAIT_EXTREME_HEMOPHOBIA "extreme_hemophobia"

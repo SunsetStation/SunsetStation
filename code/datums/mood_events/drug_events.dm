@@ -4,13 +4,19 @@
 
 /datum/mood_event/smoked
 	description = "<span class='nicegreen'>I have had a smoke recently.</span>\n"
-	mood_change = 2
+	mood_change = 4
 	timeout = 3600
 
 /datum/mood_event/wrong_brand
 	description = "<span class='warning'>I hate that brand of cigarettes.</span>\n"
 	mood_change = -2
 	timeout = 3600
+
+/datum/mood_event/drugs
+	mood_change = 10
+
+/datum/mood_event/drugs/add_effects(drug_name)
+	description = "<span class='warning'>I'm tripping balls on this stuff!</span>\n"
 
 /datum/mood_event/overdose
 	mood_change = -8

@@ -4,20 +4,20 @@
 
 /datum/mood_event/quality_nice
 	description = "<span class='nicegreen'>That drink wasn't bad at all.</span>\n"
-	mood_change = 1
+	mood_change = 2
 	timeout = 2400
 
 /datum/mood_event/quality_good
 	description = "<span class='nicegreen'>That drink was pretty good.</span>\n"
-	mood_change = 2
+	mood_change = 4
 	timeout = 2400
 
 /datum/mood_event/quality_verygood
 	description = "<span class='nicegreen'>That drink was great!</span>\n"
-	mood_change = 3
+	mood_change = 7
 	timeout = 2400
 
 /datum/mood_event/quality_fantastic
 	description = "<span class='nicegreen'>That drink was amazing!</span>\n"
-	mood_change = 4
+	mood_change = 10
 	timeout = 2400

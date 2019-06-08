@@ -2,7 +2,7 @@
 #define MAJOR_INSANITY_PEN 10
 
 /datum/component/mood
-	var/mood //Real happiness
+	var/mood = 0 //Real happiness
 	var/sanity = 100 //Current sanity
 	var/shown_mood //Shown happiness, this is what others can see when they try to examine you, prevents antag checking by noticing traitors are always very happy.
 	var/mood_level = 5 //To track what stage of moodies they're on
@@ -25,6 +25,7 @@
 	RegisterSignal(parent, COMSIG_ADD_MOOD_EVENT, .proc/add_event)
 	RegisterSignal(parent, COMSIG_CLEAR_MOOD_EVENT, .proc/clear_event)
 	RegisterSignal(parent, COMSIG_ENTER_AREA, .proc/check_area_mood)
+	RegisterSignal(parent, COMSIG_ADJUST_SANITY, .proc/AdjustSanity)
 
 	RegisterSignal(parent, COMSIG_MOB_HUD_CREATED, .proc/modify_hud)
 	var/mob/living/owner = parent
@@ -185,13 +186,13 @@
 		if(5)
 			AdjustSanity(0.2, maximum=SANITY_NEUTRAL)
 		if(6)
-			AdjustSanity(0.3, maximum=SANITY_HARDENED)
+			AdjustSanity(0.2, maximum=SANITY_HARDENED)
 		if(7)
-			AdjustSanity(0.4, maximum=SANITY_HARDENED)
+			AdjustSanity(0.25, maximum=SANITY_HARDENED)
 		if(8)
-			AdjustSanity(0.6, maximum=SANITY_MAXIMUM)
+			AdjustSanity(0.4, maximum=SANITY_MAXIMUM)
 		if(9)
-			AdjustSanity(0.8, maximum=SANITY_MAXIMUM)
+			AdjustSanity(0.6, maximum=SANITY_MAXIMUM)
 
 	if(owner.has_trait(TRAIT_DEPRESSION))
 		if(prob(0.05))
@@ -249,9 +250,7 @@
 			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE)
 			sanity_level = 3
 			if(sanity >= 125 && current_affliction) //experience tranquility ebin
-				qdel(current_affliction)
-				sanity = 50
-				breakdowns = 0
+				ResetBreakdown()
 	update_mood_icon()
 
 
@@ -264,39 +263,22 @@
 		H.visible_message("<span class='cult'>[parent] collapses, they seem to be having a breakdown!</span>", \
 		"<span class='cultlarge'>[pick(GLOB.sanity_breakdown_messages)]</span>", )
 		UpdateAffliction(H)
-		sanity = 0
+		remove_temp_moods()
+		sanity = 50
+		H.emote("scream")
 
-	for(var/i in orange(7, parent))
-		if(!ishuman(i))
-			continue
-		var/mob/living/carbon/human/H = i
-		GET_COMPONENT_FROM(mood, /datum/component/mood, H)
-		if(mood)
-			to_chat(parent, "<span class='cult'>How harrowing to see something like this.</span>")
-			mood.ActiveSanityLoss(-25)
-			mood.AffectedByActiveSanityLoss = FALSE
-			addtimer(CALLBACK(mood, /datum/component/mood.proc/AllowActiveSanityLoss), 180)
+/datum/component/mood/proc/ResetBreakdown()
+	qdel(current_affliction)
+	sanity = 50
+	breakdowns = 0
 
 /datum/component/mood/proc/UpdateAffliction(var/mob/living/carbon/human/H)
 	breakdowns++
-	if(breakdowns >= 3) //Third breakdown in a row? lmao you're dead KIDDO
-		FullBreakdown(H)
-	if(current_affliction)
-		if(!current_affliction.next_affliction)
-			return FALSE //if this happens someone fucked up; fill in next_affliction retard
-		var/datum/brain_trauma/affliction/temp_affliction = current_affliction.next_affliction
-		qdel(current_affliction)
-		current_affliction = H.gain_trauma(temp_affliction, TRAUMA_RESILIENCE_SANITY)
-	else
+	if(current_affliction) //If we have an affliction, upgrade it.
+		current_affliction.upgrade(src)
+	else //Otherwise, get a new one.
 		var/datum/brain_trauma/affliction/temp_affliction = pick(GLOB.possible_afflictions)
-		temp_affliction = new()
-		to_chat(world, "[temp_affliction]")
-		current_affliction = H.gain_trauma(temp_affliction, TRAUMA_RESILIENCE_SANITY)
-
-
-/datum/component/mood/proc/FullBreakdown(var/mob/living/carbon/human/H)
-	to_chat(H, "<span class='cult'>You let out a final breath before the pain becomes too much.</span>")
-	H.adjustOxyLoss(200) //F
+		current_affliction = H.gain_trauma(temp_affliction)
 
 /datum/component/mood/proc/AllowActiveSanityLoss()
 	AffectedByActiveSanityLoss = TRUE

@@ -913,6 +913,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(initial(T.mood_quirk) && CONFIG_GET(flag/disable_human_mood))
 				lock_reason = "Mood is disabled."
 				quirk_conflict = TRUE
+			if(initial(T.obsession))
+				lock_reason = "This quirk can only be gained by having a lot of quirks at once."
+				quirk_conflict = TRUE
 			if(has_quirk)
 				if(quirk_conflict)
 					all_quirks -= quirk_name
