@@ -231,7 +231,7 @@
 			setInsanityEffect(MAJOR_INSANITY_PEN)
 			master.add_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE, 100, override=TRUE, multiplicative_slowdown=2, movetypes=(~FLYING))
 			sanity_level = 7
-			if(sanity <= -50 * (-50 * breakdowns))
+			if(sanity <= (-50 + (-50 * breakdowns)))
 				ExperienceBreakdown()
 		if(SANITY_INSANE to SANITY_CREEPING) //Mildly fucked
 			setInsanityEffect(MINOR_INSANITY_PEN)
