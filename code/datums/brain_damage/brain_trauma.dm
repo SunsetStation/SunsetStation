@@ -16,11 +16,11 @@
 	var/resilience = TRAUMA_RESILIENCE_BASIC //how hard is this to cure?
 	var/clonable = TRUE // will this transfer if the brain is cloned?
 
-/datum/brain_trauma/Destroy()
+/datum/brain_trauma/Destroy(var/silent)
 	if(brain && brain.traumas)
 		brain.traumas -= src
 	if(owner)
-		on_lose()
+		on_lose(silent)
 	brain = null
 	owner = null
 	return ..()

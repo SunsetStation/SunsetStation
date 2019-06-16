@@ -177,23 +177,23 @@
 
 	switch(mood_level)
 		if(1)
-			AdjustSanity(-1)
+			AdjustSanity(null, -1)
 		if(2)
-			AdjustSanity(-0.5)
+			AdjustSanity(null, -0.5)
 		if(3)
-			AdjustSanity(-0.25)
+			AdjustSanity(null, -0.25)
 		if(4)
-			AdjustSanity(-0.15)
+			AdjustSanity(null, -0.15)
 		if(5)
-			AdjustSanity(0.2, maximum=50)
+			AdjustSanity(null, 0.2, maximum=50)
 		if(6)
-			AdjustSanity(0.2, maximum=SANITY_HARDENED)
+			AdjustSanity(null, 0.2, maximum=SANITY_HARDENED)
 		if(7)
-			AdjustSanity(0.25, maximum=SANITY_HARDENED)
+			AdjustSanity(null, 0.25, maximum=SANITY_HARDENED)
 		if(8)
-			AdjustSanity(0.4, maximum=SANITY_MAXIMUM)
+			AdjustSanity(null, 0.4, maximum=SANITY_MAXIMUM)
 		if(9)
-			AdjustSanity(0.6, maximum=SANITY_MAXIMUM)
+			AdjustSanity(null, 0.6, maximum=SANITY_MAXIMUM)
 
 	if(owner.has_trait(TRAIT_DEPRESSION))
 		if(prob(0.05))
@@ -217,8 +217,7 @@
 	HandleDarkness(H)
 
 
-
-/datum/component/mood/proc/AdjustSanity(amount, minimum=-INFINITY, maximum=INFINITY)
+/datum/component/mood/proc/AdjustSanity(datum/source, amount, minimum=-INFINITY, maximum=INFINITY)
 	setSanity(sanity + (amount * get_sanity_coefficient()), minimum, maximum)
 
 /datum/component/mood/proc/get_sanity_coefficient()
@@ -281,6 +280,7 @@
 
 /datum/component/mood/proc/ResetBreakdown()
 	qdel(current_affliction)
+	current_affliction = null
 	sanity = 50
 	breakdowns = 0
 
@@ -298,10 +298,10 @@
 /datum/component/mood/proc/ActiveSanityLoss(amount)
 	if(!AffectedByActiveSanityLoss)
 		return
-	AdjustSanity(-amount)
+	AdjustSanity(null, -amount)
 
 /datum/component/mood/proc/ActiveSanityGain(amount)
-	AdjustSanity(amount)
+	AdjustSanity(null, amount)
 
 /datum/component/mood/proc/setInsanityEffect(newval)
 	if(newval == insanity_effect)
@@ -478,6 +478,8 @@
 	if(H.dna.species.id in list("shadow", "nightmare"))
 		return //we're tied with the dark, so we don't get scared of it; don't cleanse outright to avoid cheese
 	var/turf/T = get_turf(H)
+	if(!isturf(T))
+		return
 	var/lums = T.get_lumcount()
 	if(lums <= 0.2)
 		add_event(null, "nyctophobia", /datum/mood_event/nyctophobia)
