@@ -1,7 +1,7 @@
 /obj/structure/holyaltar
 	name = "holy altar"
 	desc = "An altar dedicated to a deity."
-	icon = 'icons/obj/stationobjs.dmi'
+	icon = 'icons/obj/hand_of_god_structures.dmi'
 	icon_state = "convertaltar"
 	density = TRUE
 	resistance_flags = FLAMMABLE
