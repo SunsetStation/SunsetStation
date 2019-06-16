@@ -456,8 +456,8 @@
 /datum/component/mood/proc/handle_insanity()
 	if(!ishuman(parent))
 		return
-	if(prob(15))
-		var/effect = 2 //pick(1;3, 2;15, 3;2, 4;1)
+	if(prob(4))
+		var/effect = pick(1;3, 2;15, 3;2, 4;1)
 		var/mob/living/carbon/human/H = parent
 		switch(effect)
 			if(1)
@@ -465,7 +465,7 @@
 			if(2)
 				H.overlay_fullscreen("sanity", pick(/obj/screen/fullscreen/sanity/type1,/obj/screen/fullscreen/sanity/type2,/obj/screen/fullscreen/sanity/type3))
 				H.playsound_local(null, pick(HORROR_SOUNDS), 60)
-				H.clear_fullscreen("sanity", 40)
+				H.clear_fullscreen("sanity", 20)
 			if(3)
 				H.emote("scream")
 				to_chat(H, "<span class='danger'>You can't keep it together anymore.</span>")
@@ -480,9 +480,9 @@
 	var/turf/T = get_turf(H)
 	var/lums = T.get_lumcount()
 	if(lums <= 0.2)
-		add_event("nyctophobia", /datum/mood_event/nyctophobia)
+		add_event(null, "nyctophobia", /datum/mood_event/nyctophobia)
 	else
-		clear_event("nyctophobia")
+		clear_event(null, "nyctophobia")
 	
 
 #undef MINOR_INSANITY_PEN
