@@ -76,6 +76,11 @@
 	'sound/hallucinations/look_up1.ogg', 'sound/hallucinations/look_up2.ogg', 'sound/hallucinations/over_here1.ogg', 'sound/hallucinations/over_here2.ogg', 'sound/hallucinations/over_here3.ogg',\
 	'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg', 'sound/hallucinations/veryfar_noise.ogg', 'sound/hallucinations/wail.ogg')
 
+#define HORROR_SOUNDS list('sound/effects/horror/Horror0.ogg', 'sound/effects/horror/Horror1.ogg', 'sound/effects/horror/Horror2.ogg', 'sound/effects/horror/Horror3.ogg', 'sound/effects/horror/Horror4.ogg', \
+'sound/effects/horror/Horror5.ogg', 'sound/effects/horror/Horror6.ogg', 'sound/effects/horror/Horror7.ogg', 'sound/effects/horror/Horror8.ogg', \
+'sound/effects/horror/Horror9.ogg', 'sound/effects/horror/Horror10.ogg', 'sound/effects/horror/Horror11.ogg', 'sound/effects/horror/Horror12.ogg', \
+'sound/effects/horror/Horror13.ogg', 'sound/effects/horror/Horror14.ogg', 'sound/effects/horror/Horror15.ogg', 'sound/effects/horror/Horror16.ogg', )
+
 //**********CREDITS************************************
 //
 // Each song was taken from the Youtube Audio Library

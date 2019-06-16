@@ -20,7 +20,7 @@
 	paycheck = PAYCHECK_COMMAND
 	paycheck_department = ACCOUNT_SEC
 
-	mind_traits = list(TRAIT_DISK_VERIFIER)
+	mind_traits = list(TRAIT_DISK_VERIFIER, TRAIT_HARDENED)
 
 	display_order = JOB_DISPLAY_ORDER_CAPTAIN
 

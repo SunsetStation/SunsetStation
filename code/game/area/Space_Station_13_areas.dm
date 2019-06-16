@@ -391,7 +391,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Bar"
 	icon_state = "bar"
 	mood_bonus = 4
-	mood_message = "<span class='nicegreen'>I love being in the bar!</span>"
+	mood_message = "<span class='nicegreen'>I love being in the bar!\n</span>"
 	var/list/entertainers = list()
 	var/list/mob/living/carbon/visitors = list()
 
@@ -417,13 +417,13 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	switch(entertainers.len)
 		if(0)
 			mood_bonus = 4
-			mood_message = "<span class='nicegreen'>I love being in the bar!</span>"
+			mood_message = "<span class='nicegreen'>I love being in the bar!\n</span>"
 		if(1)
 			mood_bonus = 7
-			mood_message = "<span class='nicegreen'>I love being in the bar! There's even an entertainer!</span>"
+			mood_message = "<span class='nicegreen'>I love being in the bar! There's even an entertainer!\n</span>"
 		else
 			mood_bonus = 10
-			mood_message = "<span class='nicegreen'>I love being in the bar! Especially with all of these entertainers.</span>"
+			mood_message = "<span class='nicegreen'>I love being in the bar! Especially with all of these entertainers.\n</span>"
 	for(var/i in visitors) //this is shit fix this
 		var/mob/living/carbon/human/H = i
 		SEND_SIGNAL(src, COMSIG_AREA_ENTERED, H)

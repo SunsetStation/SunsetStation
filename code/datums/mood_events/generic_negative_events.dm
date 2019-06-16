@@ -9,6 +9,7 @@
 /datum/mood_event/on_fire
 	description = "<span class='boldwarning'>I'M ON FIRE!!!</span>\n"
 	mood_change = -25
+	horrific = TRUE
 
 /datum/mood_event/suffocation
 	description = "<span class='boldwarning'>CAN'T... BREATHE...</span>\n"
@@ -40,6 +41,7 @@
 /datum/mood_event/eye_stab
 	description = "<span class='boldwarning'>I used to be an adventurer like you, until I took a screwdriver to the eye.</span>\n"
 	mood_change = -6
+	horrific = TRUE
 	timeout = 3600
 
 /datum/mood_event/delam //SM delamination
@@ -50,6 +52,7 @@
 /datum/mood_event/depression
 	description = "<span class='warning'>I feel sad for no particular reason.</span>\n"
 	mood_change = -14
+	horrific = TRUE
 	timeout = 1800
 
 /datum/mood_event/shameful_suicide //suicide_acts that return SHAME, like sord
@@ -103,7 +106,7 @@
 
 /datum/mood_event/nyctophobia
 	description = "<span class='warning'>It sure is dark around here...</span>\n"
-	mood_change = -10
+	mood_change = -6
 
 /datum/mood_event/family_heirloom_missing
 	description = "<span class='warning'>I'm missing my family heirloom...</span>\n"
@@ -166,6 +169,11 @@
 	description = "<span class='warning'>I showered with my clothes on, I'm a fucking idiot.</span>\n"
 	mood_change = -3
 	timeout = 1500
+
+/datum/mood_event/corpse
+	description = "<span class='warning'>I have recently seen a corpse.</span>\n"
+	mood_change = -8
+	timeout = 2400
 
 //These are unused so far but I want to remember them to use them later
 /datum/mood_event/cloned_corpse

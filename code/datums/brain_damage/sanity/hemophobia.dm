@@ -3,7 +3,7 @@
 	desc = "Extreme hemophobia"
 	gain_text = "<span class='cult'>The moon runs red. Blood rolls up the hills and rains into the sky. You lose sanity faster when bleeding or covered in blood</span>"
 	lose_text = "<span class='cult'>The blood is no longer a fear.</span>"
-	next_affliction = /datum/brain_trauma/affliction/alcoholtier2
+	next_affliction = /datum/brain_trauma/affliction/hemophobia/tier2
 
 /datum/brain_trauma/affliction/hemophobia/on_gain()
 	. = ..()
@@ -25,7 +25,7 @@
 		
 /datum/brain_trauma/affliction/hemophobia/tier2/on_lose(silent)
 	. = ..()
-	owner.add_trait(TRAIT_EXTREME_HEMOPHOBIA, "extreme_hemophobia")
+	owner.remove_trait(TRAIT_EXTREME_HEMOPHOBIA, "extreme_hemophobia")
 
 
 

@@ -86,6 +86,9 @@
 				temp_bleed += (brutedamage * 0.013)
 
 		bleed_rate = max(bleed_rate - 0.5, temp_bleed)//if no wounds, other bleed effects (heparin) naturally decreases
+		
+		if(has_trait(TRAIT_EXTREME_HEMOPHOBIA)) //Extreme hemophobia makes you bleed faster. dont ask why.
+			bleed_rate = bleed_rate * 1.5 //Bleeds bad man
 
 		if(bleed_rate && !bleedsuppress && !(has_trait(TRAIT_FAKEDEATH)))
 			bleed(bleed_rate)

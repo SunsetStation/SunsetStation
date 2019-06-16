@@ -3,7 +3,7 @@
 
 /datum/component/mood
 	var/mood = 0 //Real happiness
-	var/sanity = 100 //Current sanity
+	var/sanity = 50 //Current sanity
 	var/shown_mood //Shown happiness, this is what others can see when they try to examine you, prevents antag checking by noticing traitors are always very happy.
 	var/mood_level = 5 //To track what stage of moodies they're on
 	var/sanity_level = 5 //To track what stage of sanity they're on
@@ -74,7 +74,8 @@
 			msg += "<span class='nicegreen'>I feel amazing!<span>\n"
 		if(9)
 			msg += "<span class='nicegreen'>I love life!<span>\n"
-
+	if(current_affliction)
+		msg += "<span class='boldwarning'>current affliction: [current_affliction.name]<span>\n"
 	msg += "<span class='notice'>Moodlets:\n</span>"//All moodlets
 	if(mood_events.len)
 		for(var/i in mood_events)
@@ -184,7 +185,7 @@
 		if(4)
 			AdjustSanity(-0.15)
 		if(5)
-			AdjustSanity(0.2, maximum=SANITY_NEUTRAL)
+			AdjustSanity(0.2, maximum=50)
 		if(6)
 			AdjustSanity(0.2, maximum=SANITY_HARDENED)
 		if(7)
@@ -203,8 +204,19 @@
 			add_event(null, "jolly", /datum/mood_event/jolly)
 			clear_event(null, "depression")
 
+	if(sanity <= SANITY_CREEPING)
+		handle_insanity()
+
 	HandleNutrition(owner)
-	HandleHygiene(owner)
+	if(!ishuman(owner))
+		return
+
+	var/mob/living/carbon/human/H = owner
+
+	HandleHygiene(H)
+	HandleDarkness(H)
+
+
 
 /datum/component/mood/proc/AdjustSanity(amount, minimum=-INFINITY, maximum=INFINITY)
 	setSanity(sanity + (amount * get_sanity_coefficient()), minimum, maximum)
@@ -312,6 +324,10 @@
 
 	mood_events[category] = the_event
 	the_event.category = category
+	if(the_event.horrific)
+		if(ismob(parent))
+			var/mob/M = parent
+			M.playsound_local(null, pick(HORROR_SOUNDS), 40)
 	update_mood()
 
 	if(the_event.timeout)
@@ -437,7 +453,37 @@
 	else
 		clear_event(null, "area")
 
+/datum/component/mood/proc/handle_insanity()
+	if(!ishuman(parent))
+		return
+	if(prob(15))
+		var/effect = 2 //pick(1;3, 2;15, 3;2, 4;1)
+		var/mob/living/carbon/human/H = parent
+		switch(effect)
+			if(1)
+				H.playsound_local(null, pick(CREEPY_SOUNDS), 60, 1)
+			if(2)
+				H.overlay_fullscreen("sanity", pick(/obj/screen/fullscreen/sanity/type1,/obj/screen/fullscreen/sanity/type2,/obj/screen/fullscreen/sanity/type3))
+				H.playsound_local(null, pick(HORROR_SOUNDS), 60)
+				H.clear_fullscreen("sanity", 40)
+			if(3)
+				H.emote("scream")
+				to_chat(H, "<span class='danger'>You can't keep it together anymore.</span>")
+				H.vomit(0, FALSE, FALSE, 4, TRUE)
+			if(4)
+				to_chat(H, "<span class='danger'>You collapse from stress.</span>")
+				H.Paralyze(150)
 
+/datum/component/mood/proc/HandleDarkness(mob/living/carbon/human/H)
+	if(H.dna.species.id in list("shadow", "nightmare"))
+		return //we're tied with the dark, so we don't get scared of it; don't cleanse outright to avoid cheese
+	var/turf/T = get_turf(H)
+	var/lums = T.get_lumcount()
+	if(lums <= 0.2)
+		add_event("nyctophobia", /datum/mood_event/nyctophobia)
+	else
+		clear_event("nyctophobia")
+	
 
 #undef MINOR_INSANITY_PEN
 #undef MAJOR_INSANITY_PEN

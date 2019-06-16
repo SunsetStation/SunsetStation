@@ -45,6 +45,7 @@
 
 /datum/mood_event/withdrawal_critical
 	mood_change = -18
+	horrific = TRUE
 
 /datum/mood_event/withdrawal_critical/add_effects(drug_name)
 	description = "<span class='boldwarning'>[drug_name]! [drug_name]! [drug_name]!</span>\n"
@@ -64,3 +65,4 @@
 	mood_change = -100
 	timeout = 300
 	special_screen_obj = "mood_happiness_bad"
+	horrific = TRUE
