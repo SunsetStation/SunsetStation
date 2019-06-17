@@ -175,6 +175,9 @@
 /datum/component/mood/process() //Called on SSmood process
 	var/mob/living/owner = parent
 
+	if(owner.stat == DEAD || !owner.client)
+		return
+
 	switch(mood_level)
 		if(1)
 			AdjustSanity(null, -1)
