@@ -175,6 +175,20 @@
 	mood_change = -8
 	timeout = 2400
 
+/datum/mood_event/bloody
+	description = "<span class='warning'>I'm covered in blood!</span>\n"
+	mood_change = -2
+
+/datum/mood_event/bloody(bloodylevel)
+	switch(bloodlevel)
+		if(1 to 2)
+			mood_change = -2
+		if(2 to 4)
+			mood_change = -4
+		if(5)
+			mood_change = -6
+
+
 //These are unused so far but I want to remember them to use them later
 /datum/mood_event/cloned_corpse
 	description = "<span class='boldwarning'>I recently saw my own corpse...</span>\n"
