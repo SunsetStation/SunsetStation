@@ -4,6 +4,7 @@
 	icon_state = "storage"
 	item_color = "r"
 	var/max_slot_stacking = 4
+	shows_up_on_scanners = FALSE
 
 /obj/item/implant/storage/activate()
 	. = ..()

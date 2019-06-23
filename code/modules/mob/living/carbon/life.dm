@@ -32,8 +32,6 @@
 	if(stat != DEAD)
 		handle_brain_damage()
 
-	if(stat != DEAD)
-		handle_liver()
 
 	if(stat == DEAD)
 		stop_sound_channel(CHANNEL_HEARTBEAT)
@@ -81,6 +79,13 @@
 
 		else if(health <= crit_threshold)
 			losebreath += 0.25 //You're having trouble breathing in soft crit, so you'll miss a breath one in four times
+
+	var/obj/item/organ/lungs/lungs = getorganslot("lungs")
+	
+	if(lungs)
+		lungs.handle_damage_losebreath()//Why don't you put this into lungs' check_breathe() directly, Flattest?
+	//This needs to set losebreath /before/ the next few lines disallow breathing to happen because of its lack
+	//so this needs to be here.
 
 	//Suffocate
 	if(losebreath >= 1) //You've missed a breath, take oxy damage
@@ -320,6 +325,7 @@
 	for(var/V in internal_organs)
 		var/obj/item/organ/O = V
 		O.on_life()
+	reagents.remove_reagent("corazone", 0.4) //corazone slowly deletes itself regardless of whether the patient has a liver or not
 
 /mob/living/carbon/handle_diseases()
 	for(var/thing in diseases)
@@ -587,39 +593,16 @@ GLOBAL_LIST_INIT(ballmer_windows_me_msg, list("Yo man, what if, we like, uh, put
 //LIVER//
 /////////
 
-/mob/living/carbon/proc/handle_liver()
-	var/obj/item/organ/liver/liver = getorganslot(ORGAN_SLOT_LIVER)
-	if((!dna || !liver) || (NOLIVER in dna.species.species_traits))
-		return
-	if(liver)
-		if(liver.damage >= liver.maxHealth)
-			liver.failing = TRUE
-			liver_failure()
-	else
-		liver_failure()
-
-/mob/living/carbon/proc/undergoing_liver_failure()
-	var/obj/item/organ/liver/liver = getorganslot(ORGAN_SLOT_LIVER)
-	if(liver && liver.failing)
-		return TRUE
-
 /mob/living/carbon/proc/return_liver_damage()
 	var/obj/item/organ/liver/liver = getorganslot(ORGAN_SLOT_LIVER)
 	if(liver)
-		return liver.damage
+		return liver.get_damage_perc()
+	return 101//won't pass a `< 100` check
 
 /mob/living/carbon/proc/applyLiverDamage(var/d)
 	var/obj/item/organ/liver/L = getorganslot(ORGAN_SLOT_LIVER)
 	if(L)
-		L.damage += d
-
-/mob/living/carbon/proc/liver_failure()
-	reagents.metabolize(src, can_overdose=FALSE, liverless = TRUE)
-	if(has_trait(TRAIT_STABLEHEART))
-		return
-	adjustToxLoss(4, TRUE,  TRUE)
-	if(prob(30))
-		to_chat(src, "<span class='warning'>You feel a stabbing pain in your abdomen!</span>")
+		L.take_damage(d)
 
 
 ////////////////

@@ -20,6 +20,9 @@
 	var/list/embedded_objects = list()
 	var/held_index = 0 //are we a hand? if so, which one!
 	var/is_pseudopart = FALSE //For limbs that don't really exist, eg chainsaws
+	var/broken = FALSE //For whether...it's broken
+	var/splinted = FALSE //Whether it's splinted. Movement doesn't deal damage, but you still move slowly.
+	var/has_bones = FALSE
 
 	var/disabled = BODYPART_NOT_DISABLED //If disabled, limb is as good as missing
 	var/body_damage_coeff = 1 //Multiplier of the limb's damage that gets applied to the mob
@@ -139,10 +142,43 @@
 		if(heal_damage(0, 0, stam_heal_tick, null, FALSE))
 			. |= BODYPART_LIFE_UPDATE_HEALTH
 
+/obj/item/bodypart/proc/can_break_bone()
+	if(broken)
+		return 0
+	if(status == BODYPART_ROBOTIC)
+		return 0
+	if(!has_bones)
+		return 0
+	return 1
+
+/obj/item/bodypart/proc/break_bone()
+	if(!can_break_bone())
+		return
+	broken = TRUE
+	spawn(1)//because otherwise it pops before the punch message; we don't want that
+	owner.visible_message("<span class='userdanger'>You hear a cracking sound coming from [owner]'s [name].</span>", "<span class='warning'>You feel something crack in your [name]!</span>", "<span class='warning'>You hear an awful cracking sound.</span>")
+
+/obj/item/bodypart/proc/fix_bone()
+	broken = FALSE
+	splinted = FALSE
+	owner.update_inv_splints()
+
+/obj/item/bodypart/proc/on_mob_move()
+	if(!broken || status == BODYPART_ROBOTIC || !owner || splinted)
+		return
+
+	if(prob(5))
+		to_chat(owner, "<span class='warning'>[pick("You feel broken bones moving around in your [name]!", "There are broken bones moving around in your [src]!", "The bones in your [src] are moving around!")]</span>")
+		receive_damage(rand(1, 3))
+		//1-3 damage every 20 tiles for every broken bodypart.
+		//A single broken bodypart will give you an average of 650 tiles to run before you get a total of 100 damage and fall into crit
+
+
+
 //Applies brute and burn damage to the organ. Returns 1 if the damage-icon states changed at all.
 //Damage will not exceed max_damage using this proc
 //Cannot apply negative damage
-/obj/item/bodypart/proc/receive_damage(brute = 0, burn = 0, stamina = 0, blocked = 0, updating_health = TRUE, required_status = null)
+/obj/item/bodypart/proc/receive_damage(brute = 0, burn = 0, stamina = 0, blocked = 0, updating_health = TRUE, required_status = null, break_modifier = 1)
 	var/hit_percent = (100-blocked)/100
 	if((!brute && !burn && !stamina) || hit_percent <= 0)
 		return FALSE
@@ -166,7 +202,21 @@
 	switch(animal_origin)
 		if(ALIEN_BODYPART,LARVA_BODYPART) //aliens take double burn //nothing can burn with so much snowflake code around
 			burn *= 2
+	
+	//break_modifier is based on the item used: blunt = 0, sharp = 1, accurate sharp = 2
+	if(prob(break_modifier * 30 / status) && owner)//0% chance for blunt objects, 30% for sharp, 60% for REALLY SHARP OHGOD; halved for robotic bodyparts
+	//the numbers are like that to make organ damage less "averaged out". Every patient that swings by medbay will have a more unique condition, with specific organs being affected
+		var/list/organs = owner.getorganszone(body_zone)
+		if(!organs.len)
+			return
+		var/obj/item/organ/O = pick(organs)
+		if(O)
+			O.take_damage(rand(brute, brute*2))
 
+	//blunt objects break bones better, but damage organs less
+	if(prob(brute * (3-break_modifier) * 1.5) && ((brute_dam + burn_dam)/max_damage) > 0.2)
+		break_bone()
+	
 	var/can_inflict = max_damage - get_damage()
 	if(can_inflict <= 0)
 		return FALSE

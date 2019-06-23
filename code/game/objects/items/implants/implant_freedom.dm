@@ -4,6 +4,7 @@
 	icon_state = "freedom"
 	item_color = "r"
 	uses = 4
+	shows_up_on_scanners = FALSE
 
 
 /obj/item/implant/freedom/activate()

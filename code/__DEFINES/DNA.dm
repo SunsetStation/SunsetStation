@@ -111,6 +111,8 @@
 #define NO_UNDERWEAR	11
 #define NOLIVER			12
 #define NOSTOMACH		13
+#define NO_BONES		29
+#define NOPAIN			30
 #define NO_DNA_COPY     14
 #define DRINKSBLOOD		15
 #define NOEYES			16
