@@ -87,9 +87,6 @@ obj/item/gun/ballistic/rifle/attackby(obj/item/A, mob/user, params)
 /obj/item/gun/ballistic/rifle/boltaction/enchanted/arcane_barrage/discard_gun(mob/user)
 	return
 
-/obj/item/gun/ballistic/rifle/boltaction/enchanted/attack_self()
-	return
-
 /obj/item/gun/ballistic/rifle/boltaction/enchanted/shoot_live_shot(mob/living/user as mob|obj, pointblank = 0, mob/pbtarget = null, message = 1)
 	..()
 	if(guns_left)

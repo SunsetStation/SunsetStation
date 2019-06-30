@@ -9,6 +9,7 @@
 	ammo_x_offset = 3
 	flight_x_offset = 15
 	flight_y_offset = 10
+	twohanded = TWOHANDED
 
 /obj/item/gun/energy/e_gun/mini
 	name = "miniature energy gun"
@@ -20,6 +21,7 @@
 	ammo_x_offset = 2
 	charge_sections = 3
 	can_flashlight = FALSE // Can't attach or detach the flashlight, and override it's icon update
+	twohanded = SINGLEHANDED
 
 /obj/item/gun/energy/e_gun/mini/Initialize()
 	gun_light = new /obj/item/flashlight/seclite(src)
@@ -58,6 +60,7 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/electrode/hos, /obj/item/ammo_casing/energy/laser/hos, /obj/item/ammo_casing/energy/disabler)
 	ammo_x_offset = 4
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	twohanded = SINGLEHANDED
 
 /obj/item/gun/energy/e_gun/dragnet
 	name = "\improper DRAGnet"

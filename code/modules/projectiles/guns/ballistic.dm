@@ -3,6 +3,7 @@
 	name = "projectile gun"
 	icon_state = "pistol"
 	w_class = WEIGHT_CLASS_NORMAL
+	actions_types = list(/datum/action/item_action/pump)
 
 	//sound info vars
 	var/load_sound = "gun_insert_full_magazine"
@@ -53,7 +54,7 @@
 	var/cartridge_wording = "bullet"
 	var/rack_delay = 5
 	var/recent_rack = 0
-	var/tac_reloads = FALSE //Snowflake mechanic no more.
+	var/tac_reloads = TRUE //Snowflake mechanic no more.
 
 /obj/item/gun/ballistic/Initialize()
 	. = ..()
@@ -190,7 +191,7 @@
 	update_icon()
 
 /obj/item/gun/ballistic/can_shoot()
-	return chambered
+	return ..() && chambered
 
 /obj/item/gun/ballistic/attackby(obj/item/A, mob/user, params)
 	..()
@@ -289,37 +290,32 @@
 
 //ATTACK HAND IGNORING PARENT RETURN VALUE
 /obj/item/gun/ballistic/attack_hand(mob/user)
-	if(!internal_magazine && loc == user && user.is_holding(src) && magazine)
-		eject_magazine(user)
-		return
-	return ..()
-
-/obj/item/gun/ballistic/attack_self(mob/living/user)
-	if(!internal_magazine && magazine)
-		if(!magazine.ammo_count())
+	if(loc == user && user.is_holding(src))
+		if(!internal_magazine && magazine)
 			eject_magazine(user)
 			return
-	if(bolt_type == BOLT_TYPE_NO_BOLT)
-		var/num_unloaded = 0
-		for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
-			CB.forceMove(drop_location())
-			CB.bounce_away(FALSE, NONE)
-			num_unloaded++
-		if (num_unloaded)
-			to_chat(user, "<span class='notice'>You unload [num_unloaded] [cartridge_wording]\s from [src].</span>")
-			playsound(user, eject_sound, eject_sound_volume, eject_sound_vary)
-			update_icon()
-		else
-			to_chat(user, "<span class='warning'>[src] is empty!</span>")
-		return
-	if(bolt_type == BOLT_TYPE_LOCKING && bolt_locked)
-		drop_bolt(user)
-		return
-	if (recent_rack > world.time)
-		return
-	recent_rack = world.time + rack_delay
-	rack(user)
-	return
+		if(bolt_type == BOLT_TYPE_NO_BOLT)
+			var/num_unloaded = 0
+			for(var/obj/item/ammo_casing/CB in get_ammo_list(TRUE, TRUE))
+				CB.forceMove(drop_location())
+				CB.bounce_away(FALSE, NONE)
+				num_unloaded++
+			if (num_unloaded)
+				to_chat(user, "<span class='notice'>You unload [num_unloaded] [cartridge_wording]\s from [src].</span>")
+				playsound(user, eject_sound, eject_sound_volume, eject_sound_vary)
+				update_icon()
+			else
+				to_chat(user, "<span class='warning'>[src] is empty!</span>")
+			return
+		if(bolt_type == BOLT_TYPE_LOCKING && bolt_locked)
+			drop_bolt(user)
+			return
+		if (recent_rack > world.time)
+			return
+		recent_rack = world.time + rack_delay
+		rack(user)
+	else
+		..()
 
 
 /obj/item/gun/ballistic/examine(mob/user)
@@ -349,6 +345,16 @@
 			chambered = null
 	rounds.Add(magazine.ammo_list(drop_all))
 	return rounds
+
+/obj/item/gun/ballistic/ui_action_click(mob/user, actiontype)
+	if(istype(actiontype, /datum/action/item_action/pump))
+		rack(user)
+		update_icon()
+	..()
+
+/datum/action/item_action/pump
+	name = "Pump"
+
 
 #define BRAINS_BLOWN_THROW_RANGE 3
 #define BRAINS_BLOWN_THROW_SPEED 1

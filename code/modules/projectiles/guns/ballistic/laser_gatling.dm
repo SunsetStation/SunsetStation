@@ -111,6 +111,7 @@
 	mag_type = /obj/item/ammo_box/magazine/internal/minigun
 	casing_ejector = FALSE
 	item_flags = NEEDS_PERMIT | SLOWS_WHILE_IN_HAND
+	twohanded = TWOHANDED_REQUIRED
 	var/obj/item/minigunpack/ammo_pack
 
 /obj/item/gun/ballistic/minigun/Initialize()
@@ -121,8 +122,6 @@
 
 	return ..()
 
-/obj/item/gun/ballistic/minigun/attack_self(mob/living/user)
-	return
 
 /obj/item/gun/ballistic/minigun/dropped(mob/user)
 	if(ammo_pack)

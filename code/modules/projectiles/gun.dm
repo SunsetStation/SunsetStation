@@ -1,5 +1,8 @@
 
 #define DUALWIELD_PENALTY_EXTRA_MULTIPLIER 1.4
+#define SINGLEHANDED 0 // single handed gun, like a
+#define TWOHANDED 1 // twohanded, can also be shot singlehanded but with lesser precision
+#define TWOHANDED_REQUIRED 2 // cannot be wielded singlehanded at all, needs both hands
 
 /obj/item/gun
 	name = "gun"
@@ -66,12 +69,15 @@
 	var/zoom_amt = 3 //Distance in TURFs to move the user's screen forward (the "zoom" effect)
 	var/zoom_out_amt = 0
 	var/datum/action/toggle_scope_zoom/azoom
+	var/twohanded = SINGLEHANDED
 
 /obj/item/gun/Initialize()
 	. = ..()
 	if(gun_light)
 		alight = new(src)
 	build_zooming()
+	if(twohanded == TWOHANDED || twohanded == TWOHANDED_REQUIRED)
+		AddComponent(/datum/component/twohanded, (twohanded == TWOHANDED ? FALSE : TRUE))
 
 /obj/item/gun/Destroy()
 	QDEL_NULL(gun_light)
@@ -117,6 +123,22 @@
 	. = ..()
 	if(zoomed && user.get_active_held_item() != src)
 		zoom(user, FALSE) //we can only stay zoomed in if it's in our hands	//yeah and we only unzoom if we're actually zoomed using the gun!!
+
+/obj/item/gun/MouseDrop(atom/over, src_location, over_location, src_control, over_control, params)
+	. = ..()
+	if(istype(over, /obj/screen/inventory/hand))
+		var/obj/screen/inventory/hand/H = over
+		usr.putItemFromInventoryInHandIfPossible(src, H.held_index)
+
+/obj/item/gun/vv_edit_var(vname, vval)
+	if(vname == "twohanded")
+		switch(vval)
+			if(SINGLEHANDED)
+				var/datum/component/twohanded/C = GetComponent(/datum/component/twohanded)
+				if(C)
+					C.RemoveComponent()
+			if(TWOHANDED || TWOHANDED_REQUIRED)
+				LoadComponent(/datum/component/twohanded)
 
 //called after the gun has successfully fired its chambered ammo.
 /obj/item/gun/proc/process_chamber()
@@ -191,10 +213,6 @@
 				user.dropItemToGround(src, TRUE)
 				return
 
-	if(weapon_weight == WEAPON_HEAVY && user.get_inactive_held_item())
-		to_chat(user, "<span class='userdanger'>You need both hands free to fire \the [src]!</span>")
-		return
-
 	//DUAL (or more!) WIELDING
 	var/bonus_spread = 0
 	var/loop_counter = 0
@@ -213,7 +231,13 @@
 
 
 /obj/item/gun/can_trigger_gun(mob/living/user)
-	. = ..()
+	if(!..())
+		return FALSE
+	var/datum/component/twohanded/C = GetComponent(/datum/component/twohanded)
+	if(twohanded == TWOHANDED_REQUIRED && C && !C.wielded)
+		to_chat(user, "<span class='userdanger'>Your single arm strains under the weight and bulk of the gun, you can't find enough strength to pull the trigger!</span>")
+		return FALSE
+	return TRUE
 
 /obj/item/gun/proc/recharge_newshot()
 	return
@@ -268,6 +292,10 @@
 		randomized_gun_spread =	rand(0,spread)
 	if(user.has_trait(TRAIT_POOR_AIM)) //nice shootin' tex
 		bonus_spread += 25
+	if(twohanded == TWOHANDED) // gun can be used while unwielded, but is a lot less precise
+		var/datum/component/twohanded/C = GetComponent(/datum/component/twohanded)
+		if(C && !C.wielded)
+			bonus_spread += 25
 	var/randomized_bonus_spread = rand(0, bonus_spread)
 
 	if(burst_size > 1)
@@ -301,10 +329,6 @@
 		user.update_inv_hands()
 	SSblackbox.record_feedback("tally", "gun_fired", 1, type)
 	return TRUE
-
-/obj/item/gun/update_icon()
-	..()
-
 
 /obj/item/gun/proc/reset_semicd()
 	semicd = FALSE
@@ -417,8 +441,6 @@
 /obj/item/gun/ui_action_click(mob/user, actiontype)
 	if(istype(actiontype, alight))
 		toggle_gunlight()
-	else
-		..()
 
 /obj/item/gun/proc/toggle_gunlight()
 	if(!gun_light)
