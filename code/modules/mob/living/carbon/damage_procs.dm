@@ -24,7 +24,7 @@
 				adjustBruteLoss(damage * hit_percent)
 		if(BURN)
 			if(BP)
-				if(BP.receive_damage(0, damage * hit_percent))
+				if(BP.receive_damage(0, damage * hit_percent, break_modifier))
 					update_damage_overlays()
 			else
 				adjustFireLoss(damage * hit_percent)
@@ -36,7 +36,7 @@
 			adjustCloneLoss(damage * hit_percent)
 		if(STAMINA)
 			if(BP)
-				if(BP.receive_damage(0, 0, damage * hit_percent))
+				if(BP.receive_damage(0, 0, damage * hit_percent, break_modifier))
 					update_damage_overlays()
 			else
 				adjustStaminaLoss(damage * hit_percent)
