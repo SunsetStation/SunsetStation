@@ -378,7 +378,10 @@
 	adjust_hygiene(hygiene_loss)
 	SEND_SIGNAL(src, COMSIG_ADJUST_SANITY, sanity_loss)
 	if(!has_trait(TRAIT_HARDENED))	
-		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "bloodcovered", /datum/mood_event/bloody, bloodcount)
+		if(bloodcount > 0 )
+			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "bloodcovered", /datum/mood_event/bloody, bloodcount)
+		else
+			SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "bloodcovered")
 
 
 #undef THERMAL_PROTECTION_HEAD
