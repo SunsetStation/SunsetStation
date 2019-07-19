@@ -179,7 +179,7 @@
 	description = "<span class='warning'>I'm covered in blood!</span>\n"
 	mood_change = -2
 
-/datum/mood_event/bloody(bloodylevel)
+/datum/mood_event/bloody/add_effects(bloodlevel)
 	switch(bloodlevel)
 		if(1 to 2)
 			mood_change = -2
