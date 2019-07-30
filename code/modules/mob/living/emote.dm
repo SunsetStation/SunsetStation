@@ -52,11 +52,12 @@
 		var/mob/living/L = user
 		L.Unconscious(40)
 
-/datum/emote/living/cough
+datum/emote/living/cough
 	key = "cough"
 	key_third_person = "coughs"
 	message = "coughs!"
 	emote_type = EMOTE_AUDIBLE
+	cooldown = 60
 
 /datum/emote/living/cough/can_run_emote(mob/user, status_check = TRUE)
 	. = ..()
@@ -68,6 +69,15 @@
 	key_third_person = "dances"
 	message = "dances around happily."
 	restraint_check = TRUE
+
+/datum/emote/living/flip
+	key = "flip"
+	key_third_person = "flips"
+	message = "does a flip!"
+
+/datum/emote/living/flip/run_emote(mob/user, params)
+	if(..())
+		user.SpinAnimation(5,1)
 
 /datum/emote/living/deathgasp
 	key = "deathgasp"
@@ -305,6 +315,7 @@
 	key_third_person = "sneezes"
 	message = "sneezes."
 	emote_type = EMOTE_AUDIBLE
+	cooldown = 60
 
 /datum/emote/living/smug
 	key = "smug"
