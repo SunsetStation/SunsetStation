@@ -463,6 +463,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<b>PDA Color:</b> <span style='border:1px solid #161616; background-color: [pda_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=pda_color;task=input'>Change</a><BR>"
 			dat += "<b>PDA Style:</b> <a href='?_src_=prefs;task=input;preference=pda_style'>[pda_style]</a><br>"
 			dat += "<br>"
+			// Sunset - Gives the option in game preferences to see crew objectives -----start------
+			dat += "<b>Crew Objectives:</b> <a href='?_src_=prefs;preference=crewobj'>[(crew_objectives) ? "Yes" : "No"]</a><br>"
+			dat += "<br>"
+			// -----end------
 			dat += "<b>Ghost Ears:</b> <a href='?_src_=prefs;preference=ghost_ears'>[(chat_toggles & CHAT_GHOSTEARS) ? "All Speech" : "Nearest Creatures"]</a><br>"
 			dat += "<b>Ghost Radio:</b> <a href='?_src_=prefs;preference=ghost_radio'>[(chat_toggles & CHAT_GHOSTRADIO) ? "All Messages":"No Messages"]</a><br>"
 			dat += "<b>Ghost Sight:</b> <a href='?_src_=prefs;preference=ghost_sight'>[(chat_toggles & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</a><br>"
@@ -1414,6 +1418,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					tgui_lock = !tgui_lock
 				if("winflash")
 					windowflashing = !windowflashing
+				if("crewobj") // Sunset - added for crew objectives
+					crew_objectives = !crew_objectives
 
 				//here lies the badmins
 				if("hear_adminhelps")

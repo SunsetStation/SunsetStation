@@ -7,6 +7,8 @@
 	var/text_to_load
 	S["loadout"] >> text_to_load
 	var/list/saved_loadout_paths = splittext(text_to_load, "|")
+	S["crew_objectives"]	>> crew_objectives // Sunset - Crew objectives
+	crew_objectives		= sanitize_integer(crew_objectives, 0, 1, initial(crew_objectives)) // Sunset - Crew objectives
 	for(var/i in saved_loadout_paths)
 		var/datum/gear/path = text2path(i)
 		if(path)
@@ -29,6 +31,7 @@
 	WRITE_FILE(S["feature_vox_facial_quills"]		, features["vox_facial_quills"]) //sunset vox body parts
 	WRITE_FILE(S["feature_vox_body_markings"]		, features["vox_body_markings"]) //sunset vox body parts
 	WRITE_FILE(S["feature_vox_tail_markings"]		, features["vox_tail_markings"]) //sunset vox body parts
+	WRITE_FILE(S["crew_objectives"]					, crew_objectives) // Sunset - crew objectives
 	if(islist(chosen_gear))
 		if(chosen_gear.len)
 			var/text_to_save = chosen_gear.Join("|")
