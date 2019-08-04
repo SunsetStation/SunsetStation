@@ -259,6 +259,8 @@
 			max_traumas = TRAUMA_LIMIT_LOBOTOMY
 		if(TRAUMA_RESILIENCE_MAGIC)
 			max_traumas = TRAUMA_LIMIT_MAGIC
+		if(TRAUMA_RESILIENCE_SANITY)
+			max_traumas = TRAUMA_LIMIT_SANITY
 		if(TRAUMA_RESILIENCE_ABSOLUTE)
 			max_traumas = TRAUMA_LIMIT_ABSOLUTE
 
@@ -277,7 +279,6 @@
 /obj/item/organ/brain/proc/brain_gain_trauma(datum/brain_trauma/trauma, resilience, list/arguments)
 	if(!can_gain_trauma(trauma, resilience))
 		return
-
 	var/datum/brain_trauma/actual_trauma
 	if(ispath(trauma))
 		if(!LAZYLEN(arguments))
@@ -316,10 +317,10 @@
 	gain_trauma(trauma_type, resilience)
 
 //Cure a random trauma of a certain resilience level
-/obj/item/organ/brain/proc/cure_trauma_type(brain_trauma_type = /datum/brain_trauma, resilience = TRAUMA_RESILIENCE_BASIC)
+/obj/item/organ/brain/proc/cure_trauma_type(brain_trauma_type = /datum/brain_trauma, resilience = TRAUMA_RESILIENCE_BASIC, var/silent)
 	var/list/traumas = get_traumas_type(brain_trauma_type, resilience)
 	if(LAZYLEN(traumas))
-		qdel(pick(traumas))
+		qdel(pick(traumas), silent)
 
 /obj/item/organ/brain/proc/cure_all_traumas(resilience = TRAUMA_RESILIENCE_BASIC)
 	var/list/traumas = get_traumas_type(resilience = resilience)

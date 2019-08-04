@@ -2,16 +2,19 @@
 #define MAJOR_INSANITY_PEN 10
 
 /datum/component/mood
-	var/mood //Real happiness
-	var/sanity = 100 //Current sanity
+	var/mood = 0 //Real happiness
+	var/sanity = 50 //Current sanity
 	var/shown_mood //Shown happiness, this is what others can see when they try to examine you, prevents antag checking by noticing traitors are always very happy.
 	var/mood_level = 5 //To track what stage of moodies they're on
 	var/sanity_level = 5 //To track what stage of sanity they're on
+	var/breakdowns = 0 //How many breakdowns you've had
 	var/mood_modifier = 1 //Modifier to allow certain mobs to be less affected by moodlets
+	var/AffectedByActiveSanityLoss = TRUE //Are we currently affected by active sanity loss?
 	var/list/datum/mood_event/mood_events = list()
 	var/insanity_effect = 0 //is the owner being punished for low mood? If so, how much?
 	var/obj/screen/mood/screen_obj
 	var/obj/screen/sanity/screen_obj_sanity
+	var/datum/brain_trauma/affliction/current_affliction //Current affliction we are suffering from
 
 /datum/component/mood/Initialize()
 	if(!isliving(parent))
@@ -21,6 +24,8 @@
 
 	RegisterSignal(parent, COMSIG_ADD_MOOD_EVENT, .proc/add_event)
 	RegisterSignal(parent, COMSIG_CLEAR_MOOD_EVENT, .proc/clear_event)
+	RegisterSignal(parent, COMSIG_ENTER_AREA, .proc/check_area_mood)
+	RegisterSignal(parent, COMSIG_ADJUST_SANITY, .proc/AdjustSanity)
 
 	RegisterSignal(parent, COMSIG_MOB_HUD_CREATED, .proc/modify_hud)
 	var/mob/living/owner = parent
@@ -38,18 +43,16 @@
 	var/msg = "<span class='info'>*---------*\n<EM>Your current mood</EM>\n"
 	msg += "<span class='notice'>My mental status: </span>" //Long term
 	switch(sanity)
-		if(SANITY_GREAT to INFINITY)
-			msg += "<span class='nicegreen'>My mind feels like a temple!<span>\n"
-		if(SANITY_NEUTRAL to SANITY_GREAT)
-			msg += "<span class='nicegreen'>I have been feeling great lately!<span>\n"
-		if(SANITY_DISTURBED to SANITY_NEUTRAL)
-			msg += "<span class='nicegreen'>I have felt quite decent lately.<span>\n"
-		if(SANITY_UNSTABLE to SANITY_DISTURBED)
-			msg += "<span class='warning'>I'm feeling a little bit unhinged...</span>\n"
-		if(SANITY_CRAZY to SANITY_UNSTABLE)
-			msg += "<span class='boldwarning'>I'm freaking out!!</span>\n"
-		if(SANITY_INSANE to SANITY_CRAZY)
+		if(-INFINITY to SANITY_INSANE) //Really fucked
 			msg += "<span class='boldwarning'>AHAHAHAHAHAHAHAHAHAH!!</span>\n"
+		if(SANITY_INSANE to SANITY_CREEPING) //Mildly fucked
+			msg += "<span class='boldwarning'>I'm freaking out!!</span>\n"
+		if(SANITY_CREEPING to SANITY_NEUTRAL) //Mini fucked
+			msg += "<span class='warning'>I'm feeling a little bit unhinged...</span>\n"
+		if(SANITY_NEUTRAL to SANITY_HARDENED) //Normal
+			msg += "<span class='nicegreen'>I have felt quite decent lately.<span>\n"
+		if(SANITY_HARDENED+1 to SANITY_MAXIMUM+1) //Hardened
+			msg += "<span class='nicegreen'>My mind feels like a temple!<span>\n"
 
 	msg += "<span class='notice'>My current mood: </span>" //Short term
 	switch(mood_level)
@@ -71,7 +74,8 @@
 			msg += "<span class='nicegreen'>I feel amazing!<span>\n"
 		if(9)
 			msg += "<span class='nicegreen'>I love life!<span>\n"
-
+	if(current_affliction)
+		msg += "<span class='boldwarning'>current affliction: [current_affliction.name]<span>\n"
 	msg += "<span class='notice'>Moodlets:\n</span>"//All moodlets
 	if(mood_events.len)
 		for(var/i in mood_events)
@@ -136,7 +140,7 @@
 				highest_absolute_mood = absmood
 
 	if(!conflicting_moodies.len) //no special icons- go to the normal icon states
-		if(sanity < 25)
+		if(sanity < -25)
 			screen_obj.icon_state = "mood_insane"
 		else
 			screen_obj.icon_state = "mood[mood_level]"
@@ -171,25 +175,28 @@
 /datum/component/mood/process() //Called on SSmood process
 	var/mob/living/owner = parent
 
+	if(owner.stat == DEAD || !owner.client)
+		return
+
 	switch(mood_level)
 		if(1)
-			setSanity(sanity-0.2)
+			AdjustSanity(null, -1)
 		if(2)
-			setSanity(sanity-0.125, minimum=SANITY_CRAZY)
+			AdjustSanity(null, -0.5)
 		if(3)
-			setSanity(sanity-0.075, minimum=SANITY_UNSTABLE)
+			AdjustSanity(null, -0.25)
 		if(4)
-			setSanity(sanity-0.025, minimum=SANITY_DISTURBED)
+			AdjustSanity(null, -0.15)
 		if(5)
-			setSanity(sanity+0.1)
+			AdjustSanity(null, 0.2, maximum=50)
 		if(6)
-			setSanity(sanity+0.15)
+			AdjustSanity(null, 0.2, maximum=SANITY_HARDENED)
 		if(7)
-			setSanity(sanity+0.2)
+			AdjustSanity(null, 0.25, maximum=SANITY_HARDENED)
 		if(8)
-			setSanity(sanity+0.25, maximum=SANITY_GREAT)
+			AdjustSanity(null, 0.4, maximum=SANITY_MAXIMUM)
 		if(9)
-			setSanity(sanity+0.4, maximum=INFINITY)
+			AdjustSanity(null, 0.6, maximum=SANITY_MAXIMUM)
 
 	if(owner.has_trait(TRAIT_DEPRESSION))
 		if(prob(0.05))
@@ -200,10 +207,28 @@
 			add_event(null, "jolly", /datum/mood_event/jolly)
 			clear_event(null, "depression")
 
-	HandleNutrition(owner)
-	HandleHygiene(owner)
+	if(sanity <= SANITY_CREEPING)
+		handle_insanity()
 
-/datum/component/mood/proc/setSanity(amount, minimum=SANITY_INSANE, maximum=SANITY_NEUTRAL)
+	HandleNutrition(owner)
+	if(!ishuman(owner))
+		return
+
+	var/mob/living/carbon/human/H = owner
+
+	HandleHygiene(H)
+	HandleDarkness(H)
+
+
+/datum/component/mood/proc/AdjustSanity(datum/source, amount, minimum=-INFINITY, maximum=INFINITY)
+	setSanity(sanity + (amount * get_sanity_coefficient()), minimum, maximum)
+
+/datum/component/mood/proc/get_sanity_coefficient()
+	. = 1
+	if(sanity_level == 3) //If you're hardened, your sanity changes slower.
+		. *= 0.5 
+
+/datum/component/mood/proc/setSanity(amount, minimum=-INFINITY, maximum=SANITY_MAXIMUM	)
 	if(amount == sanity)
 		return
 	// If we're out of the acceptable minimum-maximum range move back towards it in steps of 0.5
@@ -216,31 +241,70 @@
 
 	var/mob/living/master = parent
 	switch(sanity)
-		if(SANITY_INSANE to SANITY_CRAZY)
+		if(-INFINITY to SANITY_INSANE) //Really fucked
 			setInsanityEffect(MAJOR_INSANITY_PEN)
+			master.add_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE, 100, override=TRUE, multiplicative_slowdown=2, movetypes=(~FLYING))
+			sanity_level = 7
+			if(sanity <= (-50 + (-50 * breakdowns)))
+				ExperienceBreakdown()
+		if(SANITY_INSANE to SANITY_CREEPING) //Mildly fucked
+			setInsanityEffect(MINOR_INSANITY_PEN)
 			master.add_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE, 100, override=TRUE, multiplicative_slowdown=1.5, movetypes=(~FLYING))
 			sanity_level = 6
-		if(SANITY_CRAZY to SANITY_UNSTABLE)
-			setInsanityEffect(MINOR_INSANITY_PEN)
+		if(SANITY_CREEPING to SANITY_NEUTRAL) //Mini fucked
+			setInsanityEffect(0)
 			master.add_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE, 100, override=TRUE, multiplicative_slowdown=1, movetypes=(~FLYING))
 			sanity_level = 5
-		if(SANITY_UNSTABLE to SANITY_DISTURBED)
+		if(SANITY_NEUTRAL to SANITY_HARDENED) //Normal
 			setInsanityEffect(0)
-			master.add_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE, 100, override=TRUE, multiplicative_slowdown=0.5, movetypes=(~FLYING))
+			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE)
 			sanity_level = 4
-		if(SANITY_DISTURBED to SANITY_NEUTRAL)
+		if(SANITY_HARDENED+1 to SANITY_MAXIMUM+1) //Hardened
 			setInsanityEffect(0)
 			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE)
 			sanity_level = 3
-		if(SANITY_NEUTRAL+1 to SANITY_GREAT+1) //shitty hack but +1 to prevent it from responding to super small differences
-			setInsanityEffect(0)
-			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE)
-			sanity_level = 2
-		if(SANITY_GREAT+1 to INFINITY)
-			setInsanityEffect(0)
-			master.remove_movespeed_modifier(MOVESPEED_ID_SANITY, TRUE)
-			sanity_level = 1
+			if(sanity >= 125 && current_affliction) //experience tranquility ebin
+				ResetBreakdown()
 	update_mood_icon()
+
+
+/datum/component/mood/proc/ExperienceBreakdown()
+	if(ishuman(parent))
+		var/mob/living/carbon/human/H = parent
+		H.Paralyze(100)
+		H.stuttering += 5
+		H.Jitter(20)
+		H.visible_message("<span class='cult'>[parent] collapses, they seem to be having a breakdown!</span>", \
+		"<span class='cultlarge'>[pick(GLOB.sanity_breakdown_messages)]</span>", )
+		UpdateAffliction(H)
+		remove_temp_moods()
+		sanity = 50
+		H.emote("scream")
+
+/datum/component/mood/proc/ResetBreakdown()
+	qdel(current_affliction)
+	current_affliction = null
+	sanity = 50
+	breakdowns = 0
+
+/datum/component/mood/proc/UpdateAffliction(var/mob/living/carbon/human/H)
+	breakdowns++
+	if(current_affliction) //If we have an affliction, upgrade it.
+		current_affliction.upgrade(src)
+	else //Otherwise, get a new one.
+		var/datum/brain_trauma/affliction/temp_affliction = pick(GLOB.possible_afflictions)
+		current_affliction = H.gain_trauma(temp_affliction)
+
+/datum/component/mood/proc/AllowActiveSanityLoss()
+	AffectedByActiveSanityLoss = TRUE
+
+/datum/component/mood/proc/ActiveSanityLoss(amount)
+	if(!AffectedByActiveSanityLoss)
+		return
+	AdjustSanity(null, -amount)
+
+/datum/component/mood/proc/ActiveSanityGain(amount)
+	AdjustSanity(null, amount)
 
 /datum/component/mood/proc/setInsanityEffect(newval)
 	if(newval == insanity_effect)
@@ -263,10 +327,15 @@
 
 	mood_events[category] = the_event
 	the_event.category = category
+	if(the_event.horrific)
+		if(ismob(parent))
+			var/mob/M = parent
+			M.playsound_local(null, pick(HORROR_SOUNDS), 40)
 	update_mood()
 
 	if(the_event.timeout)
 		addtimer(CALLBACK(src, .proc/clear_event, null, category), the_event.timeout, TIMER_UNIQUE|TIMER_OVERRIDE)
+	return the_event
 
 /datum/component/mood/proc/clear_event(datum/source, category)
 	var/datum/mood_event/event = mood_events[category]
@@ -378,6 +447,48 @@
 	stank.gases[/datum/gas/miasma][MOLES] = MIASMA_HYGIENE_MOLES
 	T.assume_air(stank)
 	T.air_update_turf()
+
+/datum/component/mood/proc/check_area_mood(datum/source, var/area/A)
+	if(A.mood_bonus)
+		var/datum/mood_event/M = add_event(null, "area", /datum/mood_event/area)
+		M.mood_change = A.mood_bonus
+		M.description = A.mood_message
+	else
+		clear_event(null, "area")
+
+/datum/component/mood/proc/handle_insanity()
+	if(!ishuman(parent))
+		return
+	if(prob(4))
+		var/effect = pick(1;3, 2;15, 3;2, 4;1)
+		var/mob/living/carbon/human/H = parent
+		switch(effect)
+			if(1)
+				H.playsound_local(null, pick(CREEPY_SOUNDS), 60, 1)
+			if(2)
+				H.overlay_fullscreen("sanity", pick(/obj/screen/fullscreen/sanity/type1,/obj/screen/fullscreen/sanity/type2,/obj/screen/fullscreen/sanity/type3))
+				H.playsound_local(null, pick(HORROR_SOUNDS), 60)
+				H.clear_fullscreen("sanity", 20)
+			if(3)
+				H.emote("scream")
+				to_chat(H, "<span class='danger'>You can't keep it together anymore.</span>")
+				H.vomit(0, FALSE, FALSE, 4, TRUE)
+			if(4)
+				to_chat(H, "<span class='danger'>You collapse from stress.</span>")
+				H.Paralyze(150)
+
+/datum/component/mood/proc/HandleDarkness(mob/living/carbon/human/H)
+	if(H.dna.species.id in list("shadow", "nightmare"))
+		return //we're tied with the dark, so we don't get scared of it; don't cleanse outright to avoid cheese
+	var/turf/T = get_turf(H)
+	if(!isturf(T))
+		return
+	var/lums = T.get_lumcount()
+	if(lums <= 0.2)
+		add_event(null, "nyctophobia", /datum/mood_event/nyctophobia)
+	else
+		clear_event(null, "nyctophobia")
+	
 
 #undef MINOR_INSANITY_PEN
 #undef MAJOR_INSANITY_PEN

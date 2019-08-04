@@ -3,10 +3,16 @@
 	id = "drug"
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	taste_description = "bitterness"
-	var/trippy = TRUE //Does this drug make you trip?
+	var/trip_mood = 10
+
+/datum/reagent/drug/on_mob_add(mob/living/M)
+	. = ..()
+	if(trip_mood)
+		SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "[id]_high", /datum/mood_event/drugs, name)
 
 /datum/reagent/drug/on_mob_delete(mob/living/M)
-	if(trippy)
+	. = ..()
+	if(trip_mood)
 		SEND_SIGNAL(M, COMSIG_CLEAR_MOOD_EVENT, "[id]_high")
 
 /datum/reagent/drug/space_drugs
@@ -41,9 +47,10 @@
 	description = "Slightly reduces stun times. If overdosed it will deal toxin and oxygen damage."
 	reagent_state = LIQUID
 	color = "#60A584" // rgb: 96, 165, 132
-	addiction_threshold = 10
+	addiction_threshold = 0
+	addiction_chance = 3
 	taste_description = "smoke"
-	trippy = FALSE
+	trip_mood = 0
 	overdose_threshold=15
 	metabolization_rate = 0.125 * REAGENTS_METABOLISM
 
@@ -73,7 +80,8 @@
 	reagent_state = LIQUID
 	color = "#FA00C8"
 	overdose_threshold = 20
-	addiction_threshold = 10
+	addiction_threshold = 0
+	addiction_chance = 3
 
 /datum/reagent/drug/crank/on_mob_life(mob/living/carbon/M)
 	if(prob(5))
@@ -122,7 +130,8 @@
 	reagent_state = LIQUID
 	color = "#0064B4"
 	overdose_threshold = 20
-	addiction_threshold = 15
+	addiction_threshold = 0
+	addiction_chance = 3
 
 
 /datum/reagent/drug/krokodil/on_mob_life(mob/living/carbon/M)
@@ -173,7 +182,8 @@
 	reagent_state = LIQUID
 	color = "#FAFAFA"
 	overdose_threshold = 20
-	addiction_threshold = 10
+	addiction_threshold = 0
+	addiction_chance = 3
 	metabolization_rate = 0.75 * REAGENTS_METABOLISM
 
 /datum/reagent/drug/methamphetamine/on_mob_add(mob/living/L)
@@ -257,7 +267,8 @@
 	reagent_state = LIQUID
 	color = "#FAFAFA"
 	overdose_threshold = 20
-	addiction_threshold = 10
+	addiction_threshold = 0
+	addiction_chance = 3
 	taste_description = "salt" // because they're bathsalts?
 	var/datum/brain_trauma/special/psychotic_brawling/bath_salts/rage
 
@@ -375,8 +386,10 @@
 	description = "Fills you with ecstasic numbness and causes minor brain damage. Highly addictive. If overdosed causes sudden mood swings."
 	reagent_state = LIQUID
 	color = "#FFF378"
-	addiction_threshold = 10
+	addiction_threshold = 0
+	addiction_chance = 5
 	overdose_threshold = 20
+	trip_mood = 0
 
 /datum/reagent/drug/happiness/on_mob_add(mob/living/L)
 	..()
@@ -415,7 +428,7 @@
 
 /datum/reagent/drug/happiness/addiction_act_stage1(mob/living/M)// all work and no play makes jack a dull boy
 	GET_COMPONENT_FROM(mood, /datum/component/mood, M)
-	mood.setSanity(min(mood.sanity, SANITY_DISTURBED))
+	mood.setSanity(min(mood.sanity, SANITY_NEUTRAL))
 	M.Jitter(5)
 	if(prob(20))
 		M.emote(pick("twitch","laugh","frown"))
@@ -423,7 +436,7 @@
 
 /datum/reagent/drug/happiness/addiction_act_stage2(mob/living/M)
 	GET_COMPONENT_FROM(mood, /datum/component/mood, M)
-	mood.setSanity(min(mood.sanity, SANITY_UNSTABLE))
+	mood.setSanity(min(mood.sanity, SANITY_NEUTRAL - 10))
 	M.Jitter(10)
 	if(prob(30))
 		M.emote(pick("twitch","laugh","frown"))
@@ -431,7 +444,7 @@
 
 /datum/reagent/drug/happiness/addiction_act_stage3(mob/living/M)
 	GET_COMPONENT_FROM(mood, /datum/component/mood, M)
-	mood.setSanity(min(mood.sanity, SANITY_CRAZY))
+	mood.setSanity(min(mood.sanity, SANITY_CREEPING))
 	M.Jitter(15)
 	if(prob(40))
 		M.emote(pick("twitch","laugh","frown"))
@@ -439,7 +452,7 @@
 
 /datum/reagent/drug/happiness/addiction_act_stage4(mob/living/carbon/human/M)
 	GET_COMPONENT_FROM(mood, /datum/component/mood, M)
-	mood.setSanity(SANITY_INSANE)
+	mood.setSanity(SANITY_CREEPING - 20)
 	M.Jitter(20)
 	if(prob(50))
 		M.emote(pick("twitch","laugh","frown"))

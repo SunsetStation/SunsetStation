@@ -232,25 +232,6 @@
 	H.equip_to_slot(glasses, SLOT_GLASSES)
 	H.regenerate_icons() //this is to remove the inhand icon, which persists even if it's not in their hands
 
-/datum/quirk/nyctophobia
-	name = "Nyctophobia"
-	desc = "As far as you can remember, you've always been afraid of the dark. While in the dark without a light source, you instinctually act careful, and constantly feel a sense of dread."
-	value = -1
-
-/datum/quirk/nyctophobia/on_process()
-	var/mob/living/carbon/human/H = quirk_holder
-	if(H.dna.species.id in list("shadow", "nightmare"))
-		return //we're tied with the dark, so we don't get scared of it; don't cleanse outright to avoid cheese
-	var/turf/T = get_turf(quirk_holder)
-	var/lums = T.get_lumcount()
-	if(lums <= 0.2)
-		if(quirk_holder.m_intent == MOVE_INTENT_RUN)
-			to_chat(quirk_holder, "<span class='warning'>Easy, easy, take it slow... you're in the dark...</span>")
-			quirk_holder.toggle_move_intent()
-		SEND_SIGNAL(quirk_holder, COMSIG_ADD_MOOD_EVENT, "nyctophobia", /datum/mood_event/nyctophobia)
-	else
-		SEND_SIGNAL(quirk_holder, COMSIG_CLEAR_MOOD_EVENT, "nyctophobia")
-
 /datum/quirk/nonviolent
 	name = "Pacifist"
 	desc = "The thought of violence makes you sick. So much so, in fact, that you can't hurt anyone."

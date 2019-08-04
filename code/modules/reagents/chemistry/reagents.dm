@@ -25,7 +25,8 @@
 	var/metabolization_rate = REAGENTS_METABOLISM //how fast the reagent is metabolized by the mob
 	var/overrides_metab = 0
 	var/overdose_threshold = 0
-	var/addiction_threshold = 0
+	var/addiction_threshold = -1
+	var/addiction_chance = 0 //Chance per metabolize() that a person gets addicted to this drug
 	var/addiction_stage = 0
 	var/overdosed = 0 // You fucked up and this is now triggering its overdose effects, purge that shit quick.
 	var/self_consuming = FALSE

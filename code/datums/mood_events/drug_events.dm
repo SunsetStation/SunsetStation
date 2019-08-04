@@ -4,13 +4,19 @@
 
 /datum/mood_event/smoked
 	description = "<span class='nicegreen'>I have had a smoke recently.</span>\n"
-	mood_change = 2
+	mood_change = 4
 	timeout = 3600
 
 /datum/mood_event/wrong_brand
 	description = "<span class='warning'>I hate that brand of cigarettes.</span>\n"
 	mood_change = -2
 	timeout = 3600
+
+/datum/mood_event/drugs
+	mood_change = 10
+
+/datum/mood_event/drugs/add_effects(drug_name)
+	description = "<span class='warning'>I'm tripping balls on this stuff!</span>\n"
 
 /datum/mood_event/overdose
 	mood_change = -8
@@ -20,25 +26,26 @@
 	description = "<span class='warning'>I think I took a bit too much of that [drug_name]</span>\n"
 
 /datum/mood_event/withdrawal_light
-	mood_change = -2
+	mood_change = -3
 
 /datum/mood_event/withdrawal_light/add_effects(drug_name)
 	description = "<span class='warning'>I could use some [drug_name]</span>\n"
 
 /datum/mood_event/withdrawal_medium
-	mood_change = -5
+	mood_change = -6
 
 /datum/mood_event/withdrawal_medium/add_effects(drug_name)
 	description = "<span class='warning'>I really need [drug_name]</span>\n"
 
 /datum/mood_event/withdrawal_severe
-	mood_change = -8
+	mood_change = -12
 
 /datum/mood_event/withdrawal_severe/add_effects(drug_name)
 	description = "<span class='boldwarning'>Oh god I need some [drug_name]</span>\n"
 
 /datum/mood_event/withdrawal_critical
-	mood_change = -10
+	mood_change = -18
+	horrific = TRUE
 
 /datum/mood_event/withdrawal_critical/add_effects(drug_name)
 	description = "<span class='boldwarning'>[drug_name]! [drug_name]! [drug_name]!</span>\n"
@@ -58,3 +65,4 @@
 	mood_change = -100
 	timeout = 300
 	special_screen_obj = "mood_happiness_bad"
+	horrific = TRUE

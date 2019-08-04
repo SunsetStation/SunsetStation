@@ -276,6 +276,8 @@
 	var/traitstring = get_trait_string()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
+		if(stat == DEAD && !has_trait(TRAIT_HARDENED))
+			SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "corpse", /datum/mood_event/corpse)
 		var/obj/item/organ/cyberimp/eyes/hud/CIH = H.getorgan(/obj/item/organ/cyberimp/eyes/hud)
 		if(istype(H.glasses, /obj/item/clothing/glasses/hud) || CIH)
 			var/perpname = get_face_name(get_id_name(""))

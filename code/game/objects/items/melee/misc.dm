@@ -29,6 +29,14 @@
 	user.visible_message("<span class='suicide'>[user] is strangling [user.p_them()]self with [src]! It looks like [user.p_theyre()] trying to commit suicide!</span>")
 	return (OXYLOSS)
 
+/obj/item/melee/chainofcommand/holy
+	name = "Holy Whip"
+	desc = "He who sins must be punished."
+
+/obj/item/melee/chainofcommand/holy/attack(mob/living/target, mob/living/user)
+	. = ..()
+	SEND_SIGNAL(target, COMSIG_ADD_MOOD_EVENT, "flagellation", /datum/mood_event/flagellation)
+
 /obj/item/melee/synthetic_arm_blade
 	name = "synthetic arm blade"
 	desc = "A grotesque blade that on closer inspection seems made of synthetic flesh, it still feels like it would hurt very badly as a weapon."

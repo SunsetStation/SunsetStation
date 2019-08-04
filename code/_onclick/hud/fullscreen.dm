@@ -125,6 +125,20 @@
 	layer = CURSE_LAYER
 	plane = FULLSCREEN_PLANE
 
+/obj/screen/fullscreen/sanity
+	icon_state = ""
+	layer = CURSE_LAYER
+	plane = FULLSCREEN_PLANE
+
+/obj/screen/fullscreen/sanity/type1
+	icon_state = "insanity1"
+
+/obj/screen/fullscreen/sanity/type2
+	icon_state = "insanity2"
+
+/obj/screen/fullscreen/sanity/type3
+	icon_state = "insanity3"
+
 /obj/screen/fullscreen/impaired
 	icon_state = "impairedoverlay"
 

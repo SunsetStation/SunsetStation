@@ -20,7 +20,7 @@
 		ACCESS_GENPOP_ENTER, ACCESS_GENPOP_EXIT) // sunset -- add genpop access
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_SEC
-	mind_traits = list(TRAIT_LAW_ENFORCEMENT_METABOLISM)
+	mind_traits = list(TRAIT_LAW_ENFORCEMENT_METABOLISM, TRAIT_HARDENED)
 
 	display_order = JOB_DISPLAY_ORDER_DETECTIVE
 

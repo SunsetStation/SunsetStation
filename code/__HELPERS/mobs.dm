@@ -294,6 +294,7 @@ GLOBAL_LIST_EMPTY(species_list)
 
 /mob/proc/do_after_coefficent() // This gets added to the delay on a do_after, default 1
 	. = 1
+	. += affliction_actionspeed_modifiers
 	return
 
 /proc/do_after_mob(mob/user, list/targets, time = 30, uninterruptible = 0, progress = 1, datum/callback/extra_checks, required_mobility_flags = MOBILITY_STAND)

@@ -102,13 +102,16 @@
 #define TRAUMA_RESILIENCE_SURGERY 2    //Curable with brain surgery
 #define TRAUMA_RESILIENCE_LOBOTOMY 3   //Curable with lobotomy
 #define TRAUMA_RESILIENCE_MAGIC 4      //Curable only with magic
-#define TRAUMA_RESILIENCE_ABSOLUTE 5   //This is here to stay
+#define TRAUMA_RESILIENCE_SANITY 5 		//God will save your soul
+#define TRAUMA_RESILIENCE_ABSOLUTE 6   //This is here to stay
+
 
 //Limit of traumas for each resilience tier
 #define TRAUMA_LIMIT_BASIC 3
 #define TRAUMA_LIMIT_SURGERY 2
 #define TRAUMA_LIMIT_LOBOTOMY 3
 #define TRAUMA_LIMIT_MAGIC 3
+#define TRAUMA_LIMIT_SANITY 1
 #define TRAUMA_LIMIT_ABSOLUTE INFINITY
 
 #define BRAIN_DAMAGE_INTEGRITY_MULTIPLIER 0.5
@@ -132,17 +135,17 @@
 #define MOOD_LEVEL_HAPPY1 2
 #define MOOD_LEVEL_NEUTRAL 0
 #define MOOD_LEVEL_SAD1 -3
-#define MOOD_LEVEL_SAD2 -12
-#define MOOD_LEVEL_SAD3 -18
-#define MOOD_LEVEL_SAD4 -25
+#define MOOD_LEVEL_SAD2 -10
+#define MOOD_LEVEL_SAD3 -15
+#define MOOD_LEVEL_SAD4 -20
 
 //Sanity levels for humans
-#define SANITY_GREAT 125
-#define SANITY_NEUTRAL 100
-#define SANITY_DISTURBED 75
-#define SANITY_UNSTABLE 50
-#define SANITY_CRAZY 25
-#define SANITY_INSANE 0
+#define SANITY_MAXIMUM 150
+#define SANITY_HARDENED 100
+#define SANITY_GREAT 100
+#define SANITY_NEUTRAL 0
+#define SANITY_CREEPING -20
+#define SANITY_INSANE -50
 
 //Hygiene levels for humans
 #define HYGIENE_LEVEL_CLEAN 250

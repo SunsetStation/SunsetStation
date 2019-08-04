@@ -393,6 +393,31 @@
 /mob/living/proc/has_quirk(quirk)
 	return roundstart_quirks[quirk]
 
+/mob/living/proc/HandleObsession(spawn_effects)
+	var/ChanceToObsess = 0
+	switch(roundstart_quirks.len)
+		if(1 to 2)
+			ChanceToObsess = 5
+		if(3 to 4)
+			ChanceToObsess = 10
+		if(5 to 6)	
+			ChanceToObsess = 15
+	if(prob(ChanceToObsess))
+		GiveObsession(spawn_effects)
+
+/mob/living/proc/GiveObsession(spawn_effects)
+	var/list/possible_choices = list()
+	for(var/i in SSquirks.obsessions) //Go through all possible obsessions
+		var/datum/quirk/quirk = i
+		for(var/V in SSquirks.quirk_blacklist) //V is a list
+			var/list/L = V
+			for(var/Q in client.prefs.all_quirks)
+				if((quirk in L) && (Q in L) && !(Q == quirk)) //two quirks have lined up in the list of the list of quirks that conflict with each other, so return (see quirks.dm for more details)
+					continue
+				else
+					possible_choices += quirk
+	add_quirk(pick(possible_choices), spawn_effects)
+
 /////////////////////////////////// TRAIT PROCS ////////////////////////////////////
 
 /mob/living/proc/cure_blind(list/sources)

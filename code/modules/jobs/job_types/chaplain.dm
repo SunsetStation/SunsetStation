@@ -17,6 +17,7 @@
 	paycheck_department = ACCOUNT_CIV
 
 	display_order = JOB_DISPLAY_ORDER_CHAPLAIN
+	mind_traits = list(TRAIT_HARDENED) //He buries the dead
 
 
 /datum/job/chaplain/after_spawn(mob/living/H, mob/M)

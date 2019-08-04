@@ -86,6 +86,9 @@
 				temp_bleed += (brutedamage * 0.013)
 
 		bleed_rate = max(bleed_rate - 0.5, temp_bleed)//if no wounds, other bleed effects (heparin) naturally decreases
+		
+		if(has_trait(TRAIT_EXTREME_HEMOPHOBIA)) //Extreme hemophobia makes you bleed faster. dont ask why.
+			bleed_rate = bleed_rate * 1.5 //Bleeds bad man
 
 		if(bleed_rate && !bleedsuppress && !(has_trait(TRAIT_FAKEDEATH)))
 			bleed(bleed_rate)
@@ -94,6 +97,8 @@
 /mob/living/carbon/proc/bleed(amt)
 	if(blood_volume)
 		blood_volume = max(blood_volume - amt, 0)
+		if(has_trait(TRAIT_HEMOPHOBIA))
+			SEND_SIGNAL(src, COMSIG_ADJUST_SANITY, amt * -0.01)
 		if(isturf(src.loc)) //Blood loss still happens in locker, floor stays clean
 			if(amt >= 10)
 				add_splatter_floor(src.loc)

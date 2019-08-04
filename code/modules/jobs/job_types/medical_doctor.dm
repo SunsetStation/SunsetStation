@@ -17,6 +17,7 @@
 	paycheck_department = ACCOUNT_MED
 
 	display_order = JOB_DISPLAY_ORDER_MEDICAL_DOCTOR
+	mind_traits = list(TRAIT_HARDENED)
 
 /datum/outfit/job/doctor
 	name = "Medical Doctor"

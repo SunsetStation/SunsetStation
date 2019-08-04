@@ -74,6 +74,7 @@
 #define TRAIT_ALWAYS_CLEAN      "always-clean"
 #define TRAIT_BOOZE_SLIDER      "booze-slider"
 #define TRAIT_UNINTELLIGIBLE_SPEECH "unintelligible-speech"
+#define TRAIT_HARDENED "hardened"
 
 //non-mob traits
 #define TRAIT_PARALYSIS			"paralysis" //Used for limb-based paralysis, where replacing the limb will fix it
@@ -161,3 +162,8 @@
 #define NINJA_SUIT_TRAIT "ninja-suit"
 #define ANTI_DROP_IMPLANT_TRAIT "anti-drop-implant"
 #define HIVEMIND_ONE_MIND_TRAIT "one_mind"
+
+
+//Affliction traits
+#define TRAIT_HEMOPHOBIA "hemophobia"
+#define TRAIT_EXTREME_HEMOPHOBIA "extreme_hemophobia"

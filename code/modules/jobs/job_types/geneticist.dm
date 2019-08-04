@@ -19,6 +19,7 @@
 	paycheck_department = ACCOUNT_MED
 
 	display_order = JOB_DISPLAY_ORDER_GENETICIST
+	mind_traits = list(TRAIT_HARDENED) //works with corpses a lot
 
 /datum/outfit/job/geneticist
 	name = "Geneticist"
