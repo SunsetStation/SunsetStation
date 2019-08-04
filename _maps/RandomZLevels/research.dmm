@@ -249,7 +249,6 @@
 /turf/open/floor/plasteel{
 	icon_state = "damaged4"
 	},
-/turf/closed/wall/mineral/plastitanium,
 /area/awaymission/research/interior/engineering)
 "aT" = (
 /mob/living/simple_animal/hostile/syndicate/melee/sword,
@@ -258,9 +257,6 @@
 "aU" = (
 /turf/open/floor/plasteel{
 	icon_state = "damaged1"
-	},
-/turf/closed/wall/mineral/plastitanium{
-	dir = 4
 	},
 /area/awaymission/research/interior/engineering)
 "aV" = (
@@ -344,7 +340,6 @@
 /turf/open/floor/plasteel{
 	icon_state = "damaged5"
 	},
-/turf/closed/wall/mineral/plastitanium,
 /area/awaymission/research/interior/engineering)
 "bd" = (
 /turf/open/floor/plasteel{
@@ -1331,7 +1326,6 @@
 	name = "encrypted genetic data disk";
 	read_only = 1
 	},
-/obj/item/firing_pin/dna,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/research/interior/secure)
 "de" = (
@@ -1747,7 +1741,6 @@
 	name = "encrypted genetic data disk";
 	read_only = 1
 	},
-/obj/item/firing_pin/dna,
 /obj/item/dnainjector/dwarf,
 /obj/item/dnainjector/dwarf,
 /turf/open/floor/plasteel/dark,
@@ -4037,7 +4030,6 @@
 /obj/item/clothing/head/collectable/petehat{
 	name = "dusty hat"
 	},
-/obj/item/firing_pin/dna,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/research/interior/secure)
 "hT" = (
@@ -4052,7 +4044,6 @@
 	name = "encrypted genetic data disk";
 	read_only = 1
 	},
-/obj/item/firing_pin/dna,
 /obj/item/dnainjector/hulkmut,
 /turf/open/floor/plasteel/dark,
 /area/awaymission/research/interior/secure)
@@ -4242,8 +4233,6 @@
 	name = "encrypted genetic data disk";
 	read_only = 1
 	},
-/obj/item/firing_pin/dna/dredd,
-/obj/item/firing_pin/dna/dredd,
 /obj/item/dnainjector/lasereyesmut,
 /obj/item/dnainjector/lasereyesmut,
 /turf/open/floor/plasteel/dark,

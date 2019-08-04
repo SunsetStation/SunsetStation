@@ -30,6 +30,8 @@
 	damage_overlay_type = "vox"
 	exotic_bloodtype = "V"
 	limbs_id = "grnvox"
+	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_PRIDE | MIRROR_MAGIC | RACE_SWAP | ERT_SPAWN | SLIME_EXTRACT
+
 /datum/species/vox/random_name(unique)
 	var/sounds = rand(2,8)
 	var/newname = ""

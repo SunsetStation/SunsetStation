@@ -43,6 +43,8 @@
 	recommended_enemies = 4
 	enemy_minimum_age = 14
 
+	title_icon = "cult"
+
 	announce_span = "cult"
 	announce_text = "Some crew members are trying to start a cult to Nar'Sie!\n\
 	<span class='cult'>Cultists</span>: Carry out Nar'Sie's will.\n\
@@ -155,6 +157,21 @@
 		return 0
 	else
 		return 1
+
+/datum/game_mode/cult/generate_credit_text()
+	var/list/round_credits = list()
+	var/len_before_addition
+
+	round_credits += "<center><h1>The Cult of Nar'Sie:</h1>"
+	len_before_addition = round_credits.len
+	for(var/datum/mind/cultist in main_cult.members)
+		round_credits += "<center><h2>[cultist.name] as a cult fanatic</h2>"
+	if(len_before_addition == round_credits.len)
+		round_credits += list("<center><h2>The cultists have learned the danger of eldritch magic!</h2>", "<center><h2>They all disappeared!</h2>")
+		round_credits += "<br>"
+
+	round_credits += ..()
+	return round_credits
 
 
 /datum/game_mode/cult/generate_report()

@@ -121,6 +121,10 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 			possible_targets = all_possible_targets
 	if(possible_targets.len > 0)
 		target = pick(possible_targets)
+	//sunset start
+	else
+		target = null //we'd rather have no target than an invalid one
+	//sunset end
 	update_explanation_text()
 	return target
 
@@ -755,7 +759,7 @@ GLOBAL_LIST_EMPTY(possible_items_special)
 			continue
 		var/total_genetic_points = changeling.geneticpoints
 
-		for(var/obj/effect/proc_holder/changeling/p in changeling.purchasedpowers)
+		for(var/datum/action/changeling/p in changeling.purchasedpowers)
 			total_genetic_points += p.dna_cost
 
 		if(total_genetic_points > initial(changeling.geneticpoints))

@@ -170,6 +170,16 @@
 	for(var/i in 1 to 7)
 		new /obj/item/reagent_containers/syringe(src)
 
+/obj/item/storage/box/syringes/variety
+	name = "syringe variety box"
+
+/obj/item/storage/box/syringes/variety/PopulateContents()
+	new /obj/item/reagent_containers/syringe(src)
+	new /obj/item/reagent_containers/syringe/lethal(src)
+	new /obj/item/reagent_containers/syringe/noreact(src)
+	new /obj/item/reagent_containers/syringe/piercing(src)
+	new /obj/item/reagent_containers/syringe/bluespace(src)
+
 /obj/item/storage/box/medipens
 	name = "box of medipens"
 	desc = "A box full of epinephrine MediPens."
@@ -204,6 +214,17 @@
 /obj/item/storage/box/beakers/bluespace/PopulateContents()
 	for(var/i in 1 to 7)
 		new /obj/item/reagent_containers/glass/beaker/bluespace(src)
+
+/obj/item/storage/box/beakers/variety
+	name = "beaker variety box"
+
+/obj/item/storage/box/beakers/variety/PopulateContents()
+	new /obj/item/reagent_containers/glass/beaker(src)
+	new /obj/item/reagent_containers/glass/beaker/large(src)
+	new /obj/item/reagent_containers/glass/beaker/plastic(src)
+	new /obj/item/reagent_containers/glass/beaker/meta(src)
+	new /obj/item/reagent_containers/glass/beaker/noreact(src)
+	new /obj/item/reagent_containers/glass/beaker/bluespace(src)
 
 /obj/item/storage/box/medsprays
 	name = "box of medical sprayers"
@@ -485,25 +506,6 @@
 	for(var/i in 1 to 6)
 		new /obj/item/cartridge/security(src)
 
-/obj/item/storage/box/firingpins
-	name = "box of standard firing pins"
-	desc = "A box full of standard firing pins, to allow newly-developed firearms to operate."
-	illustration = "id"
-
-/obj/item/storage/box/firingpins/PopulateContents()
-	for(var/i in 1 to 5)
-		new /obj/item/firing_pin(src)
-
-/obj/item/storage/box/lasertagpins
-	name = "box of laser tag firing pins"
-	desc = "A box full of laser tag firing pins, to allow newly-developed firearms to require wearing brightly coloured plastic armor before being able to be used."
-	illustration = "id"
-
-/obj/item/storage/box/lasertagpins/PopulateContents()
-	for(var/i in 1 to 3)
-		new /obj/item/firing_pin/tag/red(src)
-		new /obj/item/firing_pin/tag/blue(src)
-
 /obj/item/storage/box/handcuffs
 	name = "box of spare handcuffs"
 	desc = "A box full of handcuffs."
@@ -546,7 +548,7 @@
 /obj/item/storage/box/mousetraps
 	name = "box of Pest-B-Gon mousetraps"
 	desc = "<span class='alert'>Keep out of reach of children.</span>"
-	illustration = "mousetraps"
+	illustration = "mousetrap"
 
 /obj/item/storage/box/mousetraps/PopulateContents()
 	for(var/i in 1 to 6)

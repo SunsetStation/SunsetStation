@@ -293,10 +293,10 @@
 	for(var/obj/item/I in real_location.contents)
 		if(QDELETED(I))
 			continue
-		if(!.[I.type])
-			.[I.type] = new /datum/numbered_display(I, 1)
+		if(!.["[I.type]-[I.name]"])
+			.["[I.type]-[I.name]"] = new /datum/numbered_display(I, 1)
 		else
-			var/datum/numbered_display/ND = .[I.type]
+			var/datum/numbered_display/ND = .["[I.type]-[I.name]"]
 			ND.number++
 
 //This proc determines the size of the inventory to be displayed. Please touch it only if you know what you're doing.
@@ -594,7 +594,7 @@
 			if(!stop_messages)
 				to_chat(M, "<span class='warning'>[IP] cannot hold [I] as it's a storage item of the same size!</span>")
 			return FALSE //To prevent the stacking of same sized storage items.
-	if(I.item_flags & NODROP) //SHOULD be handled in unEquip, but better safe than sorry.
+	if(I.has_trait(TRAIT_NODROP)) //SHOULD be handled in unEquip, but better safe than sorry.
 		if(!stop_messages)
 			to_chat(M, "<span class='warning'>\the [I] is stuck to your hand, you can't put it in \the [host]!</span>")
 		return FALSE

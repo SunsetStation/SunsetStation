@@ -367,6 +367,10 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Fitness Room"
 	icon_state = "fitness"
 
+/area/crew_quarters/fitness/locker_room
+	name = "Unisex Locker Room"
+	icon_state = "fitness"
+
 /area/crew_quarters/fitness/recreation
 	name = "Recreation Area"
 	icon_state = "fitness"
@@ -386,6 +390,46 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/crew_quarters/bar
 	name = "Bar"
 	icon_state = "bar"
+	mood_bonus = 4
+	mood_message = "<span class='nicegreen'>I love being in the bar!\n</span>"
+	var/list/entertainers = list()
+	var/list/mob/living/carbon/visitors = list()
+
+/area/crew_quarters/bar/Entered(atom/movable/M)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.job == "clown" || H.job == "mime")
+			entertainers += H
+			update_bar_mood()
+		visitors += H
+	return ..()
+
+/area/crew_quarters/bar/Exited(atom/movable/M)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.job == "clown" || H.job == "mime")
+			entertainers -= H
+			update_bar_mood()
+		visitors -= H
+	return ..()
+
+/area/crew_quarters/bar/proc/update_bar_mood()
+	switch(entertainers.len)
+		if(0)
+			mood_bonus = 4
+			mood_message = "<span class='nicegreen'>I love being in the bar!\n</span>"
+		if(1)
+			mood_bonus = 7
+			mood_message = "<span class='nicegreen'>I love being in the bar! There's even an entertainer!\n</span>"
+		else
+			mood_bonus = 10
+			mood_message = "<span class='nicegreen'>I love being in the bar! Especially with all of these entertainers.\n</span>"
+	for(var/i in visitors) //this is shit fix this
+		var/mob/living/carbon/human/H = i
+		SEND_SIGNAL(src, COMSIG_AREA_ENTERED, H)
+		
+
+
 
 /area/crew_quarters/bar/atrium
 	name = "Atrium"
@@ -430,6 +474,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	flags_1 = NONE
 	clockwork_warp_allowed = FALSE
 	clockwork_warp_fail = "The consecration here prevents you from warping in."
+	mood_bonus = 5
+	mood_message = "<span class='nicegreen'>I feel safe in the arms of god!</span>\n"
 
 /area/chapel/main
 	name = "Chapel"

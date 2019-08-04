@@ -124,6 +124,15 @@ SUBSYSTEM_DEF(ticker)
 		gametime_offset = rand(0, 23) HOURS
 	else if(CONFIG_GET(flag/shift_time_realtime))
 		gametime_offset = world.timeofday
+	// Sunset -- for crew objectives ----start----
+	crewobjlist = typesof(/datum/objective/crew)
+	for(var/hooray in crewobjlist) //taken from old Hippie's "job2obj" proc with adjustments.
+		var/datum/objective/crew/obj = hooray
+		var/list/availableto = splittext(initial(obj.jobs),",")
+		for(var/job in availableto)
+			crewobjjobs["[job]"] += list(obj)
+	// Sunset  ----end----
+			
 	return ..()
 
 /datum/controller/subsystem/ticker/fire()
@@ -304,13 +313,17 @@ SUBSYSTEM_DEF(ticker)
 	send2irc("Server", "Round [GLOB.round_id ? "#[GLOB.round_id]:" : "of"] [hide_mode ? "secret":"[mode.name]"] has started[allmins.len ? ".":" with no active admins online!"]")
 	setup_done = TRUE
 
+ 	// Sunset - to generate crew objectives -----start-----
+	if(CONFIG_GET(flag/allow_crew_objectives))
+		generate_crew_objectives()
+	// Sunset  -----end-----
+
 	for(var/i in GLOB.start_landmarks_list)
 		var/obj/effect/landmark/start/S = i
 		if(istype(S))							//we can not runtime here. not in this important of a proc.
 			S.after_round_start()
 		else
 			stack_trace("[S] [S.type] found in start landmarks list, which isn't a start landmark!")
-
 
 //These callbacks will fire after roundstart key transfer
 /datum/controller/subsystem/ticker/proc/OnRoundstart(datum/callback/cb)
@@ -623,7 +636,7 @@ SUBSYSTEM_DEF(ticker)
 		'sound/roundend/its_only_game.ogg',
 		'sound/roundend/yeehaw.ogg',
 		'sound/roundend/disappointed.ogg',
-		'sound/roundend/gondolabridge.ogg'\
+		'sound/roundend/scrunglartiy.ogg'\
 		)
 
 	SEND_SOUND(world, sound(round_end_sound))

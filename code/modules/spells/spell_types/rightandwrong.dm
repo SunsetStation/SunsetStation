@@ -13,13 +13,13 @@ GLOBAL_LIST_INIT(summoned_guns, list(
 	/obj/item/gun/ballistic/automatic/gyropistol,
 	/obj/item/gun/energy/pulse,
 	/obj/item/gun/ballistic/automatic/pistol/suppressed,
-	/obj/item/gun/ballistic/revolver/doublebarrel,
+	/obj/item/gun/ballistic/shotgun/doublebarrel,
 	/obj/item/gun/ballistic/shotgun,
 	/obj/item/gun/ballistic/shotgun/automatic/combat,
 	/obj/item/gun/ballistic/automatic/ar,
 	/obj/item/gun/ballistic/revolver/mateba,
-	/obj/item/gun/ballistic/shotgun/boltaction,
-	/obj/item/gun/ballistic/automatic/speargun,
+	/obj/item/gun/ballistic/rifle/boltaction,
+	/obj/item/pneumatic_cannon/speargun,
 	/obj/item/gun/ballistic/automatic/mini_uzi,
 	/obj/item/gun/energy/lasercannon,
 	/obj/item/gun/energy/kinetic_accelerator/crossbow/large,
@@ -38,7 +38,7 @@ GLOBAL_LIST_INIT(summoned_guns, list(
 	/obj/item/gun/energy/plasmacutter/adv,
 	/obj/item/gun/energy/wormhole_projector,
 	/obj/item/gun/ballistic/automatic/wt550,
-	/obj/item/gun/ballistic/automatic/shotgun/bulldog,
+	/obj/item/gun/ballistic/shotgun/bulldog,
 	/obj/item/gun/ballistic/revolver/grenadelauncher,
 	/obj/item/gun/ballistic/revolver/golden,
 	/obj/item/gun/ballistic/automatic/sniper_rifle,
@@ -117,7 +117,6 @@ GLOBAL_VAR_INIT(summon_magic_triggered, FALSE)
 
 	var/gun_type = pick(GLOB.summoned_guns)
 	var/obj/item/gun/G = new gun_type(get_turf(H))
-	G.unlock()
 	playsound(get_turf(H),'sound/magic/summon_guns.ogg', 50, 1)
 
 	var/in_hand = H.put_in_hands(G) // not always successful

@@ -102,13 +102,16 @@
 #define TRAUMA_RESILIENCE_SURGERY 2    //Curable with brain surgery
 #define TRAUMA_RESILIENCE_LOBOTOMY 3   //Curable with lobotomy
 #define TRAUMA_RESILIENCE_MAGIC 4      //Curable only with magic
-#define TRAUMA_RESILIENCE_ABSOLUTE 5   //This is here to stay
+#define TRAUMA_RESILIENCE_SANITY 5 		//God will save your soul
+#define TRAUMA_RESILIENCE_ABSOLUTE 6   //This is here to stay
+
 
 //Limit of traumas for each resilience tier
 #define TRAUMA_LIMIT_BASIC 3
 #define TRAUMA_LIMIT_SURGERY 2
 #define TRAUMA_LIMIT_LOBOTOMY 3
 #define TRAUMA_LIMIT_MAGIC 3
+#define TRAUMA_LIMIT_SANITY 1
 #define TRAUMA_LIMIT_ABSOLUTE INFINITY
 
 #define BRAIN_DAMAGE_INTEGRITY_MULTIPLIER 0.5
@@ -132,17 +135,22 @@
 #define MOOD_LEVEL_HAPPY1 2
 #define MOOD_LEVEL_NEUTRAL 0
 #define MOOD_LEVEL_SAD1 -3
-#define MOOD_LEVEL_SAD2 -12
-#define MOOD_LEVEL_SAD3 -18
-#define MOOD_LEVEL_SAD4 -25
+#define MOOD_LEVEL_SAD2 -10
+#define MOOD_LEVEL_SAD3 -15
+#define MOOD_LEVEL_SAD4 -20
 
 //Sanity levels for humans
-#define SANITY_GREAT 125
-#define SANITY_NEUTRAL 100
-#define SANITY_DISTURBED 75
-#define SANITY_UNSTABLE 50
-#define SANITY_CRAZY 25
-#define SANITY_INSANE 0
+#define SANITY_MAXIMUM 150
+#define SANITY_HARDENED 100
+#define SANITY_GREAT 100
+#define SANITY_NEUTRAL 0
+#define SANITY_CREEPING -20
+#define SANITY_INSANE -50
+
+//Hygiene levels for humans
+#define HYGIENE_LEVEL_CLEAN 250
+#define HYGIENE_LEVEL_NORMAL 200
+#define HYGIENE_LEVEL_DIRTY 75
 
 //Nutrition levels for humans
 #define NUTRITION_LEVEL_FAT 600
@@ -262,6 +270,7 @@
 
 #define	HUNGER_FACTOR		0.1	//factor at which mob nutrition decreases
 #define	ETHEREAL_CHARGE_FACTOR	0.12 //factor at which ethereal's charge decreases
+#define	HYGIENE_FACTOR  0.1	//factor at which mob hygiene decreases
 #define	REAGENTS_METABOLISM 0.4	//How many units of reagent are consumed per tick, by default.
 #define REAGENTS_EFFECT_MULTIPLIER (REAGENTS_METABOLISM / 0.4)	// By defining the effect multiplier this way, it'll exactly adjust all effects according to how they originally were with the 0.4 metabolism
 
@@ -284,3 +293,19 @@
 #define GRAB_PIXEL_SHIFT_PASSIVE 6
 #define GRAB_PIXEL_SHIFT_AGGRESSIVE 12
 #define GRAB_PIXEL_SHIFT_NECK 16
+
+//Flags that control what things can spawn species (whitelist)
+//Badmin magic mirror
+#define MIRROR_BADMIN (1<<0)
+//Standard magic mirror (wizard)
+#define MIRROR_MAGIC  (1<<1)
+//Pride ruin mirror
+#define MIRROR_PRIDE  (1<<2)
+//Race swap wizard event
+#define RACE_SWAP     (1<<3)
+//ERT spawn template (avoid races that don't function without correct gear)
+#define ERT_SPAWN     (1<<4)
+//xenobio black crossbreed
+#define SLIME_EXTRACT (1<<5)
+//Wabbacjack staff projectiles
+#define WABBAJACK     (1<<6)

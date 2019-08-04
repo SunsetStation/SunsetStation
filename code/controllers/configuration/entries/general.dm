@@ -40,6 +40,8 @@
 
 /datum/config_entry/flag/log_mecha	// log mech data
 
+/datum/config_entry/flag/log_cloning // log cloning actions.
+
 /datum/config_entry/flag/log_vote	// log voting
 
 /datum/config_entry/flag/log_whisper	// log client whisper
@@ -354,6 +356,10 @@
 /datum/config_entry/string/client_error_message
 	config_entry_value = "Your version of byond is too old, may have issues, and is blocked from accessing this server."
 
+/datum/config_entry/number/client_error_build
+	config_entry_value = null
+	min_val = 0
+
 /datum/config_entry/number/minute_topic_limit
 	config_entry_value = null
 	min_val = 0
@@ -395,6 +401,8 @@
 /datum/config_entry/string/chat_announce_new_game
 	config_entry_value = null
 
+/datum/config_entry/string/service_command//sunset discord bot
+		config_entry_value = null
 /datum/config_entry/flag/debug_admin_hrefs
 
 /datum/config_entry/number/mc_tick_rate/base_mc_tick_rate
@@ -446,4 +454,3 @@
 	min_val = 30
 
 /datum/config_entry/flag/reopen_roundstart_suicide_roles_command_report
-

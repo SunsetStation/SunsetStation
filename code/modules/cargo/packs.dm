@@ -77,11 +77,11 @@
 					/obj/item/tank/internals/air,
 					/obj/item/tank/internals/air,
 					/obj/item/tank/internals/air,
-					/obj/item/clothing/mask/gas,
-					/obj/item/clothing/mask/gas,
-					/obj/item/clothing/mask/gas,
-					/obj/item/clothing/mask/gas,
-					/obj/item/clothing/mask/gas)
+					/obj/item/clothing/mask/breath,
+					/obj/item/clothing/mask/breath,
+					/obj/item/clothing/mask/breath,
+					/obj/item/clothing/mask/breath,
+					/obj/item/clothing/mask/breath)
 	crate_name = "emergency crate"
 	crate_type = /obj/structure/closet/crate/internals
 
@@ -341,14 +341,6 @@
 					/obj/item/storage/box/flashes,
 					/obj/item/storage/box/handcuffs)
 	crate_name = "security supply crate"
-
-/datum/supply_pack/security/firingpins
-	name = "Standard Firing Pins Crate"
-	desc = "Upgrade your arsenal with 10 standard firing pins. Requires Security access to open."
-	cost = 2000
-	contains = list(/obj/item/storage/box/firingpins,
-					/obj/item/storage/box/firingpins)
-	crate_name = "firing pins crate"
 
 /datum/supply_pack/security/justiceinbound
 	name = "Standard Justice Enforcer Crate"
@@ -1411,12 +1403,11 @@
 	crate_type = /obj/structure/closet/crate/secure
 
 /datum/supply_pack/service/vending/bartending
-	name = "Bartending Supply Crate"
-	desc = "Bring on the booze with vending machine refills, as well as a free book containing the well-kept secrets to the bartending trade!"
+	name = "Booze-o-mat and Coffee Supply Crate"
+	desc = "Bring on the booze and coffee vending machine refills."
 	cost = 2000
 	contains = list(/obj/item/vending_refill/boozeomat,
-					/obj/item/vending_refill/coffee,
-					/obj/item/book/granter/action/drink_fling)
+					/obj/item/vending_refill/coffee)
 	crate_name = "bartending supply crate"
 
 /datum/supply_pack/service/vending/cigarette
@@ -1873,15 +1864,6 @@
 	crate_name = "formalwear crate"
 	crate_type = /obj/structure/closet/crate/wooden
 
-/datum/supply_pack/costumes_toys/clownpin
-	name = "Hilarious Firing Pin Crate"
-	desc = "I uh... I'm not really sure what this does. Wanna buy it?"
-	cost = 5000
-	contraband = TRUE
-	contains = list(/obj/item/firing_pin/clown)
-	crate_name = "toy crate" // It's /technically/ a toy. For the clown, at least.
-	crate_type = /obj/structure/closet/crate/wooden
-
 /datum/supply_pack/costumes_toys/lasertag
 	name = "Laser Tag Crate"
 	desc = "Foam Force is for boys. Laser Tag is for men. Contains three sets of red suits, blue suits, matching helmets, and matching laser tag guns."
@@ -1904,14 +1886,6 @@
 					/obj/item/clothing/head/helmet/bluetaghelm,
 					/obj/item/clothing/head/helmet/bluetaghelm,
 					/obj/item/clothing/head/helmet/bluetaghelm)
-	crate_name = "laser tag crate"
-
-/datum/supply_pack/costumes_toys/lasertag/pins
-	name = "Laser Tag Firing Pins Crate"
-	desc = "Three laser tag firing pins used in laser-tag units to ensure users are wearing their vests."
-	cost = 3000
-	contraband = TRUE
-	contains = list(/obj/item/storage/box/lasertagpins)
 	crate_name = "laser tag crate"
 
 /datum/supply_pack/costumes_toys/costume_original
@@ -1948,7 +1922,6 @@
 					/obj/item/clothing/shoes/sneakers/black,
 					/obj/item/clothing/gloves/color/white,
 					/obj/item/clothing/mask/gas/mime,
-					/obj/item/clothing/head/beret,
 					/obj/item/clothing/head/frenchberet,
 					/obj/item/clothing/suit/suspenders,
 					/obj/item/reagent_containers/food/drinks/bottle/bottleofnothing,

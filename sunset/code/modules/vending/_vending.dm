@@ -1,13 +1,5 @@
 GLOBAL_LIST_EMPTY(vending_machine_icon)
-/obj/machinery/vending/proc/GetIconForProduct(datum/data/vending_product/P)
-	var/producticon = GLOB.vending_machine_icon[P.product_path]
-	if (producticon)
-		return producticon
-	var/product = new P.product_path()
-	producticon = icon2base64(getFlatIcon(product, no_anim = TRUE))
-	qdel(product)
-	GLOB.vending_machine_icon[P.product_path] = copytext(producticon,1,0)
-	return GLOB.vending_machine_icon[P.product_path]
+
 /obj/machinery/vending/ui_interact(mob/user)
 	var/onstation = FALSE
 	if(SSmapping.level_trait(z, ZTRAIT_STATION))

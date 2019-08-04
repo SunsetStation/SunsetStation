@@ -50,6 +50,9 @@
 
 	var/no_air = null
 
+	var/mood_bonus = 0 //Mood for being here
+	var/mood_message = "" //Mood message for being here, only shows up if mood_bonus != 0
+
 	var/parallax_movedir = 0
 
 	var/global/global_uid = 0

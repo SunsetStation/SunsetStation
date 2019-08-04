@@ -1,17 +1,7 @@
+#define SW_LIGHT_FACTOR 2.75 // sunset -- shadowlings
+
 /mob/CanPass(atom/movable/mover, turf/target)
 	return TRUE				//There's almost no cases where non /living mobs should be used in game as actual mobs, other than ghosts.
-
-/mob/living/CanPass(atom/movable/mover, turf/target)
-	if((mover.pass_flags & PASSMOB))
-		return TRUE
-	if(istype(mover, /obj/item/projectile) || mover.throwing)
-		return (!density || !(mobility_flags & MOBILITY_STAND))
-	if(buckled == mover)
-		return TRUE
-	if(ismob(mover))
-		if (mover in buckled_mobs)
-			return TRUE
-	return (!mover.density || !density || !(mobility_flags & MOBILITY_STAND))
 
 //DO NOT USE THIS UNLESS YOU ABSOLUTELY HAVE TO. THIS IS BEING PHASED OUT FOR THE MOVESPEED MODIFICATION SYSTEM.
 //See mob_movespeed.dm
@@ -87,6 +77,14 @@
 
 	if(!mob.Process_Spacemove(direct))
 		return FALSE
+
+	var/delay = mob.movement_delay() // sunset start -- shadowling shit. Needless to say, this is horrible
+	if(Can_ShadowWalk(mob))
+		if(Process_ShadowWalk(direct))
+			return
+		else
+			delay = delay*SW_LIGHT_FACTOR // sunset end
+
 	//We are now going to move
 	var/add_delay = mob.movement_delay()
 	if(old_move_delay + (add_delay*MOVEMENT_DELAY_BUFFER_DELTA) + MOVEMENT_DELAY_BUFFER > world.time)

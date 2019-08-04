@@ -14,12 +14,11 @@
 	var/charges = 0
 	var/recharge_rate = 4
 	var/charge_tick = 0
-	var/can_charge = 1
+	var/can_charge = TRUE
 	var/ammo_type
 	var/no_den_usage
 	clumsy_check = 0
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL // Has no trigger at all, uses magic instead
-	pin = /obj/item/firing_pin/magic
 
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi' //not really a gun and some toys use these inhands
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'

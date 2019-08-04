@@ -22,6 +22,9 @@
 	if(draining)
 		to_chat(src, "<span class='revenwarning'>You are already siphoning the essence of a soul!</span>")
 		return
+	if(target.isLivingSSD())
+		to_chat(src, "<span class='revennotice'>[target.p_their(TRUE)] soul is beyond your reach.</span>")
+		return
 	if(!target.stat)
 		to_chat(src, "<span class='revennotice'>[target.p_their(TRUE)] soul is too strong to harvest.</span>")
 		if(prob(10))
@@ -128,8 +131,8 @@
 	var/unlock_amount = 100 //How much essence it costs to unlock
 	var/cast_amount = 50 //How much essence it costs to use
 
-/obj/effect/proc_holder/spell/aoe_turf/revenant/New()
-	..()
+/obj/effect/proc_holder/spell/aoe_turf/revenant/Initialize()
+	. = ..()
 	if(locked)
 		name = "[initial(name)] ([unlock_amount]SE)"
 	else

@@ -30,9 +30,12 @@
 	var/combat_armor = list("melee" = 50, "bullet" = 50, "laser" = 50, "energy" = 50, "bomb" = 50, "bio" = 50, "rad" = 50, "fire" = 90, "acid" = 90)
 
 /obj/item/clothing/suit/armor/abductor/vest/proc/toggle_nodrop()
-	item_flags ^= NODROP
+	if(has_trait(TRAIT_NODROP, ABDUCTOR_VEST_TRAIT))
+		remove_trait(TRAIT_NODROP, ABDUCTOR_VEST_TRAIT)
+	else
+		add_trait(TRAIT_NODROP, ABDUCTOR_VEST_TRAIT)
 	if(ismob(loc))
-		to_chat(loc, "<span class='notice'>Your vest is now [item_flags & NODROP ? "locked" : "unlocked"].</span>")
+		to_chat(loc, "<span class='notice'>Your vest is now [has_trait(TRAIT_NODROP, ABDUCTOR_VEST_TRAIT) ? "locked" : "unlocked"].</span>")
 
 /obj/item/clothing/suit/armor/abductor/vest/proc/flip_mode()
 	switch(mode)
@@ -362,23 +365,10 @@
 		to_chat(user, "<span class='notice'>You send the message to your target.</span>")
 		log_directed_talk(user, L, message, LOG_SAY, "abductor whisper")
 
-
-/obj/item/firing_pin/abductor
-	name = "alien firing pin"
-	icon_state = "firing_pin_ayy"
-	desc = "This firing pin is slimy and warm; you can swear you feel it \
-		constantly trying to mentally probe you."
-	fail_message = "<span class='abductor'>\
-		Firing error, please contact Command.</span>"
-
-/obj/item/firing_pin/abductor/pin_auth(mob/living/user)
-	. = isabductor(user)
-
 /obj/item/gun/energy/alien
 	name = "alien pistol"
 	desc = "A complicated gun that fires bursts of high-intensity radiation."
 	ammo_type = list(/obj/item/ammo_casing/energy/declone)
-	pin = /obj/item/firing_pin/abductor
 	icon_state = "alienpistol"
 	item_state = "alienpistol"
 	trigger_guard = TRIGGER_GUARD_ALLOW_ALL
