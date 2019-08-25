@@ -45,67 +45,6 @@
 	message = "mumbles!"
 	emote_type = EMOTE_AUDIBLE
 
-/datum/emote/living/carbon/human/scream
-	key = "scream"
-	key_third_person = "screams"
-	message = "screams!"
-	emote_type = EMOTE_AUDIBLE
-	vary = TRUE
-
-/datum/emote/living/carbon/human/cough
-	key = "sneeze"
-	key_third_person = "sneezes"
-	message = "sneezes!"
-	emote_type = EMOTE_AUDIBLE
-
-/datum/emote/living/carbon/human/sneeze
-	key = "cough"
-	key_third_person = "coughs"
-	message = "coughs!"
-	emote_type = EMOTE_AUDIBLE
-
-
-/datum/emote/living/carbon/human/scream/get_sound(mob/living/user)
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	if(H.mind?.miming)
-		return
-	if(ishumanbasic(H) || iscatperson(H))
-		if(user.gender == FEMALE)
-			return pick('sound/voice/human/femalescream_1.ogg', 'sound/voice/human/femalescream_2.ogg', 'sound/voice/human/femalescream_3.ogg', 'sound/voice/human/femalescream_4.ogg', 'sound/voice/human/femalescream_5.ogg')
-		else
-			if(prob(1))
-				return 'sound/voice/human/wilhelm_scream.ogg'
-			return pick('sound/voice/human/malescream_1.ogg', 'sound/voice/human/malescream_2.ogg', 'sound/voice/human/malescream_3.ogg', 'sound/voice/human/malescream_4.ogg', 'sound/voice/human/malescream_5.ogg')
-	else if(ismoth(H))
-		return 'sound/voice/moth/scream_moth.ogg'
-
-/datum/emote/living/carbon/human/cough/get_sound(mob/living/user)
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	if(H.mind?.miming)
-		return
-	if(ishumanbasic(H) || iscatperson(H))
-		if(user.gender == FEMALE)
-			return pick(H.dna.species.Hfemale_cough_sound)
-		else
-			return pick(H.dna.species.Hmale_cough_sound)
-
-/datum/emote/living/carbon/human/sneeze/get_sound(mob/living/user)
-	if(!ishuman(user))
-		return
-	var/mob/living/carbon/human/H = user
-	if(H.mind?.miming)
-		return
-	if(ishumanbasic(H) || iscatperson(H))
-		if(user.gender == FEMALE)
-			return pick(H.dna.species.Hfemale_sneeze_sound)
-		else
-			return pick(H.dna.species.Hmale_sneeze_sound)
-
-
 /datum/emote/living/carbon/human/pale
 	key = "pale"
 	message = "goes pale for a second."

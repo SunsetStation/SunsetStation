@@ -58,13 +58,6 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/sound/attack_sound = 'sound/weapons/punch1.ogg'
 	var/sound/miss_sound = 'sound/weapons/punchmiss.ogg'
 
-	var/sound/Hfemale_scream_sound = 'sound/effects/mob_effects/goonstation/female_scream.ogg'
-	var/sound/Hmale_scream_sound = 'sound/effects/mob_effects/goonstation/male_scream.ogg'
-	var/sound/Hfemale_cough_sound = 'sound/effects/mob_effects/f_cough.ogg'
-	var/sound/Hmale_cough_sound = 'sound/effects/mob_effects/m_cough.ogg'
-	var/sound/Hfemale_sneeze_sound = 'sound/effects/mob_effects/f_sneeze.ogg'
-	var/sound/Hmale_sneeze_sound = 'sound/effects/mob_effects/sneeze.ogg'
-
 	var/list/mob/living/ignored_by = list()	// list of mobs that will ignore this species
 	//Breathing!
 	var/obj/item/organ/lungs/mutantlungs = null

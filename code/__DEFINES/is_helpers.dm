@@ -53,6 +53,7 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define iscarbon(A) (istype(A, /mob/living/carbon))
 
 #define ishuman(A) (istype(A, /mob/living/carbon/human))
+#define issilicon(A) (istype(A, /mob/living/silicon))
 
 //Human sub-species
 #define isabductor(A) (is_species(A, /datum/species/abductor))

@@ -41,10 +41,6 @@
 	//mob_type_allowed_typecache = list(/mob/living/carbon/monkey, /mob/living/carbon/alien)
 	mob_type_allowed_typecache = list(/mob/living/carbon/monkey)
 
-/datum/emote/living/carbon/screech/get_sound(mob/living/carbon/monkey)
-	if(..())
-		return pick('sound/effects/mob_effects/goonstation/monkey_scream.ogg')
-
 /datum/emote/living/carbon/moan
 	key = "moan"
 	key_third_person = "moans"
