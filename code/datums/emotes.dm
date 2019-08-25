@@ -20,6 +20,7 @@
 	var/list/mob_type_blacklist_typecache //Types that are NOT allowed to use that emote
 	var/list/mob_type_ignore_stat_typecache
 	var/stat_allowed = CONSCIOUS
+	var/cooldown = 20 // deciseconds of cooldown
 	var/sound //Sound to play when emote is called
 	var/vary = FALSE	//used for the honk borg emote
 	var/only_forced_audio = FALSE //can only code call this event instead of the player.
@@ -63,6 +64,7 @@
 
 	user.log_message(msg, LOG_EMOTE)
 	msg = "<b>[user]</b> " + msg
+	user.emote_cooldown = world.time + cooldown
 
 	var/tmp_sound = get_sound(user)
 	if(tmp_sound && (!only_forced_audio || !intentional))
@@ -119,6 +121,8 @@
 	if(!is_type_in_typecache(user, mob_type_allowed_typecache))
 		return FALSE
 	if(is_type_in_typecache(user, mob_type_blacklist_typecache))
+		return FALSE
+	if(world.time < user.emote_cooldown)
 		return FALSE
 	if(status_check && !is_type_in_typecache(user, mob_type_ignore_stat_typecache))
 		if(user.stat > stat_allowed)

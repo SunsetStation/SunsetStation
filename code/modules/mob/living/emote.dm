@@ -52,11 +52,12 @@
 		var/mob/living/L = user
 		L.Unconscious(40)
 
-/datum/emote/living/cough
+datum/emote/living/cough
 	key = "cough"
 	key_third_person = "coughs"
 	message = "coughs!"
 	emote_type = EMOTE_AUDIBLE
+	cooldown = 60
 
 /datum/emote/living/cough/can_run_emote(mob/user, status_check = TRUE)
 	. = ..()
@@ -68,6 +69,15 @@
 	key_third_person = "dances"
 	message = "dances around happily."
 	restraint_check = TRUE
+
+/datum/emote/living/flip
+	key = "flip"
+	key_third_person = "flips"
+	message = "does a flip!"
+
+/datum/emote/living/flip/run_emote(mob/user, params)
+	if(..())
+		user.SpinAnimation(5,1)
 
 /datum/emote/living/deathgasp
 	key = "deathgasp"
@@ -305,6 +315,7 @@
 	key_third_person = "sneezes"
 	message = "sneezes."
 	emote_type = EMOTE_AUDIBLE
+	cooldown = 60
 
 /datum/emote/living/smug
 	key = "smug"
@@ -511,3 +522,63 @@
 		to_chat(user, "<span class='notice'>You ready your slapping hand.</span>")
 	else
 		to_chat(user, "<span class='warning'>You're incapable of slapping in your current state.</span>")
+
+
+/datum/emote/living/scream
+	key = "scream"
+	key_third_person = "screams"
+	message = "screams!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+
+
+/datum/emote/living/scream/get_sound(mob/living/user)
+	var/mob/living/carbon/human/H = user
+	if(H.mind?.miming)
+		return
+	if(ishumanbasic(H) || iscatperson(H))
+		if(user.gender == FEMALE)
+			playsound (H.loc, 'sound/effects/mob_effects/goonstation/female_scream.ogg' ,50,H.dna.species.get_age_frequency())
+			return
+		else
+			playsound (H.loc, 'sound/effects/mob_effects/goonstation/male_scream.ogg' ,50,H.dna.species.get_age_frequency())
+			return
+	else if(ismoth(H))
+		return 'sound/voice/moth/scream_moth.ogg'
+	else if(issilicon(H))
+		return 'sound/machines/silicon_scream.ogg'
+	else if(!ishuman(user))
+		return
+
+/datum/emote/living/cough/get_sound(mob/living/user)
+	var/mob/living/carbon/human/H = user
+	if(H.mind?.miming)
+		return
+	if(ishumanbasic(H) || iscatperson(H))
+		if(user.gender == FEMALE)
+			return pick('sound/effects/mob_effects/f_cough.ogg')
+		else
+			return pick('sound/effects/mob_effects/m_cough.ogg')
+	else if(issilicon(H))
+		return 'sound/machines/machine_cough.ogg'	
+	else if(!ishuman(user))
+		return
+	else
+		return
+
+/datum/emote/living/sneeze/get_sound(mob/living/user)
+	var/mob/living/carbon/human/H = user
+	if(H.mind?.miming)
+		return
+	if(ishumanbasic(H) || iscatperson(H))
+		if(user.gender == FEMALE)
+			return pick('sound/effects/mob_effects/f_sneeze.ogg')
+		else
+			return pick('sound/effects/mob_effects/sneeze.ogg')
+	else if(issilicon(H))
+		return 'sound/machines/machine_sneeze.ogg'
+	else if(!ishuman(user))
+		return	
+	else
+		return
+

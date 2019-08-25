@@ -248,6 +248,9 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		var/obj/item/organ/I = new path()
 		I.Insert(C)
 
+/datum/species/proc/get_age_frequency(var/age)
+	return (1.0 + 0.5*(30 - age)/80)
+
 /datum/species/proc/on_species_gain(mob/living/carbon/C, datum/species/old_species, pref_load)
 	// Drop the items the new species can't wear
 	if((AGENDER in species_traits))
