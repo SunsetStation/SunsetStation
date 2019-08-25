@@ -28,7 +28,6 @@
 	burst_size = 1
 	fire_delay = 0
 	bolt_type = BOLT_TYPE_LOCKING
-	actions_types = list()
 
 /obj/item/gun/ballistic/automatic/toy/pistol/update_icon()
 	..()

@@ -3,7 +3,6 @@
 	name = "energy gun"
 	desc = "A basic energy-based gun."
 	icon = 'icons/obj/guns/energy.dmi'
-
 	var/obj/item/stock_parts/cell/cell //What type of power cell this uses
 	var/cell_type = /obj/item/stock_parts/cell
 	var/modifystate = 0
@@ -41,6 +40,8 @@
 	if(!dead_cell)
 		cell.give(cell.maxcharge)
 	update_ammo_types()
+	if(ammo_type.len > 1)
+		new /datum/action/item_action/toggle_firemode(src)
 	recharge_newshot(TRUE)
 	if(selfcharge)
 		START_PROCESSING(SSobj, src)
@@ -72,14 +73,9 @@
 			recharge_newshot(TRUE)
 		update_icon()
 
-/obj/item/gun/energy/attack_self(mob/living/user as mob)
-	if(ammo_type.len > 1)
-		select_fire(user)
-		update_icon()
-
 /obj/item/gun/energy/can_shoot()
 	var/obj/item/ammo_casing/energy/shot = ammo_type[select]
-	return !QDELETED(cell) ? (cell.charge >= shot.e_cost) : FALSE
+	return ..() && (!QDELETED(cell) ? (cell.charge >= shot.e_cost) : FALSE)
 
 /obj/item/gun/energy/recharge_newshot(no_cyborg_drain)
 	if (!ammo_type || !cell)
@@ -127,12 +123,12 @@
 	chambered = null
 	recharge_newshot(TRUE)
 	update_icon(TRUE)
+	user.update_inv_hands()
 	return
 
 /obj/item/gun/energy/update_icon(force_update)
 	if(QDELETED(src))
 		return
-	..()
 	if(!automatic_charge_overlays)
 		return
 	var/ratio = CEILING(CLAMP(cell.charge / cell.maxcharge, 0, 1) * charge_sections, 1)
@@ -163,7 +159,11 @@
 			add_overlay("[icon_state]_charge[ratio]")
 	if(itemState)
 		itemState += "[ratio]"
+		var/datum/component/twohanded/C = GetComponent(/datum/component/twohanded)
+		if(C && C.wielded)
+			itemState += "w"
 		item_state = itemState
+	..()
 
 /obj/item/gun/energy/suicide_act(mob/living/user)
 	if (istype(user) && can_shoot() && can_trigger_gun(user) && user.get_bodypart(BODY_ZONE_HEAD))
@@ -222,3 +222,9 @@
 			playsound(user, BB.hitsound, 50, 1)
 			cell.use(E.e_cost)
 			. = "<span class='danger'>[user] casually lights their [A.name] with [src]. Damn.</span>"
+
+/obj/item/gun/energy/ui_action_click(mob/user, actiontype)
+	if(istype(actiontype, /datum/action/item_action/toggle_firemode))
+		if(ammo_type.len > 1)
+			select_fire(user)
+

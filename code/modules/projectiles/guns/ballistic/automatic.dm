@@ -4,7 +4,7 @@
 	can_suppress = TRUE
 	burst_size = 3
 	fire_delay = 2
-	actions_types = list(/datum/action/item_action/toggle_firemode)
+	actions_types = list(/datum/action/item_action/pump, /datum/action/item_action/toggle_firemode)
 	semi_auto = TRUE
 	fire_sound = "sound/weapons/smgshot.ogg"
 	fire_sound_volume = 80
@@ -19,6 +19,7 @@
 	bolt_type = BOLT_TYPE_LOCKING
 	mag_display = TRUE
 	tac_reloads = TRUE
+	twohanded = TWOHANDED
 
 /obj/item/gun/ballistic/automatic/update_icon()
 	..()
@@ -66,6 +67,7 @@
 	mag_display_ammo = TRUE
 	empty_indicator = TRUE
 	tac_reloads = TRUE
+	twohanded = TWOHANDED
 
 /obj/item/gun/ballistic/automatic/c20r/Initialize()
 	. = ..()
@@ -80,13 +82,13 @@
 	fire_delay = 2
 	can_suppress = FALSE
 	burst_size = 0
-	actions_types = list()
 	can_bayonet = TRUE
 	knife_x_offset = 25
 	knife_y_offset = 12
 	mag_display = TRUE
 	mag_display_ammo = TRUE
 	empty_indicator = TRUE
+	twohanded = TWOHANDED_REQUIRED
 
 /obj/item/gun/ballistic/automatic/mini_uzi
 	name = "\improper Type U3 Uzi"
@@ -215,6 +217,7 @@
 	mag_display_ammo = TRUE
 	fire_sound = 'sound/weapons/rifleshot.ogg'
 	rack_sound = 'sound/weapons/chunkyrack.ogg'
+	twohanded = TWOHANDED_REQUIRED
 
 /obj/item/gun/ballistic/automatic/l6_saw/examine(mob/user)
 	..()
@@ -286,7 +289,6 @@
 	zoom_amt = 10 //Long range, enough to see in front of you, but no tiles behind you.
 	zoom_out_amt = 13
 	slot_flags = ITEM_SLOT_BACK
-	actions_types = list()
 	mag_display = TRUE
 
 /obj/item/gun/ballistic/automatic/sniper_rifle/syndicate
@@ -310,7 +312,6 @@
 	can_suppress = TRUE
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = ITEM_SLOT_BACK
-	actions_types = list()
 	mag_display = TRUE
 
 // Laser rifle (rechargeable magazine) //
@@ -324,6 +325,5 @@
 	fire_delay = 2
 	can_suppress = FALSE
 	burst_size = 0
-	actions_types = list()
 	fire_sound = 'sound/weapons/laser.ogg'
 	casing_ejector = FALSE

@@ -19,6 +19,7 @@
 	casing_ejector = FALSE
 	bolt_wording = "pump"
 	cartridge_wording = "shell"
+	twohanded = TWOHANDED_REQUIRED
 
 /obj/item/gun/ballistic/shotgun/blow_up(mob/user)
 	. = 0
@@ -123,7 +124,6 @@
 	can_suppress = FALSE
 	burst_size = 1
 	fire_delay = 0
-	actions_types = list()
 	mag_display = TRUE
 	empty_indicator = TRUE
 	empty_alarm = TRUE

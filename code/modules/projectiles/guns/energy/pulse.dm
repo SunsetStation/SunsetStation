@@ -10,6 +10,7 @@
 	slot_flags = ITEM_SLOT_BACK
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/pulse, /obj/item/ammo_casing/energy/electrode, /obj/item/ammo_casing/energy/laser)
 	cell_type = "/obj/item/stock_parts/cell/pulse"
+	twohanded = TWOHANDED_REQUIRED
 
 /obj/item/gun/energy/pulse/emp_act(severity)
 	return
@@ -41,6 +42,7 @@
 	can_flashlight = TRUE
 	flight_x_offset = 18
 	flight_y_offset = 12
+	twohanded = TWOHANDED
 
 /obj/item/gun/energy/pulse/carbine
 
@@ -52,6 +54,7 @@
 	icon_state = "pulse_pistol"
 	item_state = "gun"
 	cell_type = "/obj/item/stock_parts/cell/pulse/pistol"
+	twohanded = SINGLEHANDED
 
 /obj/item/gun/energy/pulse/pistol
 
@@ -60,9 +63,6 @@
 	desc = "A heavy-duty energy rifle built for pure destruction."
 	cell_type = "/obj/item/stock_parts/cell/infinite"
 	ammo_type = list(/obj/item/ammo_casing/energy/laser/pulse)
-
-/obj/item/gun/energy/pulse/destroyer/attack_self(mob/living/user)
-	to_chat(user, "<span class='danger'>[src.name] has three settings, and they are all DESTROY.</span>")
 
 /obj/item/gun/energy/pulse/pistol/m1911
 	name = "\improper M1911-P"

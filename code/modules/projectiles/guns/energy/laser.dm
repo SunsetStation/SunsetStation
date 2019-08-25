@@ -8,6 +8,7 @@
 	ammo_type = list(/obj/item/ammo_casing/energy/lasergun)
 	ammo_x_offset = 1
 	shaded_charge = 1
+	twohanded = TWOHANDED_REQUIRED
 
 /obj/item/gun/energy/laser/practice
 	name = "practice laser gun"
@@ -38,6 +39,7 @@
 	ammo_x_offset = 3
 	selfcharge = 1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
+	twohanded = SINGLEHANDED
 
 /obj/item/gun/energy/laser/captain/scattershot
 	name = "scatter shot laser rifle"

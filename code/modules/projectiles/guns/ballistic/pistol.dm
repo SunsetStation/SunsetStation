@@ -7,7 +7,6 @@
 	can_suppress = TRUE
 	burst_size = 1
 	fire_delay = 0
-	actions_types = list()
 	bolt_type = BOLT_TYPE_LOCKING
 	fire_sound = "sound/weapons/gunshot.ogg"
 	vary_fire_sound = FALSE
@@ -63,7 +62,7 @@
 	can_suppress = FALSE
 	burst_size = 3
 	fire_delay = 2
-	actions_types = list(/datum/action/item_action/toggle_firemode)
+	actions_types = list(/datum/action/item_action/pump, /datum/action/item_action/toggle_firemode)
 
 /obj/item/gun/ballistic/automatic/pistol/stickman
 	name = "flat gun"
