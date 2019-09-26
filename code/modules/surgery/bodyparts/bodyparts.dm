@@ -214,7 +214,7 @@
 			O.take_damage(rand(brute, brute*2))
 
 	//blunt objects break bones better, but damage organs less
-	if(prob(brute * (3-break_modifier) * 1.5) && ((brute_dam + burn_dam)/max_damage) > 0.2)
+	if(prob(brute*break_modifier) && ((brute_dam + burn_dam)/max_damage) > 0.3 )
 		break_bone()
 	
 	var/can_inflict = max_damage - get_damage()
