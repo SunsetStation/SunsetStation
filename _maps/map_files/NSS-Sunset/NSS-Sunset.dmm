@@ -436,7 +436,7 @@
 /area/sunset/genpop)
 "abb" = (
 /obj/machinery/turnstile{
-	req_access_txt = "300"
+	req_access_txt = "2"
 	},
 /turf/open/floor/plating,
 /area/sunset/genpop)
@@ -1419,7 +1419,7 @@
 /obj/machinery/turnstile{
 	dir = 1;
 	icon_state = "turnstile_map";
-	req_access_txt = "301"
+	req_access_txt = "2"
 	},
 /turf/open/floor/plating,
 /area/sunset/genpop)
@@ -1428,7 +1428,7 @@
 /obj/machinery/turnstile{
 	dir = 1;
 	icon_state = "turnstile_map";
-	req_access_txt = "301"
+	req_access_txt = "2"
 	},
 /turf/open/floor/plating,
 /area/sunset/genpop)
@@ -52849,6 +52849,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/yellow,
+/obj/machinery/body_scanner,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)
 "cxg" = (
@@ -71962,7 +71963,7 @@
 /area/maintenance/aft)
 "jqM" = (
 /obj/machinery/turnstile{
-	req_access_txt = "300"
+	req_access_txt = "2"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/plasteel/dark,
@@ -81619,7 +81620,7 @@
 /obj/machinery/turnstile{
 	dir = 1;
 	icon_state = "turnstile_map";
-	req_access_txt = "301"
+	req_access_txt = "2"
 	},
 /turf/open/floor/plasteel/dark,
 /area/sunset/genpop)
@@ -83635,7 +83636,7 @@
 /obj/machinery/turnstile{
 	dir = 1;
 	icon_state = "turnstile_map";
-	req_access_txt = "301"
+	req_access_txt = "2"
 	},
 /turf/open/floor/plasteel/dark,
 /area/sunset/genpop)
@@ -110797,8 +110798,8 @@ tZq
 gaK
 pbi
 act
-abI
 ads
+abI
 adw
 llX
 uVH

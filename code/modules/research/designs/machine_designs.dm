@@ -136,7 +136,16 @@
 	id = "sleeper"
 	build_path = /obj/item/circuitboard/machine/sleeper
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_MEDICAL
-	category = list ("Medical Machinery")
+	category = list("Medical Machinery")
+
+/datum/design/board/bscanner
+	name = "Machine Design (Body Scanner Board)"
+	desc = "The circuit board for a body scanner."
+	id = "bscanner"
+	departmental_flags = DEPARTMENTAL_FLAG_MEDICAL
+	//req_tech = list("programming" = 2, "biotech" = 2, "engineering" = 3)
+	build_path = /obj/item/circuitboard/machine/body_scanner
+	category = list("Medical Machinery")
 
 /datum/design/board/vr_sleeper
 	name = "Machine Design (VR Sleeper Board)"

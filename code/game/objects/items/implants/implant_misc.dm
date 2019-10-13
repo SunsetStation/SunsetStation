@@ -3,6 +3,7 @@
 	desc = "Lets you shoot your guns."
 	icon_state = "auth"
 	activated = 0
+	shows_up_on_scanners = FALSE
 
 /obj/item/implant/weapons_auth/get_data()
 	var/dat = {"<b>Implant Specifications:</b><BR>
@@ -18,6 +19,7 @@
 	desc = "Removes all stuns."
 	icon_state = "adrenal"
 	uses = 3
+	shows_up_on_scanners = FALSE
 
 /obj/item/implant/adrenalin/get_data()
 	var/dat = {"<b>Implant Specifications:</b><BR>

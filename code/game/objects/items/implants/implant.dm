@@ -8,6 +8,7 @@
 	item_color = "b"
 	var/allow_multiple = FALSE
 	var/uses = -1
+	var/shows_up_on_scanners = TRUE //body scanner, don't let people find storage implants this easily
 	item_flags = DROPDEL
 
 

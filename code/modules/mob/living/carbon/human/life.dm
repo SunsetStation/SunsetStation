@@ -40,6 +40,10 @@
 		handle_embedded_objects()
 
 	if(stat != DEAD)
+		//Fractured bones
+		handle_fractures()
+
+	if(stat != DEAD)
 		handle_hygiene()
 
 	//Update our name based on whether our face is obscured/disfigured
@@ -69,7 +73,7 @@
 	else if(eye_blurry)			//blurry eyes heal slowly
 		adjust_blurriness(-1)
 
-	if (getBrainLoss() >= 60)
+	if (getBrainLoss() >= 30)
 		SEND_SIGNAL(src, COMSIG_ADD_MOOD_EVENT, "brain_damage", /datum/mood_event/brain_damage)
 	else
 		SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "brain_damage")
@@ -308,6 +312,23 @@
 				if(!has_embedded_objects())
 					clear_alert("embeddedobject")
 					SEND_SIGNAL(src, COMSIG_CLEAR_MOOD_EVENT, "embedded")
+
+/mob/living/carbon/human/proc/handle_fractures()
+	//this whole thing is hacky and WILL NOT work right with multiple hands
+	//you've been warned
+	var/obj/item/bodypart/L = get_bodypart("l_arm")
+	var/obj/item/bodypart/R = get_bodypart("r_arm")
+
+	if(istype(L) && L.broken && held_items[1] && prob(30))
+		emote("scream")
+		visible_message("<span class='warning'>[src] screams and lets go of [held_items[1]] in pain.</span>", "<span class='userdanger'>A horrible pain in your [parse_zone(L)] makes it impossible to hold [held_items[1]]!</span>")
+		dropItemToGround(held_items[1])
+
+	if(istype(R) && R.broken && held_items[2] && prob(30))
+		emote("scream")
+		visible_message("<span class='warning'>[src] screams and lets go of [held_items[2]] in pain.</span>", "<span class='userdanger'>A horrible pain in your [parse_zone(R)] makes it impossible to hold [held_items[2]]!</span>")
+		dropItemToGround(held_items[2])
+
 
 /mob/living/carbon/human/proc/handle_active_genes()
 	for(var/datum/mutation/human/HM in dna.mutations)

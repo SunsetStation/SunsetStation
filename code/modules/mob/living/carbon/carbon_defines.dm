@@ -51,6 +51,7 @@
 
 	var/icon_render_key = ""
 	var/static/list/limb_icon_cache = list()
+	var/has_bones = FALSE//whether carbon has breakable bones. Species overrides this var on humans.
 
 	//halucination vars
 	var/image/halimage

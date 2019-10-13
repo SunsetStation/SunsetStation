@@ -6,6 +6,7 @@
 	activated = 1
 	var/obj/machinery/abductor/pad/home
 	var/cooldown = 30
+	shows_up_on_scanners = FALSE
 
 /obj/item/implant/abductor/activate()
 	. = ..()

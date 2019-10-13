@@ -16,6 +16,15 @@
 		/obj/item/stock_parts/scanning_module = 2,
 		/obj/item/stack/sheet/glass = 2)
 
+/obj/item/circuitboard/machine/body_scanner
+	name = "Body Scanner (Machine Board)"
+	build_path = /obj/machinery/body_scanner
+	//origin_tech = "programming=3;biotech=2;engineering=2"
+	req_components = list(
+		/obj/item/stock_parts/scanning_module = 1,
+		/obj/item/stack/sheet/glass = 2)
+
+
 /obj/item/circuitboard/machine/announcement_system
 	name = "Announcement System (Machine Board)"
 	build_path = /obj/machinery/announcement_system

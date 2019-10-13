@@ -14,9 +14,18 @@
 	var/heal_brute = 0
 	var/heal_burn = 0
 	var/stop_bleeding = 0
+	var/splint_fracture = FALSE
 	var/self_delay = 50
 
 /obj/item/stack/medical/attack(mob/living/M, mob/user)
+
+	if(iscarbon(M))					//this bit here allows us to use medical stacks for surgery
+		var/mob/living/carbon/C = M	//without writing the whole codebase from scratch; really useful!
+		if(C.surgeries.len)
+			for(var/datum/surgery/surgery in C.surgeries)
+				if(surgery.location == user.zone_selected)
+					if(surgery.next_step(user))
+						return 1
 
 	if(M.stat == DEAD)
 		var/t_him = "it"
@@ -47,6 +56,15 @@
 				else if(!H.bleed_rate)
 					to_chat(user, "<span class='warning'>[H] isn't bleeding!</span>")
 					return
+		if(splint_fracture)
+			if(affecting.body_part in list(CHEST, HEAD))
+				to_chat(user, "<span class='warning'>You can't splint that bodypart!</span>")
+			else if(!affecting.broken)
+				to_chat(user, "<span class='warning'>[M]'s [parse_zone(user.zone_selected)] isn't broken!</span>")
+				return
+			else if(affecting.splinted)
+				to_chat(user, "<span class='warning'>[M]'s [parse_zone(user.zone_selected)] is already splinted!</span>")
+				return
 
 
 	if(isliving(M))
@@ -81,7 +99,6 @@
 
 	if(iscarbon(M))
 		var/mob/living/carbon/C = M
-		affecting = C.get_bodypart(check_zone(user.zone_selected))
 		if(!affecting) //Missing limb?
 			to_chat(user, "<span class='warning'>[C] doesn't have \a [parse_zone(user.zone_selected)]!</span>")
 			return
@@ -93,8 +110,11 @@
 		if(affecting.status == BODYPART_ORGANIC) //Limb must be organic to be healed - RR
 			if(affecting.heal_damage(heal_brute, heal_burn))
 				C.update_damage_overlays()
+			if(splint_fracture)
+				affecting.splinted = TRUE
+				C.update_inv_splints()
 		else
-			to_chat(user, "<span class='notice'>Medicine won't work on a robotic limb!</span>")
+			to_chat(user, "<span class='notice'>[src] won't work on a robotic limb!</span>")
 	else
 		M.heal_bodypart_damage((src.heal_brute/2), (src.heal_burn/2))
 
@@ -123,7 +143,7 @@
 	gender = PLURAL
 	singular_name = "medical gauze"
 	icon_state = "gauze"
-	stop_bleeding = 1800
+	stop_bleeding = 3 MINUTES
 	self_delay = 20
 	max_amount = 12
 
@@ -149,7 +169,7 @@
 	name = "improvised gauze"
 	singular_name = "improvised gauze"
 	desc = "A roll of cloth roughly cut from something that can stop bleeding, but does not heal wounds."
-	stop_bleeding = 900
+	stop_bleeding = 1.5 MINUTES
 
 /obj/item/stack/medical/gauze/cyborg
 	materials = list()
@@ -167,6 +187,15 @@
 	heal_burn = 40
 	self_delay = 20
 	grind_results = list("silver_sulfadiazine" = 10)
+
+/obj/item/stack/medical/splint
+	name = "splints"
+	desc = "Used to secure limbs following a fracture."
+	gender = PLURAL
+	singular_name = "splint"
+	icon_state = "splint"
+	self_delay = 40
+	splint_fracture = TRUE 
 
 /obj/item/stack/medical/ointment/suicide_act(mob/living/user)
 	user.visible_message("<span class='suicide'>[user] is squeezing \the [src] into [user.p_their()] mouth! [user.p_do(TRUE)]n't [user.p_they()] know that stuff is toxic?</span>")

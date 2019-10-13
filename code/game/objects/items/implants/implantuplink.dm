@@ -6,6 +6,7 @@
 	lefthand_file = 'icons/mob/inhands/misc/devices_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/misc/devices_righthand.dmi'
 	var/starting_tc = 0
+	shows_up_on_scanners = FALSE
 
 /obj/item/implant/uplink/Initialize(mapload, _owner)
 	. = ..()

@@ -24,17 +24,18 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 //define THIS_PROC_TYPE_WEIRD_STR_WITH_ARGS "[THIS_PROC_TYPE_WEIRD]([args.Join(",")])" //Ditto
 
 //Human Overlays Indexes/////////
-#define MUTATIONS_LAYER			28		//mutations. Tk headglows, cold resistance glow, etc
-#define BODY_BEHIND_LAYER		27		//certain mutantrace features (tail when looking south) that must appear behind the body parts
-#define BODYPARTS_LAYER			26		//Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
-#define BODY_ADJ_LAYER			25		//certain mutantrace features (snout, body markings) that must appear above the body parts
-#define BODY_LAYER				24		//underwear, undershirts, socks, eyes, lips(makeup)
-#define FRONT_MUTATIONS_LAYER	23		//mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
-#define DAMAGE_LAYER			22		//damage indicators (cuts and burns)
-#define UNIFORM_LAYER			21
-#define ID_LAYER				20 //lmao at the idiot who put both ids and hands on the same layer
-#define HANDS_PART_LAYER		19
-#define GLOVES_LAYER			18
+#define MUTATIONS_LAYER			29		//mutations. Tk headglows, cold resistance glow, etc
+#define BODY_BEHIND_LAYER		28		//certain mutantrace features (tail when looking south) that must appear behind the body parts
+#define BODYPARTS_LAYER			27		//Initially "AUGMENTS", this was repurposed to be a catch-all bodyparts flag
+#define BODY_ADJ_LAYER			26		//certain mutantrace features (snout, body markings) that must appear above the body parts
+#define BODY_LAYER				25		//underwear, undershirts, socks, eyes, lips(makeup)
+#define FRONT_MUTATIONS_LAYER	24		//mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
+#define DAMAGE_LAYER			23		//damage indicators (cuts and burns)
+#define UNIFORM_LAYER			22
+#define ID_LAYER				21 //lmao at the idiot who put both ids and hands on the same layer
+#define HANDS_PART_LAYER		20
+#define GLOVES_LAYER			19
+#define SPLINT_LAYER			18
 #define SHOES_LAYER				17
 #define EARS_LAYER				16
 #define SUIT_LAYER				15
@@ -52,7 +53,7 @@ Will print: "/mob/living/carbon/human/death" (you can optionally embed it in a s
 #define BODY_FRONT_LAYER		3
 #define SMELL_LAYER				2
 #define FIRE_LAYER				1		//If you're on fire
-#define TOTAL_LAYERS			28		//KEEP THIS UP-TO-DATE OR SHIT WILL BREAK ;_;
+#define TOTAL_LAYERS			29		//KEEP THIS UP-TO-DATE OR SHIT WILL BREAK ;_;
 
 //Human Overlay Index Shortcuts for alternate_worn_layer, layers
 //Because I *KNOW* somebody will think layer+1 means "above"

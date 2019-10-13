@@ -35,7 +35,6 @@
 	var/list/datum/tgui/children = list() // Children of this UI.
 	var/titlebar = TRUE
 	var/custom_browser_id = FALSE
-	var/ui_screen = "home"
 
  /**
   * public

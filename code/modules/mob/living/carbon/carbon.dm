@@ -1,5 +1,6 @@
 /mob/living/carbon
 	blood_volume = BLOOD_VOLUME_NORMAL
+	var/organ_damage_tracker = 0 //not used for anything special, just cuts down on weird calculations in places
 
 /mob/living/carbon/Initialize()
 	. = ..()
@@ -92,6 +93,12 @@
 				if(S.next_step(user,user.a_intent))
 					return 1
 	return ..()
+
+/mob/living/carbon/proc/update_organ_damage_tracker()
+	organ_damage_tracker = 0
+	for(var/thing in internal_organs)
+		var/obj/item/organ/O = thing
+		organ_damage_tracker += O.max_integrity - O.obj_integrity	
 
 /mob/living/carbon/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
@@ -803,15 +810,14 @@
 		reagents.clear_reagents()
 	var/obj/item/organ/liver/L = getorganslot(ORGAN_SLOT_LIVER)
 	if(L)
-		L.damage = 0
-	var/obj/item/organ/brain/B = getorgan(/obj/item/organ/brain)
-	if(B)
-		B.brain_death = FALSE
-		B.damaged_brain = FALSE
+		L.set_damage(0)
 	for(var/thing in diseases)
 		var/datum/disease/D = thing
 		if(D.severity != DISEASE_SEVERITY_POSITIVE)
 			D.cure(FALSE)
+	for(var/thing in internal_organs)
+		var/obj/item/organ/O = thing
+		O.set_damage(0)
 	if(admin_revive)
 		regenerate_limbs()
 		regenerate_organs()
