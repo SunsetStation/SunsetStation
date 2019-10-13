@@ -214,7 +214,7 @@
 			O.take_damage(rand(brute, brute*2))
 
 	//blunt objects break bones better, but damage organs less
-	if(prob(brute*break_modifier) && ((brute_dam + burn_dam)/max_damage) > 0.3 )
+	if(prob(brute * (3-break_modifier) * 1.5) && ((brute_dam + burn_dam)/max_damage) > 0.2)
 		break_bone()
 	
 	var/can_inflict = max_damage - get_damage()
@@ -341,6 +341,8 @@
 		C = owner
 		no_update = FALSE
 
+	has_bones = C.has_bones //get the carbon's default bone settings
+
 	if(C.has_trait(TRAIT_HUSK) && is_organic_limb())
 		species_id = "husk" //overrides species_id
 		dmg_overlay_type = "" //no damage overlay shown when husked
@@ -358,6 +360,12 @@
 		var/datum/species/S = H.dna.species
 		species_id = S.limbs_id
 		species_flags_list = H.dna.species.species_traits
+
+		if(NO_BONES in S.species_traits)
+			has_bones = FALSE
+			fix_bone()
+		else
+			has_bones = TRUE
 
 		if(S.use_skintones)
 			skin_tone = H.skin_tone
