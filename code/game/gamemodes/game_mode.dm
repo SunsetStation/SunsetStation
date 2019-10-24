@@ -24,6 +24,7 @@
 	var/round_ends_with_antag_death = 0 //flags the "one verse the station" antags as such
 	var/list/datum/mind/antag_candidates = list()	// List of possible starting antags goes here
 	var/list/restricted_jobs = list()	// Jobs it doesn't make sense to be.  I.E chaplain or AI cultist
+	var/list/restricted_species = list() // Species that can't be traitors
 	var/list/protected_jobs = list()	// Jobs that can't be traitors because
 	var/required_players = 0
 	var/maximum_players = -1 // -1 is no maximum, positive numbers limit the selection of a mode on overstaffed stations
@@ -353,13 +354,36 @@
 	WARNING("Something has gone terribly wrong. /datum/game_mode/proc/antag_pick failed to select a candidate. Falling back to pick()")
 	return pick(candidates)
 
+/datum/game_mode/proc/is_player_eligible_for_role(role, mob/dead/new_player/player)
+	if(!player.client || player.ready != PLAYER_READY_TO_PLAY)
+		return FALSE
+
+	if(is_banned_from(player.ckey, list(role, ROLE_SYNDICATE)) || is_banned_from(player.ckey, role))
+		return FALSE
+
+	if(!age_check(player.client))
+		return FALSE
+
+	if(restricted_species)
+		for(var/species in restricted_species)
+			if(player.client.prefs.pref_species.id == species)
+				return FALSE
+
+	if(restricted_jobs)
+		for(var/job in restricted_jobs)
+			if(player.mind.assigned_role == job)
+				return FALSE
+
+	return TRUE
+
+// Returns candidates who would prefer to be antag first. If there are not enough players to reach recommended_enemies
+// it will return all eligble players instead.
+//
+// This may return less than recommended_enemies if there are not enough eligble players for this role.
+
 /datum/game_mode/proc/get_players_for_role(role)
 	var/list/players = list()
-	var/list/candidates = list()
-	var/list/drafted = list()
-	var/datum/mind/applicant = null
 
-	// Ultimate randomizing code right here
 	for(var/mob/dead/new_player/player in GLOB.player_list)
 		if(player.client && player.ready == PLAYER_READY_TO_PLAY)
 			players += player
@@ -368,66 +392,21 @@
 	// Goodbye antag dante
 	players = shuffle(players)
 
+	var/list/candidates_preferred = list()
+	var/list/candidates_nothanks = list()
+
 	for(var/mob/dead/new_player/player in players)
-		if(player.client && player.ready == PLAYER_READY_TO_PLAY)
+		if(is_player_eligible_for_role(role, player))
 			if(role in player.client.prefs.be_special)
-				if(!is_banned_from(player.ckey, list(role, ROLE_SYNDICATE)) && !QDELETED(player))
-					if(age_check(player.client)) //Must be older than the minimum age
-						candidates += player.mind				// Get a list of all the people who want to be the antagonist for this round
+				candidates_preferred += player.mind
+			else
+				candidates_nothanks += player.mind
 
-	if(restricted_jobs)
-		for(var/datum/mind/player in candidates)
-			for(var/job in restricted_jobs)					// Remove people who want to be antagonist but have a job already that precludes it
-				if(player.assigned_role == job)
-					candidates -= player
+	if(candidates_preferred.len < recommended_enemies)
+		for(var/datum/mind/player in candidates_nothanks)
+			candidates_preferred += player
 
-	if(candidates.len < recommended_enemies)
-		for(var/mob/dead/new_player/player in players)
-			if(player.client && player.ready == PLAYER_READY_TO_PLAY)
-				if(!(role in player.client.prefs.be_special)) // We don't have enough people who want to be antagonist, make a separate list of people who don't want to be one
-					if(!is_banned_from(player.ckey, list(role, ROLE_SYNDICATE)) && !QDELETED(player))
-						drafted += player.mind
-
-	if(restricted_jobs)
-		for(var/datum/mind/player in drafted)				// Remove people who can't be an antagonist
-			for(var/job in restricted_jobs)
-				if(player.assigned_role == job)
-					drafted -= player
-
-	drafted = shuffle(drafted) // Will hopefully increase randomness, Donkie
-
-	while(candidates.len < recommended_enemies)				// Pick randomlly just the number of people we need and add them to our list of candidates
-		if(drafted.len > 0)
-			applicant = pick(drafted)
-			if(applicant)
-				candidates += applicant
-				drafted.Remove(applicant)
-
-		else												// Not enough scrubs, ABORT ABORT ABORT
-			break
-
-	if(restricted_jobs)
-		for(var/datum/mind/player in drafted)				// Remove people who can't be an antagonist
-			for(var/job in restricted_jobs)
-				if(player.assigned_role == job)
-					drafted -= player
-
-	drafted = shuffle(drafted) // Will hopefully increase randomness, Donkie
-
-	while(candidates.len < recommended_enemies)				// Pick randomlly just the number of people we need and add them to our list of candidates
-		if(drafted.len > 0)
-			applicant = pick(drafted)
-			if(applicant)
-				candidates += applicant
-				drafted.Remove(applicant)
-
-		else												// Not enough scrubs, ABORT ABORT ABORT
-			break
-
-	return candidates		// Returns: The number of people who had the antagonist role set to yes, regardless of recomended_enemies, if that number is greater than recommended_enemies
-							//			recommended_enemies if the number of people with that role set to yes is less than recomended_enemies,
-							//			Less if there are not enough valid players in the game entirely to make recommended_enemies.
-
+	return candidates_preferred
 
 
 /datum/game_mode/proc/num_players()

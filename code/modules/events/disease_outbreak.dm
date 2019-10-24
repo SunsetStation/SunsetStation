@@ -7,9 +7,7 @@
 
 /datum/round_event/disease_outbreak
 	announceWhen	= 15
-
 	var/virus_type
-
 	var/max_severity = 3
 
 
@@ -62,6 +60,9 @@
 				D = new virus_type()
 		else
 			D = new /datum/disease/advance/random(max_severity, max_severity)
+		if(!H.CanContractDisease(D))
+			QDEL_NULL(D)
+			continue
 		D.carrier = TRUE
 		H.ForceContractDisease(D, FALSE, TRUE)
 

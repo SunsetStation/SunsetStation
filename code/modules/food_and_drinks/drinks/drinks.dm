@@ -14,6 +14,7 @@
 	volume = 50
 	resistance_flags = NONE
 	var/isGlass = TRUE //Whether the 'bottle' is made of glass or not so that milk cartons dont shatter when someone gets hit by it
+	you_drink_from_this = TRUE
 
 /obj/item/reagent_containers/food/drinks/on_reagent_change(changetype)
 	if (gulp_size < 5)
@@ -401,6 +402,7 @@
 	spillable = FALSE
 	isGlass = FALSE
 	custom_price = 10
+	you_drink_from_this = TRUE //This looks redundent, but has to be in both spots to make this work
 
 /obj/item/reagent_containers/food/drinks/soda_cans/suicide_act(mob/living/carbon/human/H)
 	if(!reagents.total_volume)
@@ -534,3 +536,9 @@
 	desc = "There is no air shortage. Do not drink."
 	icon_state = "air"
 	list_reagents = list("nitrogen" = 24, "oxygen" = 6)
+
+/obj/item/reagent_containers/food/drinks/soda_cans/synthanol
+	name = "Beep's Classic Synthanol"
+	desc = "A can of IPC booze, however that works."
+	icon_state = "synthanolcan"
+	list_reagents = list("synthanol" = 50) 

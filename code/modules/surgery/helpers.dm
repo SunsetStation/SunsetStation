@@ -10,6 +10,10 @@
 		C = M
 		affecting = C.get_bodypart(check_zone(selected_zone))
 
+	if((affecting.status == ORGAN_ROBOTIC && !istype(I, /obj/item/screwdriver)) && (affecting.status == ORGAN_ORGANIC && !I.sharpness))
+	//if it's a robotic organ and you're not using a screwdriver OR an organic organ and you're not using something sharp.
+		return
+
 	var/datum/surgery/current_surgery
 
 	for(var/datum/surgery/S in M.surgeries)
@@ -26,7 +30,7 @@
 			if(affecting)
 				if(!S.requires_bodypart)
 					continue
-				if(S.requires_bodypart_type && affecting.status != S.requires_bodypart_type)
+				if(!(S.bodypart_types & affecting.status))
 					continue
 				if(S.requires_real_bodypart && affecting.is_pseudopart)
 					continue
@@ -58,7 +62,7 @@
 			if(affecting)
 				if(!S.requires_bodypart)
 					return
-				if(S.requires_bodypart_type && affecting.status != S.requires_bodypart_type)
+				if(!(S.bodypart_types & affecting.status))
 					return
 			else if(C && S.requires_bodypart)
 				return
@@ -91,7 +95,7 @@
 	else if(S.can_cancel)
 		var/close_tool_type = /obj/item/cautery
 		var/obj/item/close_tool = user.get_inactive_held_item()
-		var/is_robotic = S.requires_bodypart_type == BODYPART_ROBOTIC
+		var/is_robotic = S.bodypart_types == BODYPART_ROBOTIC
 		if(is_robotic)
 			close_tool_type = /obj/item/screwdriver
 		if(istype(close_tool, close_tool_type) || iscyborg(user))
@@ -173,4 +177,3 @@
 				return 0
 
 	return 1
-

@@ -13,9 +13,9 @@
 	var/obj/item/implant/mindshield/L = new/obj/item/implant/mindshield(H)
 	L.implant(H, null, 1)
 
-	var/obj/item/radio/R = H.ears
-	R.set_frequency(FREQ_CENTCOM)
-	R.freqlock = TRUE
+	//var/obj/item/radio/R = H.ears
+	//R.set_frequency(FREQ_CENTCOM)
+	//R.freqlock = TRUE
 
 	var/obj/item/card/id/W = H.wear_id
 	W.registered_name = H.real_name

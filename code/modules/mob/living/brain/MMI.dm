@@ -13,6 +13,7 @@
 	var/datum/ai_laws/laws = new()
 	var/force_replace_ai_name = FALSE
 	var/overrides_aicore_laws = FALSE // Whether the laws on the MMI, if any, override possible pre-existing laws loaded on the AI core.
+	var/silenced = FALSE //if set to TRUE, they can't talk.
 
 /obj/item/mmi/update_icon()
 	if(!brain)

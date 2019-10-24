@@ -509,6 +509,7 @@
 		"ale",
 		"absinthe",
 		"hcider",
+		"synthanol",
 		"creme_de_menthe",
 		"creme_de_cacao",
 		"triple_sec",

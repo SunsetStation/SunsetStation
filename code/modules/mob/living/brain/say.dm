@@ -1,6 +1,10 @@
 /mob/living/brain/say(message, bubble_type, var/list/spans = list(), sanitize = TRUE, datum/language/language = null, ignore_spam = FALSE, forced = null)
+	var/obj/item/mmi/posibrain/P = container
 	if(!(container && istype(container, /obj/item/mmi)))
 		return //No MMI, can't speak, bucko./N
+	if(P && P.silenced)
+		to_chat(usr, "<span class='warning'>You cannot speak, as your internal speaker is turned off.</span>")
+		return
 	else
 		if(prob(emp_damage*4))
 			if(prob(10))//10% chane to drop the message entirely

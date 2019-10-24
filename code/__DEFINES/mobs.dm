@@ -54,6 +54,16 @@
 #define BODYPART_ORGANIC   1
 #define BODYPART_ROBOTIC   2
 
+// ipc --Start--
+//Reagent Metabolization flags, defines the type of reagents that affect this mob
+#define PROCESS_ORGANIC 1		//Only processes reagents with "ORGANIC" or "ORGANIC | SYNTHETIC"
+#define PROCESS_SYNTHETIC 2		//Only processes reagents with "SYNTHETIC" or "ORGANIC | SYNTHETIC"
+
+// Reagent type flags, defines the types of mobs this reagent will affect
+#define ORGANIC 1
+#define SYNTHETIC 2
+// ipc --End--
+
 #define BODYPART_NOT_DISABLED 0
 #define BODYPART_DISABLED_DAMAGE 1
 #define BODYPART_DISABLED_PARALYSIS 2
@@ -114,7 +124,6 @@
 #define TRAUMA_LIMIT_SANITY 1
 #define TRAUMA_LIMIT_ABSOLUTE INFINITY
 
-//#define BRAIN_DAMAGE_INTEGRITY_MULTIPLIER 0.5
 //default HP values; 200 for more important organs or sth
 #define ORGAN_HEALTH_NONE 0 //for stuff that doesn't get damaged at all
 #define ORGAN_HEALTH_DEFAULT 100
@@ -231,7 +240,7 @@
 
 #define MAX_CHICKENS 50
 
-//#define UNHEALING_EAR_DAMAGE 100
+
 
 #define INCORPOREAL_MOVE_BASIC 1
 #define INCORPOREAL_MOVE_SHADOW 2 // leaves a trail of shadows
@@ -248,6 +257,10 @@
 #define MEGAFAUNA_DEFAULT_RECOVERY_TIME 5
 
 #define SHADOW_SPECIES_LIGHT_THRESHOLD 0.2
+
+//Taste defines - ipc
+#define NO_TASTE_SENSITIVITY -1
+#define DEFAULT_TASTE_SENSITIVITY 15 
 
 // Offsets defines
 

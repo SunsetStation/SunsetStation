@@ -111,13 +111,23 @@
 #define NO_UNDERWEAR	11
 #define NOLIVER			12
 #define NOSTOMACH		13
-#define NO_BONES		29
-#define NOPAIN			30
 #define NO_DNA_COPY     14
 #define DRINKSBLOOD		15
 #define NOEYES			16
 #define DYNCOLORS		17 //Use this if you want to change the race's color without the player being able to pick their own color. AKA special color shifting
 #define AGENDER			18
+
+#define NO_BONES		29
+#define NOPAIN			30
+// IPC ---- START ----
+#define REVIVESBYHEALING 31 // Will revive on heal when healing and total HP > 0.
+#define NOSCAN			32 // Cannot be scanned by DNA scanner/Cloner scanner.
+#define NOCHANGELING	33 // Cannot be absorbed by clings
+#define NOHUSK			34 // Can't be husked.
+#define ROBOTIC_LIMBS	35 //limbs start out as robotic; but also use organic icons. If you want to use the default ones, you'll have to use on_species_gain
+#define NOMOUTH			36
+#define NOTOX       	37
+// IPC ---- END -----
 
 #define ORGAN_SLOT_BRAIN "brain"
 #define ORGAN_SLOT_APPENDIX "appendix"
