@@ -104,6 +104,7 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/polymorph_all,
 	/client/proc/show_tip,
 	/client/proc/smite,
+	/client/proc/fax_panel,
 	/client/proc/admin_away
 	))
 GLOBAL_PROTECT(admin_verbs_fun)
@@ -238,7 +239,8 @@ GLOBAL_LIST_INIT(admin_verbs_hideable, list(
 	/client/proc/toggle_nuke,
 	/client/proc/cmd_display_del_log,
 	/client/proc/toggle_combo_hud,
-	/client/proc/debug_huds
+	/client/proc/debug_huds,
+	/client/proc/fax_panel
 	))
 GLOBAL_PROTECT(admin_verbs_hideable)
 

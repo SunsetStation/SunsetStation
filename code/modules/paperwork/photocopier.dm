@@ -19,6 +19,7 @@
 	power_channel = EQUIP
 	max_integrity = 300
 	integrity_failure = 100
+	var/insert_anim = "photocopier1"
 	var/obj/item/paper/copy = null	//what's in the copier!
 	var/obj/item/photo/photocopy = null
 	var/obj/item/documents/doccopy = null
@@ -51,55 +52,72 @@
 	user << browse(dat, "window=copier")
 	onclose(user, "copier")
 
+// moved to proc for faxes
+/obj/machinery/photocopier/proc/copy(var/obj/item/paper/copy)
+	for(var/i = 0, i < copies, i++)
+		if(toner > 0 && !busy && copy)
+			var/copy_as_paper = 1
+			if(istype(copy, /obj/item/paper/contract/employment))
+				var/obj/item/paper/contract/employment/E = copy
+				var/obj/item/paper/contract/employment/C = new /obj/item/paper/contract/employment (loc, E.target.current)
+				if(C)
+					copy_as_paper = 0
+			if(copy_as_paper)
+				var/obj/item/paper/c = new /obj/item/paper (loc)
+				if(length(copy.info) > 0)	//Only print and add content if the copied doc has words on it
+					if(toner > 10)	//lots of toner, make it dark
+						c.info = "<font color = #101010>"
+					else			//no toner? shitty copies for you!
+						c.info = "<font color = #808080>"
+					var/copied = copy.info
+					copied = replacetext(copied, "<font face=\"[PEN_FONT]\" color=", "<font face=\"[PEN_FONT]\" nocolor=")	//state of the art techniques in action
+					copied = replacetext(copied, "<font face=\"[CRAYON_FONT]\" color=", "<font face=\"[CRAYON_FONT]\" nocolor=")	//This basically just breaks the existing color tag, which we need to do because the innermost tag takes priority.
+					c.info += copied
+					c.info += "</font>"
+					c.name = copy.name
+					c.fields = copy.fields
+					c.update_icon()
+					c.updateinfolinks()
+					c.stamps = copy.stamps
+					if(copy.stamped)
+						c.stamped = copy.stamped.Copy()
+					c.copy_overlays(copy, TRUE)
+					toner--
+			busy = TRUE
+			sleep(15)
+			busy = FALSE
+		else
+			break
+	updateUsrDialog()
+
+// Moved to proc for faxes
+/obj/machinery/photocopier/proc/photocopy(var/obj/item/photo/photocopy)
+	for(var/i = 0, i < copies, i++)
+		if(toner >= 5 && !busy && photocopy)  //Was set to = 0, but if there was say 3 toner left and this ran, you would get -2 which would be weird for ink
+			new /obj/item/photo (loc, photocopy.picture.Copy(greytoggle == "Greyscale"? TRUE : FALSE))
+			if (greytoggle == "Greyscale")
+				toner -=5
+			else
+				toner -=10
+			busy = TRUE
+			sleep(15)
+			busy = FALSE
+		else
+			break
+
+
 /obj/machinery/photocopier/Topic(href, href_list)
+
 	if(..())
 		return
+
 	if(href_list["copy"])
 		if(copy)
-			for(var/i = 0, i < copies, i++)
-				if(toner > 0 && !busy && copy)
-					var/copy_as_paper = 1
-					if(istype(copy, /obj/item/paper/contract/employment))
-						var/obj/item/paper/contract/employment/E = copy
-						var/obj/item/paper/contract/employment/C = new /obj/item/paper/contract/employment (loc, E.target.current)
-						if(C)
-							copy_as_paper = 0
-					if(copy_as_paper)
-						var/obj/item/paper/c = new /obj/item/paper (loc)
-						if(length(copy.info) > 0)	//Only print and add content if the copied doc has words on it
-							if(toner > 10)	//lots of toner, make it dark
-								c.info = "<font color = #101010>"
-							else			//no toner? shitty copies for you!
-								c.info = "<font color = #808080>"
-							var/copied = copy.info
-							copied = replacetext(copied, "<font face=\"[PEN_FONT]\" color=", "<font face=\"[PEN_FONT]\" nocolor=")	//state of the art techniques in action
-							copied = replacetext(copied, "<font face=\"[CRAYON_FONT]\" color=", "<font face=\"[CRAYON_FONT]\" nocolor=")	//This basically just breaks the existing color tag, which we need to do because the innermost tag takes priority.
-							c.info += copied
-							c.info += "</font>"
-							c.name = copy.name
-							c.fields = copy.fields
-							c.update_icon()
-							c.updateinfolinks()
-							c.stamps = copy.stamps
-							if(copy.stamped)
-								c.stamped = copy.stamped.Copy()
-							c.copy_overlays(copy, TRUE)
-							toner--
-					busy = TRUE
-					sleep(15)
-					busy = FALSE
-				else
-					break
-			updateUsrDialog()
+			copy(copy) // Moved to proc for faxes
+
 		else if(photocopy)
-			for(var/i = 0, i < copies, i++)
-				if(toner >= 5 && !busy && photocopy)  //Was set to = 0, but if there was say 3 toner left and this ran, you would get -2 which would be weird for ink
-					new /obj/item/photo (loc, photocopy.picture.Copy(greytoggle == "Greyscale"? TRUE : FALSE))
-					busy = TRUE
-					sleep(15)
-					busy = FALSE
-				else
-					break
+			photocopy(photocopy) // Moved to proc for faxes
+
 		else if(doccopy)
 			for(var/i = 0, i < copies, i++)
 				if(toner > 5 && !busy && doccopy)
@@ -111,6 +129,7 @@
 				else
 					break
 			updateUsrDialog()
+
 		else if(ass) //ASS COPY. By Miauw
 			for(var/i = 0, i < copies, i++)
 				var/icon/temp_img
@@ -193,7 +212,7 @@
 /obj/machinery/photocopier/proc/do_insertion(obj/item/O, mob/user)
 	O.forceMove(src)
 	to_chat(user, "<span class ='notice'>You insert [O] into [src].</span>")
-	flick("photocopier1", src)
+	flick(insert_anim, src)
 	updateUsrDialog()
 
 /obj/machinery/photocopier/proc/remove_photocopy(obj/item/O, mob/user)
