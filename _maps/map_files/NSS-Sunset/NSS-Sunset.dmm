@@ -26918,10 +26918,7 @@
 	icon_state = "4-8"
 	},
 /obj/structure/table/wood,
-/obj/item/storage/secure/briefcase{
-	step_x = 0;
-	step_y = 0
-	},
+/obj/item/storage/secure/briefcase,
 /obj/item/storage/secure/briefcase,
 /obj/item/folder/blue,
 /obj/item/assembly/flash/handheld,
@@ -77844,13 +77841,10 @@
 /obj/structure/table/wood,
 /obj/item/phone{
 	desc = "Supposedly a direct line to Nanotrasen Central Command. It's not even plugged in.";
-	step_x = 0;
 	pixel_x = -3;
 	pixel_y = 3
 	},
-/obj/item/folder/red{
-	step_x = 4
-	},
+/obj/item/folder/red,
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/heads/hos)
 "oVn" = (
