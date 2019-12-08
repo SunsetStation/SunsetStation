@@ -114,6 +114,9 @@
 	log_combat(user, pushed_mob, "places", null, "onto [src]")
 
 /obj/structure/table/proc/tablepush(mob/living/user, mob/living/pushed_mob)
+	if(HAS_TRAIT(user, TRAIT_PACIFISM))
+		to_chat(user, "<span class='danger'>Throwing [pushed_mob] onto the table might hurt them!</span>")
+		return
 	var/added_passtable = FALSE
 	if(!pushed_mob.pass_flags & PASSTABLE)
 		added_passtable = TRUE
@@ -134,13 +137,13 @@
 
 /obj/structure/table/attackby(obj/item/I, mob/user, params)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		if(I.tool_behaviour == TOOL_SCREWDRIVER && deconstruction_ready)
+		if(istype(I, /obj/item/screwdriver) && deconstruction_ready)
 			to_chat(user, "<span class='notice'>You start disassembling [src]...</span>")
 			if(I.use_tool(src, user, 20, volume=50))
 				deconstruct(TRUE)
 			return
 
-		if(I.tool_behaviour == TOOL_WRENCH && deconstruction_ready)
+		if(istype(I, /obj/item/wrench) && deconstruction_ready)
 			to_chat(user, "<span class='notice'>You start deconstructing [src]...</span>")
 			if(I.use_tool(src, user, 40, volume=50))
 				playsound(src.loc, 'sound/items/deconstruct.ogg', 50, 1)
@@ -195,7 +198,7 @@
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 100)
 	var/list/debris = list()
 
-/obj/structure/table/glass/Initialize()
+/obj/structure/table/glass/New()
 	. = ..()
 	debris += new frame
 	debris += new /obj/item/shard
@@ -258,6 +261,53 @@
 		S.color = NARSIE_WINDOW_COLOUR
 
 /*
+ * Plasmaglass tables
+ */
+/obj/structure/table/plasmaglass
+	name = "plasmaglass table"
+	desc = "A glasstable, but it's pink and more sturdy. What will Nanotrasen design next with plasma?"
+	icon = 'icons/obj/smooth_structures/plasmaglass_table.dmi'
+	icon_state = "plasmaglass_table"
+	climbable = TRUE
+	buildstack = /obj/item/stack/sheet/plasmaglass
+	canSmoothWith = null
+	max_integrity = 270
+	resistance_flags = ACID_PROOF
+	armor = list("melee" = 10, "bullet" = 5, "laser" = 0, "energy" = 0, "bomb" = 10, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 100)
+	var/list/debris = list()
+
+/obj/structure/table/plasmaglass/New()
+	. = ..()
+	debris += new frame
+	debris += new /obj/item/shard/plasma
+
+/obj/structure/table/plasmaglass/Destroy()
+	QDEL_LIST(debris)
+	. = ..()
+
+/obj/structure/table/plasmaglass/proc/check_break(mob/living/M)
+	return
+
+/obj/structure/table/plasmaglass/deconstruct(disassembled = TRUE, wrench_disassembly = 0)
+	if(!(flags_1 & NODECONSTRUCT_1))
+		if(disassembled)
+			..()
+			return
+		else
+			var/turf/T = get_turf(src)
+			playsound(T, "shatter", 50, 1)
+			for(var/X in debris)
+				var/atom/movable/AM = X
+				AM.forceMove(T)
+				debris -= AM
+	qdel(src)
+
+/obj/structure/table/plasmaglass/narsie_act()
+	color = NARSIE_WINDOW_COLOUR
+	for(var/obj/item/shard/S in debris)
+		S.color = NARSIE_WINDOW_COLOUR
+
+/*
  * Wooden tables
  */
 
@@ -297,7 +347,18 @@
 	frame = /obj/structure/table_frame
 	framestack = /obj/item/stack/rods
 	buildstack = /obj/item/stack/tile/carpet
-	canSmoothWith = list(/obj/structure/table/wood/fancy, /obj/structure/table/wood/fancy/black)
+	canSmoothWith = list(/obj/structure/table/wood/fancy,
+		/obj/structure/table/wood/fancy/black,
+		/obj/structure/table/wood/fancy/blackred,
+		/obj/structure/table/wood/fancy/monochrome,
+		/obj/structure/table/wood/fancy/blue,
+		/obj/structure/table/wood/fancy/cyan,
+		/obj/structure/table/wood/fancy/green,
+		/obj/structure/table/wood/fancy/orange,
+		/obj/structure/table/wood/fancy/purple,
+		/obj/structure/table/wood/fancy/red,
+		/obj/structure/table/wood/fancy/royalblack,
+		/obj/structure/table/wood/fancy/royalblue)
 	var/smooth_icon = 'icons/obj/smooth_structures/fancy_table.dmi' // see Initialize()
 
 /obj/structure/table/wood/fancy/Initialize()
@@ -312,6 +373,56 @@
 	icon_state = "fancy_table_black"
 	buildstack = /obj/item/stack/tile/carpet/black
 	smooth_icon = 'icons/obj/smooth_structures/fancy_table_black.dmi'
+
+/obj/structure/table/wood/fancy/blackred
+	icon_state = "fancy_table_blackred"
+	buildstack = /obj/item/stack/tile/carpet/blackred
+	smooth_icon = 'icons/obj/smooth_structures/fancy_table_blackred.dmi'
+
+/obj/structure/table/wood/fancy/monochrome
+	icon_state = "fancy_table_monochrome"
+	buildstack = /obj/item/stack/tile/carpet/monochrome
+	smooth_icon = 'icons/obj/smooth_structures/fancy_table_monochrome.dmi'
+
+/obj/structure/table/wood/fancy/blue
+	icon_state = "fancy_table_blue"
+	buildstack = /obj/item/stack/tile/carpet/blue
+	smooth_icon = 'icons/obj/smooth_structures/fancy_table_blue.dmi'
+
+/obj/structure/table/wood/fancy/cyan
+	icon_state = "fancy_table_cyan"
+	buildstack = /obj/item/stack/tile/carpet/cyan
+	smooth_icon = 'icons/obj/smooth_structures/fancy_table_cyan.dmi'
+
+/obj/structure/table/wood/fancy/green
+	icon_state = "fancy_table_green"
+	buildstack = /obj/item/stack/tile/carpet/green
+	smooth_icon = 'icons/obj/smooth_structures/fancy_table_green.dmi'
+
+/obj/structure/table/wood/fancy/orange
+	icon_state = "fancy_table_orange"
+	buildstack = /obj/item/stack/tile/carpet/orange
+	smooth_icon = 'icons/obj/smooth_structures/fancy_table_orange.dmi'
+
+/obj/structure/table/wood/fancy/purple
+	icon_state = "fancy_table_purple"
+	buildstack = /obj/item/stack/tile/carpet/purple
+	smooth_icon = 'icons/obj/smooth_structures/fancy_table_purple.dmi'
+
+/obj/structure/table/wood/fancy/red
+	icon_state = "fancy_table_red"
+	buildstack = /obj/item/stack/tile/carpet/red
+	smooth_icon = 'icons/obj/smooth_structures/fancy_table_red.dmi'
+
+/obj/structure/table/wood/fancy/royalblack
+	icon_state = "fancy_table_royalblack"
+	buildstack = /obj/item/stack/tile/carpet/royalblack
+	smooth_icon = 'icons/obj/smooth_structures/fancy_table_royalblack.dmi'
+
+/obj/structure/table/wood/fancy/royalblue
+	icon_state = "fancy_table_royalblue"
+	buildstack = /obj/item/stack/tile/carpet/royalblue
+	smooth_icon = 'icons/obj/smooth_structures/fancy_table_royalblue.dmi'
 
 /*
  * Reinforced tables
@@ -335,7 +446,7 @@
 		to_chat(user, "<span class='notice'>The top cover is firmly <b>welded</b> on.</span>")
 
 /obj/structure/table/reinforced/attackby(obj/item/W, mob/user, params)
-	if(W.tool_behaviour == TOOL_WELDER)
+	if(istype(W, /obj/item/weldingtool))
 		if(!W.tool_start_check(user, amount=0))
 			return
 
@@ -365,9 +476,9 @@
 	buildstackamount = 1
 	canSmoothWith = list(/obj/structure/table/reinforced/brass, /obj/structure/table/bronze)
 
-/obj/structure/table/reinforced/brass/Initialize()
-	. = ..()
+/obj/structure/table/reinforced/brass/New()
 	change_construction_value(2)
+	..()
 
 /obj/structure/table/reinforced/brass/Destroy()
 	change_construction_value(-2)
@@ -418,8 +529,8 @@
 	var/mob/living/carbon/human/patient = null
 	var/obj/machinery/computer/operating/computer = null
 
-/obj/structure/table/optable/Initialize()
-	. = ..()
+/obj/structure/table/optable/New()
+	..()
 	for(var/direction in GLOB.cardinals)
 		computer = locate(/obj/machinery/computer/operating, get_step(src, direction))
 		if(computer)
@@ -433,14 +544,16 @@
 	check_patient()
 
 /obj/structure/table/optable/proc/check_patient()
-	var/mob/living/carbon/human/M = locate(/mob/living/carbon/human, loc)
+	var/mob/M = locate(/mob/living/carbon/human, loc)
 	if(M)
 		if(M.resting)
 			patient = M
-			return TRUE
+			return 1
 	else
 		patient = null
-		return FALSE
+		return 0
+
+
 
 /*
  * Racks
@@ -484,7 +597,7 @@
 		step(O, get_dir(O, src))
 
 /obj/structure/rack/attackby(obj/item/W, mob/user, params)
-	if (W.tool_behaviour == TOOL_WRENCH && !(flags_1&NODECONSTRUCT_1))
+	if (istype(W, /obj/item/wrench) && !(flags_1&NODECONSTRUCT_1))
 		W.play_tool_sound(src)
 		deconstruct(TRUE)
 		return
@@ -543,7 +656,7 @@
 	var/building = FALSE
 
 /obj/item/rack_parts/attackby(obj/item/W, mob/user, params)
-	if (W.tool_behaviour == TOOL_WRENCH)
+	if (istype(W, /obj/item/wrench))
 		new /obj/item/stack/sheet/metal(user.loc)
 		qdel(src)
 	else
