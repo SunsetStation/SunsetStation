@@ -253,8 +253,6 @@
 	if(reac_volume>=10)
 		for(var/obj/effect/rune/R in T)
 			qdel(R)
-		for(var/obj/item/vent_dummy/cursed/D in T)
-			D.purify()
 	T.Bless()
 
 /datum/reagent/fuel/unholywater		//if you somehow managed to extract this from someone, dont splash it on yourself and have a smoke
