@@ -101,6 +101,9 @@
 	resistance_flags = FLAMMABLE
 	tableVariant = /obj/structure/table/wood/fancy
 
+/obj/item/stack/tile/carpet/fifty
+	amount = 50
+
 /obj/item/stack/tile/carpet/black
 	name = "black carpet"
 	icon_state = "tile-carpet-black"
@@ -177,6 +180,12 @@
 	item_state = "tile-carpet-royalblue"
 	turf_type = /turf/open/floor/carpet/royalblue
 	tableVariant = /obj/structure/table/wood/fancy/royalblue
+
+/obj/item/stack/tile/carpet/blackred/fifty
+	amount = 50
+
+/obj/item/stack/tile/carpet/monochrome/fifty
+	amount = 50
 
 /obj/item/stack/tile/carpet/blue/fifty
 	amount = 50
