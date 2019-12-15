@@ -1,0 +1,239 @@
+html{
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+}
+body {
+	/*animation: textShadow 1.6s infinite;*/
+	/* Settings for the PDA background */
+	background:	rgb(44, 34, 24);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-image: url(data:image/png;base64,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);
+	
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.27861;
+  }
+  5% {
+    opacity: 0.34769;
+  }
+  10% {
+    opacity: 0.23604;
+  }
+  15% {
+    opacity: 0.90626;
+  }
+  20% {
+    opacity: 0.18128;
+  }
+  25% {
+    opacity: 0.83891;
+  }
+  30% {
+    opacity: 0.65583;
+  }
+  35% {
+    opacity: 0.67807;
+  }
+  40% {
+    opacity: 0.26559;
+  }
+  45% {
+    opacity: 0.84693;
+  }
+  50% {
+    opacity: 0.96019;
+  }
+  55% {
+    opacity: 0.08594;
+  }
+  60% {
+    opacity: 0.20313;
+  }
+  65% {
+    opacity: 0.71988;
+  }
+  70% {
+    opacity: 0.53455;
+  }
+  75% {
+    opacity: 0.37288;
+  }
+  80% {
+    opacity: 0.71428;
+  }
+  85% {
+    opacity: 0.70419;
+  }
+  90% {
+    opacity: 0.7003;
+  }
+  95% {
+    opacity: 0.36108;
+  }
+  100% {
+    opacity: 0.24387;
+  }
+}
+/*@keyframes textShadow {
+  0% {
+    text-shadow: 0.4389924193300864px 0 1px rgba(0,30,255,0.5), -0.4389924193300864px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  5% {
+    text-shadow: 2.7928974010788217px 0 1px rgba(0,30,255,0.5), -2.7928974010788217px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  10% {
+    text-shadow: 0.02956275843481219px 0 1px rgba(0,30,255,0.5), -0.02956275843481219px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  15% {
+    text-shadow: 0.40218538552878136px 0 1px rgba(0,30,255,0.5), -0.40218538552878136px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  20% {
+    text-shadow: 3.4794037899852017px 0 1px rgba(0,30,255,0.5), -3.4794037899852017px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  25% {
+    text-shadow: 1.6125630401149584px 0 1px rgba(0,30,255,0.5), -1.6125630401149584px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  30% {
+    text-shadow: 0.7015590085143956px 0 1px rgba(0,30,255,0.5), -0.7015590085143956px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  35% {
+    text-shadow: 3.896914047650351px 0 1px rgba(0,30,255,0.5), -3.896914047650351px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  40% {
+    text-shadow: 3.870905614848819px 0 1px rgba(0,30,255,0.5), -3.870905614848819px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  45% {
+    text-shadow: 2.231056963361899px 0 1px rgba(0,30,255,0.5), -2.231056963361899px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  50% {
+    text-shadow: 0.08084290417898504px 0 1px rgba(0,30,255,0.5), -0.08084290417898504px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  55% {
+    text-shadow: 2.3758461067427543px 0 1px rgba(0,30,255,0.5), -2.3758461067427543px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  60% {
+    text-shadow: 2.202193051050636px 0 1px rgba(0,30,255,0.5), -2.202193051050636px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  65% {
+    text-shadow: 2.8638780614874975px 0 1px rgba(0,30,255,0.5), -2.8638780614874975px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  70% {
+    text-shadow: 0.48874025155497314px 0 1px rgba(0,30,255,0.5), -0.48874025155497314px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  75% {
+    text-shadow: 1.8948491305757957px 0 1px rgba(0,30,255,0.5), -1.8948491305757957px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  80% {
+    text-shadow: 0.0833037308038857px 0 1px rgba(0,30,255,0.5), -0.0833037308038857px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  85% {
+    text-shadow: 0.09769827255241735px 0 1px rgba(0,30,255,0.5), -0.09769827255241735px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  90% {
+    text-shadow: 3.443339761481782px 0 1px rgba(0,30,255,0.5), -3.443339761481782px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  95% {
+    text-shadow: 2.1841838852799786px 0 1px rgba(0,30,255,0.5), -2.1841838852799786px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+  100% {
+    text-shadow: 2.6208764473832513px 0 1px rgba(0,30,255,0.5), -2.6208764473832513px 0 1px rgba(255,0,80,0.3), 0 0 3px;
+  }
+}*/
+
+body::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  -webkit-animation: flicker 0.15s infinite;
+  animation: flicker 0.15s infinite;
+}
+body::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+#wrapper {
+	/*font-family: 'Press Start 2P', "Consolas","Calibri", "Times New Roman", Times, sans-serif;
+    font-size: 9px;*/
+	padding-left: 13px;
+	opacity: 0;
+	transition: opacity 1s linear 0s;
+}
+#wrapper h2 {
+   color:lime;
+}
+#wrapper h4 {
+  color:lime;
+}
+
+#wrapper a {
+	background:transparent;
+	border: 0px;
+}
+
+#wrapper a:hover {
+	color: #ffffff;
+	text-decoration:underline;
+}
+/* This does the item background fading. i would rather it do the fadding on the hyperlink, but that requires javascript*/
+#wrapper li {
+	/*transition: background 0.2s cubic-bezier(0.4, 0, 1, 1) 0s */ /*SS13 won't play the transitions*/
+}
+#wrapper li:hover {
+	background:	rgb(43, 87, 255,0.4);
+	/*transition: background 0.1s cubic-bezier(0.4, 0, 1, 1) 0s */ /*SS13 won't play the transitions*/
+}
+
+/* this isn't being used, but allows you to set styles for all 3 opening pda groups */
+
+.groupStyle {
+  /*background:	rgb(43, 87, 255,0.3);*/
+  margin:10px;
+  padding:10px;
+
+}
+
+#ownerBox {
+  text-align: center;
+}
+#ownerBox h2 {
+	display:none;
+}
+
+td {
+/*vertical-align: top;*/
+width: 50%;
+}
+
+.flashlightGlowOn {
+	box-shadow: inset 0px -10px 80px 0px rgba(255, 255, 255, 1.00);
+	/*animation-fill-mode: forwards;
+	animation: boxShadow 3s;*/
+}
+/* This is too much for byond for right now. Maybe if things change this can be used
+	This makes it so the flashlight glow fades in rather than just ON*/
+/*
+@keyframes boxShadow {
+  from {box-shadow: inset 0px -10px 80px 0px rgba(255, 255, 255, 0.00);}
+  to {box-shadow: inset 0px -10px 80px 0px rgba(255, 255, 255, 1.00);}
+} */
