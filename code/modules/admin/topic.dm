@@ -1919,7 +1919,7 @@
 					fax = F
 
 
-		var/input_text = input(src.owner, "Please enter a message to send a fax via secure connection. Use <br> for line breaks. Both pencode and HTML work.", "Outgoing message from Centcomm", "") as message|null
+		var/input_text = input(src.owner, "Please enter a message to send a fax via secure connection. Use <br> for line breaks. Both pencode and HTML work.", "Outgoing message from Centcom", "") as message|null
 		if(!input_text)
 			qdel(P)
 			return
