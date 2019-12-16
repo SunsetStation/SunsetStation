@@ -60,8 +60,8 @@ GLOBAL_LIST_EMPTY(alldepartments)
 		return
 
 /obj/machinery/photocopier/faxmachine/emag_act(mob/user)
-	if(!EMAGGED)
-		EMAGGED = TRUE
+	if(!(obj_flags & EMAGGED))
+		obj_flags |= EMAGGED
 		to_chat(user, "<span class='notice'>The transmitters realign to an unknown source!</span>")
 	else
 		to_chat(user, "<span class='warning'>You swipe the card through [src], but nothing happens.</span>")
@@ -84,7 +84,7 @@ GLOBAL_LIST_EMPTY(alldepartments)
 	if(!is_authenticated)
 		data["network"] = "Disconnected"
 		data["network_class"] = "bad"
-	else if(!EMAGGED)
+	else if(!(obj_flags & EMAGGED))
 		data["network"] = fax_network
 		data["network_class"] = "good"
 	else
@@ -158,7 +158,7 @@ GLOBAL_LIST_EMPTY(alldepartments)
 				if(long_range_enabled)
 					combineddepartments += GLOB.admin_departments.Copy()
 
-				if(EMAGGED)
+				if(obj_flags & EMAGGED)
 					combineddepartments += GLOB.hidden_admin_departments.Copy()
 
 				destination = input(usr, "To which department?", "Choose a department", "") as null|anything in combineddepartments

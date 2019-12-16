@@ -380,7 +380,7 @@
 	icon_state = "scrap_bloodied"
 
 /obj/item/paper/evilfax
-	name = "Centcomm Reply"
+	name = "Centcom Reply"
 	info = ""
 	var/mytarget = null
 	var/myeffect = null
