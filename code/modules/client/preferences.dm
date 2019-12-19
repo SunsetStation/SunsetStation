@@ -64,7 +64,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/skin_tone = "caucasian1"		//Skin color
 	var/eye_color = "000"				//Eye color
 	var/datum/species/pref_species = new /datum/species/human()	//Mutant race
-	var/list/features = list("mcolor" = "FFF", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "vox_quills" = "None", "vox_facial_quills" = "None", "vox_body_markings" = "None", "vox_body" = "Green", "vox_tail_markings" = "None") /*Sunset vox included*/
+	var/list/features = list("mcolor" = "FFF", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "vox_quills" = "None", "vox_facial_quills" = "None", "vox_body_markings" = "None", "vox_body" = "Green", "vox_tail_markings" = "None", "ipc_screen" = "Blue", "ipc_antenna" = "None", "ipc_chassis" = "Morpheus Cyberkinetics(Greyscale)") /*Sunset vox included*/
 
 	var/list/custom_names = list()
 	var/preferred_ai_core_display = "Blue"
@@ -446,7 +446,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			if(mutant_category)
 				dat += "</td>"
 				mutant_category = 0
-			dat += vox_preference_data(user) // sunset -- adds vox preferences
+			dat = sunset_preference_data(user, dat) // sunset -- adds vox preferences
 			dat += "</tr></table>"
 
 
@@ -1131,7 +1131,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							ghost_others = GHOST_OTHERS_SIMPLE
 
 				if("name")
-					var/new_name = input(user, "Choose your character's name:", "Character Preference")  as text|null
+					var/new_name = reject_bad_name(input(user, "Choose your character's name:", "Character Preference")  as text|null, pref_species.allow_numbers_in_name) //sunset --adds species preferences for ipc names
 					if(new_name)
 						new_name = reject_bad_name(new_name)
 						if(new_name)

@@ -590,28 +590,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 			bodyparts_to_add -= "wings_open"
 		else if ("wings" in mutant_bodyparts)
 			bodyparts_to_add -= "wings_open"
-
-	//sunset start
-	if("vox_quills" in mutant_bodyparts)
-		if(!H.dna.features["vox_quills"] || H.dna.features["vox_quills"] == "None" || H.head && (H.head.flags_inv & HIDEHAIR) || (H.wear_mask && (H.wear_mask.flags_inv & HIDEHAIR)) || !HD || HD.status == BODYPART_ROBOTIC)
-			bodyparts_to_add -= "vox_quills"
-
-	if("vox_facial_quills" in mutant_bodyparts)
-		if(!H.dna.features["vox_facial_quills"] || H.dna.features["vox_facial_quills"] == "None" || H.head && (H.head.flags_inv & HIDEFACE) || (H.wear_mask && (H.wear_mask.flags_inv & HIDEEYES)) || !HD || HD.status == BODYPART_ROBOTIC)
-			bodyparts_to_add -= "vox_facial_quills"
-
-	if("vox_eyes" in mutant_bodyparts)
-		if(!H.dna.features["vox_eyes"] || (H.wear_mask && (H.wear_mask.flags_inv & HIDEEYES)) || !HD || HD.status == BODYPART_ROBOTIC)
-			bodyparts_to_add -= "vox_eyes"
-
-	if("vox_tail" in mutant_bodyparts)
-		if(H.wear_suit && (H.wear_suit.flags_inv & HIDEJUMPSUIT))
-			bodyparts_to_add -= "vox_tail"
-
-	if("vox_tail_markings" in mutant_bodyparts)
-		if(H.wear_suit && (H.wear_suit.flags_inv & HIDEJUMPSUIT))
-			bodyparts_to_add -= "vox_tail_markings"
-			//sunset stop
+	bodyparts_to_add = sunset_mutant_bodyparts(H, bodyparts_to_add, HD)
 	//Digitigrade legs are stuck in the phantom zone between true limbs and mutant bodyparts. Mainly it just needs more agressive updating than most limbs.
 	var/update_needed = FALSE
 	var/not_digitigrade = TRUE
@@ -694,6 +673,12 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 					S = GLOB.vox_body_markings_list[H.dna.features["vox_body_markings"]]
 				if("vox_tail_markings") //sunset vox bodyparts
 					S = GLOB.vox_tail_markings_list[H.dna.features["vox_tail_markings"]]
+				if("ipc_screen")
+					S = GLOB.ipc_screens_list[H.dna.features["ipc_screen"]]
+				if("ipc_antenna")
+					S = GLOB.ipc_antennas_list[H.dna.features["ipc_antenna"]]
+				if("ipc_chassis")
+					S = GLOB.ipc_chassis_list[H.dna.features["ipc_chassis"]]
 				//sunset stop
 			if(!S || S.icon_state == "none")
 				continue
