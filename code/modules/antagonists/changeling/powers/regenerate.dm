@@ -14,6 +14,7 @@
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
 		var/list/missing = C.get_missing_limbs()
+		missing -= BODY_ZONE_HEAD
 		if(missing.len)
 			playsound(user, 'sound/magic/demon_consume.ogg', 50, 1)
 			C.visible_message("<span class='warning'>[user]'s missing limbs \
@@ -23,7 +24,7 @@
 				"<span class='italics'>You hear organic matter ripping \
 				and tearing!</span>")
 			C.emote("scream")
-			C.regenerate_limbs(1)
+			C.regenerate_limbs(1, list(BODY_ZONE_HEAD)) // lings will remain headless
 		if(!user.getorganslot(ORGAN_SLOT_BRAIN))
 			var/obj/item/organ/brain/B
 			if(C.has_dna() && C.dna.species.mutant_brain)
