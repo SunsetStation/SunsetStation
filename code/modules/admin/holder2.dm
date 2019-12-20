@@ -11,8 +11,9 @@ GLOBAL_PROTECT(href_token)
 
 	var/target
 	var/name = "nobody's admin datum (no rank)" //Makes for better runtimes
-	var/client/owner	= null
-	var/fakekey			= null
+	var/client/owner = null
+	var/fakekey = null
+	var/following = null
 
 	var/datum/marked_datum
 

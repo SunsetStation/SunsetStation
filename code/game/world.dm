@@ -33,6 +33,7 @@ GLOBAL_VAR_INIT(bypass_tgs_reboot, world.system_type == UNIX && world.byond_buil
 #endif
 
 	load_admins()
+	load_mentors() // Load Mentors
 	sunset_initialize() // load sunset stuff
 	LoadVerbs(/datum/verbs/menu)
 	if(CONFIG_GET(flag/usewhitelist))

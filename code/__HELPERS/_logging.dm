@@ -48,6 +48,13 @@
 	if (CONFIG_GET(flag/log_adminchat))
 		WRITE_LOG(GLOB.world_game_log, "ADMINPRIVATE: ASAY: [text]")
 
+// Mentor System
+/proc/log_mentor(text)
+	GLOB.mentorlog.Add(text)
+	if (CONFIG_GET(flag/log_admin))
+		WRITE_FILE(GLOB.world_game_log, "\[[time_stamp()]]MENTOR: [text]")
+
+
 /proc/log_dsay(text)
 	if (CONFIG_GET(flag/log_adminchat))
 		WRITE_LOG(GLOB.world_game_log, "ADMIN: DSAY: [text]")
