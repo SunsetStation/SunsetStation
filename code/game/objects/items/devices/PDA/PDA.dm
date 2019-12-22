@@ -33,17 +33,19 @@ GLOBAL_LIST_EMPTY(PDAs)
 	var/mode = 0 //Controls what menu the PDA will display. 0 is hub; the rest are either built in or based on cartridge.
 	var/icon_alert = "pda-r" //Icon to be overlayed for message alerts. Taken from the pda icon file.
 	var/font_index = 0 //This int tells DM which font is currently selected and lets DM know when the last font has been selected so that it can cycle back to the first font when "toggle font" is pressed again.
-	var/font_mode = "font-family:monospace;" //The currently selected font.
+	var/font_mode = "font-family:'Press Start 2P';font-size: xx-small;}#wrapper h2 {font-size:14px;}#wrapper h4{font-size:10px;" //The currently selected font.
 	var/background_color = "#808000" //The currently selected background color.
 
-	#define FONT_MONO "font-family:monospace;"
-	#define FONT_SHARE "font-family:\"Share Tech Mono\", monospace;letter-spacing:0px;"
+	#define FONT_PRESS2P "font-family:'Press Start 2P';font-size: xx-small;}#wrapper h2 {font-size:14px;}#wrapper h4{font-size:10px;" // the } is already at the end
+	#define FONT_MONO "font-family:monospace;font-size:16px; "
+	#define FONT_SHARE "font-family:\"Share Tech Mono\", monospace;letter-spacing:0px;font-size:small;"
 	#define FONT_ORBITRON "font-family:\"Orbitron\", monospace;letter-spacing:0px; font-size:15px"
-	#define FONT_VT "font-family:\"VT323\", monospace;letter-spacing:1px;"
-	#define MODE_MONO 0
-	#define MODE_SHARE 1
-	#define MODE_ORBITRON 2
-	#define MODE_VT 3
+	#define FONT_VT "font-family:\"VT323\", monospace;letter-spacing:1px;font-size:large"
+	#define MODE_PRESS2P 1
+	#define MODE_MONO 2
+	#define MODE_SHARE 3
+	#define MODE_ORBITRON 4
+	#define MODE_VT 5
 
 	//Secondary variables
 	var/scanmode = PDA_SCANNER_NONE
@@ -118,6 +120,9 @@ GLOBAL_LIST_EMPTY(PDAs)
 		if(user.client)
 			background_color = user.client.prefs.pda_color
 			switch(user.client.prefs.pda_style)
+				if(PRESS2P)
+					font_index = MODE_PRESS2P
+					font_mode = FONT_PRESS2P
 				if(MONO)
 					font_index = MODE_MONO
 					font_mode = FONT_MONO
@@ -131,8 +136,8 @@ GLOBAL_LIST_EMPTY(PDAs)
 					font_index = MODE_VT
 					font_mode = FONT_VT
 				else
-					font_index = MODE_MONO
-					font_mode = FONT_MONO
+					font_index = MODE_PRESS2P
+					font_mode = FONT_PRESS2P
 			equipped = TRUE
 
 /obj/item/pda/proc/update_label()
@@ -396,9 +401,11 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 			if ("Toggle_Font")
 				//CODE REVISION 2
-				font_index = (font_index + 1) % 4
+				font_index = (font_index + 1) % 6
 
 				switch(font_index)
+					if (MODE_PRESS2P)
+						font_mode = FONT_PRESS2P
 					if (MODE_MONO)
 						font_mode = FONT_MONO
 					if (MODE_SHARE)

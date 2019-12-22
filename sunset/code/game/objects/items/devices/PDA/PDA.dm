@@ -14,14 +14,14 @@
 
 	user.set_machine(src)
 
-	var/dat = ""
-
+	var/dat = "<div id='wrapper'>"
 	dat += "<img src='refresh.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Refresh'>Refresh</a>"
 
 	if((!isnull(cartridge)) && (mode == 0))
 		dat += " | <img src='eject.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Eject'>Eject [cartridge]</a>"
 	if(mode)
 		dat += " | <img src='menu.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Return'>Return</a>"
+	dat += " | <a href='byond://?src=[REF(src)];choice=Toggle_Font'>Toggle Font</a>"
 
 	dat += "<br>"
 
@@ -31,23 +31,30 @@
 	else
 		switch (mode)
 			if(0)
+				dat += "<div id='ownerBox' class='groupStyle'>"
 				dat += "<h2>PERSONAL DATA ASSISTANT v.1.2</h2>"
 				dat += "Owner: [owner], [ownjob]<br>"
 
 				if(id)
-					dat += text("ID: <A href='?src=[REF(src)];choice=Authenticate'>[id ? "[id.registered_name], [id.assignment]" : "----------"]   <a href='?src=[REF(src)];choice=UpdateInfo'>[id ? "Update PDA Info" : ""]</a><br><br>")
+					dat += text("ID: <A href='?src=[REF(src)];choice=Authenticate'>[id ? "[id.registered_name], [id.assignment]" : "----------"]  <br><a href='?src=[REF(src)];choice=UpdateInfo'>[id ? "Update PDA Info" : ""]</a><br>")
 
 				dat += "[worldtime2text()]<br>" //:[world.time / 100 % 6][world.time / 100 % 10]"
 				dat += "[time2text(world.realtime, "MMM DD")] [GLOB.year_integer+540]"
-				dat += "<br><br>"
+				dat += "</div>" // close the div for the owner section
+				dat += "<br>"
+				dat += "<table id='tblListFunctions'><tr><td>"
+				dat += "<div id='genBox' class='groupStyle'>"
 				dat += "<h4>General Functions</h4>"
 				dat += "<li><img src='notes.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=1'>Notekeeper</a></li>"
 				dat += "<li><img src='mail.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=2'>Messenger</a></li>"
 				dat += "<li><img src='notes.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=41'>View Crew Manifest</a></li>"
+				dat += "</div>" // close genBox div
 
+				
 				if(cartridge)
 					if(cartridge.access)
-						dat += "<h4>Job Specific Functions</h4>"
+						dat += "<div id='jobBox' class='groupStyle'>"
+						dat += "<h4>Job Specific<br>Functions</h4>"
 						if(cartridge.access & CART_CLOWN)
 							dat += "<li><img src='honk.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Honk'>Honk Synthesizer</a></li>"
 							dat += "<li><img src='honk.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Trombone'>Sad Trombone</a></li>"
@@ -61,7 +68,9 @@
 							dat += "<li><img src='cuffs.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=45'>Security Records</A></li>"
 						if(cartridge.access & CART_QUARTERMASTER)
 							dat += "<li><img src='crate.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=47'>Supply Records</A></li>"
-
+						dat += "</div>" // Close jobBox div
+				dat += "</td><td>"
+				dat += "<div id='utilBox' class='groupStyle'>"
 				dat += "<h4>Utilities</h4>"
 				if(cartridge)
 					if(cartridge.bot_access_flags)
@@ -73,26 +82,30 @@
 					if(cartridge.access & CART_NEWSCASTER)
 						dat += "<li><img src='notes.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=53'>Newscaster Access </a></li>"
 					if(cartridge.access & CART_REAGENT_SCANNER)
-						dat += "<li><img src='notes.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Reagent Scan'>[scanmode == 3 ? "Disable" : "Enable"] Reagent Scanner</a></li>"
+						dat += "<li><img src='notes.png' class=pda_icon>   <a class='toggleScanner' href='byond://?src=[REF(src)];choice=Reagent Scan'>Reagent Scanner ([scanmode == 3 ? "Enabled" : "Disabled"])</a></li>"
 					if(cartridge.access & CART_ENGINE)
-						dat += "<li><img src='notes.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Halogen Counter'>[scanmode == 4 ? "Disable" : "Enable"] Halogen Counter</a></li>"
+						dat += "<li><img src='notes.png' class=pda_icon>   <a class='toggleScanner' href='byond://?src=[REF(src)];choice=Halogen Counter'>Halogen Counter ([scanmode == 4 ? "Enabled" : "Disabled"])</a></li>"
 					if(cartridge.access & CART_MEDICAL)
-						dat += "<li><img src='scanner.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Medical Scan'>[scanmode == 1 ? "Disable" : "Enable"] Medical Scanner</a></li>"
+						dat += "<li><img src='scanner.png' class=pda_icon>   <a class='toggleScanner' href='byond://?src=[REF(src)];choice=Medical Scan'>Medical Scanner ([scanmode == 1 ? "Enabled" : "Disabled"])</a></li>"
 					if(cartridge.access & CART_ATMOS)
-						dat += "<li><img src='notes.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Gas Scan'>[scanmode == 5 ? "Disable" : "Enable"] Gas Scanner</a></li>"
+						dat += "<li><img src='notes.png' class=pda_icon>   <a class='toggleScanner' href='byond://?src=[REF(src)];choice=Gas Scan'>Gas Scanner ([scanmode == 5 ? "Enabled" : "Disabled"])</a></li>"
 					if(cartridge.access & CART_REMOTE_DOOR)
 						dat += "<li><img src='rdoor.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Toggle Door'>Toggle Remote Door</a></li>"
 					if(cartridge.access & CART_DRONEPHONE)
 						dat += "<li><img src='dronephone.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Drone Phone'>Drone Phone</a></li>"
 				dat += "<li><img src='atmos.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=3'>Atmospheric Scan</a></li>"
-				dat += "<li><img src='flashlight.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Light'>[fon ? "Disable" : "Enable"] Flashlight</a></li>"
+				dat += "<li><img src='flashlight.png' class=pda_icon>   <a class='toggleScanner' href='byond://?src=[REF(src)];choice=Light'>Flashlight ([fon ? "Enabled" : "Disabled"])</a></li>"
+				dat += "</div>" // close utilBox div
+				dat += "</td></tr></table>"
 				if(pai)
 					if(pai.loc != src)
 						pai = null
 						update_icon()
 					else
+						dat += "<div id='paiBox' class='groupStyle'>"
 						dat += "<li><img src='status.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=pai;option=1'>pAI Device Configuration</a></li>"
 						dat += "<li><img src='status.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=pai;option=2'>Eject pAI Device</a></li>"
+						dat += "</div>"
 
 			if(1)
 				dat += "<h4><img src='notes.png' class='pda_icon'> Notekeeper V2.2</h4>"
@@ -102,6 +115,7 @@
 				dat += "<HR><font face=\"[PEN_FONT]\">[(!notehtml ? note : notehtml)]</font>"
 
 			if(2)
+				dat += "<div id='mailBox' class='groupStyle'>"
 				dat += "<h4><img src='mail.png' class='pda_icon'> SpaceMessenger V3.9.6</h4>"
 				dat += "<img src='bell.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Toggle Ringer'>Ringer: [silent == 1 ? "Off" : "On"]</a><br>"
 				dat += "<img src='mail.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=Toggle Messenger'>Send / Receive: [toff == 1 ? "Off" : "On"]</a><br>"
@@ -129,7 +143,8 @@
 				if(count == 0)
 					dat += "None detected.<br>"
 				else if(cartridge && cartridge.spam_enabled)
-					dat += "<img src='mail.png' class=pda_icon>   <a href='byond://?src=[REF(src)];choice=MessageAll'>Send To All</a>"
+					dat += "<img src='mail.png' class=pda_icon>   <a onclick='flashlight(this)' href='byond://?src=[REF(src)];choice=MessageAll'>Send To All</a>"
+				dat += "</div>" // closes mailBox div
 
 			if(21)
 				dat += "<h4><img src='mail.png' class='pda_icon'>   SpaceMessenger V3.9.6</h4>"
@@ -141,12 +156,15 @@
 				dat += "<br>"
 
 			if(41) //crew manifest
+				dat += "<div id='crewBox' class='groupStyle'>"
 				dat += "<h4>Crew Manifest</h4>"
 				dat += "<center>"
 				dat += GLOB.data_core.get_manifest()
 				dat += "</center>"
+				dat += "</div>" // close crewBox div
 
 			if(3)
+				dat += "<div id='atmosBox' class='groupStyle'>"
 				dat += "<h4><img src='atmos.png' class='pda_icon'>   Atmospheric Readings</h4>"
 
 				var/turf/T = user.loc
@@ -171,9 +189,32 @@
 				dat += "<br>"
 			else//Else it links to the cart menu proc. Although, it really uses menu hub 4--menu 4 doesn't really exist as it simply redirects to hub.
 				dat += cartridge.generate_menu()
+				dat += "</div>" // closes atmosBox div
+	dat += "</div></body></html>"
 
-	dat += "</body></html>"
-
-	var/datum/browser/popup = new(user, "pda_ui", "<div align='center'>Personal Data Assistant</div>", 500, 600)
+	var/datum/browser/popup = new(user, "pda_ui", "<div align='center'>Personal Data Assistant</div>", 525, 600)
 	popup.set_content(dat)
+	popup.add_stylesheet("pdastyle", 'html/sunset_ui/content/pda/pdastyle.css')
+	popup.add_head_content({"
+	<link href=\"https://fonts.googleapis.com/css?family=Press+Start+2P|Orbitron|Share+Tech+Mono|VT323&display=swap\" rel=\"stylesheet\">
+	<style>#wrapper{[font_mode]}</style>
+	<script>
+	window.onload = function(){
+		document.getElementById('wrapper').style.opacity = 1;
+		if ('[fon ? "Disable" : "Enable"]' == 'Disable') {
+			// the body.parentNode is the easy way to get the html tag
+			document.body.parentNode.classList.add('flashlightGlowOn');
+		}
+		var scanners = document.getElementsByClassName('toggleScanner');
+		for (var i = 0; i < scanners.length; i++) {
+			if (scanners\[i\].innerHTML.indexOf('Disabled') > -1) {
+				scanners\[i\].innerHTML = scanners\[i\].innerHTML.replace('Disabled','<span style=\"color:Red;\">Disabled</span>');
+			}
+			else {
+				scanners\[i\].innerHTML = scanners\[i\].innerHTML.replace('Enabled','<span style=\"color:lime;\">Enabled</span>');
+			}
+		}
+	};
+	</script>
+	"})
 	popup.open(0)

@@ -225,12 +225,13 @@ GLOBAL_LIST_INIT(ghost_accs_options, list(GHOST_ACCS_NONE, GHOST_ACCS_DIR, GHOST
 GLOBAL_LIST_INIT(ghost_others_options, list(GHOST_OTHERS_SIMPLE, GHOST_OTHERS_DEFAULT_SPRITE, GHOST_OTHERS_THEIR_SETTING)) //Same as ghost_accs_options.
 
 //pda fonts
+#define PRESS2P		"Press Start 2P"
 #define MONO		"Monospaced"
 #define VT			"VT323"
 #define ORBITRON	"Orbitron"
 #define SHARE		"Share Tech Mono"
 
-GLOBAL_LIST_INIT(pda_styles, list(MONO, VT, ORBITRON, SHARE))
+GLOBAL_LIST_INIT(pda_styles, list(PRESS2P, MONO, VT, ORBITRON, SHARE))
 
 //Color Defines
 #define OOC_COLOR  "#002eb8"
