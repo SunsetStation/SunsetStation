@@ -72,3 +72,6 @@
 
 /mob/proc/update_inv_ears()
 	return
+//sunset adds pda
+/mob/proc/update_inv_wear_pda()
+	return

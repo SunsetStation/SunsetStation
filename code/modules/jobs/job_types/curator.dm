@@ -23,7 +23,7 @@
 	name = "Curator"
 	jobtype = /datum/job/curator
 
-	belt = /obj/item/pda/curator
+	pda_slot = /obj/item/pda/curator//sunset adds pda
 	uniform = /obj/item/clothing/under/rank/curator
 	l_hand = /obj/item/storage/bag/books
 	r_pocket = /obj/item/key/displaycase

@@ -76,6 +76,7 @@ There are several things that need to be remembered:
 		update_hair()
 		update_inv_w_uniform()
 		update_inv_wear_id()
+		update_inv_wear_pda()//sunset adds pda slot
 		update_inv_gloves()
 		update_inv_glasses()
 		update_inv_ears()
@@ -756,3 +757,14 @@ generate/load female uniform sprites matching all previously decided variables
 
 	update_inv_head()
 	update_inv_wear_mask()
+//sunset adds pda
+/mob/living/carbon/human/update_inv_wear_pda()
+	if(client && hud_used)
+		var/obj/screen/inventory/inv = hud_used.inv_slots[SLOT_WEAR_PDA]
+		if(inv)
+			inv.update_icon()
+
+		if(wear_pda)
+			client.screen += wear_pda
+			wear_pda.screen_loc = ui_pda
+//sunset stop

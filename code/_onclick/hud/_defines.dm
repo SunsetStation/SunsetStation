@@ -32,6 +32,9 @@
 #define ui_belt "CENTER-3:14,SOUTH:5"
 #define ui_back "CENTER-2:14,SOUTH:5"
 
+#define ui_storage1 "CENTER+1:18,SOUTH:5"
+#define ui_storage2 "CENTER+2:20,SOUTH:5"
+
 /proc/ui_hand_position(i) //values based on old hand ui positions (CENTER:-/+16,SOUTH:5)
 	var/x_off = -(!(i % 2))
 	var/y_off = round((i-1) / 2)
@@ -45,9 +48,6 @@
 	var/x_off = which == 1 ? -1 : 0
 	var/y_off = round((M.held_items.len-1) / 2)
 	return "CENTER+[x_off]:16,SOUTH+[y_off+1]:5"
-
-#define ui_storage1 "CENTER+1:18,SOUTH:5"
-#define ui_storage2 "CENTER+2:20,SOUTH:5"
 
 #define ui_borg_sensor "CENTER-3:16, SOUTH:5"		//borgs
 #define ui_borg_lamp "CENTER-4:16, SOUTH:5"			//borgs
@@ -83,9 +83,11 @@
 #define ui_acti "EAST-3:24,SOUTH:5"
 #define ui_zonesel "EAST-1:28,SOUTH:5"
 #define ui_acti_alt "EAST-1:28,SOUTH:5"	//alternative intent switcher for when the interface is hidden (F12)
-#define ui_crafting	"EAST-4:22,SOUTH:5"
-#define ui_building "EAST-4:22,SOUTH:21"
-#define ui_language_menu "EAST-4:6,SOUTH:21"
+//sunset start -- moves ui for pda
+#define ui_crafting	"13:-10,2:5"
+#define ui_building "13:-10,2:21"
+#define ui_language_menu "12:6,3:-11"
+//sunset stop
 
 #define ui_borg_pull "EAST-2:26,SOUTH+1:7"
 #define ui_borg_radio "EAST-1:28,SOUTH+1:7"
