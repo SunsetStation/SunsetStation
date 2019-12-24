@@ -6,7 +6,8 @@
 #define MUTE_PRAY		(1<<2)
 #define MUTE_ADMINHELP	(1<<3)
 #define MUTE_DEADCHAT	(1<<4)
-#define MUTE_ALL		(~0)
+#define MUTE_MENTORHELP (1<<6)
+#define MUTE_ALL		(1<<7)
 
 //Some constants for DB_Ban
 #define BANTYPE_PERMA		1
@@ -35,6 +36,7 @@
 #define R_SPAWN			(1<<12)
 #define R_AUTOADMIN		(1<<13)
 #define R_DBRANKS		(1<<14)
+#define R_MENTOR		(33668>>1) // orig was 16834 so this accomplishes that
 
 #define R_DEFAULT R_AUTOADMIN
 
