@@ -436,7 +436,7 @@
 /area/sunset/genpop)
 "abb" = (
 /obj/machinery/turnstile{
-	req_access_txt = "2"
+	req_access_txt = "301"
 	},
 /turf/open/floor/plating,
 /area/sunset/genpop)
@@ -1419,7 +1419,7 @@
 /obj/machinery/turnstile{
 	dir = 1;
 	icon_state = "turnstile_map";
-	req_access_txt = "2"
+	req_access_txt = "301"
 	},
 /turf/open/floor/plating,
 /area/sunset/genpop)
@@ -1428,7 +1428,7 @@
 /obj/machinery/turnstile{
 	dir = 1;
 	icon_state = "turnstile_map";
-	req_access_txt = "2"
+	req_access_txt = "301"
 	},
 /turf/open/floor/plating,
 /area/sunset/genpop)
@@ -71990,7 +71990,7 @@
 /area/maintenance/aft)
 "jqM" = (
 /obj/machinery/turnstile{
-	req_access_txt = "2"
+	req_access_txt = "301"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /turf/open/floor/plasteel/dark,
@@ -81648,7 +81648,7 @@
 /obj/machinery/turnstile{
 	dir = 1;
 	icon_state = "turnstile_map";
-	req_access_txt = "2"
+	req_access_txt = "301"
 	},
 /turf/open/floor/plasteel/dark,
 /area/sunset/genpop)
@@ -83664,7 +83664,7 @@
 /obj/machinery/turnstile{
 	dir = 1;
 	icon_state = "turnstile_map";
-	req_access_txt = "2"
+	req_access_txt = "301"
 	},
 /turf/open/floor/plasteel/dark,
 /area/sunset/genpop)
