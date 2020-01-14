@@ -162,8 +162,8 @@
 						return
 					if(SSshuttle.shuttle_purchased)
 						to_chat(usr, "A replacement shuttle has already been purchased.")
-					else if(!S.prerequisites_met())
-						to_chat(usr, "You have not met the requirements for purchasing this shuttle.")
+					else if(!S.prerequisites_met(usr))
+						//nothing, because I don't want to refactor this whole thing
 					else
 						var/points_to_check
 						var/datum/bank_account/D = SSeconomy.get_dep_account(ACCOUNT_CAR)

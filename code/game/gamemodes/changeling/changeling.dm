@@ -13,6 +13,7 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 	false_report_weight = 10
 	restricted_jobs = list("AI", "Cyborg")
 	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain")
+	restricted_species = list("ipc", "synth")
 	required_players = 15
 	required_enemies = 1
 	recommended_enemies = 4
@@ -88,7 +89,7 @@ GLOBAL_VAR(changeling_team_objective_type) //If this is not null, we hand our th
 		if(ROLE_CHANGELING in character.client.prefs.be_special)
 			if(!is_banned_from(character.ckey, list(ROLE_CHANGELING, ROLE_SYNDICATE)) && !QDELETED(character))
 				if(age_check(character.client))
-					if(!(character.job in restricted_jobs))
+					if(!(character.job in restricted_jobs) && !(character.dna.species.id in restricted_species))
 						character.mind.make_Changeling()
 						changelings += character.mind
 

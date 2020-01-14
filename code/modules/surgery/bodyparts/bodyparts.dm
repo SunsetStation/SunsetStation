@@ -23,6 +23,7 @@
 	var/broken = FALSE //For whether...it's broken
 	var/splinted = FALSE //Whether it's splinted. Movement doesn't deal damage, but you still move slowly.
 	var/has_bones = FALSE
+	var/render_like_organic = FALSE // TRUE is for when you want a BODYPART_ROBOTIC to pretend to be a BODYPART_ORGANIC.
 
 	var/disabled = BODYPART_NOT_DISABLED //If disabled, limb is as good as missing
 	var/body_damage_coeff = 1 //Multiplier of the limb's damage that gets applied to the mob
@@ -87,16 +88,19 @@
 	if(ishuman(C))
 		var/mob/living/carbon/human/H = C
 		if(C.has_trait(TRAIT_LIMBATTACHMENT))
-			if(!H.get_bodypart(body_zone) && !animal_origin)
-				if(H == user)
-					H.visible_message("<span class='warning'>[H] jams [src] into [H.p_their()] empty socket!</span>",\
-					"<span class='notice'>You force [src] into your empty socket, and it locks into place!</span>")
-				else
-					H.visible_message("<span class='warning'>[user] jams [src] into [H]'s empty socket!</span>",\
-					"<span class='notice'>[user] forces [src] into your empty socket, and it locks into place!</span>")
-				user.temporarilyRemoveItemFromInventory(src, TRUE)
-				attach_limb(C)
-				return
+			if(((src.status == BODYPART_ORGANIC) && (!(ROBOTIC_LIMBS in H.dna.species.species_traits))) || ((src.status == BODYPART_ROBOTIC) && (ROBOTIC_LIMBS in H.dna.species.species_traits))) // Can't mix organic and robotic.
+				if(!H.get_bodypart(body_zone) && !animal_origin)
+					if(H == user)
+						H.visible_message("<span class='notice'>[H] is attempting to re-attach [src]...</span>")
+						do_mob(user, H, 60)
+						H.visible_message("<span class='warning'>[H] jams [src] into [H.p_their()] empty socket!</span>",\
+						"<span class='notice'>You force [src] into your empty socket, and it locks into place!</span>")
+					else
+						H.visible_message("<span class='warning'>[user] jams [src] into [H]'s empty socket!</span>",\
+						"<span class='notice'>[user] forces [src] into your empty socket, and it locks into place!</span>")
+					user.temporarilyRemoveItemFromInventory(src, TRUE)
+					attach_limb(C)
+					return
 	..()
 
 /obj/item/bodypart/attackby(obj/item/W, mob/user, params)
@@ -161,7 +165,8 @@
 /obj/item/bodypart/proc/fix_bone()
 	broken = FALSE
 	splinted = FALSE
-	owner.update_inv_splints()
+	if(owner)
+		owner.update_inv_splints()
 
 /obj/item/bodypart/proc/on_mob_move()
 	if(!broken || status == BODYPART_ROBOTIC || !owner || splinted)
@@ -198,6 +203,10 @@
 
 	if(!brute && !burn && !stamina)
 		return FALSE
+	
+	if(status == BODYPART_ROBOTIC) //This makes robolimbs not damageable by chems and makes it stronger
+		brute = max(0, brute - 5)
+		burn = max(0, burn - 3)
 
 	switch(animal_origin)
 		if(ALIEN_BODYPART,LARVA_BODYPART) //aliens take double burn //nothing can burn with so much snowflake code around
@@ -257,6 +266,10 @@
 	stamina_dam = round(max(stamina_dam - stamina, 0), DAMAGE_PRECISION)
 	if(owner && updating_health)
 		owner.updatehealth()
+	if(owner.dna && owner.dna.species && (REVIVESBYHEALING in owner.dna.species.species_traits))
+		if(owner.health > 0 && !owner.hellbound)
+			owner.revive(0)
+			owner.cure_husk(0) // If it has REVIVESBYHEALING, it probably can't be cloned. No husk cure.
 	consider_processing()
 	update_disabled()
 	return update_bodypart_damage_state()
@@ -449,7 +462,7 @@
 	if((body_zone != BODY_ZONE_HEAD && body_zone != BODY_ZONE_CHEST))
 		should_draw_gender = FALSE
 
-	if(is_organic_limb())
+	if(is_organic_limb() || (status == BODYPART_ROBOTIC && render_like_organic == TRUE)) // So IPC augments can be colorful without disrupting normal BODYPART_ROBOTIC render code.
 		if(should_draw_greyscale)
 			limb.icon = 'icons/mob/human_parts_greyscale.dmi'
 			if(should_draw_gender)

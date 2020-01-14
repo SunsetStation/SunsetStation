@@ -88,6 +88,7 @@ datum/emote/living/cough
 	message_alien = "lets out a waning guttural screech, green blood bubbling from its maw..."
 	message_larva = "lets out a sickly hiss of air and falls limply to the floor..."
 	message_monkey = "lets out a faint chimper as it collapses and stops moving..."
+	message_ipc = "gives one shrill beep before falling limp, their monitor flashing blue before completely shutting off..."
 	message_simple =  "stops moving..."
 	stat_allowed = UNCONSCIOUS
 
@@ -536,6 +537,9 @@ datum/emote/living/cough
 	var/mob/living/carbon/human/H = user
 	if(H.mind?.miming)
 		return
+	if(isipc(H))
+		playsound (H.loc, 'sound/effects/mob_effects/silicon_scream.ogg' ,50,H.dna.species.get_age_frequency())
+		return
 	if(ishumanbasic(H) || iscatperson(H))
 		if(user.gender == FEMALE)
 			playsound (H.loc, 'sound/effects/mob_effects/goonstation/female_scream.ogg' ,50,H.dna.species.get_age_frequency())
@@ -554,6 +558,8 @@ datum/emote/living/cough
 	var/mob/living/carbon/human/H = user
 	if(H.mind?.miming)
 		return
+	if(isipc(H))
+		return pick('sound/effects/mob_effects/machine_cough.ogg')
 	if(ishumanbasic(H) || iscatperson(H))
 		if(user.gender == FEMALE)
 			return pick('sound/effects/mob_effects/f_cough.ogg')
@@ -570,6 +576,8 @@ datum/emote/living/cough
 	var/mob/living/carbon/human/H = user
 	if(H.mind?.miming)
 		return
+	if(isipc(H))
+		return pick('sound/effects/mob_effects/machine_sneeze.ogg')
 	if(ishumanbasic(H) || iscatperson(H))
 		if(user.gender == FEMALE)
 			return pick('sound/effects/mob_effects/f_sneeze.ogg')

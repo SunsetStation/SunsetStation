@@ -1,4 +1,3 @@
-//#define LIVER_DEFAULT_HEALTH 100 //amount of damage required for liver failure
 #define LIVER_DEFAULT_TOX_TOLERANCE 3 //amount of toxins the liver can filter out
 #define LIVER_DEFAULT_TOX_LETHALITY 0.01 //lower values lower how harmful toxins are to the liver
 
@@ -9,10 +8,8 @@
 	zone = BODY_ZONE_CHEST
 	slot = ORGAN_SLOT_LIVER
 	desc = "Pairing suggestion: chianti and fava beans."
-	//var/damage = 0 //liver damage, 0 is no damage, damage=maxHealth causes liver failure
 	var/alcohol_tolerance = ALCOHOL_RATE//affects how much damage the liver takes from alcohol
 	var/failing //is this liver failing?
-	//var/maxHealth = LIVER_DEFAULT_HEALTH
 	var/toxTolerance = LIVER_DEFAULT_TOX_TOLERANCE//maximum amount of toxins the liver can just shrug off
 	var/toxLethality = LIVER_DEFAULT_TOX_LETHALITY//affects how much damage toxins do to the liver
 	var/filterToxins = TRUE //whether to filter toxins
@@ -121,3 +118,17 @@
 			take_damage(100)
 		if(2)
 			take_damage(50)
+
+/obj/item/organ/liver/cybernetic/upgraded/ipc
+	name = "substance processor"
+	icon_state = "substance_processor"
+	attack_verb = list("processed")
+	desc = "A machine component, installed in the chest. This grants the Machine the ability to process chemicals that enter its systems."
+	alcohol_tolerance = 0
+	toxTolerance = -1
+	toxLethality = 0
+	status = ORGAN_ROBOTIC
+
+/obj/item/organ/liver/cybernetic/upgraded/ipc/emp_act(severity)
+	to_chat(owner, "<span class='warning'>Alert: Your Substance Processor has been damaged. Replace as soon as possible.</span>")
+

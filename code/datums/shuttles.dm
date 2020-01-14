@@ -17,7 +17,7 @@
 	var/port_x_offset
 	var/port_y_offset
 
-/datum/map_template/shuttle/proc/prerequisites_met()
+/datum/map_template/shuttle/proc/prerequisites_met(mob/user)
 	return TRUE
 
 /datum/map_template/shuttle/New()
@@ -174,9 +174,12 @@
 	admin_notes = "No brig, no medical facilities, no air."
 	credit_cost = -7500
 
-/datum/map_template/shuttle/emergency/airless/prerequisites_met()
+/datum/map_template/shuttle/emergency/airless/prerequisites_met(mob/user)
 	// first 10 minutes only
-	return world.time - SSticker.round_start_time < 6000
+	if(world.time - SSticker.round_start_time < 10 MINUTES)
+		return TRUE
+	to_chat(user, "<span class='notice'>This shuttle has to be purchased within the first 10 minutes of the shift!</span>")
+	return FALSE
 
 /datum/map_template/shuttle/emergency/airless/post_load()
 	. = ..()
@@ -235,9 +238,10 @@
 	admin_notes = "RIP AND TEAR."
 	credit_cost = 10000
 
-/datum/map_template/shuttle/emergency/arena/prerequisites_met()
+/datum/map_template/shuttle/emergency/arena/prerequisites_met(mob/user)
 	if("bubblegum" in SSshuttle.shuttle_purchase_requirements_met)
 		return TRUE
+	to_chat(user, "<span class='notice'>You must track down and eliminate the source of the Bloody Signal first!</span>")
 	return FALSE
 
 /datum/map_template/shuttle/emergency/birdboat

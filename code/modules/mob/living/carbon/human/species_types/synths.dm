@@ -3,7 +3,7 @@
 	id = "synth"
 	say_mod = "beep boops" //inherited from a user's real species
 	sexes = 0
-	species_traits = list(NOTRANSSTING,NO_BONES) //all of these + whatever we inherit from the real species
+	species_traits = list(NOTRANSSTING,NO_BONES,NOCHANGELING) //all of these + whatever we inherit from the real species
 	inherent_traits = list(TRAIT_VIRUSIMMUNE,TRAIT_NODISMEMBER,TRAIT_NOLIMBDISABLE,TRAIT_NOHUNGER,TRAIT_NOBREATH)
 	inherent_biotypes = list(MOB_ROBOTIC, MOB_HUMANOID)
 	meat = null
@@ -14,6 +14,7 @@
 	var/list/initial_species_traits //for getting these values back for assume_disguise()
 	var/list/initial_inherent_traits
 	changesource_flags = MIRROR_BADMIN | WABBAJACK
+	reagent_tag = PROCESS_SYNTHETIC
 	
 /datum/species/synth/New()
 	initial_species_traits = species_traits.Copy()

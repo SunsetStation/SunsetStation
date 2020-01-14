@@ -2,7 +2,7 @@
 	name = "organ manipulation"
 	target_mobtypes = list(/mob/living/carbon/human, /mob/living/carbon/monkey)
 	possible_locs = list(BODY_ZONE_CHEST, BODY_ZONE_HEAD)
-	requires_real_bodypart = 1
+	bodypart_types = BODYPART_ORGANIC
 	steps = list(
 		/datum/surgery_step/incise,
 		/datum/surgery_step/retract_skin,
@@ -41,7 +41,7 @@
 /datum/surgery/organ_manipulation/mechanic
 	name = "prosthesis organ manipulation"
 	possible_locs = list(BODY_ZONE_CHEST, BODY_ZONE_HEAD)
-	requires_bodypart_type = BODYPART_ROBOTIC
+	bodypart_types = BODYPART_ROBOTIC
 	lying_required = FALSE
 	self_operable = TRUE
 	steps = list(
@@ -68,12 +68,14 @@
 	time = 64
 	name = "manipulate organs"
 	repeatable = 1
-	implements = list(/obj/item/organ = 100, /obj/item/reagent_containers/food/snacks/organ = 0, /obj/item/organ_storage = 100)
+	implements = list(/obj/item/organ = 100, /obj/item/reagent_containers/food/snacks/organ = 0, /obj/item/organ_storage = 100, /obj/item/mmi = 100)
 	var/implements_mend = list(/obj/item/cautery = 100, /obj/item/weldingtool = 70, /obj/item/lighter = 45, /obj/item/match = 20)
 	var/implements_extract = list(/obj/item/hemostat = 100, TOOL_CROWBAR = 55)
 	var/implements_heal = list(/obj/item/stack/medical/bruise_pack = 90, /obj/item/stack/medical/gauze = 55, /obj/item/stack/medical/gauze/improvised = 35)
 	//var/implements_heal_robotic = list(/obj/item/stack/nanopaste = 100, /obj/item/screwdriver = 30)
 	var/current_type
+	var/mend_the_incision = "mend the incision in"//so we can reuse the whole thing for robotic surgery
+	var/mends_the_incision = "mends the incision in"
 	var/list/healed_organs = list()
 	var/list/healed_organ_name_list = list()//only for the names, because english_list() works weird when it gets datums
 	var/obj/item/organ/I = null
@@ -93,6 +95,31 @@
 			to_chat(user, "<span class='notice'>You cannot put [I] into [target]'s [parse_zone(target_zone)]!</span>")
 			return -1
 		tool = I
+	if(istype(tool, /obj/item/mmi))//this whole thing is only used for robotic surgery in organ_mani_robotic.dm :*
+		current_type = "posibrain"
+		var/obj/item/bodypart/affected = target.get_bodypart(check_zone(target_zone))
+		if(!affected)
+			return -1
+		if(affected.status != ORGAN_ROBOTIC)
+			to_chat(user, "<span class='notice'>You can't put [tool] into a meat enclosure!</span>")
+			return -1
+		if(!isipc(target))
+			to_chat(user, "<span class='notice'>[target] does not have the proper connectors to interface with [tool].</span>")
+			return -1
+		if(target_zone != "chest")
+			to_chat(user, "<span class='notice'>You have to install [tool] in [target]'s chest!</span>")
+			return -1
+		if(target.internal_organs_slot["brain"])
+			to_chat(user, "<span class='notice'>[target] already has a brain! You'd rather not find out what would happen with two in there.</span>")
+			return -1
+		var/obj/item/mmi/P = tool
+		if(!istype(P))
+			return -1
+		if(!P.brainmob || !P.brainmob.client)
+			to_chat(user, "<span class='notice'>[tool] has no life in it, this would be pointless!</span>")
+			return -1
+		user.visible_message("<span class='notice'>[user] begins to insert [tool] into [target]'s [parse_zone(target_zone)].</span>",
+			"<span class='notice'>You begin to insert [tool] into [target]'s [parse_zone(target_zone)]...</span>")
 	if(isorgan(tool))
 		current_type = "insert"
 		I = tool
@@ -100,7 +127,7 @@
 			to_chat(user, "<span class='notice'>There is no room for [I] in [target]'s [parse_zone(target_zone)]!</span>")
 			return -1
 
-		user.visible_message("[user] begins to insert [tool] into [target]'s [parse_zone(target_zone)].",
+		user.visible_message("<span class='notice'>[user] begins to insert [tool] into [target]'s [parse_zone(target_zone)].</span>",
 			"<span class='notice'>You begin to insert [tool] into [target]'s [parse_zone(target_zone)]...</span>")
 
 	else if(implement_type in implements_extract)
@@ -120,7 +147,7 @@
 				I = organs[I]
 				if(!I)
 					return -1
-				user.visible_message("[user] begins to extract [I] from [target]'s [parse_zone(target_zone)].",
+				user.visible_message("<span class='notice'>[user] begins to extract [I] from [target]'s [parse_zone(target_zone)].</span>",
 					"<span class='notice'>You begin to extract [I] from [target]'s [parse_zone(target_zone)]...</span>")
 			else
 				return -1
@@ -143,6 +170,19 @@
 			return -1
 
 /datum/surgery_step/manipulate_organs/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
+	if(current_type == "posibrain")
+		if(istype(tool, /obj/item/organ_storage))
+			tool.icon_state = "evidenceobj"
+			tool.desc = "A container for holding body parts."
+			tool.cut_overlays()
+			tool = tool.contents[1]
+
+		user.temporarilyRemoveItemFromInventory(tool)
+		spawn(1)
+			I = new /obj/item/organ/brain/mmi_holder/posibrain(tool)
+			I.Insert(target)
+			user.visible_message("<span class='notice'>[user] inserts [tool] into [target]'s [parse_zone(target_zone)]!</span>",
+				"<span class='notice'>You insert [tool] into [target]'s [parse_zone(target_zone)].</span>")
 	if(current_type == "insert")
 		if(istype(tool, /obj/item/organ_storage))
 			I = tool.contents[1]
@@ -154,18 +194,18 @@
 			I = tool
 		user.temporarilyRemoveItemFromInventory(I, TRUE)
 		I.Insert(target)
-		user.visible_message("[user] inserts [tool] into [target]'s [parse_zone(target_zone)]!",
+		user.visible_message("<span class='notice'>[user] inserts [tool] into [target]'s [parse_zone(target_zone)]!</span>",
 			"<span class='notice'>You insert [tool] into [target]'s [parse_zone(target_zone)].</span>")
 
 	else if(current_type == "extract")
 		if(I && I.owner == target)
-			user.visible_message("[user] successfully extracts [I] from [target]'s [parse_zone(target_zone)]!",
+			user.visible_message("<span class='notice'>[user] successfully extracts [I] from [target]'s [parse_zone(target_zone)]!</span>",
 				"<span class='notice'>You successfully extract [I] from [target]'s [parse_zone(target_zone)].</span>")
 			log_combat(user, target, "surgically removed [I.name] from", addition="INTENT: [uppertext(user.a_intent)]")
 			I.Remove(target)
 			I.forceMove(get_turf(target))
 		else
-			user.visible_message("[user] can't seem to extract anything from [target]'s [parse_zone(target_zone)]!",
+			user.visible_message("<span class='notice'>[user] can't seem to extract anything from [target]'s [parse_zone(target_zone)]!</span>",
 				"<span class='notice'>You can't extract anything from [target]'s [parse_zone(target_zone)]!</span>")
 	else if(current_type == "heal")
 		if(istype(tool, /obj/item/stack/))
@@ -174,7 +214,7 @@
 				to_chat(user, "<span class='warning'>You'll need more [tool] for this!</span>")//this should never happen, since we only need 1
 				return 0
 
-		user.visible_message("[user] successfully mends the damage to [target]'s [english_list(healed_organs)]!",
+		user.visible_message("<span class='notice'>[user] successfully mends the damage to [target]'s [english_list(healed_organs)]!</span>",
 			"<span class='notice'>You successfully mend the damage to [target]'s [english_list(healed_organs)].</span>")
 		for(var/obj/item/organ/O in healed_organs)
 			O.set_damage(0)

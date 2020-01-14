@@ -246,7 +246,7 @@
 				if ((H) && (istype(H)))
 					dat += "<b>Health Implant Data:</b><br />[H.sensehealth()]<br><br />"
 				else
-					dat += "<font class='bad'>Unable to locate Health Implant.</font><br /><br />"
+					dat += "<span  class='bad'>Unable to locate Health Implant.</span><br /><br />"
 
 				dat += "<b>Unique Identifier:</b><br /><span class='highlight'>[active_record.fields["UI"]]</span><br>"
 				dat += "<b>Structural Enzymes:</b><br /><span class='highlight'>"
@@ -532,19 +532,23 @@
 		playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 		return
 	if(mob_occupant.suiciding || mob_occupant.hellbound)
-		scantemp = "<font class='bad'>Subject's brain is not responding to scanning stimuli.</font>"
+		scantemp = "<span class='bad'>Subject's brain is not responding to scanning stimuli.</span>"
 		playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 		return
 	if((mob_occupant.has_trait(TRAIT_HUSK)) && (src.scanner.scan_level < 2))
-		scantemp = "<font class='bad'>Subject's body is too damaged to scan properly.</font>"
+		scantemp = "<span class='bad'>Subject's body is too damaged to scan properly.</span>"
 		playsound(src, 'sound/machines/terminal_alert.ogg', 50, 0)
 		return
 	if(mob_occupant.has_trait(TRAIT_BADDNA))
-		scantemp = "<font class='bad'>Subject's DNA is damaged beyond any hope of recovery.</font>"
+		scantemp = "<span class='bad'>Subject's DNA is damaged beyond any hope of recovery.</span>"
 		playsound(src, 'sound/machines/terminal_alert.ogg', 50, 0)
 		return
 	if (isnull(mob_occupant.mind))
-		scantemp = "<font class='bad'>Mental interface failure.</font>"
+		scantemp = "<span class='bad'>Mental interface failure.</span>"
+		playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
+		return
+	if(dna && dna.species && (NOSCAN in dna.species.species_traits))
+		scantemp = "<span class='bad'>Subject has no DNA, or has DNA that cannot be scanned.</span>"
 		playsound(src, 'sound/machines/terminal_prompt_deny.ogg', 50, 0)
 		return
 	if(SSeconomy.full_ancap)

@@ -510,6 +510,9 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 /mob/proc/can_hear()
 	. = TRUE
 
+/mob/proc/has_mouth()
+	return FALSE 
+
 //Examine text for traits shared by multiple types. I wish examine was less copypasted.
 /mob/proc/common_trait_examine()
 	. = ""
